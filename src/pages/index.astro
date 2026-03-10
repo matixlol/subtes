@@ -286,54 +286,63 @@ const getHeatCellClass = (day) => {
                     </p>
                 </div>
 
-                <div class="line-masonry">
+                <div class="[columns:3_20rem] gap-4 max-[960px]:[columns:2_18rem] max-[640px]:columns-1">
                     {
                         lines.map((line) => (
-                            <section class="line-card">
-                                <header class="line-card__header">
+                            <section class="mb-4 break-inside-avoid rounded-[10px] border border-[var(--border)] bg-[var(--surface)]">
+                                <header class="flex items-start justify-between gap-3 border-b border-[#eee7df] px-4 pt-[14px] pb-3 max-[640px]:px-3">
                                     <div>
-                                        <h2 class="line-card__title">
+                                        <h2 class="m-0 text-base leading-[1.2]">
                                             {line.nombreLinea}
                                         </h2>
-                                        <p class="line-card__meta">
+                                        <p class="mt-1 text-xs text-[var(--muted)]">
                                             {line.stations.length} estaciones
                                         </p>
                                     </div>
-                                    <dl class="line-card__summary">
+                                    <dl class="m-0 grid grid-cols-2 gap-x-[10px] gap-y-0 text-right">
                                         <div>
-                                            <dt>Ascensores activos</dt>
-                                            <dd>{line.equiposFuncionando}</dd>
+                                            <dt class="mb-0.5 text-[0.7rem] text-[var(--muted)]">
+                                                Ascensores activos
+                                            </dt>
+                                            <dd class="m-0 text-[0.9rem] font-bold">
+                                                {line.equiposFuncionando}
+                                            </dd>
                                         </div>
                                         <div>
-                                            <dt>Ascensores con falla</dt>
-                                            <dd>{line.equiposConFalla}</dd>
+                                            <dt class="mb-0.5 text-[0.7rem] text-[var(--muted)]">
+                                                Ascensores con falla
+                                            </dt>
+                                            <dd class="m-0 text-[0.9rem] font-bold">
+                                                {line.equiposConFalla}
+                                            </dd>
                                         </div>
                                     </dl>
                                 </header>
 
-                                <ul class="station-list">
+                                <ul class="m-0 list-none p-0">
                                     {line.stations.map((station) => (
                                         <li
                                             class:list={[
-                                                "station-row",
+                                                "flex items-center justify-between gap-3 border-t border-[#f1ebe4] px-4 py-[9px] text-[0.85rem] first:border-t-0 max-[640px]:px-3",
                                                 station.equiposFuncionando ===
-                                                    0 && "is-down",
+                                                    0 &&
+                                                    "bg-[var(--danger-bg)] text-[var(--danger-text)]",
                                                 station.equiposFuncionando >
                                                     0 &&
                                                     station.equiposConFalla >
                                                         0 &&
-                                                    "is-partial",
+                                                    "bg-[var(--warn-bg)] text-[var(--warn-text)]",
                                             ]}
                                         >
-                                            <div class="station-row__main">
-                                                <span class="station-row__name">
+                                            <div class="flex min-w-0 items-baseline gap-2">
+                                                <span class="font-semibold">
                                                     {station.nombreEstacion}
                                                 </span>
-                                                <span class="station-row__counts">
+                                                <span class="whitespace-nowrap text-[0.72rem] opacity-[0.82]">
                                                     {`${station.equiposFuncionando}/${station.totalEquipos}`}
                                                 </span>
                                             </div>
-                                            <span class="station-row__time">
+                                            <span class="whitespace-nowrap text-[0.72rem] opacity-[0.82]">
                                                 {formatTimestamp(
                                                     station.ultimaActualizacion,
                                                 )}
