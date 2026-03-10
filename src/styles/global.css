@@ -11,6 +11,13 @@
 	--danger-text: #7a241a;
 	--warn-bg: #f4e4a7;
 	--warn-text: #6f4c00;
+	--heat-0: #ebf4e8;
+	--heat-1: #f3e6a0;
+	--heat-2: #e7c86f;
+	--heat-3: #d98c61;
+	--heat-4: #b43b2f;
+	--heat-none-bg: transparent;
+	--heat-none-text: #111111;
 }
 
 * {

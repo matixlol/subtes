@@ -789,3 +789,13937 @@ export const stations = [
   }
 ] as const;
 
+export const lineDHeatmap = {
+  "nombreLinea": "Línea D",
+  "serviceWindow": "08:00-20:00 UTC-3",
+  "startDate": "2025-09-10",
+  "endDate": "2026-03-10",
+  "maxOutages": 2,
+  "dates": [
+    "2025-09-10",
+    "2025-09-11",
+    "2025-09-12",
+    "2025-09-13",
+    "2025-09-14",
+    "2025-09-15",
+    "2025-09-16",
+    "2025-09-17",
+    "2025-09-18",
+    "2025-09-19",
+    "2025-09-20",
+    "2025-09-21",
+    "2025-09-22",
+    "2025-09-23",
+    "2025-09-24",
+    "2025-09-25",
+    "2025-09-26",
+    "2025-09-27",
+    "2025-09-28",
+    "2025-09-29",
+    "2025-09-30",
+    "2025-10-01",
+    "2025-10-02",
+    "2025-10-03",
+    "2025-10-04",
+    "2025-10-05",
+    "2025-10-06",
+    "2025-10-07",
+    "2025-10-08",
+    "2025-10-09",
+    "2025-10-10",
+    "2025-10-11",
+    "2025-10-12",
+    "2025-10-13",
+    "2025-10-14",
+    "2025-10-15",
+    "2025-10-16",
+    "2025-10-17",
+    "2025-10-18",
+    "2025-10-19",
+    "2025-10-20",
+    "2025-10-21",
+    "2025-10-22",
+    "2025-10-23",
+    "2025-10-24",
+    "2025-10-25",
+    "2025-10-26",
+    "2025-10-27",
+    "2025-10-28",
+    "2025-10-29",
+    "2025-10-30",
+    "2025-10-31",
+    "2025-11-01",
+    "2025-11-02",
+    "2025-11-03",
+    "2025-11-04",
+    "2025-11-05",
+    "2025-11-06",
+    "2025-11-07",
+    "2025-11-08",
+    "2025-11-09",
+    "2025-11-10",
+    "2025-11-11",
+    "2025-11-12",
+    "2025-11-13",
+    "2025-11-14",
+    "2025-11-15",
+    "2025-11-16",
+    "2025-11-17",
+    "2025-11-18",
+    "2025-11-19",
+    "2025-11-20",
+    "2025-11-21",
+    "2025-11-22",
+    "2025-11-23",
+    "2025-11-24",
+    "2025-11-25",
+    "2025-11-26",
+    "2025-11-27",
+    "2025-11-28",
+    "2025-11-29",
+    "2025-11-30",
+    "2025-12-01",
+    "2025-12-02",
+    "2025-12-03",
+    "2025-12-04",
+    "2025-12-05",
+    "2025-12-06",
+    "2025-12-07",
+    "2025-12-08",
+    "2025-12-09",
+    "2025-12-10",
+    "2025-12-11",
+    "2025-12-12",
+    "2025-12-13",
+    "2025-12-14",
+    "2025-12-15",
+    "2025-12-16",
+    "2025-12-17",
+    "2025-12-18",
+    "2025-12-19",
+    "2025-12-20",
+    "2025-12-21",
+    "2025-12-22",
+    "2025-12-23",
+    "2025-12-24",
+    "2025-12-25",
+    "2025-12-26",
+    "2025-12-27",
+    "2025-12-28",
+    "2025-12-29",
+    "2025-12-30",
+    "2025-12-31",
+    "2026-01-01",
+    "2026-01-02",
+    "2026-01-03",
+    "2026-01-04",
+    "2026-01-05",
+    "2026-01-06",
+    "2026-01-07",
+    "2026-01-08",
+    "2026-01-09",
+    "2026-01-10",
+    "2026-01-11",
+    "2026-01-12",
+    "2026-01-13",
+    "2026-01-14",
+    "2026-01-15",
+    "2026-01-16",
+    "2026-01-17",
+    "2026-01-18",
+    "2026-01-19",
+    "2026-01-20",
+    "2026-01-21",
+    "2026-01-22",
+    "2026-01-23",
+    "2026-01-24",
+    "2026-01-25",
+    "2026-01-26",
+    "2026-01-27",
+    "2026-01-28",
+    "2026-01-29",
+    "2026-01-30",
+    "2026-01-31",
+    "2026-02-01",
+    "2026-02-02",
+    "2026-02-03",
+    "2026-02-04",
+    "2026-02-05",
+    "2026-02-06",
+    "2026-02-07",
+    "2026-02-08",
+    "2026-02-09",
+    "2026-02-10",
+    "2026-02-11",
+    "2026-02-12",
+    "2026-02-13",
+    "2026-02-14",
+    "2026-02-15",
+    "2026-02-16",
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-21",
+    "2026-02-22",
+    "2026-02-23",
+    "2026-02-24",
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27",
+    "2026-02-28",
+    "2026-03-01",
+    "2026-03-02",
+    "2026-03-03",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-07",
+    "2026-03-08",
+    "2026-03-09",
+    "2026-03-10"
+  ],
+  "stations": [
+    {
+      "nombreEstacion": "Catedral",
+      "totalEquipos": 2,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 1,
+          "totalEquipos": 2
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "9 de Julio",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Tribunales – Teatro Colón",
+      "totalEquipos": 1,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 1,
+          "totalEquipos": 1
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Callao",
+      "totalEquipos": 1,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 1
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Facultad de Medicina",
+      "totalEquipos": 2,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 1,
+          "totalEquipos": 2
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Pueyrredón",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Agüero",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Bulnes",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Plaza Italia",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Palermo",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Ministro Carranza",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Olleros",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "José Hernández",
+      "totalEquipos": 0,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 0
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Juramento",
+      "totalEquipos": 3,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 2,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 2,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 2,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 1,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 1,
+          "totalEquipos": 3
+        }
+      ]
+    },
+    {
+      "nombreEstacion": "Congreso Tucumán",
+      "totalEquipos": 2,
+      "days": [
+        {
+          "date": "2025-09-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-11",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-22",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-09-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-10-31",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-02",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-03",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-04",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-05",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-06",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-07",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-08",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-09",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-10",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-11",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-12",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-13",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-11-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-10",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-12",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-14",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-19",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2025-12-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-01",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-06",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-09",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-10",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-11",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-12",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-13",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-14",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-18",
+          "outages": 2,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-29",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-30",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-01-31",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-10",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-11",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-12",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-13",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-14",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-15",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-16",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-17",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-18",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-19",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-20",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-21",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-22",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-23",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-24",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-25",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-26",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-02-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-01",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-02",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-03",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-04",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-05",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-06",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-07",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-08",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-09",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-10",
+          "outages": 0,
+          "totalEquipos": 2
+        }
+      ]
+    }
+  ]
+} as const;
+

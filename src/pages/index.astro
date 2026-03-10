@@ -1,5 +1,5 @@
 ---
-import { meta, stations } from "../generated/station-status";
+import { lineDHeatmap, meta, stations } from "../generated/station-status";
 import "../styles/global.css";
 
 const lines = Object.values(
@@ -37,6 +37,71 @@ const formatTimestamp = (value) => {
         dateStyle: "short",
         timeStyle: "short",
     }).format(date);
+};
+
+const formatShortDate = (value) =>
+    new Intl.DateTimeFormat("es-AR", {
+        day: "2-digit",
+        month: "short",
+    }).format(new Date(`${value}T00:00:00Z`));
+
+const monthLabels = lineDHeatmap.dates.map((date, index, dates) => {
+    const current = new Date(`${date}T00:00:00Z`);
+    const previous =
+        index > 0 ? new Date(`${dates[index - 1]}T00:00:00Z`) : null;
+    const currentKey = `${current.getUTCFullYear()}-${current.getUTCMonth()}`;
+    const previousKey = previous
+        ? `${previous.getUTCFullYear()}-${previous.getUTCMonth()}`
+        : null;
+
+    return currentKey === previousKey
+        ? ""
+        : new Intl.DateTimeFormat("es-AR", {
+              month: "short",
+          }).format(current);
+});
+
+const monthRanges = monthLabels.reduce((ranges, label, index) => {
+    if (!label) return ranges;
+
+    const nextIndex = monthLabels.findIndex(
+        (candidate, candidateIndex) => candidateIndex > index && candidate,
+    );
+    const span = (nextIndex === -1 ? monthLabels.length : nextIndex) - index;
+
+    ranges.push({
+        label,
+        startColumn: index + 2,
+        span,
+    });
+
+    return ranges;
+}, []);
+
+const getHeatLevel = (day) => {
+    if (day.totalEquipos === 0) return "none";
+    if (day.outages === 0) return 0;
+
+    const ratio = day.outages / day.totalEquipos;
+
+    if (ratio >= 1) return 4;
+    if (ratio >= 0.67) return 3;
+    if (ratio >= 0.34) return 2;
+    return 1;
+};
+
+const getHeatCellClass = (day) => {
+    const level = getHeatLevel(day);
+
+    if (level === "none") {
+        return "bg-[var(--heat-none-bg)] text-[var(--heat-none-text)]";
+    }
+
+    if (level === 0) return "bg-[var(--heat-0)] text-transparent";
+    if (level === 1) return "bg-[var(--heat-1)] text-transparent";
+    if (level === 2) return "bg-[var(--heat-2)] text-transparent";
+    if (level === 3) return "bg-[var(--heat-3)] text-transparent";
+    return "bg-[var(--heat-4)] text-transparent";
 };
 ---
 
@@ -94,6 +159,124 @@ const formatTimestamp = (value) => {
                     </div>
                 </dl>
             </header>
+
+            <section
+                class="mt-[18px] rounded-[10px] border border-[var(--border)] bg-[var(--surface)] p-4 max-[640px]:p-3"
+                aria-labelledby="linea-d-heatmap-title"
+            >
+                <div class="mb-3 flex items-end justify-between gap-4 max-[640px]:flex-col max-[640px]:items-start">
+                    <div>
+                        <h2
+                            id="linea-d-heatmap-title"
+                            class="m-0 text-base leading-[1.2]"
+                        >
+                            {lineDHeatmap.nombreLinea}
+                        </h2>
+                        <p class="mt-1 text-[0.78rem] text-[var(--muted)]">
+                            Si un ascensor tuvo una falla en cualquier momento
+                            entre{" "}
+                            {lineDHeatmap.serviceWindow}, ese día cuenta como
+                            fallado.
+                        </p>
+                    </div>
+                    <p class="mt-1 whitespace-nowrap text-[0.78rem] text-[var(--muted)]">
+                        {formatShortDate(lineDHeatmap.startDate)} al{" "}
+                        {formatShortDate(lineDHeatmap.endDate)}
+                    </p>
+                </div>
+
+                <div class="overflow-x-auto pb-1">
+                    <div
+                        class="grid min-w-max auto-rows-[12px] items-center gap-1"
+                        style={`grid-template-columns: 160px repeat(${lineDHeatmap.dates.length}, minmax(12px, 12px));`}
+                    >
+                        <div class="h-3" aria-hidden="true">
+                        </div>
+                        {
+                            monthRanges.map((month) => (
+                                <span
+                                    class="whitespace-nowrap text-[0.68rem] leading-none text-[var(--muted)] lowercase"
+                                    style={`grid-column: ${month.startColumn} / span ${month.span};`}
+                                >
+                                    {month.label}
+                                </span>
+                            ))
+                        }
+
+                        {
+                            lineDHeatmap.stations.map((station) => (
+                                <>
+                                    <div class="flex items-center justify-between gap-2 pr-2 text-[0.78rem] font-semibold whitespace-nowrap">
+                                        <span>{station.nombreEstacion}</span>
+                                        <span class="text-[0.68rem] font-medium text-[var(--muted)]">
+                                            {station.totalEquipos}
+                                        </span>
+                                    </div>
+                                    {station.days.map((day) => (
+                                        <div
+                                            class={`flex h-3 w-3 items-center justify-center ${getHeatCellClass(day)}`}
+                                            title={
+                                                station.totalEquipos === 0
+                                                    ? `${station.nombreEstacion} · sin ascensores registrados`
+                                                    : `${station.nombreEstacion} · ${formatShortDate(day.date)} · ${day.outages}/${day.totalEquipos} ascensores con falla`
+                                            }
+                                            aria-label={
+                                                station.totalEquipos === 0
+                                                    ? `${station.nombreEstacion}: sin ascensores registrados`
+                                                    : `${station.nombreEstacion}, ${formatShortDate(day.date)}: ${day.outages} de ${day.totalEquipos} ascensores con falla`
+                                            }
+                                        >
+                                            {station.totalEquipos === 0 && (
+                                                <svg
+                                                    class="block h-[9px] w-[9px]"
+                                                    viewBox="0 0 12 12"
+                                                    aria-hidden="true"
+                                                >
+                                                    <path
+                                                        d="M3 3 9 9M9 3 3 9"
+                                                        fill="none"
+                                                        stroke="currentColor"
+                                                        stroke-linecap="round"
+                                                        stroke-width="1.5"
+                                                    />
+                                                </svg>
+                                            )}
+                                        </div>
+                                    ))}
+                                </>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div
+                    class="mt-3 flex flex-wrap items-center justify-end gap-1.5 text-[0.72rem] text-[var(--muted)] max-[640px]:justify-start"
+                    aria-label="Escala del mapa"
+                >
+                    <div
+                        class="flex h-3 w-3 items-center justify-center bg-[var(--heat-none-bg)] text-[var(--heat-none-text)]"
+                        aria-hidden="true"
+                    >
+                        <svg class="block h-[9px] w-[9px]" viewBox="0 0 12 12">
+                            <path
+                                d="M3 3 9 9M9 3 3 9"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+                    </div>
+                    <span class="whitespace-nowrap">sin ascensor</span>
+                    <span class="whitespace-nowrap">menos fallas</span>
+                    <div class="h-3 w-3 bg-[var(--heat-0)]" aria-hidden="true"></div>
+                    <div class="h-3 w-3 bg-[var(--heat-1)]" aria-hidden="true"></div>
+                    <div class="h-3 w-3 bg-[var(--heat-2)]" aria-hidden="true"></div>
+                    <div class="h-3 w-3 bg-[var(--heat-3)]" aria-hidden="true"></div>
+                    <div class="h-3 w-3 bg-[var(--heat-4)]" aria-hidden="true"></div>
+                    <span class="whitespace-nowrap">más fallas</span>
+                </div>
+            </section>
 
             <section class="mt-4">
                 <div class="mb-3 px-1">

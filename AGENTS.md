@@ -1,5 +1,7 @@
 # Repo Notes
 
+- Always use Tailwind for styling unless required to do otherwise
+
 ## Data Overview
 
 - Primary dataset: `data/accesibilidad.sqlite`
