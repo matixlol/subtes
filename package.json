@@ -1,0 +1,33 @@
+{
+  "name": "subtes",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "generate-status": "node scripts/generate-station-status.mjs",
+    "predev": "pnpm generate-status",
+    "dev": "astro dev",
+    "prebuild": "pnpm generate-status",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "generate-types": "wrangler types"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.0.2",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/react": "^5.0.0",
+    "@astrojs/sitemap": "^3.7.1",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.0.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sql.js": "^1.14.1",
+    "tailwindcss": "^4.2.1",
+    "wrangler": "^4.71.0"
+  }
+}
