@@ -25,6 +25,9 @@ const stationQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
+		WHERE LOWER(
+			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+		) LIKE '%ascensor%'
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -35,9 +38,9 @@ const stationQuery = `
 		idEstacion,
 		nombreEstacion,
 		COUNT(*) AS totalEquipos,
-		SUM(CASE WHEN funcionando = 'True' THEN 1 ELSE 0 END) AS equiposFuncionando,
-		SUM(CASE WHEN funcionando != 'True' THEN 1 ELSE 0 END) AS equiposConFalla,
-		SUM(CASE WHEN fueraDeHorario = 'True' THEN 1 ELSE 0 END) AS equiposFueraDeHorario,
+		SUM(CASE WHEN funcionando = 'True' OR funcionando = 1 THEN 1 ELSE 0 END) AS equiposFuncionando,
+		SUM(CASE WHEN funcionando = 'True' OR funcionando = 1 THEN 0 ELSE 1 END) AS equiposConFalla,
+		SUM(CASE WHEN fueraDeHorario = 'True' OR fueraDeHorario = 1 THEN 1 ELSE 0 END) AS equiposFueraDeHorario,
 		MAX(fechaActualizacion) AS ultimaActualizacion
 	FROM current_status
 	GROUP BY idLinea, nombreLinea, idEstacion, nombreEstacion
@@ -53,6 +56,9 @@ const metaQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
+		WHERE LOWER(
+			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+		) LIKE '%ascensor%'
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -60,7 +66,7 @@ const metaQuery = `
 	SELECT
 		COUNT(DISTINCT CAST(idLinea AS TEXT) || ':' || CAST(idEstacion AS TEXT)) AS estaciones,
 		COUNT(*) AS equipos,
-		SUM(CASE WHEN funcionando != 'True' THEN 1 ELSE 0 END) AS alertas,
+		SUM(CASE WHEN funcionando = 'True' OR funcionando = 1 THEN 0 ELSE 1 END) AS alertas,
 		MAX(fechaActualizacion) AS ultimaActualizacion
 	FROM current_status
 `;

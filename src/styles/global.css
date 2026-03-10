@@ -7,10 +7,10 @@
 	--border: #ddd6ce;
 	--text: #2f241d;
 	--muted: #6f6257;
-	--danger-bg: #f8e8e4;
-	--danger-text: #8a2f23;
-	--warn-bg: #f7efdd;
-	--warn-text: #8a5b14;
+	--danger-bg: #f4d9d4;
+	--danger-text: #7a241a;
+	--warn-bg: #f4e4a7;
+	--warn-text: #6f4c00;
 }
 
 * {
@@ -20,4 +20,124 @@
 body {
 	margin: 0;
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.line-masonry {
+	columns: 3 20rem;
+	column-gap: 16px;
+}
+
+.line-card {
+	break-inside: avoid;
+	margin: 0 0 16px;
+	border: 1px solid var(--border);
+	border-radius: 10px;
+	background: var(--surface);
+}
+
+.line-card__header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 14px 16px 12px;
+	border-bottom: 1px solid #eee7df;
+}
+
+.line-card__title {
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+.line-card__meta {
+	margin: 4px 0 0;
+	font-size: 0.75rem;
+	color: var(--muted);
+}
+
+.line-card__summary {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	gap: 10px;
+	margin: 0;
+	text-align: right;
+}
+
+.line-card__summary dt {
+	margin: 0 0 2px;
+	font-size: 0.7rem;
+	color: var(--muted);
+}
+
+.line-card__summary dd {
+	margin: 0;
+	font-size: 0.9rem;
+	font-weight: 700;
+}
+
+.station-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.station-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 9px 16px;
+	border-top: 1px solid #f1ebe4;
+	font-size: 0.85rem;
+}
+
+.station-row:first-child {
+	border-top: 0;
+}
+
+.station-row.is-partial {
+	background: var(--warn-bg);
+	color: var(--warn-text);
+}
+
+.station-row.is-down {
+	background: var(--danger-bg);
+	color: var(--danger-text);
+}
+
+.station-row__main {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	min-width: 0;
+}
+
+.station-row__name {
+	font-weight: 600;
+}
+
+.station-row__counts,
+.station-row__time {
+	font-size: 0.72rem;
+	white-space: nowrap;
+	opacity: 0.82;
+}
+
+@media (max-width: 960px) {
+	.line-masonry {
+		columns: 2 18rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.line-masonry {
+		columns: 1;
+	}
+
+	.line-card__header,
+	.station-row {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
 }

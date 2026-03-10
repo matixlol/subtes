@@ -2,6 +2,32 @@
 import { meta, stations } from "../generated/station-status";
 import "../styles/global.css";
 
+const lines = Object.values(
+    stations.reduce((acc, station) => {
+        const key = station.idLinea;
+        const existing = acc[key];
+
+        if (existing) {
+            existing.stations.push(station);
+            existing.totalEquipos += station.totalEquipos;
+            existing.equiposFuncionando += station.equiposFuncionando;
+            existing.equiposConFalla += station.equiposConFalla;
+            return acc;
+        }
+
+        acc[key] = {
+            idLinea: station.idLinea,
+            nombreLinea: station.nombreLinea,
+            totalEquipos: station.totalEquipos,
+            equiposFuncionando: station.equiposFuncionando,
+            equiposConFalla: station.equiposConFalla,
+            stations: [station],
+        };
+
+        return acc;
+    }, {}),
+).sort((a, b) => a.idLinea - b.idLinea);
+
 const formatTimestamp = (value) => {
     if (!value) return "sin fecha";
     const date = new Date(value);
@@ -54,7 +80,7 @@ const formatTimestamp = (value) => {
                     </div>
                     <div class="min-w-[72px]">
                         <dt class="mb-1 text-xs text-[var(--muted)]">
-                            Equipos
+                            Ascensores
                         </dt>
                         <dd class="m-0 text-xl font-semibold">
                             {meta.equipos}
@@ -69,93 +95,72 @@ const formatTimestamp = (value) => {
                 </dl>
             </header>
 
-            <section
-                class="mt-4 overflow-hidden rounded-[10px] border border-[var(--border)] bg-[var(--surface)]"
-            >
-                <div
-                    class="border-b border-[var(--border)] px-4 py-3 max-[780px]:px-3"
-                >
+            <section class="mt-4">
+                <div class="mb-3 px-1">
                     <p class="m-0 text-[13px] text-[var(--muted)]">
-                        {stations.length} filas, una por combinación actual de línea
-                        y estación.
+                        {lines.length} líneas, con {stations.length} estaciones en
+                        vista compacta.
                     </p>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full border-collapse text-sm">
-                        <thead>
-                            <tr>
-                                <th
-                                    class="whitespace-nowrap border-b border-[var(--border)] bg-[#f5f1ec] px-4 py-2.5 text-left text-xs font-semibold text-[var(--muted)] max-[780px]:px-3"
-                                >
-                                    Línea
-                                </th>
-                                <th
-                                    class="whitespace-nowrap border-b border-[var(--border)] bg-[#f5f1ec] px-4 py-2.5 text-left text-xs font-semibold text-[var(--muted)] max-[780px]:px-3"
-                                >
-                                    Estación
-                                </th>
-                                <th
-                                    class="whitespace-nowrap border-b border-[var(--border)] bg-[#f5f1ec] px-4 py-2.5 text-left text-xs font-semibold text-[var(--muted)] max-[780px]:px-3"
-                                >
-                                    Equipos
-                                </th>
-                                <th
-                                    class="whitespace-nowrap border-b border-[var(--border)] bg-[#f5f1ec] px-4 py-2.5 text-left text-xs font-semibold text-[var(--muted)] max-[780px]:px-3"
-                                >
-                                    Funcionando
-                                </th>
-                                <th
-                                    class="whitespace-nowrap border-b border-[var(--border)] bg-[#f5f1ec] px-4 py-2.5 text-left text-xs font-semibold text-[var(--muted)] max-[780px]:px-3"
-                                >
-                                    Con falla
-                                </th>
-                                <th
-                                    class="whitespace-nowrap border-b border-[var(--border)] bg-[#f5f1ec] px-4 py-2.5 text-left text-xs font-semibold text-[var(--muted)] max-[780px]:px-3"
-                                >
-                                    Actualizado
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                stations.map((station) => (
-                                    <tr
-                                        class:list={[
-                                            "hover:bg-[#fcfbf9]",
-                                            station.equiposConFalla > 0 &&
-                                                "bg-[var(--danger-bg)] text-[var(--danger-text)] hover:bg-[#f5dfda]",
-                                            station.equiposConFalla === 0 &&
-                                                station.equiposFueraDeHorario >
+                <div class="line-masonry">
+                    {
+                        lines.map((line) => (
+                            <section class="line-card">
+                                <header class="line-card__header">
+                                    <div>
+                                        <h2 class="line-card__title">
+                                            {line.nombreLinea}
+                                        </h2>
+                                        <p class="line-card__meta">
+                                            {line.stations.length} estaciones
+                                        </p>
+                                    </div>
+                                    <dl class="line-card__summary">
+                                        <div>
+                                            <dt>Ascensores activos</dt>
+                                            <dd>{line.equiposFuncionando}</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Ascensores con falla</dt>
+                                            <dd>{line.equiposConFalla}</dd>
+                                        </div>
+                                    </dl>
+                                </header>
+
+                                <ul class="station-list">
+                                    {line.stations.map((station) => (
+                                        <li
+                                            class:list={[
+                                                "station-row",
+                                                station.equiposFuncionando ===
+                                                    0 && "is-down",
+                                                station.equiposFuncionando >
                                                     0 &&
-                                                "bg-[var(--warn-bg)] text-[var(--warn-text)] hover:bg-[#f2e8d1]",
-                                        ]}
-                                    >
-                                        <td class="w-[88px] whitespace-nowrap border-b border-[#eee7df] px-4 py-2.5 align-top font-semibold max-[780px]:px-3">
-                                            {station.nombreLinea}
-                                        </td>
-                                        <td class="min-w-[220px] border-b border-[#eee7df] px-4 py-2.5 align-top font-medium max-[780px]:px-3">
-                                            {station.nombreEstacion}
-                                        </td>
-                                        <td class="border-b border-[#eee7df] px-4 py-2.5 align-top max-[780px]:px-3">
-                                            {station.totalEquipos}
-                                        </td>
-                                        <td class="border-b border-[#eee7df] px-4 py-2.5 align-top max-[780px]:px-3">
-                                            {station.equiposFuncionando}
-                                        </td>
-                                        <td class="border-b border-[#eee7df] px-4 py-2.5 align-top max-[780px]:px-3">
-                                            {station.equiposConFalla}
-                                        </td>
-                                        <td class="border-b border-[#eee7df] px-4 py-2.5 align-top max-[780px]:px-3">
-                                            {formatTimestamp(
-                                                station.ultimaActualizacion,
-                                            )}
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                                                    station.equiposConFalla >
+                                                        0 &&
+                                                    "is-partial",
+                                            ]}
+                                        >
+                                            <div class="station-row__main">
+                                                <span class="station-row__name">
+                                                    {station.nombreEstacion}
+                                                </span>
+                                                <span class="station-row__counts">
+                                                    {`${station.equiposFuncionando}/${station.totalEquipos}`}
+                                                </span>
+                                            </div>
+                                            <span class="station-row__time">
+                                                {formatTimestamp(
+                                                    station.ultimaActualizacion,
+                                                )}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </section>
+                        ))
+                    }
                 </div>
             </section>
         </main>
