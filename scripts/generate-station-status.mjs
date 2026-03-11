@@ -123,6 +123,50 @@ const lineDHistoryQuery = `
 	ORDER BY nombreEstacion, equipo, [commit-datetime] ASC, id ASC
 `;
 
+const currentEquipmentQuery = `
+	WITH ranked AS (
+		SELECT
+			*,
+			ROW_NUMBER() OVER (
+				PARTITION BY idLinea, idEstacion, COALESCE(nombre_2024, nombre, descripcion)
+				ORDER BY [commit-datetime] DESC, id DESC
+			) AS rn
+		FROM status
+		WHERE LOWER(
+			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+		) LIKE '%ascensor%'
+	),
+	current_status AS (
+		SELECT * FROM ranked WHERE rn = 1
+	)
+	SELECT
+		idLinea,
+		nombreLinea,
+		idEstacion,
+		nombreEstacion,
+		COALESCE(nombre_2024, nombre, descripcion) AS equipo
+	FROM current_status
+	ORDER BY idLinea, nombreEstacion, idEstacion, equipo
+`;
+
+const stationHistoryQuery = `
+	SELECT
+		idLinea,
+		nombreLinea,
+		idEstacion,
+		nombreEstacion,
+		COALESCE(nombre_2024, nombre, descripcion) AS equipo,
+		funcionando,
+		fueraDeHorario,
+		fechaActualizacion,
+		[commit-datetime] AS commitDatetime
+	FROM status
+	WHERE LOWER(
+		COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+	) LIKE '%ascensor%'
+	ORDER BY idLinea, nombreEstacion, idEstacion, equipo, [commit-datetime] ASC, id ASC
+`;
+
 const mapRows = (result) =>
 	result.values.map((row) =>
 		Object.fromEntries(row.map((value, index) => [result.columns[index], value])),
@@ -196,6 +240,8 @@ const [meta] = getResultRows(metaQuery);
 const lineDStationsList = getResultRows(lineDStationsQuery);
 const lineDCurrentEquipment = getResultRows(lineDCurrentEquipmentQuery);
 const lineDHistory = getResultRows(lineDHistoryQuery);
+const currentEquipment = getResultRows(currentEquipmentQuery);
+const stationHistoryRows = getResultRows(stationHistoryQuery);
 
 const lineDStations = new Map();
 for (const row of lineDStationsList) {
@@ -284,6 +330,98 @@ const lineDHeatmap = {
 	stations: lineDHeatmapStations,
 };
 
+const historyWindowDays = 30;
+const stationHistoryEndDate = meta.ultimaActualizacion
+	? getLocalDateKey(meta.ultimaActualizacion)
+	: getLocalDateKey(new Date().toISOString());
+const stationHistoryDates = Array.from({ length: historyWindowDays }, (_, index) =>
+	addDays(stationHistoryEndDate, index - (historyWindowDays - 1)),
+);
+
+const stationEquipmentByName = new Map();
+for (const row of currentEquipment) {
+	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const equipmentKey = `${row.idEstacion}::${row.equipo}`;
+	const existing = stationEquipmentByName.get(stationKey) ?? {
+		idLinea: Number(row.idLinea),
+		nombreLinea: row.nombreLinea,
+		nombreEstacion: row.nombreEstacion,
+		equipos: new Set(),
+	};
+	existing.equipos.add(equipmentKey);
+	stationEquipmentByName.set(stationKey, existing);
+}
+
+const stationEventsByEquipment = new Map();
+for (const row of stationHistoryRows) {
+	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const equipmentKey = `${stationKey}::${row.idEstacion}::${row.equipo}`;
+	const events = stationEventsByEquipment.get(equipmentKey) ?? [];
+	events.push({
+		timestamp: Date.parse(row.commitDatetime),
+		isFailure: isFailureState(row),
+	});
+	stationEventsByEquipment.set(equipmentKey, events);
+}
+
+const stationHistory = Array.from(stationEquipmentByName.values())
+	.sort((a, b) =>
+		a.idLinea === b.idLinea
+			? a.nombreEstacion.localeCompare(b.nombreEstacion, "es-AR")
+			: a.idLinea - b.idLinea,
+	)
+	.map((station) => {
+		const equipmentKeys = Array.from(station.equipos.values());
+		const days = stationHistoryDates.map((date) => {
+			const { start, end } = buildServiceWindow(date);
+			const outages = equipmentKeys.reduce((count, equipmentKey) => {
+				const events = stationEventsByEquipment.get(
+					`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+				) ?? [];
+				return count + (deviceFailsDuringWindow(events, start, end) ? 1 : 0);
+			}, 0);
+
+			return {
+				date,
+				outages,
+				totalEquipos: equipmentKeys.length,
+				withoutAccess: equipmentKeys.length > 0 && outages >= equipmentKeys.length,
+				withAnyFailure: outages > 0,
+			};
+		});
+
+		let currentWithoutAccessStreak = 0;
+		let currentFailureStreak = 0;
+
+		for (let index = days.length - 1; index >= 0; index -= 1) {
+			if (days[index].withoutAccess) {
+				currentWithoutAccessStreak += 1;
+			} else {
+				break;
+			}
+		}
+
+		for (let index = days.length - 1; index >= 0; index -= 1) {
+			if (days[index].withAnyFailure) {
+				currentFailureStreak += 1;
+			} else {
+				break;
+			}
+		}
+
+		return {
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			nombreEstacion: station.nombreEstacion,
+			windowDays: historyWindowDays,
+			daysWithoutAccess: days.filter((day) => day.withoutAccess).length,
+			daysWithAnyFailure: days.filter((day) => day.withAnyFailure).length,
+			currentWithoutAccessStreak,
+			currentFailureStreak,
+			lastDate: stationHistoryDates.at(-1),
+		};
+	});
+
 db.close();
 
 await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -292,6 +430,7 @@ await fs.writeFile(
 	[
 		"export const meta = " + JSON.stringify(meta, null, 2) + " as const;",
 		"export const stations = " + JSON.stringify(stations, null, 2) + " as const;",
+		"export const stationHistory = " + JSON.stringify(stationHistory, null, 2) + " as const;",
 		"export const lineDHeatmap = " + JSON.stringify(lineDHeatmap, null, 2) + " as const;",
 		"",
 	].join("\n\n"),

@@ -1,5 +1,15 @@
 ---
-import { lineDHeatmap, meta, stations } from "../generated/station-status";
+import {
+    lineDHeatmap,
+    meta,
+    stationHistory,
+    stations,
+} from "../generated/station-status";
+import {
+    stationMapBasePoints,
+    stationMapPoints,
+    SUBTE_MAP_VIEWBOX,
+} from "../lib/station-map";
 import "../styles/global.css";
 
 const lines = Object.values(
@@ -44,6 +54,8 @@ const formatShortDate = (value) =>
         day: "2-digit",
         month: "short",
     }).format(new Date(`${value}T00:00:00Z`));
+
+const formatDayCount = (value) => `${value} ${value === 1 ? "día" : "días"}`;
 
 const monthLabels = lineDHeatmap.dates.map((date, index, dates) => {
     const current = new Date(`${date}T00:00:00Z`);
@@ -103,6 +115,160 @@ const getHeatCellClass = (day) => {
     if (level === 3) return "bg-[var(--heat-3)] text-transparent";
     return "bg-[var(--heat-4)] text-transparent";
 };
+
+const normalizeMapKey = (value) =>
+    value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/1°/g, "1")
+        .replace(/–/g, "-")
+        .replace(/[^a-zA-Z0-9]+/g, " ")
+        .trim()
+        .toLowerCase();
+
+const mapStations = Array.from(
+    stations.reduce((acc, station) => {
+        const key = `${normalizeMapKey(station.nombreLinea)}::${normalizeMapKey(
+            station.nombreEstacion,
+        )}`;
+        const existing = acc.get(key);
+
+        if (existing) {
+            existing.totalEquipos += station.totalEquipos;
+            existing.equiposFuncionando += station.equiposFuncionando;
+            existing.equiposConFalla += station.equiposConFalla;
+            existing.equiposFueraDeHorario += station.equiposFueraDeHorario;
+
+            if (
+                Date.parse(station.ultimaActualizacion) >
+                Date.parse(existing.ultimaActualizacion)
+            ) {
+                existing.ultimaActualizacion = station.ultimaActualizacion;
+            }
+
+            return acc;
+        }
+
+        acc.set(key, {
+            ...station,
+        });
+
+        return acc;
+    }, new Map()),
+).map(([, station]) => station);
+
+const stationStatusByMapKey = new Map(
+    mapStations.map((station) => [
+        `${normalizeMapKey(station.nombreLinea)}::${normalizeMapKey(
+            station.nombreEstacion,
+        )}`,
+        station,
+    ]),
+);
+
+const stationHistoryByMapKey = new Map(
+    stationHistory.map((station) => [
+        `${normalizeMapKey(station.nombreLinea)}::${normalizeMapKey(
+            station.nombreEstacion,
+        )}`,
+        station,
+    ]),
+);
+
+const stationMapMarkers = stationMapPoints.map((point) => {
+    const key = `${normalizeMapKey(point.line)}::${normalizeMapKey(point.station)}`;
+    const station = stationStatusByMapKey.get(key);
+    const history = stationHistoryByMapKey.get(key) ?? null;
+
+    if (!station) {
+        return {
+            line: point.line,
+            stationName: point.station,
+            x: point.x,
+            y: point.y,
+            dataStation: null,
+            history,
+            heatLevel: "none",
+            outageRatio: null,
+        };
+    }
+
+    return {
+        line: point.line,
+        stationName: point.station,
+        x: point.x,
+        y: point.y,
+        dataStation: station,
+        history,
+        heatLevel: getHeatLevel({
+            outages: station.equiposConFalla,
+            totalEquipos: station.totalEquipos,
+        }),
+        outageRatio:
+            station.totalEquipos > 0
+                ? station.equiposConFalla / station.totalEquipos
+                : null,
+    };
+});
+
+const getStationMarkerClass = (marker) => {
+    if (!marker.dataStation || marker.heatLevel === "none") {
+        return "border-[var(--border-strong)] bg-[var(--surface)]";
+    }
+
+    if (marker.heatLevel === 0) return "border-[var(--heat-0)] bg-[var(--heat-0)]";
+    if (marker.heatLevel === 1) return "border-[var(--heat-1)] bg-[var(--heat-1)]";
+    if (marker.heatLevel === 2) return "border-[var(--heat-2)] bg-[var(--heat-2)]";
+    if (marker.heatLevel === 3) return "border-[var(--heat-3)] bg-[var(--heat-3)]";
+    return "border-[var(--heat-4)] bg-[var(--heat-4)]";
+};
+
+const getStationMarkerStatus = (marker) => {
+    if (!marker.dataStation) {
+        return "Sin datos de ascensores";
+    }
+
+    if (marker.dataStation.totalEquipos === 0) {
+        return "Sin ascensores registrados";
+    }
+
+    if (marker.dataStation.equiposFuncionando === marker.dataStation.totalEquipos) {
+        return "Acceso completo";
+    }
+
+    if (marker.dataStation.equiposFuncionando === 0) {
+        return "Sin acceso ahora";
+    }
+
+    return "Acceso parcial";
+};
+
+const getStationMarkerLabel = (marker) => {
+    if (!marker.dataStation) {
+        return `${marker.line} · ${marker.stationName}: sin datos de ascensores`;
+    }
+
+    const historySummary = marker.history
+        ? ` · ${formatDayCount(marker.history.daysWithoutAccess)} sin acceso total en los últimos ${marker.history.windowDays}`
+        : "";
+
+    return `${marker.line} · ${marker.dataStation.nombreEstacion}: ${marker.dataStation.equiposFuncionando}/${marker.dataStation.totalEquipos} ascensores funcionando${historySummary}`;
+};
+
+const getStationTooltipStyle = (marker) => {
+    const horizontal =
+        marker.x < 72
+            ? "left: 0;"
+            : marker.x > SUBTE_MAP_VIEWBOX.width - 72
+              ? "right: 0;"
+              : "left: 50%; transform: translateX(-50%);";
+    const vertical =
+        marker.y < 72
+            ? "top: calc(100% + 10px);"
+            : "bottom: calc(100% + 10px);";
+
+    return `${horizontal} ${vertical}`;
+};
 ---
 
 <html lang="es">
@@ -159,6 +325,151 @@ const getHeatCellClass = (day) => {
                     </div>
                 </dl>
             </header>
+
+            <section
+                class="mt-[18px] rounded-[10px] border border-[var(--border)] bg-[var(--surface)] px-3 py-3"
+                aria-labelledby="network-map-title"
+            >
+                <div class="mb-2.5 flex items-end justify-between gap-4 max-[720px]:flex-col max-[720px]:items-start">
+                    <div>
+                        <h2 id="network-map-title" class="m-0 text-base leading-[1.2]">
+                            Mapa de estaciones
+                        </h2>
+                        <p class="mt-1 text-[0.75rem] text-[var(--muted)]">
+                            Vista compacta. Pasá el cursor por un punto para ver
+                            estado actual y los últimos 30 días.
+                        </p>
+                    </div>
+                    <p class="m-0 whitespace-nowrap text-[0.75rem] text-[var(--muted)]">
+                        {stationMapMarkers.filter((marker) => marker.dataStation).length}
+                        {" "}estaciones con estado actual
+                        </p>
+                </div>
+
+                <div class="mx-auto max-w-[940px]">
+                <div class="relative rounded-[8px] border border-[#ebe1d7] bg-[#f8f3ec] px-2 py-2">
+                    <div
+                        class="relative w-full"
+                        style={`aspect-ratio: ${SUBTE_MAP_VIEWBOX.width} / ${SUBTE_MAP_VIEWBOX.height};`}
+                    >
+                        <img
+                            src="/subte-map.svg"
+                            alt="Mapa del subte de Buenos Aires"
+                            class="block h-full w-full object-contain"
+                        />
+
+                        <div class="absolute inset-0">
+                            {stationMapBasePoints.map((point) => (
+                                <span
+                                    class="absolute h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--surface)]/90 ring-1 ring-[var(--border-strong)]/55"
+                                    style={`left: ${(point.x / SUBTE_MAP_VIEWBOX.width) * 100}%; top: ${(point.y / SUBTE_MAP_VIEWBOX.height) * 100}%;`}
+                                    aria-hidden="true"
+                                >
+                                </span>
+                            ))}
+
+                            {stationMapMarkers.map((marker) => (
+                                <span
+                                    class="group absolute flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+                                    style={`left: ${(marker.x / SUBTE_MAP_VIEWBOX.width) * 100}%; top: ${(marker.y / SUBTE_MAP_VIEWBOX.height) * 100}%;`}
+                                >
+                                    <button
+                                        type="button"
+                                        class={`h-3 w-3 rounded-full border-[1.5px] shadow-[0_0_0_1px_rgba(250,248,245,0.9)] transition-[width,height,border-color] duration-150 ease-out group-hover:h-3.5 group-hover:w-3.5 group-focus-visible:h-3.5 group-focus-visible:w-3.5 ${getStationMarkerClass(marker)}`}
+                                        title={getStationMarkerLabel(marker)}
+                                        aria-label={getStationMarkerLabel(marker)}
+                                    >
+                                    </button>
+
+                                    <span
+                                        class="pointer-events-none absolute z-20 hidden min-w-[190px] rounded-[8px] border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-left shadow-[0_8px_20px_rgba(47,36,29,0.12)] group-hover:block group-focus-within:block"
+                                        style={getStationTooltipStyle(marker)}
+                                    >
+                                        <span class="block text-[0.64rem] uppercase tracking-[0.04em] text-[var(--muted)]">
+                                            {marker.line}
+                                        </span>
+                                        <span class="mt-0.5 block text-[0.84rem] font-semibold leading-tight text-[var(--text)]">
+                                            {marker.stationName}
+                                        </span>
+                                        <span class="mt-1 block text-[0.75rem] text-[var(--muted)]">
+                                            {getStationMarkerStatus(marker)}
+                                        </span>
+                                        {marker.dataStation ? (
+                                            <span class="mt-1.5 block text-[0.75rem] leading-[1.35] text-[var(--text)]">
+                                                <span class="block">
+                                                    Ahora: {marker.dataStation.equiposFuncionando}/
+                                                    {marker.dataStation.totalEquipos} activos
+                                                </span>
+                                                {marker.history && (
+                                                    <>
+                                                        <span class="block">
+                                                            Sin acceso total: {formatDayCount(
+                                                                marker.history.daysWithoutAccess,
+                                                            )}{" "}
+                                                            / {marker.history.windowDays}
+                                                        </span>
+                                                        <span class="block">
+                                                            Con fallas: {formatDayCount(
+                                                                marker.history.daysWithAnyFailure,
+                                                            )}{" "}
+                                                            / {marker.history.windowDays}
+                                                        </span>
+                                                        <span class="block">
+                                                            Racha actual con fallas: {formatDayCount(
+                                                                marker.history.currentFailureStreak,
+                                                            )}
+                                                        </span>
+                                                        {marker.history.currentWithoutAccessStreak >
+                                                            0 && (
+                                                            <span class="block">
+                                                                Racha sin acceso total: {formatDayCount(
+                                                                    marker.history.currentWithoutAccessStreak,
+                                                                )}
+                                                            </span>
+                                                        )}
+                                                    </>
+                                                )}
+                                                <span class="block">
+                                                    Actualizado: {formatTimestamp(
+                                                        marker.dataStation.ultimaActualizacion,
+                                                    )}
+                                                </span>
+                                            </span>
+                                        ) : (
+                                            <span class="mt-1.5 block text-[0.75rem] leading-[1.35] text-[var(--text)]">
+                                                Esta estación todavía no tiene un resumen
+                                                actual en el dataset generado.
+                                            </span>
+                                        )}
+                                    </span>
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div
+                    class="mt-2.5 flex flex-wrap items-center gap-1.5 text-[0.7rem] text-[var(--muted)]"
+                    aria-label="Escala del mapa de estaciones"
+                >
+                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface)]">
+                    </div>
+                    <span class="whitespace-nowrap">sin datos</span>
+                    <span class="whitespace-nowrap">menos fallas</span>
+                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-0)] bg-[var(--heat-0)]">
+                    </div>
+                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-1)] bg-[var(--heat-1)]">
+                    </div>
+                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-2)] bg-[var(--heat-2)]">
+                    </div>
+                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-3)] bg-[var(--heat-3)]">
+                    </div>
+                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-4)] bg-[var(--heat-4)]">
+                    </div>
+                    <span class="whitespace-nowrap">más fallas</span>
+                </div>
+            </section>
 
             <section
                 class="mt-[18px] rounded-[10px] border border-[var(--border)] bg-[var(--surface)] p-4 max-[640px]:p-3"
