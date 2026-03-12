@@ -583,6 +583,10 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     }
                 };
 
+                const scrollViewportToTop = (behavior = "smooth") => {
+                    window.scrollTo({ top: 0, left: 0, behavior });
+                };
+
                 const positionTooltip = (button) => {
                     const rect = button.getBoundingClientRect();
                     const tooltipRect = tooltip.getBoundingClientRect();
@@ -672,12 +676,14 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                             }
 
                             event.preventDefault();
+                            scrollViewportToTop("smooth");
                             scrollToCode(link.dataset.lineLink, "smooth");
                         });
                     });
 
                 lineButtons.forEach((button) => {
                     button.addEventListener("click", () => {
+                        scrollViewportToTop("smooth");
                         scrollToCode(button.dataset.lineButton, "smooth");
                     });
                 });
