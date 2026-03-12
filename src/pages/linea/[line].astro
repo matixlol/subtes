@@ -1,0 +1,535 @@
+---
+import "../../styles/global.css";
+import {
+	diagramLines,
+	formatDeviceName,
+	getAccessibilityStateLabel,
+	getDeviceStatusLabel,
+	overviewMeta,
+} from "../../lib/line-data";
+
+export function getStaticPaths() {
+	return diagramLines.map((line) => ({
+		params: { line: line.code },
+	}));
+}
+
+const formatTimestamp = (value: string) => {
+	if (!value) return "sin fecha";
+	const date = new Date(value);
+	if (Number.isNaN(date.getTime())) return value;
+
+	return new Intl.DateTimeFormat("es-AR", {
+		dateStyle: "short",
+		timeStyle: "short",
+	}).format(date);
+};
+
+const formatDayCount = (value: number) => `${value} ${value === 1 ? "día" : "días"}`;
+
+const getStatusFillClass = (state: string) => {
+	if (state === "full") return "bg-[var(--heat-0)]";
+	if (state === "partial") return "bg-[var(--heat-2)]";
+	if (state === "off-hours") return "bg-[#f1dfaa]";
+	if (state === "blocked") return "bg-[var(--heat-4)]";
+	return "bg-[var(--surface)]";
+};
+
+const currentCode = `${Astro.params.line ?? diagramLines[0]?.code ?? "A"}`.toUpperCase();
+const lines = diagramLines.map((line, index, all) => ({
+	...line,
+	path: `/linea/${line.code}`,
+	position: index + 1,
+	previous: all[index - 1]
+		? {
+				code: all[index - 1].code,
+				path: `/linea/${all[index - 1].code}`,
+			}
+		: null,
+	next: all[index + 1]
+		? {
+				code: all[index + 1].code,
+				path: `/linea/${all[index + 1].code}`,
+			}
+		: null,
+}));
+
+const initialIndex = Math.max(
+	0,
+	lines.findIndex((line) => line.code === currentCode),
+);
+const initialLine = lines[initialIndex] ?? lines[0];
+
+const getStationTooltipId = (lineCode: string, stationOrder: number) =>
+	`line-tooltip-${lineCode}-${stationOrder}`;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{`Línea ${initialLine.code} · Accesibilidad`}</title>
+	</head>
+	<body
+		class="min-h-screen transition-colors duration-500"
+		style={`background-color: ${initialLine.color};`}
+	>
+		<main
+			data-line-scroller
+			data-initial-line={initialLine.code}
+			class="min-h-screen overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+		>
+			<div class="flex items-start">
+				{
+					lines.map((line, lineIndex) => (
+						<section
+							id={`linea-${line.code}`}
+							data-line-slide
+							data-line-code={line.code}
+							data-line-color={line.color}
+							data-line-path={line.path}
+							data-line-position={line.position}
+							data-active={line.code === initialLine.code ? "true" : "false"}
+							class="min-h-screen w-screen shrink-0 snap-center px-4 pb-8 pt-5"
+							style={`background-color: ${line.color}; color: ${line.ink};`}
+						>
+							<div class="mx-auto w-full max-w-[460px]">
+								<header
+									class="reveal"
+									style={`--stagger: 0ms;`}
+								>
+									<div class="flex items-center justify-between gap-3">
+										<a
+											href="/"
+											class="inline-flex items-center rounded-[8px] border border-white/30 px-3 py-2 text-[0.82rem] font-medium no-underline transition-colors duration-200 hover:bg-white/10"
+											style={`color: ${line.ink}; border-color: ${
+												line.code === "H"
+													? "rgba(58,43,0,0.25)"
+													: "rgba(255,255,255,0.28)"
+											};`}
+										>
+											Subtes
+										</a>
+										<p class="m-0 text-[0.84rem] opacity-85">
+											Deslizá para cambiar de línea
+										</p>
+									</div>
+
+									<div class="mt-5 flex items-end justify-between gap-4">
+										<div>
+											<p class="m-0 text-[0.9rem] font-medium opacity-85">
+												Accesibilidad
+											</p>
+											<h1 class="m-0 mt-1 text-[4.4rem] leading-none font-semibold tracking-[-0.04em]">
+												{line.code}
+											</h1>
+											<p class="m-0 mt-2 text-[1.05rem] font-medium opacity-90">
+												{line.nombreLinea}
+											</p>
+										</div>
+										<div class="text-right">
+											<p class="m-0 text-[0.82rem] opacity-80">
+												{line.position}/{lines.length}
+											</p>
+											<p class="m-0 mt-1 text-[0.82rem] opacity-80">
+												Actualizado
+											</p>
+											<p class="m-0 mt-1 text-[0.88rem] font-medium">
+												{formatTimestamp(
+													overviewMeta.ultimaActualizacion,
+												)}
+											</p>
+										</div>
+									</div>
+								</header>
+
+								<section
+									class="reveal mt-5 grid grid-cols-3 gap-3"
+									style={`--stagger: 70ms;`}
+								>
+									<div class="rounded-[10px] bg-[#fffdf8] px-3 py-3 text-[var(--text)]">
+										<p class="m-0 text-[0.74rem] text-[var(--muted)]">
+											Estaciones
+										</p>
+										<p class="m-0 mt-2 text-[1.8rem] leading-none font-semibold">
+											{line.totalStations}
+										</p>
+									</div>
+									<div class="rounded-[10px] bg-[#fffdf8] px-3 py-3 text-[var(--text)]">
+										<p class="m-0 text-[0.74rem] text-[var(--muted)]">
+											Con detalle
+										</p>
+										<p class="m-0 mt-2 text-[1.8rem] leading-none font-semibold">
+											{line.stationsWithDetail}
+										</p>
+									</div>
+									<div class="rounded-[10px] bg-[#fffdf8] px-3 py-3 text-[var(--text)]">
+										<p class="m-0 text-[0.74rem] text-[var(--muted)]">
+											Sin acceso
+										</p>
+										<p class="m-0 mt-2 text-[1.8rem] leading-none font-semibold">
+											{line.blockedStations}
+										</p>
+									</div>
+								</section>
+
+								<section
+									class="reveal mt-5 rounded-[12px] bg-[#fffdf8] px-4 py-4 text-[var(--text)]"
+									style={`--stagger: 120ms;`}
+								>
+									<div class="flex items-center justify-between gap-3 border-b border-[#ebe1d7] pb-3">
+										<div>
+											<h2 class="m-0 text-[1.08rem] leading-[1.1] font-semibold">
+												Estaciones
+											</h2>
+											<p class="m-0 mt-1 text-[0.84rem] text-[var(--muted)]">
+												Punto, estado y detalle actual por estación
+											</p>
+										</div>
+										<div class="text-right text-[0.78rem] text-[var(--muted)]">
+											<p class="m-0">Swipe</p>
+											<p class="m-0">para cambiar</p>
+										</div>
+									</div>
+
+									<ol class="relative mt-4 ml-0 list-none pl-0">
+										<span
+											class="pointer-events-none absolute bottom-4 left-[18px] top-4 w-[3px] rounded-full"
+											style={`background-color: ${line.color};`}
+											aria-hidden="true"
+										/>
+										{
+											line.stations.map((station, stationIndex) => (
+												<li
+													class="station-item reveal relative border-b border-[#f0e7de] py-4 pl-12 last:border-b-0"
+													style={`--stagger: ${160 + stationIndex * 26}ms;`}
+												>
+													<button
+														type="button"
+														class="flex w-full items-start justify-between gap-3 rounded-[10px] text-left text-inherit outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-strong)]"
+														title={`${line.nombreLinea} · ${station.nombreEstacion}`}
+														aria-label={`${line.nombreLinea} · ${station.nombreEstacion}`}
+														data-station-tooltip={getStationTooltipId(
+															line.code,
+															station.stationOrder,
+														)}
+													>
+														<span
+															class={`pointer-events-none absolute left-[10px] top-[20px] z-10 block h-[18px] w-[18px] rounded-full border-[2px] ${getStatusFillClass(
+																station.state,
+															)}`}
+															style={`border-color: ${line.color};`}
+														/>
+														<span class="min-w-0 flex-1">
+															<span class="block text-[1.02rem] leading-[1.15] font-semibold">
+																{station.nombreEstacion}
+															</span>
+															<span class="mt-1 block text-[0.86rem] leading-[1.25] text-[var(--muted)]">
+																{station.accessibility
+																	? `${getAccessibilityStateLabel(
+																			station.accessibility,
+																		)} · ${station.accessibility.funcionando}/${station.accessibility.total} equipos`
+																	: "Sin ascensores ni escaleras registradas"}
+															</span>
+														</span>
+														{station.history && (
+															<span class="whitespace-nowrap pt-0.5 text-[0.8rem] font-medium text-[var(--muted)]">
+																{station.history.daysWithAnyFailure}d
+															</span>
+														)}
+													</button>
+
+													<template
+														id={getStationTooltipId(
+															line.code,
+															station.stationOrder,
+														)}
+													>
+														<div class="w-[300px] rounded-[10px] border border-[var(--border)] bg-[#fffdf8] px-3 py-3 text-left text-[var(--text)] shadow-[0_10px_24px_rgba(47,36,29,0.16)]">
+															<p class="m-0 text-[0.72rem] text-[var(--muted)]">
+																{line.nombreLinea}
+															</p>
+															<p class="mt-1 text-[0.96rem] font-semibold leading-tight">
+																{station.nombreEstacion}
+															</p>
+
+															{station.accessibility ? (
+																<>
+																	<p class="mt-1 text-[0.8rem] leading-[1.3] text-[var(--muted)]">
+																		{getAccessibilityStateLabel(
+																			station.accessibility,
+																		)}{" "}
+																		·{" "}
+																		{station.accessibility.funcionando}/
+																		{
+																			station.accessibility
+																				.total
+																		}{" "}
+																		equipos funcionando
+																	</p>
+
+																	<ul class="m-0 mt-2 list-none space-y-1 border-t border-[#eee7df] pt-2 pl-0 text-[0.8rem] leading-[1.3]">
+																		{station.accessibility.devices.map(
+																			(device) => (
+																				<li class="flex items-start justify-between gap-3">
+																					<span>
+																						{formatDeviceName(
+																							device,
+																						)}
+																					</span>
+																					<span class="whitespace-nowrap text-[var(--muted)]">
+																						{getDeviceStatusLabel(
+																							device.estado,
+																						)}
+																					</span>
+																				</li>
+																			),
+																		)}
+																	</ul>
+
+																	<div class="mt-2 border-t border-[#eee7df] pt-2 text-[0.76rem] leading-[1.35] text-[var(--muted)]">
+																		{station.history && (
+																			<span class="block">
+																				Últimos {station.history.windowDays} días:
+																				{" "}
+																				{formatDayCount(
+																					station.history.daysWithAnyFailure,
+																				)}{" "}
+																				con fallas
+																			</span>
+																		)}
+																		<span class="block">
+																			Actualizado:{" "}
+																			{formatTimestamp(
+																				station.accessibility.ultimaActualizacion,
+																			)}
+																		</span>
+																	</div>
+																</>
+															) : (
+																<p class="mt-2 text-[0.8rem] leading-[1.35] text-[var(--muted)]">
+																	Esta estación no tiene ascensores ni
+																	escaleras registradas en el dataset
+																	actual.
+																</p>
+															)}
+														</div>
+													</template>
+												</li>
+											))
+										}
+									</ol>
+								</section>
+
+								<nav
+									class="reveal mt-5 flex items-center justify-between gap-3 pb-6"
+									style={`--stagger: 160ms;`}
+								>
+									{line.previous ? (
+										<a
+											href={line.previous.path}
+											data-line-link={line.previous.code}
+											class="inline-flex min-h-11 items-center rounded-[10px] bg-white/14 px-4 py-2 text-[0.9rem] font-medium no-underline transition-colors duration-200 hover:bg-white/22"
+											style={`color: ${line.ink};`}
+										>
+											← Línea {line.previous.code}
+										</a>
+									) : (
+										<span class="min-h-11 w-[92px]"></span>
+									)}
+
+									<p class="m-0 text-center text-[0.84rem] opacity-85">
+										Deslizá horizontalmente
+									</p>
+
+									{line.next ? (
+										<a
+											href={line.next.path}
+											data-line-link={line.next.code}
+											class="inline-flex min-h-11 items-center rounded-[10px] bg-white/14 px-4 py-2 text-[0.9rem] font-medium no-underline transition-colors duration-200 hover:bg-white/22"
+											style={`color: ${line.ink};`}
+										>
+											Línea {line.next.code} →
+										</a>
+									) : (
+										<span class="min-h-11 w-[92px]"></span>
+									)}
+								</nav>
+							</div>
+						</section>
+					))
+				}
+			</div>
+		</main>
+
+		<style is:global>
+			[data-line-scroller][data-ready="true"] [data-line-slide] .reveal {
+				opacity: 0;
+				transform: translateY(18px) scale(0.985);
+				transition:
+					opacity 320ms ease,
+					transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+				transition-delay: var(--stagger, 0ms);
+			}
+
+			[data-line-scroller][data-ready="true"] [data-line-slide][data-active="true"] .reveal {
+				opacity: 1;
+				transform: translateY(0) scale(1);
+			}
+
+			[data-line-scroller][data-ready="true"] [data-line-slide][data-active="false"] .station-item {
+				opacity: 0.62;
+			}
+		</style>
+
+		<script is:inline>
+			(() => {
+				const scroller = document.querySelector("[data-line-scroller]");
+				if (!(scroller instanceof HTMLElement)) return;
+
+				const slides = Array.from(
+					scroller.querySelectorAll("[data-line-slide]"),
+				).filter((slide) => slide instanceof HTMLElement);
+				if (slides.length === 0) return;
+
+				const tooltip = document.createElement("div");
+				tooltip.className =
+					"pointer-events-none fixed z-50 hidden max-w-[calc(100vw-16px)]";
+				document.body.appendChild(tooltip);
+
+				let activeButton = null;
+				let activeCode = scroller.dataset.initialLine ?? slides[0].dataset.lineCode;
+
+				const setBodyColor = (slide) => {
+					document.body.style.backgroundColor = slide.dataset.lineColor ?? "";
+				};
+
+				const setActiveSlide = (slide, updateHistory = true) => {
+					const code = slide.dataset.lineCode;
+					if (!code) return;
+
+					slides.forEach((candidate) => {
+						candidate.dataset.active = candidate === slide ? "true" : "false";
+					});
+
+					setBodyColor(slide);
+
+					if (updateHistory && code !== activeCode) {
+						history.replaceState({}, "", slide.dataset.linePath ?? `/linea/${code}`);
+						document.title = `Línea ${code} · Accesibilidad`;
+					}
+
+					activeCode = code;
+				};
+
+				const scrollToCode = (code, behavior = "smooth") => {
+					const target = slides.find((slide) => slide.dataset.lineCode === code);
+					if (!(target instanceof HTMLElement)) return;
+
+					scroller.scrollTo({
+						left: target.offsetLeft,
+						behavior,
+					});
+					setActiveSlide(target, true);
+				};
+
+				const positionTooltip = (button) => {
+					const rect = button.getBoundingClientRect();
+					const tooltipRect = tooltip.getBoundingClientRect();
+					const gap = 10;
+					const maxLeft = window.innerWidth - tooltipRect.width - 8;
+					const preferredTop = rect.top - tooltipRect.height - gap;
+					const top = preferredTop >= 8 ? preferredTop : rect.bottom + gap;
+					const left = Math.min(
+						Math.max(rect.left + rect.width / 2 - tooltipRect.width / 2, 8),
+						Math.max(8, maxLeft),
+					);
+
+					tooltip.style.top = `${top}px`;
+					tooltip.style.left = `${left}px`;
+				};
+
+				const showTooltip = (button) => {
+					const templateId = button.dataset.stationTooltip;
+					if (!templateId) return;
+
+					const template = document.getElementById(templateId);
+					if (!(template instanceof HTMLTemplateElement)) return;
+
+					tooltip.innerHTML = template.innerHTML;
+					tooltip.classList.remove("hidden");
+					activeButton = button;
+					positionTooltip(button);
+				};
+
+				const hideTooltip = (button) => {
+					if (button && activeButton !== button) return;
+					activeButton = null;
+					tooltip.classList.add("hidden");
+					tooltip.innerHTML = "";
+				};
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						const visible = entries
+							.filter((entry) => entry.isIntersecting)
+							.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+						if (visible?.target instanceof HTMLElement) {
+							setActiveSlide(visible.target, true);
+						}
+					},
+					{
+						root: scroller,
+						threshold: [0.55, 0.7, 0.9],
+					},
+				);
+
+				slides.forEach((slide) => observer.observe(slide));
+
+				requestAnimationFrame(() => {
+					scrollToCode(activeCode ?? slides[0].dataset.lineCode, "auto");
+					scroller.dataset.ready = "true";
+				});
+
+				document.querySelectorAll("[data-line-link]").forEach((link) => {
+					link.addEventListener("click", (event) => {
+						if (
+							event.metaKey ||
+							event.ctrlKey ||
+							event.shiftKey ||
+							event.altKey
+						) {
+							return;
+						}
+
+						event.preventDefault();
+						scrollToCode(link.dataset.lineLink, "smooth");
+					});
+				});
+
+				document.querySelectorAll("[data-station-tooltip]").forEach((button) => {
+					button.addEventListener("mouseenter", () => showTooltip(button));
+					button.addEventListener("focus", () => showTooltip(button));
+					button.addEventListener("mouseleave", () => hideTooltip(button));
+					button.addEventListener("blur", () => hideTooltip(button));
+				});
+
+				window.addEventListener("resize", () => {
+					if (activeButton) positionTooltip(activeButton);
+				});
+
+				document.addEventListener(
+					"scroll",
+					() => {
+						if (activeButton) positionTooltip(activeButton);
+					},
+					true,
+				);
+			})();
+		</script>
+	</body>
+</html>
