@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from "astro:transitions";
+import LineNav from "../../components/LineNav.astro";
 import "../../styles/global.css";
 import {
     diagramLines,
@@ -85,44 +87,14 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{`Línea ${initialLine.code} · Accesibilidad`}</title>
+        <ClientRouter />
     </head>
     <body
         class="min-h-screen transition-colors duration-500"
         style={`background-color: ${initialLine.color};`}
     >
         <div class="fixed inset-x-0 top-0 z-40 px-3 pt-3">
-            <nav
-                aria-label="Cambiar línea"
-                class="mx-auto grid w-full max-w-[430px] grid-cols-6 gap-1.5 px-1.5 py-1.5"
-            >
-                {
-                    lines.map((line) => (
-                        <button
-                            type="button"
-                            data-line-button={line.code}
-                            data-active={
-                                line.code === initialLine.code
-                                    ? "true"
-                                    : "false"
-                            }
-                            aria-label={`Ir a ${line.nombreLinea}`}
-                            aria-pressed={
-                                line.code === initialLine.code
-                                    ? "true"
-                                    : "false"
-                            }
-                            class="line-switch shrink-0"
-                            style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
-                        >
-                            <span class="line-switch__top">
-                                <span class="line-switch__label">
-                                    {line.code}
-                                </span>
-                            </span>
-                        </button>
-                    ))
-                }
-            </nav>
+            <LineNav mode="buttons" currentCode={initialLine.code} />
         </div>
 
         <main
@@ -333,58 +305,6 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
         </main>
 
         <style is:global>
-            .line-switch {
-                --button_outline_color: #2f241d;
-                display: block;
-                width: 100%;
-                border: 0;
-                border-radius: 12px;
-                background: var(--button_outline_color);
-                padding: 0;
-                font: inherit;
-                cursor: pointer;
-            }
-
-            .line-switch__top {
-                display: flex;
-                width: 100%;
-                aspect-ratio: 1;
-                align-items: center;
-                justify-content: center;
-                border: 2px solid var(--button_outline_color);
-                border-radius: 12px;
-                background: var(--line-button-color);
-                color: var(--line-button-ink);
-                transform: translateY(-0.2em);
-                transition:
-                    transform 100ms ease,
-                    filter 100ms ease;
-            }
-
-            .line-switch__label {
-                font-size: clamp(1.25rem, 4.4vw, 2rem);
-                line-height: 1;
-                font-weight: 700;
-                letter-spacing: -0.06em;
-            }
-
-            .line-switch:hover .line-switch__top,
-            .line-switch:focus-visible .line-switch__top {
-                transform: translateY(-0.33em);
-            }
-
-            .line-switch:active .line-switch__top,
-            .line-switch[data-active="true"] .line-switch__top {
-                transform: translateY(0);
-            }
-
-            .line-switch[data-active="true"] .line-switch__top {
-                filter: saturate(1.08);
-            }
-
-            .line-switch:focus-visible {
-                outline: 0;
-            }
             [data-line-scroller][data-ready="true"] [data-line-slide] .reveal {
                 opacity: 0;
                 transform: translateY(18px) scale(0.985);

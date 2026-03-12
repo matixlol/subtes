@@ -2,6 +2,26 @@
 
 - Always use Tailwind for styling unless required to do otherwise
 
+## Astro
+
+Unlike JSX, Astro distinguishes spaces between components.
+
+Do:
+
+```
+<span
+  >{closedEscaleraShareLabel}</span
+>
+```
+
+Don't:
+
+```
+<span>
+  {closedEscaleraShareLabel}
+</span>
+```
+
 ## Data Overview
 
 - Primary dataset: `data/accesibilidad.sqlite`
@@ -9,7 +29,7 @@
 - Source table: `status`
 - Table shape: historical accessibility status records for subte equipment
 - Important fields:
-  - `idLinea`, `nombreLinea`
+  - `idLinea`, `nombreLinea`s
   - `idEstacion`, `nombreEstacion`
   - `funcionando`
   - `fueraDeHorario`
