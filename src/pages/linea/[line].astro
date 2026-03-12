@@ -128,7 +128,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
         <main
             data-line-scroller
             data-initial-line={initialLine.code}
-            class="min-h-screen overflow-x-auto snap-x snap-mandatory scroll-smooth overscroll-x-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            class="min-h-screen overflow-x-auto snap-x snap-mandatory overscroll-x-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
             <div class="flex items-start">
                 {
@@ -432,6 +432,8 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                 let settleFrame = 0;
                 let settleTimeout = 0;
                 let pendingCode = null;
+                let scrollAnimationFrame = 0;
+                let isProgrammaticAnimating = false;
 
                 const setBodyColor = (slide) => {
                     document.body.style.backgroundColor =
@@ -503,6 +505,55 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     }, 120);
                 };
 
+                const stopProgrammaticScroll = () => {
+                    if (scrollAnimationFrame) {
+                        cancelAnimationFrame(scrollAnimationFrame);
+                        scrollAnimationFrame = 0;
+                    }
+
+                    isProgrammaticAnimating = false;
+                    pendingCode = null;
+                };
+
+                const animateScrollerTo = (targetLeft, onComplete) => {
+                    stopProgrammaticScroll();
+
+                    const startLeft = scroller.scrollLeft;
+                    const distance = targetLeft - startLeft;
+                    if (Math.abs(distance) < 1) {
+                        scroller.scrollLeft = targetLeft;
+                        onComplete();
+                        return;
+                    }
+
+                    const startTime = performance.now();
+                    const duration = 360;
+                    isProgrammaticAnimating = true;
+
+                    const step = (now) => {
+                        const elapsed = now - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased =
+                            progress < 0.5
+                                ? 4 * progress * progress * progress
+                                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+                        scroller.scrollLeft = startLeft + distance * eased;
+
+                        if (progress < 1) {
+                            scrollAnimationFrame = requestAnimationFrame(step);
+                            return;
+                        }
+
+                        scroller.scrollLeft = targetLeft;
+                        scrollAnimationFrame = 0;
+                        isProgrammaticAnimating = false;
+                        onComplete();
+                    };
+
+                    scrollAnimationFrame = requestAnimationFrame(step);
+                };
+
                 const scrollToCode = (code, behavior = "smooth") => {
                     const target = slides.find(
                         (slide) => slide.dataset.lineCode === code,
@@ -517,19 +568,19 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                         pendingCode = code;
                         setVisualActiveSlide(target);
                         setActiveButton(code);
+                        animateScrollerTo(target.offsetLeft, () => {
+                            commitActiveSlide(target, true);
+                        });
+                        return;
                     }
 
-                    scroller.scrollTo({
-                        left: target.offsetLeft,
-                        behavior,
-                    });
+                    stopProgrammaticScroll();
+                    scroller.scrollLeft = target.offsetLeft;
 
                     if (!shouldAnimate) {
                         commitActiveSlide(target, true);
                         return;
                     }
-
-                    scheduleSettledCommit();
                 };
 
                 const positionTooltip = (button) => {
@@ -583,6 +634,8 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                 scroller.addEventListener(
                     "scroll",
                     () => {
+                        if (isProgrammaticAnimating) return;
+
                         if (!pendingCode) {
                             const nearestSlide = getNearestSlide();
                             if (nearestSlide) {
@@ -594,6 +647,16 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     },
                     { passive: true },
                 );
+
+                scroller.addEventListener("pointerdown", stopProgrammaticScroll, {
+                    passive: true,
+                });
+                scroller.addEventListener("touchstart", stopProgrammaticScroll, {
+                    passive: true,
+                });
+                scroller.addEventListener("wheel", stopProgrammaticScroll, {
+                    passive: true,
+                });
 
                 document
                     .querySelectorAll("[data-line-link]")
