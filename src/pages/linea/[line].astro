@@ -139,36 +139,6 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                         >
                             <div class="mx-auto w-full max-w-[460px]">
                                 <section
-                                    class="reveal grid grid-cols-3 gap-3"
-                                    style={`--stagger: 70ms;`}
-                                >
-                                    <div class="rounded-[10px] bg-[#fffdf8] px-3 py-3 text-[var(--text)]">
-                                        <p class="m-0 text-[0.74rem] text-[var(--muted)]">
-                                            Estaciones
-                                        </p>
-                                        <p class="m-0 mt-2 text-[1.8rem] leading-none font-semibold">
-                                            {line.totalStations}
-                                        </p>
-                                    </div>
-                                    <div class="rounded-[10px] bg-[#fffdf8] px-3 py-3 text-[var(--text)]">
-                                        <p class="m-0 text-[0.74rem] text-[var(--muted)]">
-                                            Con detalle
-                                        </p>
-                                        <p class="m-0 mt-2 text-[1.8rem] leading-none font-semibold">
-                                            {line.stationsWithDetail}
-                                        </p>
-                                    </div>
-                                    <div class="rounded-[10px] bg-[#fffdf8] px-3 py-3 text-[var(--text)]">
-                                        <p class="m-0 text-[0.74rem] text-[var(--muted)]">
-                                            Sin acceso
-                                        </p>
-                                        <p class="m-0 mt-2 text-[1.8rem] leading-none font-semibold">
-                                            {line.blockedStations}
-                                        </p>
-                                    </div>
-                                </section>
-
-                                <section
                                     class="reveal mt-5 rounded-[12px] bg-[#fffdf8] px-4 py-4 text-[var(--text)]"
                                     style={`--stagger: 120ms;`}
                                 >
@@ -177,14 +147,6 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                             <h2 class="m-0 text-[1.08rem] leading-[1.1] font-semibold">
                                                 Estaciones
                                             </h2>
-                                            <p class="m-0 mt-1 text-[0.84rem] text-[var(--muted)]">
-                                                Punto, estado y detalle actual
-                                                por estación
-                                            </p>
-                                        </div>
-                                        <div class="text-right text-[0.78rem] text-[var(--muted)]">
-                                            <p class="m-0">Swipe</p>
-                                            <p class="m-0">para cambiar</p>
                                         </div>
                                     </div>
 
