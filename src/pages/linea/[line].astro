@@ -36,6 +36,17 @@ const getStatusFillClass = (state: string) => {
     return "bg-[var(--surface)]";
 };
 
+const withAlpha = (hex: string, alpha: number) => {
+    const normalized = hex.replace("#", "");
+    if (normalized.length !== 6) return hex;
+
+    const red = Number.parseInt(normalized.slice(0, 2), 16);
+    const green = Number.parseInt(normalized.slice(2, 4), 16);
+    const blue = Number.parseInt(normalized.slice(4, 6), 16);
+
+    return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+};
+
 const currentCode =
     `${Astro.params.line ?? diagramLines[0]?.code ?? "A"}`.toUpperCase();
 const lines = diagramLines.map((line, index, all) => ({
@@ -82,7 +93,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
         <div class="fixed inset-x-0 top-0 z-40 px-3 pt-3">
             <nav
                 aria-label="Cambiar línea"
-                class="mx-auto grid w-full max-w-[430px] grid-cols-6 gap-1.5 rounded-[12px] border border-[#2f241d]/16 bg-[#fffaf1] px-1.5 py-1.5 shadow-[0_6px_18px_rgba(47,36,29,0.12)]"
+                class="mx-auto grid w-full max-w-[430px] grid-cols-6 gap-1.5 px-1.5 py-1.5"
             >
                 {
                     lines.map((line) => (
@@ -135,14 +146,14 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                     : "false"
                             }
                             class="min-h-screen w-screen shrink-0 snap-center px-4 pb-8 pt-24 [scroll-snap-stop:always] sm:pt-26"
-                            style={`background-color: ${line.color}; color: ${line.ink};`}
+                            style={`background-color: ${line.color}; color: ${line.ink}; --line-border: ${withAlpha(line.ink, 0.22)}; --line-border-strong: ${withAlpha(line.ink, 0.42)}; --line-muted: ${withAlpha(line.ink, 0.76)};`}
                         >
                             <div class="mx-auto w-full max-w-[460px]">
                                 <section
-                                    class="reveal mt-5 rounded-[12px] bg-[#fffdf8] px-4 py-4 text-[var(--text)]"
+                                    class="reveal mt-5 px-2 py-2 text-inherit"
                                     style={`--stagger: 120ms;`}
                                 >
-                                    <div class="flex items-center justify-between gap-3 border-b border-[#ebe1d7] pb-3">
+                                    <div class="flex items-center justify-between gap-3 pb-2">
                                         <div>
                                             <h2 class="m-0 text-[1.08rem] leading-[1.1] font-semibold">
                                                 Estaciones
@@ -153,18 +164,18 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                     <ol class="relative mt-4 ml-0 list-none pl-0">
                                         <span
                                             class="pointer-events-none absolute bottom-4 left-[18px] top-4 w-[3px] rounded-full"
-                                            style={`background-color: ${line.color};`}
+                                            style={`background-color: ${withAlpha(line.ink, 0.28)};`}
                                             aria-hidden="true"
                                         />
                                         {line.stations.map(
                                             (station, stationIndex) => (
                                                 <li
-                                                    class="station-item reveal relative border-b border-[#f0e7de] py-4 pl-12 last:border-b-0"
+                                                    class="station-item reveal relative py-3 pl-12"
                                                     style={`--stagger: ${160 + stationIndex * 26}ms;`}
                                                 >
                                                     <button
                                                         type="button"
-                                                        class="flex w-full items-start justify-between gap-3 rounded-[10px] text-left text-inherit outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-strong)]"
+                                                        class="flex w-full items-start justify-between gap-3 rounded-[10px] text-left text-inherit outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--line-border-strong)]"
                                                         title={`${line.nombreLinea} · ${station.nombreEstacion}`}
                                                         aria-label={`${line.nombreLinea} · ${station.nombreEstacion}`}
                                                         data-station-tooltip={getStationTooltipId(
@@ -176,7 +187,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                                             class={`pointer-events-none absolute left-[10px] top-[20px] z-10 block h-[18px] w-[18px] rounded-full border-[2px] ${getStatusFillClass(
                                                                 station.state,
                                                             )}`}
-                                                            style={`border-color: ${line.color};`}
+                                                            style={`border-color: ${line.ink};`}
                                                         />
                                                         <span class="min-w-0 flex-1">
                                                             <span class="block text-[1.02rem] leading-[1.15] font-semibold">
@@ -184,7 +195,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                                                     station.nombreEstacion
                                                                 }
                                                             </span>
-                                                            <span class="mt-1 block text-[0.86rem] leading-[1.25] text-[var(--muted)]">
+                                                            <span class="mt-1 block text-[0.86rem] leading-[1.25] text-[color:var(--line-muted)]">
                                                                 {station.accessibility
                                                                     ? `${getAccessibilityStateLabel(
                                                                           station.accessibility,
@@ -193,7 +204,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                                             </span>
                                                         </span>
                                                         {station.history && (
-                                                            <span class="whitespace-nowrap pt-0.5 text-[0.8rem] font-medium text-[var(--muted)]">
+                                                            <span class="whitespace-nowrap pt-0.5 text-[0.8rem] font-medium text-[color:var(--line-muted)]">
                                                                 {
                                                                     station
                                                                         .history
