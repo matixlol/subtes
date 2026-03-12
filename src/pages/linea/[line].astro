@@ -80,7 +80,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
 		<main
 			data-line-scroller
 			data-initial-line={initialLine.code}
-			class="min-h-screen overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+			class="min-h-screen overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth overscroll-x-none [overscroll-behavior-y:none] [scrollbar-width:none] touch-pan-x [&::-webkit-scrollbar]:hidden"
 		>
 			<div class="flex items-start">
 				{
@@ -93,7 +93,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
 							data-line-path={line.path}
 							data-line-position={line.position}
 							data-active={line.code === initialLine.code ? "true" : "false"}
-							class="min-h-screen w-screen shrink-0 snap-center px-4 pb-8 pt-5"
+							class="min-h-screen w-screen shrink-0 snap-center px-4 pb-8 pt-5 [scroll-snap-stop:always]"
 							style={`background-color: ${line.color}; color: ${line.ink};`}
 						>
 							<div class="mx-auto w-full max-w-[460px]">
