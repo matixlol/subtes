@@ -1,0 +1,270 @@
+---
+import {
+	curveCatmullRom,
+	extent,
+	line as shapeLine,
+	max,
+	scaleLinear,
+	scaleUtc,
+	utcFormat,
+	utcYear,
+} from "d3";
+
+interface Props {
+	series: Array<{
+		label: string;
+		shortLabel: string;
+		color: string;
+		points: Array<{
+			month: string;
+			value: number | null;
+		}>;
+	}>;
+}
+
+const { series } = Astro.props;
+
+const width = 1100;
+const height = 620;
+const margin = { top: 28, right: 154, bottom: 52, left: 62 };
+const innerWidth = width - margin.left - margin.right;
+const innerHeight = height - margin.top - margin.bottom;
+
+const withDates = series.map((line) => ({
+	...line,
+	points: line.points.map((point) => {
+		const [year, month] = point.month.split("-").map(Number);
+
+		return {
+			...point,
+			date: new Date(Date.UTC(year, month - 1, 1)),
+		};
+	}),
+}));
+
+type ChartPoint = (typeof withDates)[number]["points"][number];
+
+const allDates = withDates.flatMap((line) => line.points.map((point) => point.date));
+const allValues = series.flatMap((line) =>
+	line.points
+		.map((point) => point.value)
+		.filter((value): value is number => value !== null),
+);
+
+const [domainStart, domainEnd] = extent(allDates);
+const yCeiling = Math.max(720, Math.ceil((max(allValues) ?? 0) / 120) * 120);
+
+const x = scaleUtc()
+	.domain([
+		domainStart ?? new Date(Date.UTC(2019, 0, 1)),
+		domainEnd ?? new Date(Date.UTC(2025, 11, 1)),
+	])
+	.range([0, innerWidth]);
+
+const y = scaleLinear().domain([0, yCeiling]).range([innerHeight, 0]);
+
+const yTicks = y
+	.ticks(6)
+	.filter((tick) => tick > 0)
+	.map((tick) => ({
+		value: tick,
+		label: `${Math.round(tick / 60)} min`,
+	}));
+
+const yearTicks = utcYear.range(
+	domainStart ?? new Date(Date.UTC(2019, 0, 1)),
+	utcYear.offset(domainEnd ?? new Date(Date.UTC(2025, 11, 1)), 1),
+);
+
+const covidStart = new Date(Date.UTC(2020, 2, 1));
+const covidEnd = new Date(Date.UTC(2021, 2, 1));
+
+const lineGenerator = shapeLine<ChartPoint>()
+	.defined((point) => point.value !== null)
+	.x((point) => x(point.date))
+	.y((point) => y(point.value ?? 0))
+	.curve(curveCatmullRom.alpha(0.45));
+
+const renderedSeries = withDates.map((line) => ({
+	...line,
+	path: lineGenerator(line.points) ?? "",
+}));
+
+const rawLabels = renderedSeries
+	.map((line) => {
+		const lastPoint = [...line.points].reverse().find((point) => point.value !== null);
+
+		if (!lastPoint || lastPoint.value === null) return null;
+
+		return {
+			label: line.label,
+			shortLabel: line.shortLabel,
+			color: line.color,
+			value: lastPoint.value,
+			targetY: y(lastPoint.value),
+			anchorX: x(lastPoint.date),
+		};
+	})
+	.filter((label): label is NonNullable<typeof label> => label !== null)
+	.sort((a, b) => a.targetY - b.targetY);
+
+const labelGap = 18;
+
+for (let index = 0; index < rawLabels.length; index += 1) {
+	const minimum = index === 0 ? 12 : rawLabels[index - 1].targetY + labelGap;
+	rawLabels[index].targetY = Math.max(rawLabels[index].targetY, minimum);
+}
+
+for (let index = rawLabels.length - 2; index >= 0; index -= 1) {
+	rawLabels[index].targetY = Math.min(
+		rawLabels[index].targetY,
+		rawLabels[index + 1].targetY - labelGap,
+	);
+}
+
+const overflow = Math.max(0, (rawLabels.at(-1)?.targetY ?? 0) - (innerHeight - 10));
+
+const labels = rawLabels.map((label) => ({
+	...label,
+	y: Math.max(12, label.targetY - overflow),
+}));
+---
+
+<div class="overflow-x-auto">
+	<svg
+		viewBox={`0 0 ${width} ${height}`}
+		class="block h-auto min-w-[760px] w-full"
+		role="img"
+		aria-labelledby="frequency-chart-title frequency-chart-desc"
+	>
+		<title id="frequency-chart-title">
+			Frecuencia mensual del subte y el premetro entre 2019 y 2025
+		</title>
+		<desc id="frequency-chart-desc">
+			Serie mensual del intervalo promedio entre trenes para las líneas A, B, C,
+			D, E, H y Premetro. Valores más bajos indican mejor frecuencia.
+		</desc>
+
+		<g transform={`translate(${margin.left} ${margin.top})`}>
+			<rect x="0" y="0" width={innerWidth} height={innerHeight} fill="#fbfaf6" />
+			<rect
+				x={x(covidStart)}
+				y="0"
+				width={Math.max(0, x(covidEnd) - x(covidStart))}
+				height={innerHeight}
+				fill="#d7d2cb"
+				fill-opacity="0.28"
+			/>
+
+			{
+				yTicks.map((tick) => (
+					<g>
+						<line
+							x1="0"
+							x2={innerWidth}
+							y1={y(tick.value)}
+							y2={y(tick.value)}
+							stroke="#d9d3ca"
+							stroke-dasharray="3 7"
+						/>
+						<text
+							x="-12"
+							y={y(tick.value)}
+							dy="0.32em"
+							text-anchor="end"
+							font-size="12"
+							fill="#7d756e"
+						>
+							{tick.label}
+						</text>
+					</g>
+				))
+			}
+
+			{
+				yearTicks.map((tick) => (
+					<g>
+						<line
+							x1={x(tick)}
+							x2={x(tick)}
+							y1={innerHeight}
+							y2={innerHeight + 6}
+							stroke="#8f877f"
+						/>
+						<text
+							x={x(tick)}
+							y={innerHeight + 24}
+							text-anchor="middle"
+							font-size="12"
+							fill="#7d756e"
+						>
+							{utcFormat("%Y")(tick)}
+						</text>
+					</g>
+				))
+			}
+
+			{
+				renderedSeries.map((line) => (
+					<g>
+						<path
+							d={line.path}
+							fill="none"
+							stroke="#fbfaf6"
+							stroke-width="6"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+						<path
+							d={line.path}
+							fill="none"
+							stroke={line.color}
+							stroke-width={line.label === "Premetro" ? "2.7" : "2.3"}
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</g>
+				))
+			}
+
+			{
+				labels.map((label) => (
+					<g>
+						<line
+							x1={label.anchorX + 6}
+							x2={innerWidth + 10}
+							y1={label.y}
+							y2={label.y}
+							stroke={label.color}
+							stroke-width="1.25"
+							stroke-opacity="0.7"
+						/>
+						<text
+							x={innerWidth + 14}
+							y={label.y}
+							dy="0.32em"
+							font-size="12"
+							font-weight="700"
+							fill="#fbfaf6"
+							stroke="#fbfaf6"
+							stroke-width="5"
+							paint-order="stroke"
+						>
+							{label.shortLabel}
+						</text>
+						<text
+							x={innerWidth + 14}
+							y={label.y}
+							dy="0.32em"
+							font-size="12"
+							font-weight="700"
+							fill={label.color}
+						>
+							{label.shortLabel}
+						</text>
+					</g>
+				))
+			}
+		</g>
+	</svg>
+</div>
