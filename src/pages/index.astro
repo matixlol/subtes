@@ -126,9 +126,10 @@ const closedEscaleraShareLabel = new Intl.NumberFormat("es-AR", {
                                 Mira los datos de cada línea, o seguí leyendo
                             </p>
                             <a
-                                href="#accesibilidad"
+                                href="#"
                                 class="flex h-10 w-10 items-center justify-center rounded-full border border-[#b8ab9d] text-xl text-[#1d1a16] transition-colors duration-150 hover:bg-[#efebe4]"
                                 aria-label="Seguir leyendo"
+                                onclick="document.getElementById('accesibilidad').scrollIntoView({ behavior: 'smooth' }) || event?.preventDefault()"
                             >
                                 ↓
                             </a>
@@ -145,9 +146,9 @@ const closedEscaleraShareLabel = new Intl.NumberFormat("es-AR", {
             >
                 <div class="mx-auto max-w-6xl">
                     <h2
-                        class="text-4xl leading-none font-semibold tracking-[-0.08em] text-[#1b1816] sm:text-6xl"
+                        class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
                     >
-                        accesibilidad
+                        Accesibilidad
                     </h2>
                 </div>
             </section>
