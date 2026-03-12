@@ -2,14 +2,11 @@
 import {
     lineDHeatmap,
     meta,
+    networkStations,
+    stationAccessibility,
     stationHistory,
     stations,
 } from "../generated/station-status";
-import {
-    stationMapBasePoints,
-    stationMapPoints,
-    SUBTE_MAP_VIEWBOX,
-} from "../lib/station-map";
 import "../styles/global.css";
 
 const lines = Object.values(
@@ -116,7 +113,7 @@ const getHeatCellClass = (day) => {
     return "bg-[var(--heat-4)] text-transparent";
 };
 
-const normalizeMapKey = (value) =>
+const normalizeStationKey = (value) =>
     value
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
@@ -126,40 +123,9 @@ const normalizeMapKey = (value) =>
         .trim()
         .toLowerCase();
 
-const mapStations = Array.from(
-    stations.reduce((acc, station) => {
-        const key = `${normalizeMapKey(station.nombreLinea)}::${normalizeMapKey(
-            station.nombreEstacion,
-        )}`;
-        const existing = acc.get(key);
-
-        if (existing) {
-            existing.totalEquipos += station.totalEquipos;
-            existing.equiposFuncionando += station.equiposFuncionando;
-            existing.equiposConFalla += station.equiposConFalla;
-            existing.equiposFueraDeHorario += station.equiposFueraDeHorario;
-
-            if (
-                Date.parse(station.ultimaActualizacion) >
-                Date.parse(existing.ultimaActualizacion)
-            ) {
-                existing.ultimaActualizacion = station.ultimaActualizacion;
-            }
-
-            return acc;
-        }
-
-        acc.set(key, {
-            ...station,
-        });
-
-        return acc;
-    }, new Map()),
-).map(([, station]) => station);
-
-const stationStatusByMapKey = new Map(
-    mapStations.map((station) => [
-        `${normalizeMapKey(station.nombreLinea)}::${normalizeMapKey(
+const stationAccessibilityByKey = new Map(
+    stationAccessibility.map((station) => [
+        `${normalizeStationKey(station.nombreLinea)}::${normalizeStationKey(
             station.nombreEstacion,
         )}`,
         station,
@@ -168,107 +134,118 @@ const stationStatusByMapKey = new Map(
 
 const stationHistoryByMapKey = new Map(
     stationHistory.map((station) => [
-        `${normalizeMapKey(station.nombreLinea)}::${normalizeMapKey(
+        `${normalizeStationKey(station.nombreLinea)}::${normalizeStationKey(
             station.nombreEstacion,
         )}`,
         station,
     ]),
 );
 
-const stationMapMarkers = stationMapPoints.map((point) => {
-    const key = `${normalizeMapKey(point.line)}::${normalizeMapKey(point.station)}`;
-    const station = stationStatusByMapKey.get(key);
-    const history = stationHistoryByMapKey.get(key) ?? null;
+const lineColors = {
+    "Línea A": "#00aedc",
+    "Línea B": "#ee1b2c",
+    "Línea C": "#0168b3",
+    "Línea D": "#008066",
+    "Línea E": "#6b1f7e",
+    "Línea H": "#fed105",
+};
 
-    if (!station) {
-        return {
-            line: point.line,
-            stationName: point.station,
-            x: point.x,
-            y: point.y,
-            dataStation: null,
-            history,
-            heatLevel: "none",
-            outageRatio: null,
+const getAccessibilityState = (station) => {
+    if (!station || station.total === 0) return "no-data";
+    if (station.conFalla === 0 && station.fueraDeHorario === 0) return "full";
+    if (station.funcionando === 0 && station.conFalla > 0) return "blocked";
+    if (station.funcionando === 0 && station.fueraDeHorario > 0)
+        return "off-hours";
+    return "partial";
+};
+
+const getAccessibilityStateLabel = (station) => {
+    const state = getAccessibilityState(station);
+
+    if (state === "full") return "Todo funcionando";
+    if (state === "blocked") return "Sin acceso ahora";
+    if (state === "off-hours") return "Fuera de horario";
+    if (state === "partial") return "Acceso parcial";
+    return "Sin datos";
+};
+
+const getDiagramDotClass = (state) => {
+    if (state === "full") return "bg-[var(--heat-0)]";
+    if (state === "partial") return "bg-[var(--heat-2)]";
+    if (state === "off-hours") return "bg-[#f1dfaa]";
+    if (state === "blocked") return "bg-[var(--heat-4)]";
+    return "bg-[var(--surface)]";
+};
+
+const getDeviceStatusLabel = (status) => {
+    if (status === "funcionando") return "funciona";
+    if (status === "fuera-de-horario") return "fuera de horario";
+    return "con falla";
+};
+
+const getDeviceStatusClass = (status) => {
+    if (status === "funcionando") return "text-[#315635]";
+    if (status === "fuera-de-horario") return "text-[#7b5b18]";
+    return "text-[var(--danger-text)]";
+};
+
+const formatDeviceName = (device) =>
+    /ascensor|escalera/i.test(device.nombre)
+        ? device.nombre
+        : `${device.tipo === "ascensor" ? "Ascensor" : "Escalera"} ${device.nombre}`;
+
+const diagramLines = Object.values(
+    networkStations.reduce((acc, station) => {
+        const line = acc[station.idLinea] ?? {
+            idLinea: station.idLinea,
+            nombreLinea: station.nombreLinea,
+            color: lineColors[station.nombreLinea] ?? "var(--border-strong)",
+            stations: [],
         };
+        const key = `${normalizeStationKey(station.nombreLinea)}::${normalizeStationKey(
+            station.nombreEstacion,
+        )}`;
+        const accessibility = stationAccessibilityByKey.get(key) ?? null;
+        const history = stationHistoryByMapKey.get(key) ?? null;
+
+        line.stations.push({
+            ...station,
+            accessibility,
+            history,
+            state: getAccessibilityState(accessibility),
+        });
+        acc[station.idLinea] = line;
+        return acc;
+    }, {}),
+).sort((a, b) => a.idLinea - b.idLinea);
+
+const totalNetworkStations = diagramLines.reduce(
+    (count, line) => count + line.stations.length,
+    0,
+);
+
+const stationsWithAccessibility = diagramLines.reduce(
+    (count, line) =>
+        count + line.stations.filter((station) => station.accessibility).length,
+    0,
+);
+
+const getDiagramStationLabel = (station) => {
+    if (!station.accessibility) {
+        return `${station.nombreLinea} · ${station.nombreEstacion}: sin ascensores ni escaleras registradas`;
     }
 
-    return {
-        line: point.line,
-        stationName: point.station,
-        x: point.x,
-        y: point.y,
-        dataStation: station,
-        history,
-        heatLevel: getHeatLevel({
-            outages: station.equiposConFalla,
-            totalEquipos: station.totalEquipos,
-        }),
-        outageRatio:
-            station.totalEquipos > 0
-                ? station.equiposConFalla / station.totalEquipos
-                : null,
-    };
-});
-
-const getStationMarkerClass = (marker) => {
-    if (!marker.dataStation || marker.heatLevel === "none") {
-        return "border-[var(--border-strong)] bg-[var(--surface)]";
-    }
-
-    if (marker.heatLevel === 0) return "border-[var(--heat-0)] bg-[var(--heat-0)]";
-    if (marker.heatLevel === 1) return "border-[var(--heat-1)] bg-[var(--heat-1)]";
-    if (marker.heatLevel === 2) return "border-[var(--heat-2)] bg-[var(--heat-2)]";
-    if (marker.heatLevel === 3) return "border-[var(--heat-3)] bg-[var(--heat-3)]";
-    return "border-[var(--heat-4)] bg-[var(--heat-4)]";
-};
-
-const getStationMarkerStatus = (marker) => {
-    if (!marker.dataStation) {
-        return "Sin datos de ascensores";
-    }
-
-    if (marker.dataStation.totalEquipos === 0) {
-        return "Sin ascensores registrados";
-    }
-
-    if (marker.dataStation.equiposFuncionando === marker.dataStation.totalEquipos) {
-        return "Acceso completo";
-    }
-
-    if (marker.dataStation.equiposFuncionando === 0) {
-        return "Sin acceso ahora";
-    }
-
-    return "Acceso parcial";
-};
-
-const getStationMarkerLabel = (marker) => {
-    if (!marker.dataStation) {
-        return `${marker.line} · ${marker.stationName}: sin datos de ascensores`;
-    }
-
-    const historySummary = marker.history
-        ? ` · ${formatDayCount(marker.history.daysWithoutAccess)} sin acceso total en los últimos ${marker.history.windowDays}`
+    const historySummary = station.history
+        ? ` · ${formatDayCount(station.history.daysWithAnyFailure)} con fallas en los últimos ${station.history.windowDays}`
         : "";
 
-    return `${marker.line} · ${marker.dataStation.nombreEstacion}: ${marker.dataStation.equiposFuncionando}/${marker.dataStation.totalEquipos} ascensores funcionando${historySummary}`;
+    return `${station.nombreLinea} · ${station.nombreEstacion}: ${getAccessibilityStateLabel(
+        station.accessibility,
+    )}. ${station.accessibility.funcionando}/${station.accessibility.total} equipos funcionando${historySummary}`;
 };
 
-const getStationTooltipStyle = (marker) => {
-    const horizontal =
-        marker.x < 72
-            ? "left: 0;"
-            : marker.x > SUBTE_MAP_VIEWBOX.width - 72
-              ? "right: 0;"
-              : "left: 50%; transform: translateX(-50%);";
-    const vertical =
-        marker.y < 72
-            ? "top: calc(100% + 10px);"
-            : "bottom: calc(100% + 10px);";
-
-    return `${horizontal} ${vertical}`;
-};
+const getStationTooltipId = (station) =>
+    `station-tooltip-${station.idLinea}-${station.stationOrder}`;
 ---
 
 <html lang="es">
@@ -330,144 +307,256 @@ const getStationTooltipStyle = (marker) => {
                 class="mt-[18px] rounded-[10px] border border-[var(--border)] bg-[var(--surface)] px-3 py-3"
                 aria-labelledby="network-map-title"
             >
-                <div class="mb-2.5 flex items-end justify-between gap-4 max-[720px]:flex-col max-[720px]:items-start">
+                <div
+                    class="mb-2.5 flex items-end justify-between gap-4 max-[720px]:flex-col max-[720px]:items-start"
+                >
                     <div>
-                        <h2 id="network-map-title" class="m-0 text-base leading-[1.2]">
-                            Mapa de estaciones
+                        <h2
+                            id="network-map-title"
+                            class="m-0 text-base leading-[1.2]"
+                        >
+                            Mapa por línea
                         </h2>
                         <p class="mt-1 text-[0.75rem] text-[var(--muted)]">
-                            Vista compacta. Pasá el cursor por un punto para ver
-                            estado actual y los últimos 30 días.
+                            Cada fila sigue el recorrido de la línea. Pasá el
+                            cursor o enfocá una estación para ver el estado
+                            actual de sus ascensores y escaleras.
                         </p>
                     </div>
-                    <p class="m-0 whitespace-nowrap text-[0.75rem] text-[var(--muted)]">
-                        {stationMapMarkers.filter((marker) => marker.dataStation).length}
-                        {" "}estaciones con estado actual
-                        </p>
-                </div>
-
-                <div class="mx-auto max-w-[940px]">
-                <div class="relative rounded-[8px] border border-[#ebe1d7] bg-[#f8f3ec] px-2 py-2">
-                    <div
-                        class="relative w-full"
-                        style={`aspect-ratio: ${SUBTE_MAP_VIEWBOX.width} / ${SUBTE_MAP_VIEWBOX.height};`}
+                    <p
+                        class="m-0 whitespace-nowrap text-[0.75rem] text-[var(--muted)]"
                     >
-                        <img
-                            src="/subte-map.svg"
-                            alt="Mapa del subte de Buenos Aires"
-                            class="block h-full w-full object-contain"
-                        />
-
-                        <div class="absolute inset-0">
-                            {stationMapBasePoints.map((point) => (
-                                <span
-                                    class="absolute h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--surface)]/90 ring-1 ring-[var(--border-strong)]/55"
-                                    style={`left: ${(point.x / SUBTE_MAP_VIEWBOX.width) * 100}%; top: ${(point.y / SUBTE_MAP_VIEWBOX.height) * 100}%;`}
-                                    aria-hidden="true"
-                                >
-                                </span>
-                            ))}
-
-                            {stationMapMarkers.map((marker) => (
-                                <span
-                                    class="group absolute flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-                                    style={`left: ${(marker.x / SUBTE_MAP_VIEWBOX.width) * 100}%; top: ${(marker.y / SUBTE_MAP_VIEWBOX.height) * 100}%;`}
-                                >
-                                    <button
-                                        type="button"
-                                        class={`h-3 w-3 rounded-full border-[1.5px] shadow-[0_0_0_1px_rgba(250,248,245,0.9)] transition-[width,height,border-color] duration-150 ease-out group-hover:h-3.5 group-hover:w-3.5 group-focus-visible:h-3.5 group-focus-visible:w-3.5 ${getStationMarkerClass(marker)}`}
-                                        title={getStationMarkerLabel(marker)}
-                                        aria-label={getStationMarkerLabel(marker)}
-                                    >
-                                    </button>
-
-                                    <span
-                                        class="pointer-events-none absolute z-20 hidden min-w-[190px] rounded-[8px] border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-left shadow-[0_8px_20px_rgba(47,36,29,0.12)] group-hover:block group-focus-within:block"
-                                        style={getStationTooltipStyle(marker)}
-                                    >
-                                        <span class="block text-[0.64rem] uppercase tracking-[0.04em] text-[var(--muted)]">
-                                            {marker.line}
-                                        </span>
-                                        <span class="mt-0.5 block text-[0.84rem] font-semibold leading-tight text-[var(--text)]">
-                                            {marker.stationName}
-                                        </span>
-                                        <span class="mt-1 block text-[0.75rem] text-[var(--muted)]">
-                                            {getStationMarkerStatus(marker)}
-                                        </span>
-                                        {marker.dataStation ? (
-                                            <span class="mt-1.5 block text-[0.75rem] leading-[1.35] text-[var(--text)]">
-                                                <span class="block">
-                                                    Ahora: {marker.dataStation.equiposFuncionando}/
-                                                    {marker.dataStation.totalEquipos} activos
-                                                </span>
-                                                {marker.history && (
-                                                    <>
-                                                        <span class="block">
-                                                            Sin acceso total: {formatDayCount(
-                                                                marker.history.daysWithoutAccess,
-                                                            )}{" "}
-                                                            / {marker.history.windowDays}
-                                                        </span>
-                                                        <span class="block">
-                                                            Con fallas: {formatDayCount(
-                                                                marker.history.daysWithAnyFailure,
-                                                            )}{" "}
-                                                            / {marker.history.windowDays}
-                                                        </span>
-                                                        <span class="block">
-                                                            Racha actual con fallas: {formatDayCount(
-                                                                marker.history.currentFailureStreak,
-                                                            )}
-                                                        </span>
-                                                        {marker.history.currentWithoutAccessStreak >
-                                                            0 && (
-                                                            <span class="block">
-                                                                Racha sin acceso total: {formatDayCount(
-                                                                    marker.history.currentWithoutAccessStreak,
-                                                                )}
-                                                            </span>
-                                                        )}
-                                                    </>
-                                                )}
-                                                <span class="block">
-                                                    Actualizado: {formatTimestamp(
-                                                        marker.dataStation.ultimaActualizacion,
-                                                    )}
-                                                </span>
-                                            </span>
-                                        ) : (
-                                            <span class="mt-1.5 block text-[0.75rem] leading-[1.35] text-[var(--text)]">
-                                                Esta estación todavía no tiene un resumen
-                                                actual en el dataset generado.
-                                            </span>
-                                        )}
-                                    </span>
-                                </span>
-                            ))}
-                        </div>
-                    </div>
+                        {stationsWithAccessibility} de {totalNetworkStations} estaciones
+                        {" "}con detalle actual
+                    </p>
                 </div>
+
+                <div class="space-y-3">
+                    {
+                        diagramLines.map((line) => (
+                            <section class="border-t border-[#eee7df] pt-3 first:border-t-0 first:pt-0">
+                                <div class="grid gap-3 min-[860px]:grid-cols-[112px_minmax(0,1fr)]">
+                                    <div class="flex items-start gap-3 min-[860px]:pt-1">
+                                        <span
+                                            class="inline-flex h-7 min-w-7 items-center justify-center rounded-[8px] px-2 text-[0.8rem] font-semibold"
+                                            style={`background-color: ${line.color}; color: ${
+                                                line.nombreLinea === "Línea H"
+                                                    ? "#3a2b00"
+                                                    : "#ffffff"
+                                            };`}
+                                        >
+                                            {line.nombreLinea.replace(
+                                                "Línea ",
+                                                "",
+                                            )}
+                                        </span>
+                                        <div>
+                                            <p class="m-0 text-[0.82rem] font-semibold leading-tight">
+                                                {line.nombreLinea}
+                                            </p>
+                                            <p class="mt-0.5 text-[0.72rem] text-[var(--muted)]">
+                                                {line.stations.length}{" "}
+                                                estaciones
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="overflow-x-auto pb-18 pt-1">
+                                        <ol class="flex min-w-max px-1">
+                                            {line.stations.map(
+                                                (station, index) => (
+                                                    <li class="relative w-[58px] shrink-0 px-0.5">
+                                                        {index <
+                                                            line.stations
+                                                                .length -
+                                                                1 && (
+                                                            <span
+                                                                class="pointer-events-none absolute left-[calc(50%+10px)] top-[11px] h-[2px] w-[calc(100%)]"
+                                                                style={`background-color: ${line.color};`}
+                                                                aria-hidden="true"
+                                                            />
+                                                        )}
+
+                                                        <div class="group relative flex flex-col items-center text-center">
+                                                            <button
+                                                                type="button"
+                                                                class="flex w-full cursor-help flex-col items-center rounded-[8px] px-0.5 py-0.5 text-inherit outline-none focus-visible:ring-2 focus-visible:ring-[var(--border-strong)]"
+                                                                title={getDiagramStationLabel(
+                                                                    station,
+                                                                )}
+                                                                aria-label={getDiagramStationLabel(
+                                                                    station,
+                                                                )}
+                                                                data-station-tooltip={getStationTooltipId(
+                                                                    station,
+                                                                )}
+                                                            >
+                                                                <span
+                                                                    class={`relative z-10 block h-5 w-5 rounded-full border-[1.5px] ${getDiagramDotClass(
+                                                                        station.state,
+                                                                    )}`}
+                                                                    style={`border-color: ${line.color};`}
+                                                                />
+                                                                <span class="pointer-events-none absolute left-[calc(50%+4px)] top-[26px] block w-[74px] origin-top-left rotate-[38deg] text-left text-[0.64rem] leading-[1.05] text-[var(--text)]">
+                                                                    {
+                                                                        station.nombreEstacion
+                                                                    }
+                                                                </span>
+                                                            </button>
+
+                                                            <template
+                                                                id={getStationTooltipId(
+                                                                    station,
+                                                                )}
+                                                            >
+                                                                <div class="w-[280px] rounded-[8px] border border-[var(--border)] bg-[var(--surface)] px-3 py-3 text-left shadow-[0_8px_20px_rgba(47,36,29,0.12)]">
+                                                                    <p class="m-0 text-[0.68rem] text-[var(--muted)]">
+                                                                        {
+                                                                            line.nombreLinea
+                                                                        }
+                                                                    </p>
+                                                                    <p class="mt-1 text-[0.88rem] font-semibold leading-tight text-[var(--text)]">
+                                                                        {
+                                                                            station.nombreEstacion
+                                                                        }
+                                                                    </p>
+
+                                                                    {station.accessibility ? (
+                                                                        <>
+                                                                            <p class="mt-1 text-[0.75rem] text-[var(--muted)]">
+                                                                                {getAccessibilityStateLabel(
+                                                                                    station.accessibility,
+                                                                                )}{" "}
+                                                                                ·{" "}
+                                                                                {
+                                                                                    station
+                                                                                        .accessibility
+                                                                                        .funcionando
+                                                                                }
+
+                                                                                /
+                                                                                {
+                                                                                    station
+                                                                                        .accessibility
+                                                                                        .total
+                                                                                }{" "}
+                                                                                equipos
+                                                                                funcionando
+                                                                            </p>
+
+                                                                            <ul class="m-0 mt-2 list-none space-y-1 border-t border-[#eee7df] pt-2 pl-0 text-[0.74rem] text-[var(--text)]">
+                                                                                {station.accessibility.devices.map(
+                                                                                    (
+                                                                                        device,
+                                                                                    ) => (
+                                                                                        <li class="flex items-start justify-between gap-3">
+                                                                                            <span class="leading-[1.3]">
+                                                                                                {formatDeviceName(
+                                                                                                    device,
+                                                                                                )}
+                                                                                            </span>
+                                                                                            <span
+                                                                                                class={`whitespace-nowrap text-right ${getDeviceStatusClass(
+                                                                                                    device.estado,
+                                                                                                )}`}
+                                                                                            >
+                                                                                                {getDeviceStatusLabel(
+                                                                                                    device.estado,
+                                                                                                )}
+                                                                                            </span>
+                                                                                        </li>
+                                                                                    ),
+                                                                                )}
+                                                                            </ul>
+
+                                                                            <div class="mt-2 border-t border-[#eee7df] pt-2 text-[0.72rem] leading-[1.35] text-[var(--muted)]">
+                                                                                {station.history && (
+                                                                                    <span class="block">
+                                                                                        Últimos{" "}
+                                                                                        {
+                                                                                            station
+                                                                                                .history
+                                                                                                .windowDays
+                                                                                        }{" "}
+                                                                                        días:{" "}
+                                                                                        {formatDayCount(
+                                                                                            station
+                                                                                                .history
+                                                                                                .daysWithAnyFailure,
+                                                                                        )}{" "}
+                                                                                        con
+                                                                                        fallas
+                                                                                    </span>
+                                                                                )}
+                                                                                <span class="block">
+                                                                                    Actualizado:{" "}
+                                                                                    {formatTimestamp(
+                                                                                        station
+                                                                                            .accessibility
+                                                                                            .ultimaActualizacion,
+                                                                                    )}
+                                                                                </span>
+                                                                            </div>
+                                                                        </>
+                                                                    ) : (
+                                                                        <p class="mt-2 text-[0.75rem] leading-[1.35] text-[var(--text)]">
+                                                                            Esta
+                                                                            estación
+                                                                            no
+                                                                            tiene
+                                                                            ascensores
+                                                                            ni
+                                                                            escaleras
+                                                                            registradas
+                                                                            en
+                                                                            el
+                                                                            dataset
+                                                                            actual.
+                                                                        </p>
+                                                                    )}
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ol>
+                                    </div>
+                                </div>
+                            </section>
+                        ))
+                    }
                 </div>
 
                 <div
                     class="mt-2.5 flex flex-wrap items-center gap-1.5 text-[0.7rem] text-[var(--muted)]"
                     aria-label="Escala del mapa de estaciones"
                 >
-                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface)]">
+                    <div
+                        class="h-2.5 w-2.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface)]"
+                    >
                     </div>
                     <span class="whitespace-nowrap">sin datos</span>
-                    <span class="whitespace-nowrap">menos fallas</span>
-                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-0)] bg-[var(--heat-0)]">
+                    <div
+                        class="h-2.5 w-2.5 rounded-full border border-[var(--heat-0)] bg-[var(--heat-0)]"
+                    >
                     </div>
-                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-1)] bg-[var(--heat-1)]">
+                    <span class="whitespace-nowrap">todo funcionando</span>
+                    <div
+                        class="h-2.5 w-2.5 rounded-full border border-[var(--heat-2)] bg-[var(--heat-2)]"
+                    >
                     </div>
-                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-2)] bg-[var(--heat-2)]">
+                    <span class="whitespace-nowrap">acceso parcial</span>
+                    <div
+                        class="h-2.5 w-2.5 rounded-full border border-[#cfb167] bg-[#f1dfaa]"
+                    >
                     </div>
-                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-3)] bg-[var(--heat-3)]">
+                    <span class="whitespace-nowrap">fuera de horario</span>
+                    <div
+                        class="h-2.5 w-2.5 rounded-full border border-[var(--heat-4)] bg-[var(--heat-4)]"
+                    >
                     </div>
-                    <div class="h-2.5 w-2.5 rounded-full border border-[var(--heat-4)] bg-[var(--heat-4)]">
-                    </div>
-                    <span class="whitespace-nowrap">más fallas</span>
+                    <span class="whitespace-nowrap">sin acceso</span>
                 </div>
             </section>
 
@@ -475,7 +564,9 @@ const getStationTooltipStyle = (marker) => {
                 class="mt-[18px] rounded-[10px] border border-[var(--border)] bg-[var(--surface)] p-4 max-[640px]:p-3"
                 aria-labelledby="linea-d-heatmap-title"
             >
-                <div class="mb-3 flex items-end justify-between gap-4 max-[640px]:flex-col max-[640px]:items-start">
+                <div
+                    class="mb-3 flex items-end justify-between gap-4 max-[640px]:flex-col max-[640px]:items-start"
+                >
                     <div>
                         <h2
                             id="linea-d-heatmap-title"
@@ -490,7 +581,9 @@ const getStationTooltipStyle = (marker) => {
                             fallado.
                         </p>
                     </div>
-                    <p class="mt-1 whitespace-nowrap text-[0.78rem] text-[var(--muted)]">
+                    <p
+                        class="mt-1 whitespace-nowrap text-[0.78rem] text-[var(--muted)]"
+                    >
                         {formatShortDate(lineDHeatmap.startDate)} al{" "}
                         {formatShortDate(lineDHeatmap.endDate)}
                     </p>
@@ -501,8 +594,7 @@ const getStationTooltipStyle = (marker) => {
                         class="grid min-w-max auto-rows-[12px] items-center gap-1"
                         style={`grid-template-columns: 160px repeat(${lineDHeatmap.dates.length}, minmax(12px, 12px));`}
                     >
-                        <div class="h-3" aria-hidden="true">
-                        </div>
+                        <div class="h-3" aria-hidden="true"></div>
                         {
                             monthRanges.map((month) => (
                                 <span
@@ -574,17 +666,21 @@ const getStationTooltipStyle = (marker) => {
                                 fill="none"
                                 stroke="currentColor"
                                 stroke-linecap="round"
-                                stroke-width="1.5"
-                            />
+                                stroke-width="1.5"></path>
                         </svg>
                     </div>
                     <span class="whitespace-nowrap">sin ascensor</span>
                     <span class="whitespace-nowrap">menos fallas</span>
-                    <div class="h-3 w-3 bg-[var(--heat-0)]" aria-hidden="true"></div>
-                    <div class="h-3 w-3 bg-[var(--heat-1)]" aria-hidden="true"></div>
-                    <div class="h-3 w-3 bg-[var(--heat-2)]" aria-hidden="true"></div>
-                    <div class="h-3 w-3 bg-[var(--heat-3)]" aria-hidden="true"></div>
-                    <div class="h-3 w-3 bg-[var(--heat-4)]" aria-hidden="true"></div>
+                    <div class="h-3 w-3 bg-[var(--heat-0)]" aria-hidden="true">
+                    </div>
+                    <div class="h-3 w-3 bg-[var(--heat-1)]" aria-hidden="true">
+                    </div>
+                    <div class="h-3 w-3 bg-[var(--heat-2)]" aria-hidden="true">
+                    </div>
+                    <div class="h-3 w-3 bg-[var(--heat-3)]" aria-hidden="true">
+                    </div>
+                    <div class="h-3 w-3 bg-[var(--heat-4)]" aria-hidden="true">
+                    </div>
                     <span class="whitespace-nowrap">más fallas</span>
                 </div>
             </section>
@@ -597,7 +693,9 @@ const getStationTooltipStyle = (marker) => {
                     </p>
                 </div>
 
-                <div class="[columns:3_20rem] gap-4 max-[960px]:[columns:2_18rem] max-[640px]:columns-1">
+                <div
+                    class="[columns:3_20rem] gap-4 max-[960px]:[columns:2_18rem] max-[640px]:columns-1"
+                >
                     {
                         lines.map((line) => (
                             <section class="mb-4 break-inside-avoid rounded-[10px] border border-[var(--border)] bg-[var(--surface)]">
@@ -667,5 +765,82 @@ const getStationTooltipStyle = (marker) => {
                 </div>
             </section>
         </main>
+        <script is:inline>
+            (() => {
+                const tooltip = document.createElement("div");
+                tooltip.className =
+                    "pointer-events-none fixed z-50 hidden max-w-[calc(100vw-16px)]";
+                document.body.appendChild(tooltip);
+
+                let activeButton = null;
+
+                const positionTooltip = (button) => {
+                    const rect = button.getBoundingClientRect();
+                    const tooltipRect = tooltip.getBoundingClientRect();
+                    const gap = 10;
+                    const maxLeft = window.innerWidth - tooltipRect.width - 8;
+                    const preferredTop = rect.top - tooltipRect.height - gap;
+                    const top =
+                        preferredTop >= 8 ? preferredTop : rect.bottom + gap;
+                    const left = Math.min(
+                        Math.max(
+                            rect.left + rect.width / 2 - tooltipRect.width / 2,
+                            8,
+                        ),
+                        maxLeft,
+                    );
+
+                    tooltip.style.top = `${top}px`;
+                    tooltip.style.left = `${left}px`;
+                };
+
+                const showTooltip = (button) => {
+                    const templateId = button.dataset.stationTooltip;
+                    if (!templateId) return;
+
+                    const template = document.getElementById(templateId);
+                    if (!(template instanceof HTMLTemplateElement)) return;
+
+                    tooltip.innerHTML = template.innerHTML;
+                    tooltip.classList.remove("hidden");
+                    activeButton = button;
+                    positionTooltip(button);
+                };
+
+                const hideTooltip = (button) => {
+                    if (button && activeButton !== button) return;
+                    activeButton = null;
+                    tooltip.classList.add("hidden");
+                    tooltip.innerHTML = "";
+                };
+
+                const buttons = document.querySelectorAll(
+                    "[data-station-tooltip]",
+                );
+
+                buttons.forEach((button) => {
+                    button.addEventListener("mouseenter", () =>
+                        showTooltip(button),
+                    );
+                    button.addEventListener("focus", () => showTooltip(button));
+                    button.addEventListener("mouseleave", () =>
+                        hideTooltip(button),
+                    );
+                    button.addEventListener("blur", () => hideTooltip(button));
+                });
+
+                window.addEventListener("resize", () => {
+                    if (activeButton) positionTooltip(activeButton);
+                });
+
+                document.addEventListener(
+                    "scroll",
+                    () => {
+                        if (activeButton) positionTooltip(activeButton);
+                    },
+                    true,
+                );
+            })();
+        </script>
     </body>
 </html>

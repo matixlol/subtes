@@ -9,6 +9,25 @@ const databasePath = path.join(rootDir, "data", "accesibilidad.sqlite");
 const outputPath = path.join(rootDir, "src", "generated", "station-status.ts");
 const wasmDir = path.join(rootDir, "node_modules", "sql.js", "dist");
 
+const ascensorCondition = `
+	LOWER(
+		COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+	) LIKE '%ascensor%'
+`;
+
+const escaleraCondition = `
+	LOWER(
+		COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+	) LIKE '%escalera%'
+	AND LOWER(
+		COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+	) NOT LIKE '%salvaescalera%'
+`;
+
+const ascensorOrEscaleraCondition = `
+	(${ascensorCondition} OR ${escaleraCondition})
+`;
+
 const SQL = await initSqlJs({
 	locateFile: (file) => path.join(wasmDir, file),
 });
@@ -25,9 +44,7 @@ const stationQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE LOWER(
-			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
-		) LIKE '%ascensor%'
+		WHERE ${ascensorCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -56,9 +73,7 @@ const metaQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE LOWER(
-			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
-		) LIKE '%ascensor%'
+		WHERE ${ascensorCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -80,9 +95,7 @@ const lineDCurrentEquipmentQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE LOWER(
-			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
-		) LIKE '%ascensor%'
+		WHERE ${ascensorCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -117,9 +130,7 @@ const lineDHistoryQuery = `
 		[commit-datetime] AS commitDatetime
 	FROM status
 	WHERE idLinea = 4
-		AND LOWER(
-			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
-		) LIKE '%ascensor%'
+		AND ${ascensorCondition}
 	ORDER BY nombreEstacion, equipo, [commit-datetime] ASC, id ASC
 `;
 
@@ -132,9 +143,7 @@ const currentEquipmentQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE LOWER(
-			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
-		) LIKE '%ascensor%'
+		WHERE ${ascensorCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -155,16 +164,64 @@ const stationHistoryQuery = `
 		nombreLinea,
 		idEstacion,
 		nombreEstacion,
-		COALESCE(nombre_2024, nombre, descripcion) AS equipo,
+		COALESCE(NULLIF(TRIM(descripcion), ''), NULLIF(TRIM(nombre_2024), ''), NULLIF(TRIM(nombre), '')) AS equipo,
+		LOWER(
+			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+		) AS searchText,
 		funcionando,
 		fueraDeHorario,
 		fechaActualizacion,
 		[commit-datetime] AS commitDatetime
 	FROM status
-	WHERE LOWER(
-		COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
-	) LIKE '%ascensor%'
+	WHERE ${ascensorCondition}
 	ORDER BY idLinea, nombreEstacion, idEstacion, equipo, [commit-datetime] ASC, id ASC
+`;
+
+const networkStationsQuery = `
+	SELECT
+		idLinea,
+		nombreLinea,
+		nombreEstacion,
+		MIN(idEstacion) AS stationOrder
+	FROM status
+	GROUP BY idLinea, nombreLinea, nombreEstacion
+	ORDER BY idLinea, stationOrder, nombreEstacion
+`;
+
+const accessibilityCurrentQuery = `
+	WITH ranked AS (
+		SELECT
+			*,
+			ROW_NUMBER() OVER (
+				PARTITION BY idLinea, idEstacion, COALESCE(nombre_2024, nombre, descripcion)
+				ORDER BY [commit-datetime] DESC, id DESC
+			) AS rn
+		FROM status
+		WHERE ${ascensorOrEscaleraCondition}
+	),
+	current_status AS (
+		SELECT * FROM ranked WHERE rn = 1
+	)
+	SELECT
+		idLinea,
+		nombreLinea,
+		idEstacion,
+		nombreEstacion,
+		COALESCE(
+			NULLIF(TRIM(descripcion), ''),
+			NULLIF(TRIM(nombre_2024), ''),
+			NULLIF(TRIM(nombre), '')
+		) AS equipo,
+		tipo,
+		LOWER(
+			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+		) AS searchText,
+		funcionando,
+		fueraDeHorario,
+		fechaActualizacion,
+		[commit-datetime] AS commitDatetime
+	FROM current_status
+	ORDER BY idLinea, nombreEstacion, idEstacion, equipo
 `;
 
 const mapRows = (result) =>
@@ -242,6 +299,8 @@ const lineDCurrentEquipment = getResultRows(lineDCurrentEquipmentQuery);
 const lineDHistory = getResultRows(lineDHistoryQuery);
 const currentEquipment = getResultRows(currentEquipmentQuery);
 const stationHistoryRows = getResultRows(stationHistoryQuery);
+const networkStationsRows = getResultRows(networkStationsQuery);
+const accessibilityCurrentRows = getResultRows(accessibilityCurrentQuery);
 
 const lineDStations = new Map();
 for (const row of lineDStationsList) {
@@ -422,6 +481,92 @@ const stationHistory = Array.from(stationEquipmentByName.values())
 		};
 	});
 
+const networkStations = networkStationsRows.map((row) => ({
+	idLinea: Number(row.idLinea),
+	nombreLinea: row.nombreLinea,
+	nombreEstacion: row.nombreEstacion,
+	stationOrder: Number(row.stationOrder),
+}));
+
+const classifyDeviceType = (row) => {
+	if (Number(row.tipo) === 0) return "ascensor";
+	if (Number(row.tipo) === 1) return "escalera";
+	const normalized = `${row.searchText ?? ""}`.toLocaleLowerCase("es-AR");
+	return normalized.includes("ascensor") ? "ascensor" : "escalera";
+};
+
+const getDeviceStatus = (row) => {
+	if (truthy(row.funcionando)) return "funcionando";
+	if (truthy(row.fueraDeHorario)) return "fuera-de-horario";
+	return "con-falla";
+};
+
+const stationAccessibilityMap = new Map();
+for (const row of accessibilityCurrentRows) {
+	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const deviceType = classifyDeviceType(row);
+	const deviceKey = `${deviceType}::${row.equipo}`;
+	const existingStation = stationAccessibilityMap.get(stationKey) ?? {
+		idLinea: Number(row.idLinea),
+		nombreLinea: row.nombreLinea,
+		nombreEstacion: row.nombreEstacion,
+		devices: new Map(),
+		ultimaActualizacion: row.fechaActualizacion,
+	};
+	const existingDevice = existingStation.devices.get(deviceKey);
+
+	if (!existingDevice || row.commitDatetime > existingDevice.commitDatetime) {
+		existingStation.devices.set(deviceKey, {
+			nombre: row.equipo,
+			tipo: deviceType,
+			estado: getDeviceStatus(row),
+			fechaActualizacion: row.fechaActualizacion,
+			commitDatetime: row.commitDatetime,
+		});
+	}
+
+	if (row.fechaActualizacion > existingStation.ultimaActualizacion) {
+		existingStation.ultimaActualizacion = row.fechaActualizacion;
+	}
+
+	stationAccessibilityMap.set(stationKey, existingStation);
+}
+
+const stationAccessibility = Array.from(stationAccessibilityMap.values())
+	.sort((a, b) =>
+		a.idLinea === b.idLinea
+			? a.nombreEstacion.localeCompare(b.nombreEstacion, "es-AR")
+			: a.idLinea - b.idLinea,
+	)
+	.map((station) => {
+		const devices = Array.from(station.devices.values())
+			.sort((a, b) => a.nombre.localeCompare(b.nombre, "es-AR"))
+			.map(({ commitDatetime, ...device }) => device);
+		const counts = devices.reduce(
+			(acc, device) => {
+				if (device.estado === "funcionando") acc.funcionando += 1;
+				if (device.estado === "fuera-de-horario") acc.fueraDeHorario += 1;
+				if (device.estado === "con-falla") acc.conFalla += 1;
+				return acc;
+			},
+			{
+				total: devices.length,
+				funcionando: 0,
+				fueraDeHorario: 0,
+				conFalla: 0,
+			},
+		);
+
+		return {
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			nombreEstacion: station.nombreEstacion,
+			ultimaActualizacion: station.ultimaActualizacion,
+			...counts,
+			devices,
+		};
+	});
+
 db.close();
 
 await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -430,6 +575,8 @@ await fs.writeFile(
 	[
 		"export const meta = " + JSON.stringify(meta, null, 2) + " as const;",
 		"export const stations = " + JSON.stringify(stations, null, 2) + " as const;",
+		"export const networkStations = " + JSON.stringify(networkStations, null, 2) + " as const;",
+		"export const stationAccessibility = " + JSON.stringify(stationAccessibility, null, 2) + " as const;",
 		"export const stationHistory = " + JSON.stringify(stationHistory, null, 2) + " as const;",
 		"export const lineDHeatmap = " + JSON.stringify(lineDHeatmap, null, 2) + " as const;",
 		"",
