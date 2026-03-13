@@ -6,8 +6,10 @@
 - [ ] favicon
 - [ ] meta tags
 
-- [ ] efecto "deteriorando"
+- [x] efecto "deteriorando"
 
 - [ ] boton "compartir a redes"
 
 - [ ] actualizar automaticamente
+
+- [ ] falta el historico de la accesibilidad dentro de la pagina de linea
