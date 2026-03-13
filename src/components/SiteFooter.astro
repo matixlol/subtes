@@ -1,25 +1,48 @@
+---
+import LineNav from "./LineNav.astro";
+
+interface Props {
+    showLineNav?: boolean;
+}
+
+const { showLineNav = false } = Astro.props;
+---
+
 <footer class="px-4 pb-16 pt-4 text-center tracking-[-0.02em]">
-    <p>Hecho con amor en la Ciudad de la Furia</p>
-    <p>
-        Por <a
-            class="underline"
-            href="https://x.com/matidotlol"
-            target="_blank"
-            rel="noreferer">Matias</a
-        >
-        y <a
-            class="underline"
-            href="https://x.com/rusosnith"
-            target="_blank"
-            rel="noreferer">Andres Snitcofsky</a
-        >
-    </p>
-    <p>
-        Visualizando el Subte, un proyecto de <a
-            class="underline"
-            href="https://visualizando.ar"
-            target="_blank"
-            rel="noreferer">visualizando.ar</a
-        >
-    </p>
+    {
+        showLineNav && (
+            <div class="mx-auto mb-8 w-full max-w-[430px]">
+                <p class="mb-4 text-sm leading-5 text-[#544b43]">
+                    Mira los datos de cada línea
+                </p>
+                <LineNav class="px-0 py-0" />
+            </div>
+        )
+    }
+
+    <div class="space-y-1 text-[#544b43]">
+        <p>Hecho con amor en la Ciudad de la Furia</p>
+        <p>
+            Por <a
+                class="underline"
+                href="https://x.com/matidotlol"
+                target="_blank"
+                rel="noreferer">Matias</a
+            >
+            y <a
+                class="underline"
+                href="https://x.com/rusosnith"
+                target="_blank"
+                rel="noreferer">Andres Snitcofsky</a
+            >
+        </p>
+        <p>
+            Visualizando el Subte, un proyecto de <a
+                class="underline"
+                href="https://visualizando.ar"
+                target="_blank"
+                rel="noreferer">visualizando.ar</a
+            >
+        </p>
+    </div>
 </footer>
