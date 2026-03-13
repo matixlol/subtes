@@ -46,8 +46,8 @@ const frequencyChangeByLineMap = new Map(
 );
 const frequencySeries = getFrequencySeriesForLineCode(line.code);
 const frequencyChange = frequencyChangeByLineMap.get(line.nombreLinea) ?? null;
-const accessibilityPanelId = `panel-accesibilidad-${line.code.toLowerCase()}`;
-const frequencyPanelId = `panel-frecuencia-${line.code.toLowerCase()}`;
+const accessibilityPanelId = "accesibilidad";
+const frequencyPanelId = "frecuencia";
 const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithDetail} con equipamiento registrado`;
 ---
 
@@ -137,11 +137,12 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 					</div>
 
 					<section
+						data-tab-anchor="accesibilidad"
 						id={accessibilityPanelId}
 						role="tabpanel"
 						aria-labelledby={`tab-accesibilidad-${line.code.toLowerCase()}`}
 						data-tab-panel="accesibilidad"
-						class="pt-8"
+						class="scroll-mt-6 pt-8"
 					>
 						<div class="space-y-6">
 							<div class="space-y-3">
@@ -231,11 +232,12 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 					</section>
 
 					<section
+						data-tab-anchor="frecuencia"
 						id={frequencyPanelId}
 						role="tabpanel"
 						aria-labelledby={`tab-frecuencia-${line.code.toLowerCase()}`}
 						data-tab-panel="frecuencia"
-						class="pt-8"
+						class="scroll-mt-6 pt-8"
 						hidden
 					>
 						<div class="space-y-6">
@@ -340,6 +342,17 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 					});
 				};
 
+				const scrollToTabAnchor = (tab) => {
+					const anchor = tabs.querySelector(
+						`[data-tab-anchor="${tab}"]`,
+					);
+					if (!(anchor instanceof HTMLElement)) return;
+
+					requestAnimationFrame(() => {
+						anchor.scrollIntoView({ block: "start" });
+					});
+				};
+
 				const setTab = (nextTab, { updateHistory = true } = {}) => {
 					const tab = allowedTabs.has(nextTab)
 						? nextTab
@@ -371,7 +384,12 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 					}
 				};
 
-				setTab(getTabFromHash(), { updateHistory: false });
+				const initialTab = getTabFromHash();
+				setTab(initialTab, { updateHistory: false });
+
+				if (window.location.hash) {
+					scrollToTabAnchor(initialTab);
+				}
 
 				triggers.forEach((trigger) => {
 					trigger.addEventListener("click", () => {
@@ -403,7 +421,9 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 				});
 
 				window.addEventListener("hashchange", () => {
-					setTab(getTabFromHash(), { updateHistory: false });
+					const nextTab = getTabFromHash();
+					setTab(nextTab, { updateHistory: false });
+					scrollToTabAnchor(nextTab);
 				});
 			})();
 		</script>
