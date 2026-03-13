@@ -11,6 +11,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   output: "server",
   adapter: vercel(),
+  server: {
+    allowedHosts: ["interior-wrist-ball-colon.trycloudflare.com"],
+  },
   integrations: [react(), mdx(), sitemap()],
 
   vite: {
