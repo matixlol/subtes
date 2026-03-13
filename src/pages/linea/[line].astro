@@ -12,9 +12,6 @@ import {
 } from "../../lib/frequency-data";
 import {
     diagramLines,
-    formatDeviceName,
-    getAccessibilityStateLabel,
-    getDeviceStatusLabel,
 } from "../../lib/line-data";
 
 const getStatusFillClass = (state: string) => {
@@ -25,7 +22,49 @@ const getStatusFillClass = (state: string) => {
     return "bg-[var(--surface)]";
 };
 
-const isDeviceAvailable = (status: string) => status === "funcionando";
+const getDeviceGroupLabel = (
+    kind: "ascensor" | "escalera",
+    count: number,
+) => {
+    if (kind === "ascensor") {
+        return count === 1 ? "Ascensor" : "Ascensores";
+    }
+
+    return count === 1 ? "Escalera" : "Escaleras";
+};
+
+const groupStationDevices = (
+    devices: ReadonlyArray<{
+        nombre: string;
+        tipo: string;
+        estado: string;
+    }>,
+) => {
+    const groups = (["ascensor", "escalera"] as const).flatMap((kind) => {
+        const groupedDevices = devices.filter((device) => device.tipo === kind);
+
+        if (groupedDevices.length === 0) return [];
+
+        return [
+            {
+                kind,
+                label: getDeviceGroupLabel(kind, groupedDevices.length),
+                devices: groupedDevices,
+            },
+        ];
+    });
+
+    if (!groups.some((group) => group.kind === "ascensor")) {
+        groups.unshift({
+            kind: "ascensor" as const,
+            label: "Ascensor",
+            devices: [],
+        });
+    }
+
+    return groups;
+};
+
 const withAlpha = (hex: string, alpha: number) => {
     const normalized = hex.replace("#", "");
     if (normalized.length !== 6) return hex;
@@ -197,42 +236,32 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
                                                                 station.nombreEstacion
                                                             }
                                                         </span>
-                                                        <span class="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-[0.86rem] leading-[1.25] text-[#544b43]">
+                                                        <span class="mt-3 block">
                                                             {station.accessibility ? (
-                                                                <>
-                                                                    <span class="font-medium text-[#544b43]">
-                                                                        {getAccessibilityStateLabel(
-                                                                            station.accessibility,
-                                                                        )}
-                                                                    </span>
-                                                                    <span class="ml-auto flex flex-wrap items-center justify-end gap-1.5">
-                                                                        {station.accessibility.devices.map(
-                                                                            (
-                                                                                device,
-                                                                            ) => (
-                                                                                <DeviceBadge
-                                                                                    kind={
-                                                                                        device.tipo ===
-                                                                                        "escalera"
-                                                                                            ? "escalera"
-                                                                                            : "ascensor"
-                                                                                    }
-                                                                                    isAvailable={isDeviceAvailable(
-                                                                                        device.estado,
-                                                                                    )}
-                                                                                    label={formatDeviceName(
-                                                                                        device,
-                                                                                    )}
-                                                                                    statusLabel={getDeviceStatusLabel(
-                                                                                        device.estado,
-                                                                                    )}
-                                                                                />
-                                                                            ),
-                                                                        )}
-                                                                    </span>
-                                                                </>
+                                                                <span class="block space-y-2">
+                                                                    {groupStationDevices(
+                                                                        station.accessibility
+                                                                            .devices,
+                                                                    ).map(
+                                                                        (
+                                                                            group,
+                                                                        ) => (
+                                                                            <DeviceBadge
+                                                                                kind={
+                                                                                    group.kind
+                                                                                }
+                                                                                label={
+                                                                                    group.label
+                                                                                }
+                                                                                devices={
+                                                                                    group.devices
+                                                                                }
+                                                                            />
+                                                                        ),
+                                                                    )}
+                                                                </span>
                                                             ) : (
-                                                                <span>
+                                                                <span class="text-[0.86rem] leading-[1.25] text-[#544b43]">
                                                                     Sin
                                                                     ascensores
                                                                     ni escaleras

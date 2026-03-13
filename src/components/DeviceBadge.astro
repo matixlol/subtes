@@ -1,245 +1,318 @@
 ---
 interface Props {
-	kind: "ascensor" | "escalera";
-	isAvailable: boolean;
-	label: string;
-	statusLabel: string;
+    kind: "ascensor" | "escalera";
+    label: string;
+    devices: Array<{
+        nombre: string;
+        estado: string;
+    }>;
 }
 
-const { kind, isAvailable, label, statusLabel } = Astro.props;
-const tooltipId = `device-badge-tooltip-${crypto.randomUUID()}`;
+const { kind, label, devices } = Astro.props;
+const tooltipPrefix = `device-square-tooltip-${crypto.randomUUID()}`;
+
+const getStatusLabel = (status: string) => {
+    if (status === "funcionando") return "funciona";
+    if (status === "fuera-de-horario") return "fuera de horario";
+    return "con falla";
+};
+
+const getStatusClasses = (status: string) => {
+    if (status === "funcionando") {
+        return "border-[#5f97c8] bg-[#edf4fb]";
+    }
+
+    if (status === "fuera-de-horario") {
+        return "border-[#c39a38] bg-[#f8efcf]";
+    }
+
+    return "border-[#db4a42] bg-[#f5dada]";
+};
 
 const iconMarkup =
-	kind === "ascensor"
-		? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4 w-4"><g fill="currentColor"><path d="M184 104v112H72V104Z" opacity=".2"></path><path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16m-32 80v96h-40v-96Zm-56 96H80v-96h40Zm88 0h-16V104a8 8 0 0 0-8-8H72a8 8 0 0 0-8 8v104H48V48h160zM152 72a8 8 0 0 1-8 8h-32a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8"></path></g></svg>'
-		: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4 w-4"><path fill="currentColor" d="M224 40h-56a8 8 0 0 0-5.88 2.57L68.5 144H32a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h56a8 8 0 0 0 5.88-2.57L187.5 112H224a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 56h-40a8 8 0 0 0-5.88 2.57L84.5 200H32v-40h40a8 8 0 0 0 5.88-2.57L171.5 56H224Zm5.66 74.34a8 8 0 0 1-11.32 11.32L208 171.31V208a8 8 0 0 1-16 0v-36.69l-10.34 10.35a8 8 0 0 1-11.32-11.32l24-24a8 8 0 0 1 11.32 0Z"></path></svg>';
+    kind === "ascensor"
+        ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-6 w-6"><g fill="currentColor"><path d="M184 104v112H72V104Z" opacity=".2"></path><path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16m-32 80v96h-40v-96Zm-56 96H80v-96h40Zm88 0h-16V104a8 8 0 0 0-8-8H72a8 8 0 0 0-8 8v104H48V48h160zM152 72a8 8 0 0 1-8 8h-32a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8"></path></g></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-6 w-6"><path fill="currentColor" d="M224 40h-56a8 8 0 0 0-5.88 2.57L68.5 144H32a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h56a8 8 0 0 0 5.88-2.57L187.5 112H224a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 56h-40a8 8 0 0 0-5.88 2.57L84.5 200H32v-40h40a8 8 0 0 0 5.88-2.57L171.5 56H224Zm5.66 74.34a8 8 0 0 1-11.32 11.32L208 171.31V208a8 8 0 0 1-16 0v-36.69l-10.34 10.35a8 8 0 0 1-11.32-11.32l24-24a8 8 0 0 1 11.32 0Z"></path></svg>';
+
+const missingIconMarkup =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4.5 w-4.5"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="40" d="M56 56l144 144M200 56L56 200"></path></svg>';
 ---
 
-<span data-tooltip-root class="relative z-10 inline-flex shrink-0">
-	<button
-		type="button"
-		aria-describedby={tooltipId}
-		aria-label={`${label}: ${statusLabel}`}
-		data-tooltip-trigger
-		class:list={[
-			"inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-[8px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,26,22,0.18)]",
-			isAvailable
-				? "border-[rgba(29,26,22,0.16)] bg-white text-[#1d1a16]"
-				: "border-[#5b0a0a] bg-[#7a1111] text-[#fff5f5]",
-		]}
-	>
-		<Fragment set:html={iconMarkup} />
-	</button>
-	<span
-		id={tooltipId}
-		role="tooltip"
-		data-tooltip-content
-		data-side="top"
-		hidden
-		class="pointer-events-auto fixed left-0 top-0 z-40 w-max max-w-[min(18rem,calc(100vw-1.5rem))] rounded-[10px] border border-[#3d342d] bg-[rgba(29,26,22,0.96)] px-3 py-2 text-left text-[0.8rem] leading-5 text-[#fffaf2] shadow-[0_14px_32px_rgba(29,26,22,0.22)]"
-	>
-		<span class="block font-medium">{label}</span>
-		<span class="mt-1 block text-[0.72rem] leading-4 text-[#d6cbc0]">
-			{statusLabel}
-		</span>
-		<span
-			data-tooltip-arrow
-			aria-hidden="true"
-			class="absolute h-2.5 w-2.5 rotate-45 border-[#3d342d] bg-[rgba(29,26,22,0.96)]"
-		></span>
-	</span>
-</span>
+<div class="flex flex-wrap items-center gap-0.5">
+    <span
+        role="img"
+        aria-label={label}
+        title={label}
+        class="inline-flex shrink-0 items-center justify-center text-[#544b43]"
+    >
+        <Fragment set:html={iconMarkup} />
+    </span>
+    {
+        devices.length === 0 && (
+            <span
+                role="img"
+                aria-label={`Sin ${label.toLowerCase()}`}
+                title={`Sin ${label.toLowerCase()}`}
+                class="inline-flex shrink-0 items-center justify-center text-[#c63a32]"
+            >
+                <Fragment set:html={missingIconMarkup} />
+            </span>
+        )
+    }
+    {
+        devices.map((device, index) => (
+            <span data-tooltip-root class="relative inline-flex shrink-0">
+                <button
+                    type="button"
+                    aria-describedby={`${tooltipPrefix}-${index}`}
+                    aria-label={`${device.nombre}: ${getStatusLabel(device.estado)}`}
+                    data-tooltip-trigger
+                    class:list={[
+                        "block h-5 w-5 rounded-[3px] border-[2px] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1a16]/15",
+                        getStatusClasses(device.estado),
+                    ]}
+                />
+                <span
+                    id={`${tooltipPrefix}-${index}`}
+                    role="tooltip"
+                    data-tooltip-content
+                    data-side="top"
+                    hidden
+                    class="pointer-events-auto fixed left-0 top-0 z-40 w-max max-w-[min(18rem,calc(100vw-1.5rem))] rounded-[10px] border border-[#3d342d] bg-[rgba(29,26,22,0.96)] px-3 py-2 text-left text-[0.8rem] leading-5 text-[#fffaf2] shadow-[0_14px_32px_rgba(29,26,22,0.22)]"
+                >
+                    <span class="block font-medium">{device.nombre}</span>
+                    <span class="mt-1 block text-[0.72rem] leading-4 text-[#d6cbc0]">
+                        {getStatusLabel(device.estado)}
+                    </span>
+                    <span
+                        data-tooltip-arrow
+                        aria-hidden="true"
+                        class="absolute h-2.5 w-2.5 rotate-45 border-[#3d342d] bg-[rgba(29,26,22,0.96)]"
+                    />
+                </span>
+            </span>
+        ))
+    }
+</div>
 
 <script>
-	import {
-		arrow,
-		autoUpdate,
-		computePosition,
-		flip,
-		offset,
-		shift,
-	} from "@floating-ui/dom";
+    import {
+        arrow,
+        autoUpdate,
+        computePosition,
+        flip,
+        offset,
+        shift,
+    } from "@floating-ui/dom";
 
-	let activeClose = null;
+    let activeClose = null;
 
-	const setupDeviceBadgeTooltips = () => {
-		document.querySelectorAll("[data-tooltip-root]").forEach((root) => {
-			if (!(root instanceof HTMLElement)) return;
-			if (root.dataset.tooltipBound === "true") return;
+    const setupDeviceSquareTooltips = () => {
+        document.querySelectorAll("[data-tooltip-root]").forEach((root) => {
+            if (!(root instanceof HTMLElement)) return;
+            if (root.dataset.tooltipBound === "true") return;
 
-			const trigger = root.querySelector("[data-tooltip-trigger]");
-			const tooltip = root.querySelector("[data-tooltip-content]");
-			const arrowElement = root.querySelector("[data-tooltip-arrow]");
+            const trigger = root.querySelector("[data-tooltip-trigger]");
+            const tooltip = root.querySelector("[data-tooltip-content]");
+            const arrowElement = root.querySelector("[data-tooltip-arrow]");
 
-			if (!(trigger instanceof HTMLElement)) return;
-			if (!(tooltip instanceof HTMLElement)) return;
-			if (!(arrowElement instanceof HTMLElement)) return;
+            if (!(trigger instanceof HTMLElement)) return;
+            if (!(tooltip instanceof HTMLElement)) return;
+            if (!(arrowElement instanceof HTMLElement)) return;
 
-			root.dataset.tooltipBound = "true";
+            root.dataset.tooltipBound = "true";
 
-			let cleanupAutoUpdate = null;
-			let closeTimer = 0;
-			let isOpen = false;
-			let removeGlobalListeners = null;
+            let cleanupAutoUpdate = null;
+            let closeTimer = 0;
+            let isOpen = false;
+            let removeGlobalListeners = null;
 
-			const clearCloseTimer = () => {
-				window.clearTimeout(closeTimer);
-				closeTimer = 0;
-			};
+            const clearCloseTimer = () => {
+                window.clearTimeout(closeTimer);
+                closeTimer = 0;
+            };
 
-			const updatePosition = async () => {
-				const { x, y, placement, middlewareData } = await computePosition(
-					trigger,
-					tooltip,
-					{
-						strategy: "fixed",
-						placement: "top",
-						middleware: [
-							offset(12),
-							flip({ padding: 12 }),
-							shift({ padding: 12 }),
-							arrow({ element: arrowElement }),
-						],
-					},
-				);
+            const updatePosition = async () => {
+                const { x, y, placement, middlewareData } =
+                    await computePosition(trigger, tooltip, {
+                        strategy: "fixed",
+                        placement: "top",
+                        middleware: [
+                            offset(12),
+                            flip({ padding: 12 }),
+                            shift({ padding: 12 }),
+                            arrow({ element: arrowElement }),
+                        ],
+                    });
 
-				Object.assign(tooltip.style, {
-					left: `${x}px`,
-					top: `${y}px`,
-				});
+                Object.assign(tooltip.style, {
+                    left: `${x}px`,
+                    top: `${y}px`,
+                });
 
-				const side = placement.split("-")[0];
-				const staticSide = {
-					top: "bottom",
-					right: "left",
-					bottom: "top",
-					left: "right",
-				}[side];
+                const side = placement.split("-")[0];
+                const staticSide = {
+                    top: "bottom",
+                    right: "left",
+                    bottom: "top",
+                    left: "right",
+                }[side];
 
-				tooltip.dataset.side = side;
+                tooltip.dataset.side = side;
 
-				Object.assign(arrowElement.style, {
-					left:
-						middlewareData.arrow?.x == null
-							? ""
-							: `${middlewareData.arrow.x}px`,
-					top:
-						middlewareData.arrow?.y == null
-							? ""
-							: `${middlewareData.arrow.y}px`,
-					right: "",
-					bottom: "",
-				});
+                Object.assign(arrowElement.style, {
+                    left:
+                        middlewareData.arrow?.x == null
+                            ? ""
+                            : `${middlewareData.arrow.x}px`,
+                    top:
+                        middlewareData.arrow?.y == null
+                            ? ""
+                            : `${middlewareData.arrow.y}px`,
+                    right: "",
+                    bottom: "",
+                });
 
-				arrowElement.style.borderTopWidth = side === "bottom" ? "1px" : "0";
-				arrowElement.style.borderLeftWidth = side === "right" ? "1px" : "0";
-				arrowElement.style.borderRightWidth = side === "left" ? "1px" : "0";
-				arrowElement.style.borderBottomWidth = side === "top" ? "1px" : "0";
-				arrowElement.style[staticSide] = "-0.3125rem";
-			};
+                arrowElement.style.borderTopWidth =
+                    side === "bottom" ? "1px" : "0";
+                arrowElement.style.borderLeftWidth =
+                    side === "right" ? "1px" : "0";
+                arrowElement.style.borderRightWidth =
+                    side === "left" ? "1px" : "0";
+                arrowElement.style.borderBottomWidth =
+                    side === "top" ? "1px" : "0";
+                arrowElement.style[staticSide] = "-0.3125rem";
+            };
 
-			const close = () => {
-				clearCloseTimer();
-				if (!isOpen) return;
+            const close = () => {
+                clearCloseTimer();
+                if (!isOpen) return;
 
-				isOpen = false;
-				tooltip.hidden = true;
-				cleanupAutoUpdate?.();
-				cleanupAutoUpdate = null;
-				removeGlobalListeners?.();
-				removeGlobalListeners = null;
+                isOpen = false;
+                tooltip.hidden = true;
+                cleanupAutoUpdate?.();
+                cleanupAutoUpdate = null;
+                removeGlobalListeners?.();
+                removeGlobalListeners = null;
 
-				if (activeClose === close) {
-					activeClose = null;
-				}
-			};
+                if (activeClose === close) {
+                    activeClose = null;
+                }
+            };
 
-			const scheduleClose = () => {
-				clearCloseTimer();
-				closeTimer = window.setTimeout(close, 80);
-			};
+            const scheduleClose = () => {
+                clearCloseTimer();
+                closeTimer = window.setTimeout(close, 80);
+            };
 
-			const open = () => {
-				clearCloseTimer();
+            const open = () => {
+                clearCloseTimer();
 
-				if (activeClose && activeClose !== close) {
-					activeClose();
-				}
+                if (activeClose && activeClose !== close) {
+                    activeClose();
+                }
 
-				if (isOpen) return;
+                if (isOpen) return;
 
-				isOpen = true;
-				tooltip.hidden = false;
-				void updatePosition();
-				cleanupAutoUpdate = autoUpdate(trigger, tooltip, updatePosition);
+                isOpen = true;
+                tooltip.hidden = false;
+                void updatePosition();
+                cleanupAutoUpdate = autoUpdate(
+                    trigger,
+                    tooltip,
+                    updatePosition,
+                );
 
-				const handlePointerDown = (event) => {
-					if (!(event.target instanceof Node)) return;
-					if (root.contains(event.target)) return;
-					close();
-				};
+                const handlePointerDown = (event) => {
+                    if (!(event.target instanceof Node)) return;
+                    if (root.contains(event.target)) return;
+                    close();
+                };
 
-				const handleEscape = (event) => {
-					if (event.key === "Escape") {
-						close();
-					}
-				};
+                const handleEscape = (event) => {
+                    if (event.key === "Escape") {
+                        close();
+                    }
+                };
 
-				document.addEventListener("pointerdown", handlePointerDown);
-				document.addEventListener("keydown", handleEscape);
-				removeGlobalListeners = () => {
-					document.removeEventListener("pointerdown", handlePointerDown);
-					document.removeEventListener("keydown", handleEscape);
-				};
+                document.addEventListener("pointerdown", handlePointerDown);
+                document.addEventListener("keydown", handleEscape);
+                removeGlobalListeners = () => {
+                    document.removeEventListener(
+                        "pointerdown",
+                        handlePointerDown,
+                    );
+                    document.removeEventListener("keydown", handleEscape);
+                };
 
-				activeClose = close;
-			};
+                activeClose = close;
+            };
 
-			const handlePointerEnter = (event) => {
-				if (
-					event instanceof PointerEvent &&
-					event.pointerType &&
-					event.pointerType !== "mouse"
-				) {
-					return;
-				}
+            const toggle = () => {
+                if (isOpen) {
+                    close();
+                    return;
+                }
 
-				open();
-			};
+                open();
+            };
 
-			const handlePointerLeave = (event) => {
-				if (!(event.relatedTarget instanceof Node)) {
-					scheduleClose();
-					return;
-				}
+            const handlePointerEnter = (event) => {
+                if (
+                    event instanceof PointerEvent &&
+                    event.pointerType &&
+                    event.pointerType !== "mouse"
+                ) {
+                    return;
+                }
 
-				if (trigger.contains(event.relatedTarget)) return;
-				if (tooltip.contains(event.relatedTarget)) return;
-				scheduleClose();
-			};
+                open();
+            };
 
-			trigger.addEventListener("pointerenter", handlePointerEnter);
-			trigger.addEventListener("pointerleave", handlePointerLeave);
-			tooltip.addEventListener("pointerenter", clearCloseTimer);
-			tooltip.addEventListener("pointerleave", handlePointerLeave);
-			trigger.addEventListener("focus", open);
-			trigger.addEventListener("blur", (event) => {
-				if (event.relatedTarget instanceof Node && root.contains(event.relatedTarget)) {
-					return;
-				}
+            const handlePointerLeave = (event) => {
+                if (!(event.relatedTarget instanceof Node)) {
+                    scheduleClose();
+                    return;
+                }
 
-				scheduleClose();
-			});
-		});
-	};
+                if (trigger.contains(event.relatedTarget)) return;
+                if (tooltip.contains(event.relatedTarget)) return;
+                scheduleClose();
+            };
 
-	if (document.readyState === "loading") {
-		document.addEventListener("DOMContentLoaded", setupDeviceBadgeTooltips, {
-			once: true,
-		});
-	} else {
-		setupDeviceBadgeTooltips();
-	}
+            trigger.addEventListener("click", (event) => {
+                event.preventDefault();
+                toggle();
+            });
+            trigger.addEventListener("pointerenter", handlePointerEnter);
+            trigger.addEventListener("pointerleave", handlePointerLeave);
+            tooltip.addEventListener("pointerenter", clearCloseTimer);
+            tooltip.addEventListener("pointerleave", handlePointerLeave);
+            trigger.addEventListener("focus", open);
+            trigger.addEventListener("blur", (event) => {
+                if (
+                    event.relatedTarget instanceof Node &&
+                    root.contains(event.relatedTarget)
+                ) {
+                    return;
+                }
 
-	document.addEventListener("astro:page-load", setupDeviceBadgeTooltips);
+                scheduleClose();
+            });
+        });
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            setupDeviceSquareTooltips,
+            {
+                once: true,
+            },
+        );
+    } else {
+        setupDeviceSquareTooltips();
+    }
+
+    document.addEventListener("astro:page-load", setupDeviceSquareTooltips);
 </script>
