@@ -101,6 +101,9 @@ const yearTicks = utcYear.range(
 	domainStart ?? new Date(Date.UTC(2019, 0, 1)),
 	utcYear.offset(domainEnd ?? new Date(Date.UTC(2025, 11, 1)), 1),
 );
+const mobileYearTicks = yearTicks.filter(
+	(tick) => Number.parseInt(utcFormat("%Y")(tick), 10) % 2 === 1,
+);
 
 const covidStart = new Date(Date.UTC(2020, 2, 1));
 const covidEnd = new Date(Date.UTC(2021, 2, 1));
@@ -160,7 +163,7 @@ const labels = rawLabels.map((label) => ({
 }));
 ---
 
-<div class="overflow-x-auto">
+<div class="w-full">
 	<svg
 		viewBox={`0 0 ${width} ${height}`}
 		class="block h-auto w-full max-w-full"
@@ -210,6 +213,7 @@ const labels = rawLabels.map((label) => ({
 							dy="0.32em"
 							text-anchor="end"
 							font-size="12"
+							class="hidden sm:block"
 							fill="currentColor"
 							fill-opacity="0.68"
 						>
@@ -235,12 +239,30 @@ const labels = rawLabels.map((label) => ({
 							y={innerHeight + 24}
 							text-anchor="middle"
 							font-size="12"
+							class="hidden sm:block"
 							fill="currentColor"
 							fill-opacity="0.68"
 						>
 							{utcFormat("%Y")(tick)}
 						</text>
 					</g>
+				))
+			}
+
+			{
+				mobileYearTicks.map((tick) => (
+					<text
+						x={x(tick)}
+						y={innerHeight + 26}
+						text-anchor="middle"
+						font-size="15"
+						font-weight="600"
+						class="sm:hidden"
+						fill="currentColor"
+						fill-opacity="0.76"
+					>
+						{utcFormat("%Y")(tick)}
+					</text>
 				))
 			}
 

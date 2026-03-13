@@ -235,7 +235,9 @@ const lastUpdatedLabel =
                 id="accesibilidad"
                 class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
             >
-                <div class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center">
+                <div
+                    class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center"
+                >
                     <div class="w-full lg:max-w-[36rem]">
                         <h2
                             class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
@@ -245,12 +247,14 @@ const lastUpdatedLabel =
                         <p
                             class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl lg:max-w-[32rem]"
                         >
-                            En un día promedio de {averageEntryClosures.year},{" "}
+                            En un día promedio de {averageEntryClosures.year},{
+                                " "
+                            }
                             <span class="font-semibold text-[#1b1816]"
                                 >{averageClosedEntryShareLabel}</span
                             >{" "}
-                            de las estaciones tuvo alguna entrada cerrada
-                            (escalera o ascensor).
+                            de las estaciones tuvo alguna entrada cerrada (escalera
+                            o ascensor).
                         </p>
 
                         <div class="mt-10 space-y-5">
@@ -278,17 +282,19 @@ const lastUpdatedLabel =
 
                                         <span class="min-w-0 flex-1">
                                             <span class="block text-3xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-5xl">
-                                                {line.averageClosedEntryShareLabel}
+                                                {
+                                                    line.averageClosedEntryShareLabel
+                                                }
                                             </span>
-                                            <span class="mt-1 block text-xs leading-4 text-[#544b43] sm:text-sm">
+                                            <span class="block text-xs leading-4 text-[#544b43] sm:text-sm">
                                                 escaleras o ascensores cerrados
                                                 en día promedio
                                             </span>
-                                            <span class="mt-3 block h-2 w-full overflow-hidden rounded-full bg-[#ded7cf]">
+                                            <span class="mt-1 block h-2 w-full overflow-hidden rounded-full bg-[#ded7cf]">
                                                 <span
                                                     class="block h-full rounded-full"
                                                     style={`width: ${Math.max(0, Math.min(100, line.averageClosedEntryShare * 100))}%; background-color: ${line.color};`}
-                                                ></span>
+                                                />
                                             </span>
                                         </span>
 
@@ -308,10 +314,9 @@ const lastUpdatedLabel =
                                                     stroke-width="1.6"
                                                     stroke-linecap="round"
                                                     stroke-linejoin="round"
-                                                ></path>
+                                                />
                                             </svg>
-                                        </span
-                                        >
+                                        </span>
                                     </a>
                                 ))
                             }
@@ -324,7 +329,9 @@ const lastUpdatedLabel =
                 id="frecuencia"
                 class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
             >
-                <div class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center">
+                <div
+                    class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center"
+                >
                     <div class="w-full lg:max-w-[36rem]">
                         <h2
                             class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
@@ -370,9 +377,11 @@ const lastUpdatedLabel =
                                             </span>
                                             <span class="mt-1 block text-xs leading-4 text-[#544b43] sm:text-sm">
                                                 de {line.change.firstValueLabel}{" "}
-                                                en {line.change.firstPeriodLabel}{" "}
-                                                a {line.change.latestValueLabel}{" "}
-                                                en {line.change.latestPeriodLabel}
+                                                en{" "}
+                                                {line.change.firstPeriodLabel} a{" "}
+                                                {line.change.latestValueLabel}{" "}
+                                                en{" "}
+                                                {line.change.latestPeriodLabel}
                                             </span>
                                         </span>
 
@@ -392,10 +401,9 @@ const lastUpdatedLabel =
                                                     stroke-width="1.6"
                                                     stroke-linecap="round"
                                                     stroke-linejoin="round"
-                                                ></path>
+                                                />
                                             </svg>
-                                        </span
-                                        >
+                                        </span>
                                     </a>
                                 ))
                             }
