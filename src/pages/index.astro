@@ -2,59 +2,15 @@
 import { ClientRouter } from "astro:transitions";
 import LineNav from "../components/LineNav.astro";
 import PostHog from "../components/posthog.astro";
-import { frequencySeries } from "../generated/frequency-series";
 import {
     averageEntryClosures,
     meta,
     networkStations,
     stationAccessibility,
 } from "../generated/station-status";
+import { frequencyChangeByLine } from "../lib/frequency-data";
 import { diagramLines } from "../lib/line-data";
 import "../styles/global.css";
-
-const uniqueMonths = Array.from(
-    new Set(
-        frequencySeries
-            .filter((line) => line.label !== "Premetro")
-            .flatMap((line) =>
-                line.points
-                    .map((point) => point.month)
-                    .filter((month): month is string => Boolean(month)),
-            ),
-    ),
-).sort();
-
-const baselineYear = uniqueMonths[0]?.slice(0, 4) ?? "2019";
-const latestYear = uniqueMonths.at(-1)?.slice(0, 4) ?? baselineYear;
-
-const averageForYear = (year: string) => {
-    const values = frequencySeries
-        .filter((line) => line.label !== "Premetro")
-        .flatMap((line) =>
-            line.points
-                .filter(
-                    (point) =>
-                        point.value !== null &&
-                        point.month.startsWith(`${year}-`),
-                )
-                .map((point) => point.value),
-        );
-
-    return values.reduce((sum, value) => sum + value, 0) / values.length;
-};
-
-const baselineFrequency = averageForYear(baselineYear);
-const latestFrequency = averageForYear(latestYear);
-const frequencyChange =
-    (latestFrequency - baselineFrequency) / baselineFrequency;
-const frequencyChangeLabel = new Intl.NumberFormat("es-AR", {
-    style: "percent",
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
-})
-    .format(Math.abs(frequencyChange))
-    .trim();
-const frequencyVerb = frequencyChange >= 0 ? "empeoró" : "mejoró";
 
 const totalStations = new Set(
     networkStations.map(
@@ -98,6 +54,40 @@ const averageClosedEntryLines = diagramLines.map((line) => {
             .trim(),
     };
 });
+const frequencyChangeByLineMap = new Map(
+    frequencyChangeByLine.map((line) => [line.series.label, line]),
+);
+const lineBBase = diagramLines.find((line) => line.code === "B") ?? null;
+const lineB = lineBBase
+    ? {
+          ...lineBBase,
+          path: `/linea/${lineBBase.code}`,
+      }
+    : null;
+const lineBFrequencyChange =
+    frequencyChangeByLineMap.get("Línea B") ?? null;
+const frequencyLines = diagramLines
+    .map((line) => {
+        const change = frequencyChangeByLineMap.get(line.nombreLinea);
+
+        if (!change) return null;
+
+        return {
+            code: line.code,
+            nombreLinea: line.nombreLinea,
+            color: line.color,
+            ink: line.ink,
+            path: `/linea/${line.code}`,
+            change,
+            toneClass:
+                change.direction === "igual"
+                    ? "text-[#544b43]"
+                    : change.isBetter
+                      ? "text-[#1f6a43]"
+                      : "text-[#9b2c24]",
+        };
+    })
+    .filter((line): line is NonNullable<typeof line> => line !== null);
 const accessibilityUpdatedAt = meta.ultimaActualizacion;
 const buenosAiresDateKey = (value: Date | string) =>
     new Intl.DateTimeFormat("en-CA", {
@@ -150,12 +140,29 @@ const lastUpdatedLabel =
                             <p
                                 class="text-balance text-[clamp(2.25rem,8vw,4rem)] leading-[0.96] font-semibold tracking-[-0.06em] text-[#1b1816]"
                             >
-                                En promedio, la frecuencia {frequencyVerb}{" "}
+                                La frecuencia de la línea{" "}
+                                {lineB && (
+                                    <a
+                                        href={lineB.path}
+                                        aria-label={`Ir a ${lineB.nombreLinea}`}
+                                        data-astro-prefetch
+                                        class="inline-line-link"
+                                        style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
+                                    >
+                                        <span class="inline-line-link__top">
+                                            <span class="inline-line-link__label"
+                                                >{lineB.code}</span
+                                            >
+                                        </span>
+                                    </a>
+                                )}{" "}
+                                empeoró{" "}
                                 <span
                                     class="inline-block whitespace-nowrap rounded-[0.16em] bg-[#f4e4a7] px-[0.18em] pb-[0.04em] text-[#1b1816]"
-                                    >{frequencyChangeLabel}</span
+                                    >{lineBFrequencyChange?.changeLabel ??
+                                        "0%"}</span
                                 >{" "}
-                                desde {baselineYear}, y ahora mismo el{" "}
+                                en los últimos 5 años, y ahora mismo el{" "}
                                 <span
                                     class="inline-block whitespace-nowrap rounded-[0.16em] bg-[#f4d9d4] px-[0.18em] pb-[0.04em] text-[#7a241a]"
                                     >{closedEscaleraShareLabel}</span
@@ -271,6 +278,64 @@ const lastUpdatedLabel =
                     </div>
                 </div>
             </section>
+
+            <section
+                id="frecuencia"
+                class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
+            >
+                <div class="mx-auto max-w-6xl">
+                    <h2
+                        class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
+                    >
+                        Frecuencia
+                    </h2>
+                    <p
+                        class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl"
+                    >
+                        Compara el promedio anual de 2019 con el promedio
+                        anual de 2025. Menos tiempo entre trenes significa
+                        mejor frecuencia.
+                    </p>
+
+                    <div class="mt-10 space-y-5">
+                        {
+                            frequencyLines.map((line) => (
+                                <div class="flex items-center gap-4 sm:gap-6">
+                                    <a
+                                        href={line.path}
+                                        aria-label={`Ir a ${line.nombreLinea}`}
+                                        data-astro-prefetch
+                                        class="line-table-link"
+                                        style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
+                                    >
+                                        <span class="line-table-link__top">
+                                            <span class="line-table-link__label"
+                                                >{line.code}</span
+                                            >
+                                        </span>
+                                    </a>
+
+                                    <div class="min-w-0">
+                                        <p
+                                            class={`text-3xl leading-none font-semibold tracking-[-0.06em] sm:text-5xl ${line.toneClass}`}
+                                        >
+                                            {line.change.changeLabel}
+                                        </p>
+                                        <p
+                                            class="mt-1 text-xs leading-4 text-[#544b43] sm:text-sm"
+                                        >
+                                            de {line.change.firstValueLabel} en{" "}
+                                            {line.change.firstPeriodLabel} a{" "}
+                                            {line.change.latestValueLabel} en{" "}
+                                            {line.change.latestPeriodLabel}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </section>
         </main>
     </body>
 </html>
@@ -350,6 +415,54 @@ const lastUpdatedLabel =
     }
 
     .line-table-link:focus-visible {
+        outline: 0;
+    }
+
+    .inline-line-link {
+        --button-outline-color: #2f241d;
+        display: inline-block;
+        width: 0.96em;
+        border: 0;
+        border-radius: 0.16em;
+        background: var(--button-outline-color);
+        padding: 0;
+        vertical-align: 0.02em;
+        font: inherit;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .inline-line-link__top {
+        display: flex;
+        width: 100%;
+        aspect-ratio: 1;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid var(--button-outline-color);
+        border-radius: 0.16em;
+        background: var(--line-button-color);
+        color: var(--line-button-ink);
+        transform: translateY(-0.16em);
+        transition: transform 100ms ease;
+    }
+
+    .inline-line-link__label {
+        font-size: 0.48em;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.06em;
+    }
+
+    .inline-line-link:hover .inline-line-link__top,
+    .inline-line-link:focus-visible .inline-line-link__top {
+        transform: translateY(-0.21em);
+    }
+
+    .inline-line-link:active .inline-line-link__top {
+        transform: translateY(0);
+    }
+
+    .inline-line-link:focus-visible {
         outline: 0;
     }
 </style>

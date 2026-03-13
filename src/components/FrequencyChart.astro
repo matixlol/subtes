@@ -20,13 +20,29 @@ interface Props {
 			value: number | null;
 		}>;
 	}>;
+	title?: string;
+	description?: string;
+	showEndLabels?: boolean;
 }
 
-const { series } = Astro.props;
+const {
+	series,
+	title = "Frecuencia mensual del subte",
+	description = "Serie mensual del intervalo promedio entre trenes. Valores más bajos indican mejor frecuencia.",
+	showEndLabels = series.length > 1,
+} = Astro.props;
+const chartId = crypto.randomUUID();
+const titleId = `frequency-chart-title-${chartId}`;
+const descriptionId = `frequency-chart-desc-${chartId}`;
 
 const width = 1100;
 const height = 620;
-const margin = { top: 28, right: 154, bottom: 52, left: 62 };
+const margin = {
+	top: 28,
+	right: showEndLabels ? 154 : 38,
+	bottom: 52,
+	left: 62,
+};
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
@@ -63,12 +79,20 @@ const x = scaleUtc()
 
 const y = scaleLinear().domain([0, yCeiling]).range([innerHeight, 0]);
 
+const formatSeconds = (value: number) => {
+	const roundedValue = Math.round(value);
+	const minutes = Math.floor(roundedValue / 60);
+	const seconds = roundedValue % 60;
+
+	return `${minutes}:${String(seconds).padStart(2, "0")}`;
+};
+
 const yTicks = y
 	.ticks(6)
 	.filter((tick) => tick > 0)
 	.map((tick) => ({
 		value: tick,
-		label: `${Math.round(tick / 60)} min`,
+		label: formatSeconds(tick),
 	}));
 
 const yearTicks = utcYear.range(
@@ -90,23 +114,27 @@ const renderedSeries = withDates.map((line) => ({
 	path: lineGenerator(line.points) ?? "",
 }));
 
-const rawLabels = renderedSeries
-	.map((line) => {
-		const lastPoint = [...line.points].reverse().find((point) => point.value !== null);
+const rawLabels = showEndLabels
+	? renderedSeries
+			.map((line) => {
+				const lastPoint = [...line.points]
+					.reverse()
+					.find((point) => point.value !== null);
 
-		if (!lastPoint || lastPoint.value === null) return null;
+				if (!lastPoint || lastPoint.value === null) return null;
 
-		return {
-			label: line.label,
-			shortLabel: line.shortLabel,
-			color: line.color,
-			value: lastPoint.value,
-			targetY: y(lastPoint.value),
-			anchorX: x(lastPoint.date),
-		};
-	})
-	.filter((label): label is NonNullable<typeof label> => label !== null)
-	.sort((a, b) => a.targetY - b.targetY);
+				return {
+					label: line.label,
+					shortLabel: line.shortLabel,
+					color: line.color,
+					value: lastPoint.value,
+					targetY: y(lastPoint.value),
+					anchorX: x(lastPoint.date),
+				};
+			})
+			.filter((label): label is NonNullable<typeof label> => label !== null)
+			.sort((a, b) => a.targetY - b.targetY)
+	: [];
 
 const labelGap = 18;
 
@@ -135,15 +163,10 @@ const labels = rawLabels.map((label) => ({
 		viewBox={`0 0 ${width} ${height}`}
 		class="block h-auto min-w-[760px] w-full"
 		role="img"
-		aria-labelledby="frequency-chart-title frequency-chart-desc"
+		aria-labelledby={`${titleId} ${descriptionId}`}
 	>
-		<title id="frequency-chart-title">
-			Frecuencia mensual del subte y el premetro entre 2019 y 2025
-		</title>
-		<desc id="frequency-chart-desc">
-			Serie mensual del intervalo promedio entre trenes para las líneas A, B, C,
-			D, E, H y Premetro. Valores más bajos indican mejor frecuencia.
-		</desc>
+		<title id={titleId}>{title}</title>
+		<desc id={descriptionId}>{description}</desc>
 
 		<g transform={`translate(${margin.left} ${margin.top})`}>
 			<rect x="0" y="0" width={innerWidth} height={innerHeight} fill="#fbfaf6" />
@@ -228,42 +251,43 @@ const labels = rawLabels.map((label) => ({
 			}
 
 			{
-				labels.map((label) => (
-					<g>
-						<line
-							x1={label.anchorX + 6}
-							x2={innerWidth + 10}
-							y1={label.y}
-							y2={label.y}
-							stroke={label.color}
-							stroke-width="1.25"
-							stroke-opacity="0.7"
-						/>
-						<text
-							x={innerWidth + 14}
-							y={label.y}
-							dy="0.32em"
-							font-size="12"
-							font-weight="700"
-							fill="#fbfaf6"
-							stroke="#fbfaf6"
-							stroke-width="5"
-							paint-order="stroke"
-						>
-							{label.shortLabel}
-						</text>
-						<text
-							x={innerWidth + 14}
-							y={label.y}
-							dy="0.32em"
-							font-size="12"
-							font-weight="700"
-							fill={label.color}
-						>
-							{label.shortLabel}
-						</text>
-					</g>
-				))
+				showEndLabels &&
+					labels.map((label) => (
+						<g>
+							<line
+								x1={label.anchorX + 6}
+								x2={innerWidth + 10}
+								y1={label.y}
+								y2={label.y}
+								stroke={label.color}
+								stroke-width="1.25"
+								stroke-opacity="0.7"
+							/>
+							<text
+								x={innerWidth + 14}
+								y={label.y}
+								dy="0.32em"
+								font-size="12"
+								font-weight="700"
+								fill="#fbfaf6"
+								stroke="#fbfaf6"
+								stroke-width="5"
+								paint-order="stroke"
+							>
+								{label.shortLabel}
+							</text>
+							<text
+								x={innerWidth + 14}
+								y={label.y}
+								dy="0.32em"
+								font-size="12"
+								font-weight="700"
+								fill={label.color}
+							>
+								{label.shortLabel}
+							</text>
+						</g>
+					))
 			}
 		</g>
 	</svg>
