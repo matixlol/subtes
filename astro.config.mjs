@@ -10,7 +10,11 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({
+    isr: {
+      expiration: 60 * 30,
+    },
+  }),
   server: {
     allowedHosts: ["interior-wrist-ball-colon.trycloudflare.com"],
   },
