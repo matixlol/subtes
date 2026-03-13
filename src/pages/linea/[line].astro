@@ -46,8 +46,8 @@ const frequencyChangeByLineMap = new Map(
 );
 const frequencySeries = getFrequencySeriesForLineCode(line.code);
 const frequencyChange = frequencyChangeByLineMap.get(line.nombreLinea) ?? null;
-const accessibilityPanelId = "accesibilidad";
-const frequencyPanelId = "frecuencia";
+const accessibilityPanelId = `panel-accesibilidad-${line.code.toLowerCase()}`;
+const frequencyPanelId = `panel-frecuencia-${line.code.toLowerCase()}`;
 const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithDetail} con equipamiento registrado`;
 ---
 
@@ -137,12 +137,11 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 					</div>
 
 					<section
-						data-tab-anchor="accesibilidad"
 						id={accessibilityPanelId}
 						role="tabpanel"
 						aria-labelledby={`tab-accesibilidad-${line.code.toLowerCase()}`}
 						data-tab-panel="accesibilidad"
-						class="scroll-mt-6 pt-8"
+						class="pt-8"
 					>
 						<div class="space-y-6">
 							<div class="space-y-3">
@@ -232,12 +231,11 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 					</section>
 
 					<section
-						data-tab-anchor="frecuencia"
 						id={frequencyPanelId}
 						role="tabpanel"
 						aria-labelledby={`tab-frecuencia-${line.code.toLowerCase()}`}
 						data-tab-panel="frecuencia"
-						class="scroll-mt-6 pt-8"
+						class="pt-8"
 						hidden
 					>
 						<div class="space-y-6">
@@ -314,116 +312,118 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
 
 		<script is:inline>
 			(() => {
-				const tabs = document.querySelector("[data-line-tabs]");
-				if (!(tabs instanceof HTMLElement)) return;
-
-				const triggers = Array.from(
-					tabs.querySelectorAll("[data-tab-trigger]"),
-				).filter((trigger) => trigger instanceof HTMLButtonElement);
-				const panels = Array.from(
-					tabs.querySelectorAll("[data-tab-panel]"),
-				).filter((panel) => panel instanceof HTMLElement);
-				const lineLinks = Array.from(
-					document.querySelectorAll("[data-line-link]"),
-				).filter((link) => link instanceof HTMLAnchorElement);
 				const tabOrder = ["accesibilidad", "frecuencia"];
 				const allowedTabs = new Set(tabOrder);
 
-				const getTabFromHash = () => {
-					const hash = window.location.hash.replace(/^#/, "");
-					return allowedTabs.has(hash) ? hash : "accesibilidad";
-				};
+				const syncCurrentLineTabs = ({ scroll = false } = {}) => {
+					const tabs = document.querySelector("[data-line-tabs]");
+					if (!(tabs instanceof HTMLElement)) return;
 
-				const syncLineLinkHashes = (tab) => {
-					lineLinks.forEach((link) => {
-						const url = new URL(link.href, window.location.origin);
-						url.hash = tab;
-						link.href = `${url.pathname}${url.hash}`;
-					});
-				};
+					const triggers = Array.from(
+						tabs.querySelectorAll("[data-tab-trigger]"),
+					).filter((trigger) => trigger instanceof HTMLButtonElement);
+					const panels = Array.from(
+						tabs.querySelectorAll("[data-tab-panel]"),
+					).filter((panel) => panel instanceof HTMLElement);
+					const lineLinks = Array.from(
+						document.querySelectorAll("[data-line-link]"),
+					).filter((link) => link instanceof HTMLAnchorElement);
 
-				const scrollToTabAnchor = (tab) => {
-					const anchor = tabs.querySelector(
-						`[data-tab-anchor="${tab}"]`,
-					);
-					if (!(anchor instanceof HTMLElement)) return;
+					const getTabFromHash = () => {
+						const hash = window.location.hash.replace(/^#/, "");
+						return allowedTabs.has(hash) ? hash : "accesibilidad";
+					};
 
-					requestAnimationFrame(() => {
-						anchor.scrollIntoView({ block: "start" });
-					});
-				};
+					const syncLineLinkHashes = (tab) => {
+						lineLinks.forEach((link) => {
+							const url = new URL(link.href, window.location.origin);
+							url.hash = tab;
+							link.href = `${url.pathname}${url.hash}`;
+						});
+					};
 
-				const setTab = (nextTab, { updateHistory = true } = {}) => {
-					const tab = allowedTabs.has(nextTab)
-						? nextTab
-						: "accesibilidad";
-					tabs.dataset.currentTab = tab;
-					tabs.style.setProperty(
-						"--tab-index",
-						tab === "frecuencia" ? "1" : "0",
-					);
-
-					triggers.forEach((trigger) => {
-						const isActive = trigger.dataset.tabTrigger === tab;
-						trigger.dataset.active = isActive ? "true" : "false";
-						trigger.setAttribute(
-							"aria-selected",
-							isActive ? "true" : "false",
+					const setTab = (nextTab, { updateHistory = true } = {}) => {
+						const tab = allowedTabs.has(nextTab)
+							? nextTab
+							: "accesibilidad";
+						tabs.dataset.currentTab = tab;
+						tabs.style.setProperty(
+							"--tab-index",
+							tab === "frecuencia" ? "1" : "0",
 						);
-						trigger.tabIndex = isActive ? 0 : -1;
-					});
 
-					panels.forEach((panel) => {
-						panel.hidden = panel.dataset.tabPanel !== tab;
-					});
+						triggers.forEach((trigger) => {
+							const isActive = trigger.dataset.tabTrigger === tab;
+							trigger.dataset.active = isActive ? "true" : "false";
+							trigger.setAttribute(
+								"aria-selected",
+								isActive ? "true" : "false",
+							);
+							trigger.tabIndex = isActive ? 0 : -1;
+						});
 
-					syncLineLinkHashes(tab);
+						panels.forEach((panel) => {
+							panel.hidden = panel.dataset.tabPanel !== tab;
+						});
 
-					if (updateHistory) {
-						history.replaceState({}, "", `${window.location.pathname}#${tab}`);
-					}
-				};
+						syncLineLinkHashes(tab);
 
-				const initialTab = getTabFromHash();
-				setTab(initialTab, { updateHistory: false });
-
-				if (window.location.hash) {
-					scrollToTabAnchor(initialTab);
-				}
-
-				triggers.forEach((trigger) => {
-					trigger.addEventListener("click", () => {
-						setTab(trigger.dataset.tabTrigger ?? "accesibilidad");
-					});
-
-					trigger.addEventListener("keydown", (event) => {
-						const currentIndex = tabOrder.findIndex(
-							(tab) => tab === trigger.dataset.tabTrigger,
-						);
-						if (currentIndex === -1) return;
-
-						let nextIndex = currentIndex;
-						if (event.key === "ArrowRight") {
-							nextIndex = (currentIndex + 1) % tabOrder.length;
-						} else if (event.key === "ArrowLeft") {
-							nextIndex =
-								(currentIndex - 1 + tabOrder.length) % tabOrder.length;
-						} else {
-							return;
+						if (updateHistory) {
+							history.replaceState({}, "", `${window.location.pathname}#${tab}`);
 						}
+					};
 
-						event.preventDefault();
-						const nextTrigger = triggers[nextIndex];
-						if (!nextTrigger) return;
-						nextTrigger.focus();
-						setTab(nextTrigger.dataset.tabTrigger ?? "accesibilidad");
-					});
-				});
+					if (tabs.dataset.lineTabsBound !== "true") {
+						tabs.dataset.lineTabsBound = "true";
 
-				window.addEventListener("hashchange", () => {
+						triggers.forEach((trigger) => {
+							trigger.addEventListener("click", () => {
+								setTab(trigger.dataset.tabTrigger ?? "accesibilidad");
+							});
+
+							trigger.addEventListener("keydown", (event) => {
+								const currentIndex = tabOrder.findIndex(
+									(tab) => tab === trigger.dataset.tabTrigger,
+								);
+								if (currentIndex === -1) return;
+
+								let nextIndex = currentIndex;
+								if (event.key === "ArrowRight") {
+									nextIndex = (currentIndex + 1) % tabOrder.length;
+								} else if (event.key === "ArrowLeft") {
+									nextIndex =
+										(currentIndex - 1 + tabOrder.length) % tabOrder.length;
+								} else {
+									return;
+								}
+
+								event.preventDefault();
+								const nextTrigger = triggers[nextIndex];
+								if (!nextTrigger) return;
+								nextTrigger.focus();
+								setTab(nextTrigger.dataset.tabTrigger ?? "accesibilidad");
+							});
+						});
+					}
+
 					const nextTab = getTabFromHash();
 					setTab(nextTab, { updateHistory: false });
-					scrollToTabAnchor(nextTab);
+
+				};
+
+				if (window.__subteLineTabsBound !== true) {
+					window.__subteLineTabsBound = true;
+
+					const resyncTabs = () => syncCurrentLineTabs({ scroll: true });
+
+					document.addEventListener("astro:page-load", resyncTabs);
+					window.addEventListener("pageshow", resyncTabs);
+					window.addEventListener("hashchange", resyncTabs);
+				}
+
+				syncCurrentLineTabs({ scroll: Boolean(window.location.hash) });
+				requestAnimationFrame(() => {
+					syncCurrentLineTabs({ scroll: Boolean(window.location.hash) });
 				});
 			})();
 		</script>
