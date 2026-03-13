@@ -1,8 +1,8 @@
 export const meta = {
-  "estaciones": 71,
-  "equipos": 206,
-  "alertas": 45,
-  "ultimaActualizacion": "2026-03-10T16:14:59-03:00"
+  "estaciones": 90,
+  "equipos": 768,
+  "alertas": 122,
+  "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
 } as const;
 
 export const stations = [
@@ -22,8 +22,8 @@ export const stations = [
     "nombreLinea": "Línea A",
     "idEstacion": 1,
     "nombreEstacion": "Perú",
-    "totalEquipos": 2,
-    "equiposFuncionando": 0,
+    "totalEquipos": 4,
+    "equiposFuncionando": 2,
     "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T11:51:45-03:00"
@@ -31,76 +31,98 @@ export const stations = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
-    "idEstacion": 5,
-    "nombreEstacion": "Congreso",
-    "totalEquipos": 2,
+    "idEstacion": 2,
+    "nombreEstacion": "Piedras",
+    "totalEquipos": 1,
     "equiposFuncionando": 0,
-    "equiposConFalla": 2,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-06T15:19:24-03:00"
+    "ultimaActualizacion": "2026-01-17T10:12:11-03:00"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 3,
+    "nombreEstacion": "Lima",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T03:22:24-03:00"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 4,
+    "nombreEstacion": "Saenz Peña",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
   },
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "idEstacion": 7,
     "nombreEstacion": "Loria",
-    "totalEquipos": 1,
-    "equiposFuncionando": 1,
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-07T13:20:53-03:00"
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
   },
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "idEstacion": 8,
     "nombreEstacion": "Castro Barros",
-    "totalEquipos": 1,
-    "equiposFuncionando": 1,
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-02-20T12:06:07-03:00"
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
   },
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "idEstacion": 9,
     "nombreEstacion": "Acoyte",
-    "totalEquipos": 2,
-    "equiposFuncionando": 1,
+    "totalEquipos": 6,
+    "equiposFuncionando": 5,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T10:14:00-03:00"
+    "ultimaActualizacion": "2026-03-10T04:46:24-03:00"
   },
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "idEstacion": 10,
     "nombreEstacion": "Primera Junta",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
+    "totalEquipos": 5,
+    "equiposFuncionando": 5,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-10T03:47:36-03:00"
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
   },
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "idEstacion": 11,
     "nombreEstacion": "Puan",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
+    "totalEquipos": 6,
+    "equiposFuncionando": 6,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-02T21:10:11-03:00"
+    "ultimaActualizacion": "2026-03-07T17:07:23-03:00"
   },
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "idEstacion": 12,
     "nombreEstacion": "Carabobo",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
+    "totalEquipos": 7,
+    "equiposFuncionando": 6,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T11:52:41-03:00"
@@ -110,9 +132,9 @@ export const stations = [
     "nombreLinea": "Línea A",
     "idEstacion": 13,
     "nombreEstacion": "San José de Flores",
-    "totalEquipos": 3,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 2,
+    "totalEquipos": 7,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 4,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T08:42:53-03:00"
   },
@@ -121,85 +143,162 @@ export const stations = [
     "nombreLinea": "Línea A",
     "idEstacion": 14,
     "nombreEstacion": "San Pedrito",
-    "totalEquipos": 2,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 1,
+    "totalEquipos": 5,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T16:14:59-03:00"
   },
   {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "idEstacion": 104,
-    "nombreEstacion": "Uruguay",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 35,
+    "nombreEstacion": "Congreso - Pdte. Dr. Raúl Alfonsín",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T11:30:16-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "idEstacion": 105,
-    "nombreEstacion": "Callao",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 1,
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 36,
+    "nombreEstacion": "Pasco",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T11:39:37-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 37,
+    "nombreEstacion": "Alberti",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 38,
+    "nombreEstacion": "Plaza De Miserere",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "idEstacion": 41,
+    "nombreEstacion": "Rio De Janeiro",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "idEstacion": 114,
-    "nombreEstacion": "Tronador Villa Ortúzar",
+    "idEstacion": 21,
+    "nombreEstacion": "C. Pellegrini",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 23,
+    "nombreEstacion": "Callao - Maestro Alfredo Bravo",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 27,
+    "nombreEstacion": "Almagro - Medrano",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 29,
+    "nombreEstacion": "Malabia - Osvaldo Pugliese",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 74,
+    "nombreEstacion": "De Los Incas - Pque. Chas",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 80,
+    "nombreEstacion": "Echeverría - Mártires Palotinos",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 200,
+    "nombreEstacion": "Leandro N. Alem",
     "totalEquipos": 2,
     "equiposFuncionando": 2,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-15T05:33:41-03:00"
+    "ultimaActualizacion": "2026-03-08T17:09:39-03:00"
   },
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "idEstacion": 115,
-    "nombreEstacion": "De Los Incas Parque Chas",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
+    "idEstacion": 201,
+    "nombreEstacion": "Florida",
+    "totalEquipos": 4,
+    "equiposFuncionando": 4,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T05:13:58-03:00"
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "idEstacion": 116,
-    "nombreEstacion": "Echeverría",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-11-24T17:57:03-03:00"
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "idEstacion": 117,
-    "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
-    "totalEquipos": 6,
-    "equiposFuncionando": 5,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T11:30:16-03:00"
+    "ultimaActualizacion": "2026-03-09T10:31:11-03:00"
   },
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "idEstacion": 203,
     "nombreEstacion": "Uruguay",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
+    "totalEquipos": 5,
+    "equiposFuncionando": 4,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-08T09:34:19-03:00"
@@ -207,107 +306,129 @@ export const stations = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "idEstacion": 204,
-    "nombreEstacion": "Callao",
-    "totalEquipos": 3,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 2,
+    "idEstacion": 205,
+    "nombreEstacion": "Pasteur AMIA",
+    "totalEquipos": 4,
+    "equiposFuncionando": 4,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T17:09:39-03:00"
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 206,
+    "nombreEstacion": "Pueyrredón",
+    "totalEquipos": 5,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-09T11:22:56-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 207,
+    "nombreEstacion": "Carlos Gardel",
+    "totalEquipos": 4,
+    "equiposFuncionando": 4,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-03T16:20:35-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 209,
+    "nombreEstacion": "Ángel Gallardo",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:17:04-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 211,
+    "nombreEstacion": "Dorrego",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-08T09:34:19-03:00"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "idEstacion": 212,
+    "nombreEstacion": "Federico Lacroze",
+    "totalEquipos": 3,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T03:22:24-03:00"
   },
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "idEstacion": 213,
     "nombreEstacion": "Tronador Villa Ortúzar",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
+    "totalEquipos": 6,
+    "equiposFuncionando": 6,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T08:07:05-03:00"
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "idEstacion": 214,
-    "nombreEstacion": "De Los Incas Parque Chas",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-02-01T14:29:39-03:00"
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "idEstacion": 215,
-    "nombreEstacion": "Echeverría",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-02-12T10:39:22-03:00"
+    "ultimaActualizacion": "2026-03-10T12:45:12-03:00"
   },
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "idEstacion": 216,
     "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
-    "totalEquipos": 6,
-    "equiposFuncionando": 5,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-09T17:55:46-03:00"
-  },
-  {
-    "idLinea": 3,
-    "nombreLinea": "Línea C",
-    "idEstacion": 201,
-    "nombreEstacion": "Constitución",
-    "totalEquipos": 4,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 2,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T06:01:11-03:00"
-  },
-  {
-    "idLinea": 3,
-    "nombreLinea": "Línea C",
-    "idEstacion": 206,
-    "nombreEstacion": "Diagonal Norte",
-    "totalEquipos": 3,
-    "equiposFuncionando": 0,
+    "totalEquipos": 17,
+    "equiposFuncionando": 14,
     "equiposConFalla": 3,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T06:03:36-03:00"
+    "ultimaActualizacion": "2026-03-10T09:21:05-03:00"
   },
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
-    "idEstacion": 209,
-    "nombreEstacion": "Retiro",
-    "totalEquipos": 1,
-    "equiposFuncionando": 1,
+    "idEstacion": 16,
+    "nombreEstacion": "Av. De Mayo",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-18T06:32:12-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "idEstacion": 17,
+    "nombreEstacion": "Moreno",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "idEstacion": 57,
+    "nombreEstacion": "San Martin",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "idEstacion": 300,
     "nombreEstacion": "Retiro",
-    "totalEquipos": 1,
-    "equiposFuncionando": 0,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T08:52:31-03:00"
-  },
-  {
-    "idLinea": 3,
-    "nombreLinea": "Línea C",
-    "idEstacion": 303,
-    "nombreEstacion": "Diagonal Norte",
     "totalEquipos": 3,
     "equiposFuncionando": 0,
     "equiposConFalla": 3,
@@ -317,10 +438,54 @@ export const stations = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
+    "idEstacion": 302,
+    "nombreEstacion": "Lavalle",
+    "totalEquipos": 4,
+    "equiposFuncionando": 4,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "idEstacion": 303,
+    "nombreEstacion": "Diagonal Norte",
+    "totalEquipos": 9,
+    "equiposFuncionando": 6,
+    "equiposConFalla": 3,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T01:55:15-03:00"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "idEstacion": 306,
+    "nombreEstacion": "Independencia",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-08T07:40:46-03:00"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "idEstacion": 307,
+    "nombreEstacion": "San Juan",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-08T09:47:08-03:00"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
     "idEstacion": 308,
     "nombreEstacion": "Constitución",
-    "totalEquipos": 4,
-    "equiposFuncionando": 3,
+    "totalEquipos": 6,
+    "equiposFuncionando": 5,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T13:00:24-03:00"
@@ -328,88 +493,66 @@ export const stations = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "idEstacion": 301,
-    "nombreEstacion": "Catedral",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-19T08:24:55-03:00"
-  },
-  {
-    "idLinea": 4,
-    "nombreLinea": "Línea D",
-    "idEstacion": 303,
-    "nombreEstacion": "Tribunales – Teatro Colón",
-    "totalEquipos": 1,
+    "idEstacion": 10,
+    "nombreEstacion": "R.Scalabrini Ortiz",
+    "totalEquipos": 0,
     "equiposFuncionando": 0,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-17T08:48:15-03:00"
-  },
-  {
-    "idLinea": 4,
-    "nombreLinea": "Línea D",
-    "idEstacion": 304,
-    "nombreEstacion": "Callao",
-    "totalEquipos": 1,
-    "equiposFuncionando": 1,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-18T19:04:32-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "idEstacion": 305,
-    "nombreEstacion": "Facultad de Medicina",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
+    "idEstacion": 62,
+    "nombreEstacion": "Ministro Carranza - Miguel Abuelo",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T19:12:28-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "idEstacion": 314,
-    "nombreEstacion": "Juramento",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-16T06:43:47-03:00"
-  },
-  {
-    "idLinea": 4,
-    "nombreLinea": "Línea D",
-    "idEstacion": 315,
-    "nombreEstacion": "Congreso Tucumán",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
+    "idEstacion": 71,
+    "nombreEstacion": "Congreso De Tucuman",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-13T12:14:58-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "idEstacion": 400,
     "nombreEstacion": "Catedral",
-    "totalEquipos": 2,
+    "totalEquipos": 3,
     "equiposFuncionando": 2,
-    "equiposConFalla": 0,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T10:46:57-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
+    "idEstacion": 401,
+    "nombreEstacion": "9 de Julio",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-09T23:59:40-03:00"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
     "idEstacion": 402,
     "nombreEstacion": "Tribunales – Teatro Colón",
-    "totalEquipos": 1,
+    "totalEquipos": 6,
     "equiposFuncionando": 0,
-    "equiposConFalla": 1,
+    "equiposConFalla": 6,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-08T09:22:29-03:00"
   },
@@ -418,97 +561,185 @@ export const stations = [
     "nombreLinea": "Línea D",
     "idEstacion": 403,
     "nombreEstacion": "Callao",
-    "totalEquipos": 1,
-    "equiposFuncionando": 1,
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-02T19:13:25-03:00"
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "idEstacion": 404,
     "nombreEstacion": "Facultad de Medicina",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 0,
+    "totalEquipos": 5,
+    "equiposFuncionando": 4,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T14:56:54-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "idEstacion": 413,
-    "nombreEstacion": "Juramento",
+    "idEstacion": 405,
+    "nombreEstacion": "Pueyrredón",
     "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-10T11:27:35-03:00"
+    "ultimaActualizacion": "2026-03-09T15:55:49-03:00"
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "idEstacion": 414,
-    "nombreEstacion": "Congreso Tucumán",
-    "totalEquipos": 2,
-    "equiposFuncionando": 2,
+    "idEstacion": 406,
+    "nombreEstacion": "Agüero",
+    "totalEquipos": 3,
+    "equiposFuncionando": 3,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-02-14T12:17:03-03:00"
+    "ultimaActualizacion": "2026-03-08T09:22:29-03:00"
   },
   {
-    "idLinea": 5,
-    "nombreLinea": "Línea E",
-    "idEstacion": 415,
-    "nombreEstacion": "Correo Central",
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "idEstacion": 407,
+    "nombreEstacion": "Bulnes",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "idEstacion": 408,
+    "nombreEstacion": "Plaza Italia",
+    "totalEquipos": 5,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T06:19:53-03:00"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "idEstacion": 409,
+    "nombreEstacion": "Palermo",
+    "totalEquipos": 3,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 1,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "idEstacion": 411,
+    "nombreEstacion": "Olleros",
     "totalEquipos": 4,
     "equiposFuncionando": 4,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T06:30:24-03:00"
+    "ultimaActualizacion": "2026-03-10T04:21:10-03:00"
   },
   {
-    "idLinea": 5,
-    "nombreLinea": "Línea E",
-    "idEstacion": 416,
-    "nombreEstacion": "Catalinas",
-    "totalEquipos": 2,
-    "equiposFuncionando": 1,
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "idEstacion": 412,
+    "nombreEstacion": "José Hernández",
+    "totalEquipos": 5,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "idEstacion": 413,
+    "nombreEstacion": "Juramento",
+    "totalEquipos": 9,
+    "equiposFuncionando": 8,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-07T06:15:15-03:00"
+    "ultimaActualizacion": "2026-03-10T11:27:35-03:00"
   },
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
-    "idEstacion": 417,
-    "nombreEstacion": "Retiro",
-    "totalEquipos": 3,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 2,
+    "idEstacion": 46,
+    "nombreEstacion": "Independencia - Beata Mama Antula",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-10T17:08:09-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 48,
+    "nombreEstacion": "Entre Rios - Rodolfo Walsh",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 51,
+    "nombreEstacion": "Urquiza",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 52,
+    "nombreEstacion": "Jose Maria Moreno",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 67,
+    "nombreEstacion": "Plaza De Los Virreyes - Eva Perón",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "idEstacion": 500,
     "nombreEstacion": "Retiro",
-    "totalEquipos": 3,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 2,
+    "totalEquipos": 13,
+    "equiposFuncionando": 10,
+    "equiposConFalla": 3,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T12:17:01-03:00"
+    "ultimaActualizacion": "2026-03-10T01:58:06-03:00"
   },
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "idEstacion": 501,
     "nombreEstacion": "Catalinas",
-    "totalEquipos": 2,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 1,
+    "totalEquipos": 8,
+    "equiposFuncionando": 4,
+    "equiposConFalla": 4,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T05:57:30-03:00"
   },
@@ -517,196 +748,185 @@ export const stations = [
     "nombreLinea": "Línea E",
     "idEstacion": 502,
     "nombreEstacion": "Correo Central",
-    "totalEquipos": 4,
-    "equiposFuncionando": 4,
-    "equiposConFalla": 0,
+    "totalEquipos": 13,
+    "equiposFuncionando": 12,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-09T11:45:09-03:00"
   },
   {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 501,
-    "nombreEstacion": "Hospitales",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-18T06:03:04-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 502,
-    "nombreEstacion": "Parque Patricios",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T06:32:00-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
     "idEstacion": 503,
-    "nombreEstacion": "Caseros",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-16T06:51:54-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 504,
-    "nombreEstacion": "Inclán Mezquita Al Ahmad",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T13:09:34-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 505,
-    "nombreEstacion": "Humberto 1°",
-    "totalEquipos": 4,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 1,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T06:32:00-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 506,
-    "nombreEstacion": "Venezuela",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-19T12:27:19-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 507,
-    "nombreEstacion": "Once – 30 de Diciembre",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T13:09:34-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 508,
-    "nombreEstacion": "Corrientes",
-    "totalEquipos": 6,
+    "nombreEstacion": "Bolívar",
+    "totalEquipos": 5,
     "equiposFuncionando": 5,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 504,
+    "nombreEstacion": "Belgrano",
+    "totalEquipos": 3,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-09T18:39:59-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 506,
+    "nombreEstacion": "San José",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-08T14:08:32-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 508,
+    "nombreEstacion": "Pichincha",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-06T19:09:13-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 509,
+    "nombreEstacion": "Jujuy",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-10T05:17:04-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 511,
+    "nombreEstacion": "Boedo",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-08T03:46:26-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 512,
+    "nombreEstacion": "Av. La Plata",
+    "totalEquipos": 2,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-08T07:07:29-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 514,
+    "nombreEstacion": "Emilio Mitre",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
+    "equiposConFalla": 0,
+    "equiposFueraDeHorario": 0,
+    "ultimaActualizacion": "2026-03-06T08:41:18-03:00"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 515,
+    "nombreEstacion": "Medalla Milagrosa",
+    "totalEquipos": 2,
+    "equiposFuncionando": 1,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-21T06:32:00-03:00"
+    "ultimaActualizacion": "2026-03-10T10:27:25-03:00"
   },
   {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 509,
-    "nombreEstacion": "Córdoba",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "idEstacion": 516,
+    "nombreEstacion": "Varela",
+    "totalEquipos": 1,
+    "equiposFuncionando": 1,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-12T20:20:03-03:00"
+    "ultimaActualizacion": "2026-03-10T15:24:28-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
-    "idEstacion": 510,
-    "nombreEstacion": "Santa Fe - Carlos Jáuregui",
-    "totalEquipos": 7,
-    "equiposFuncionando": 7,
+    "idEstacion": 79,
+    "nombreEstacion": "Hospitales - Ringo Bonavena",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-18T12:33:31-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
-    "idEstacion": 511,
-    "nombreEstacion": "Las Heras",
-    "totalEquipos": 4,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 2,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-20T13:09:34-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 512,
-    "nombreEstacion": "Facultad de Derecho",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
+    "idEstacion": 87,
+    "nombreEstacion": "Facultad De Derecho - Julieta Lanteri",
+    "totalEquipos": 0,
+    "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2023-12-17T12:13:50-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 600,
-    "nombreEstacion": "Facultad de Derecho",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-09T06:21:15-03:00"
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 601,
     "nombreEstacion": "Las Heras",
-    "totalEquipos": 4,
-    "equiposFuncionando": 4,
+    "totalEquipos": 10,
+    "equiposFuncionando": 10,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T17:35:52-03:00"
+    "ultimaActualizacion": "2026-03-10T05:46:08-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 602,
     "nombreEstacion": "Santa Fe - Carlos Jáuregui",
-    "totalEquipos": 7,
-    "equiposFuncionando": 6,
+    "totalEquipos": 16,
+    "equiposFuncionando": 15,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-10T03:47:36-03:00"
+    "ultimaActualizacion": "2026-03-10T06:21:07-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 603,
     "nombreEstacion": "Córdoba",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
+    "totalEquipos": 9,
+    "equiposFuncionando": 8,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-02-16T08:31:24-03:00"
+    "ultimaActualizacion": "2026-03-09T05:45:23-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 604,
     "nombreEstacion": "Corrientes",
-    "totalEquipos": 6,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 3,
+    "totalEquipos": 16,
+    "equiposFuncionando": 12,
+    "equiposConFalla": 4,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T13:10:02-03:00"
   },
@@ -715,52 +935,52 @@ export const stations = [
     "nombreLinea": "Línea H",
     "idEstacion": 605,
     "nombreEstacion": "Once – 30 de Diciembre",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
+    "totalEquipos": 13,
+    "equiposFuncionando": 12,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-10T06:21:07-03:00"
+    "ultimaActualizacion": "2026-03-10T09:18:33-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 606,
     "nombreEstacion": "Venezuela",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
+    "totalEquipos": 7,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-05T07:43:09-03:00"
+    "ultimaActualizacion": "2026-03-10T06:21:07-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 607,
     "nombreEstacion": "Humberto 1°",
-    "totalEquipos": 4,
-    "equiposFuncionando": 4,
-    "equiposConFalla": 0,
+    "totalEquipos": 9,
+    "equiposFuncionando": 8,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-08T08:03:57-03:00"
+    "ultimaActualizacion": "2026-03-09T20:38:19-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 608,
     "nombreEstacion": "Inclán Mezquita Al Ahmad",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
-    "equiposConFalla": 1,
+    "totalEquipos": 7,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-09T12:29:48-03:00"
+    "ultimaActualizacion": "2026-03-10T04:43:54-03:00"
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "idEstacion": 609,
     "nombreEstacion": "Caseros",
-    "totalEquipos": 3,
-    "equiposFuncionando": 2,
+    "totalEquipos": 7,
+    "equiposFuncionando": 6,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T06:21:07-03:00"
@@ -770,22 +990,11 @@ export const stations = [
     "nombreLinea": "Línea H",
     "idEstacion": 610,
     "nombreEstacion": "Parque Patricios",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
+    "totalEquipos": 7,
+    "equiposFuncionando": 7,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
     "ultimaActualizacion": "2026-03-10T05:17:04-03:00"
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "idEstacion": 611,
-    "nombreEstacion": "Hospitales",
-    "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
-    "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-04T13:47:31-03:00"
   }
 ] as const;
 
@@ -819,18 +1028,6 @@ export const networkStations = [
     "nombreLinea": "Línea A",
     "nombreEstacion": "Saenz Peña",
     "stationOrder": 4
-  },
-  {
-    "idLinea": 1,
-    "nombreLinea": "Línea A",
-    "nombreEstacion": "Congreso",
-    "stationOrder": 5
-  },
-  {
-    "idLinea": 1,
-    "nombreLinea": "Línea A",
-    "nombreEstacion": "Plaza Miserere",
-    "stationOrder": 6
   },
   {
     "idLinea": 1,
@@ -881,6 +1078,72 @@ export const networkStations = [
     "stationOrder": 14
   },
   {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Congreso - Pdte. Dr. Raúl Alfonsín",
+    "stationOrder": 35
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Pasco",
+    "stationOrder": 36
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Alberti",
+    "stationOrder": 37
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Plaza De Miserere",
+    "stationOrder": 38
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Rio De Janeiro",
+    "stationOrder": 41
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "C. Pellegrini",
+    "stationOrder": 21
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Callao - Maestro Alfredo Bravo",
+    "stationOrder": 23
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Almagro - Medrano",
+    "stationOrder": 27
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Malabia - Osvaldo Pugliese",
+    "stationOrder": 29
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "De Los Incas - Pque. Chas",
+    "stationOrder": 74
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Echeverría - Mártires Palotinos",
+    "stationOrder": 80
+  },
+  {
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Leandro N. Alem",
@@ -895,20 +1158,8 @@ export const networkStations = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "nombreEstacion": "Carlos Pellegrini",
-    "stationOrder": 103
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
     "nombreEstacion": "Uruguay",
     "stationOrder": 104
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "nombreEstacion": "Callao",
-    "stationOrder": 105
   },
   {
     "idLinea": 2,
@@ -931,20 +1182,8 @@ export const networkStations = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "nombreEstacion": "Medrano Almagro",
-    "stationOrder": 109
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
     "nombreEstacion": "Ángel Gallardo",
     "stationOrder": 110
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "nombreEstacion": "Malabia O. Pugliese",
-    "stationOrder": 111
   },
   {
     "idLinea": 2,
@@ -967,20 +1206,26 @@ export const networkStations = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "nombreEstacion": "De Los Incas Parque Chas",
-    "stationOrder": 115
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
-    "nombreEstacion": "Echeverría",
-    "stationOrder": 116
-  },
-  {
-    "idLinea": 2,
-    "nombreLinea": "Línea B",
     "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
     "stationOrder": 117
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Av. De Mayo",
+    "stationOrder": 16
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Moreno",
+    "stationOrder": 17
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "San Martin",
+    "stationOrder": 57
   },
   {
     "idLinea": 3,
@@ -1003,18 +1248,6 @@ export const networkStations = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
-    "nombreEstacion": "Mariano Moreno",
-    "stationOrder": 204
-  },
-  {
-    "idLinea": 3,
-    "nombreLinea": "Línea C",
-    "nombreEstacion": "Avenida de Mayo",
-    "stationOrder": 205
-  },
-  {
-    "idLinea": 3,
-    "nombreLinea": "Línea C",
     "nombreEstacion": "Diagonal Norte",
     "stationOrder": 206
   },
@@ -1027,14 +1260,26 @@ export const networkStations = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
-    "nombreEstacion": "Gral. San Martín",
-    "stationOrder": 208
-  },
-  {
-    "idLinea": 3,
-    "nombreLinea": "Línea C",
     "nombreEstacion": "Retiro",
     "stationOrder": 209
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "R.Scalabrini Ortiz",
+    "stationOrder": 10
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Ministro Carranza - Miguel Abuelo",
+    "stationOrder": 62
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Congreso De Tucuman",
+    "stationOrder": 71
   },
   {
     "idLinea": 4,
@@ -1099,12 +1344,6 @@ export const networkStations = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "nombreEstacion": "Ministro Carranza",
-    "stationOrder": 311
-  },
-  {
-    "idLinea": 4,
-    "nombreLinea": "Línea D",
     "nombreEstacion": "Olleros",
     "stationOrder": 312
   },
@@ -1121,10 +1360,34 @@ export const networkStations = [
     "stationOrder": 314
   },
   {
-    "idLinea": 4,
-    "nombreLinea": "Línea D",
-    "nombreEstacion": "Congreso Tucumán",
-    "stationOrder": 315
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Independencia - Beata Mama Antula",
+    "stationOrder": 46
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Entre Rios - Rodolfo Walsh",
+    "stationOrder": 48
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Urquiza",
+    "stationOrder": 51
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Jose Maria Moreno",
+    "stationOrder": 52
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Plaza De Los Virreyes - Eva Perón",
+    "stationOrder": 67
   },
   {
     "idLinea": 5,
@@ -1141,20 +1404,8 @@ export const networkStations = [
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
-    "nombreEstacion": "Independencia",
-    "stationOrder": 403
-  },
-  {
-    "idLinea": 5,
-    "nombreLinea": "Línea E",
     "nombreEstacion": "San José",
     "stationOrder": 404
-  },
-  {
-    "idLinea": 5,
-    "nombreLinea": "Línea E",
-    "nombreEstacion": "Entre Ríos",
-    "stationOrder": 405
   },
   {
     "idLinea": 5,
@@ -1171,12 +1422,6 @@ export const networkStations = [
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
-    "nombreEstacion": "Gral. Urquiza",
-    "stationOrder": 408
-  },
-  {
-    "idLinea": 5,
-    "nombreLinea": "Línea E",
     "nombreEstacion": "Boedo",
     "stationOrder": 409
   },
@@ -1185,12 +1430,6 @@ export const networkStations = [
     "nombreLinea": "Línea E",
     "nombreEstacion": "Av. La Plata",
     "stationOrder": 410
-  },
-  {
-    "idLinea": 5,
-    "nombreLinea": "Línea E",
-    "nombreEstacion": "Moreno",
-    "stationOrder": 411
   },
   {
     "idLinea": 5,
@@ -1231,8 +1470,14 @@ export const networkStations = [
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
-    "nombreEstacion": "Hospitales",
-    "stationOrder": 501
+    "nombreEstacion": "Hospitales - Ringo Bonavena",
+    "stationOrder": 79
+  },
+  {
+    "idLinea": 6,
+    "nombreLinea": "Línea H",
+    "nombreEstacion": "Facultad De Derecho - Julieta Lanteri",
+    "stationOrder": 87
   },
   {
     "idLinea": 6,
@@ -1293,12 +1538,6 @@ export const networkStations = [
     "nombreLinea": "Línea H",
     "nombreEstacion": "Las Heras",
     "stationOrder": 511
-  },
-  {
-    "idLinea": 6,
-    "nombreLinea": "Línea H",
-    "nombreEstacion": "Facultad de Derecho",
-    "stationOrder": 512
   }
 ] as const;
 
@@ -1307,7 +1546,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Acoyte",
-    "ultimaActualizacion": "2026-03-10T04:46:24-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -1342,8 +1581,19 @@ export const stationAccessibility = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Alberti",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Carabobo",
-    "ultimaActualizacion": "2026-03-10T11:52:41-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -1391,7 +1641,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Castro Barros",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -1450,8 +1700,19 @@ export const stationAccessibility = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Congreso - Pdte. Dr. Raúl Alfonsín",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Lima",
-    "ultimaActualizacion": "2026-03-10T03:22:24-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -1469,7 +1730,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Loria",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -1492,8 +1753,19 @@ export const stationAccessibility = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Pasco",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Perú",
-    "ultimaActualizacion": "2026-03-10T11:51:45-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -1529,7 +1801,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Piedras",
-    "ultimaActualizacion": "2026-01-17T10:12:11-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -1547,7 +1819,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Plaza de Mayo",
-    "ultimaActualizacion": "2026-03-06T16:16:37-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -1560,6 +1832,17 @@ export const stationAccessibility = [
         "fechaActualizacion": "2026-03-06T16:16:37-03:00"
       }
     ]
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Plaza De Miserere",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
   },
   {
     "idLinea": 1,
@@ -1613,7 +1896,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Primera Junta",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 5,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -1655,7 +1938,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Puan",
-    "ultimaActualizacion": "2026-03-07T17:07:23-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -1702,8 +1985,19 @@ export const stationAccessibility = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Rio De Janeiro",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Saenz Peña",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -1727,7 +2021,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "San José de Flores",
-    "ultimaActualizacion": "2026-03-10T08:42:53-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 7,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -1781,7 +2075,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "San Pedrito",
-    "ultimaActualizacion": "2026-03-10T16:14:59-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 5,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -1822,8 +2116,19 @@ export const stationAccessibility = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "Almagro - Medrano",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "Ángel Gallardo",
-    "ultimaActualizacion": "2026-03-10T05:17:04-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -1836,6 +2141,17 @@ export const stationAccessibility = [
         "fechaActualizacion": "2026-03-10T05:17:04-03:00"
       }
     ]
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "C. Pellegrini",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
   },
   {
     "idLinea": 2,
@@ -1912,8 +2228,19 @@ export const stationAccessibility = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "Callao - Maestro Alfredo Bravo",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "Carlos Gardel",
-    "ultimaActualizacion": "2026-03-03T16:20:35-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -1972,6 +2299,17 @@ export const stationAccessibility = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "De Los Incas - Pque. Chas",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "De Los Incas Parque Chas",
     "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
@@ -2021,7 +2359,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Dorrego",
-    "ultimaActualizacion": "2026-03-08T09:34:19-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -2098,8 +2436,19 @@ export const stationAccessibility = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "Echeverría - Mártires Palotinos",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "Federico Lacroze",
-    "ultimaActualizacion": "2026-03-10T03:22:24-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -2129,7 +2478,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Florida",
-    "ultimaActualizacion": "2026-03-09T10:31:11-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -2165,7 +2514,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
-    "ultimaActualizacion": "2026-03-10T09:21:05-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 17,
     "funcionando": 14,
     "fueraDeHorario": 0,
@@ -2279,7 +2628,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Leandro N. Alem",
-    "ultimaActualizacion": "2026-03-08T17:09:39-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2298,6 +2647,17 @@ export const stationAccessibility = [
         "fechaActualizacion": "2026-03-08T17:09:39-03:00"
       }
     ]
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Malabia - Osvaldo Pugliese",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
   },
   {
     "idLinea": 2,
@@ -2339,7 +2699,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Pasteur AMIA",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -2387,7 +2747,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Pueyrredón",
-    "ultimaActualizacion": "2026-03-09T11:22:56-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 5,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -2429,7 +2789,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Tronador Villa Ortúzar",
-    "ultimaActualizacion": "2026-03-10T12:45:12-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -2477,7 +2837,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Uruguay",
-    "ultimaActualizacion": "2026-03-08T09:34:19-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -2524,6 +2884,17 @@ export const stationAccessibility = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
+    "nombreEstacion": "Av. De Mayo",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
     "nombreEstacion": "Avenida de Mayo",
     "ultimaActualizacion": "2026-03-10T02:26:08-03:00",
     "total": 3,
@@ -2555,7 +2926,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Constitución",
-    "ultimaActualizacion": "2026-03-10T13:00:24-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -2603,7 +2974,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Diagonal Norte",
-    "ultimaActualizacion": "2026-03-10T01:55:15-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 10,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -2705,7 +3076,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Independencia",
-    "ultimaActualizacion": "2026-03-08T07:40:46-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2729,7 +3100,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Lavalle",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -2788,8 +3159,19 @@ export const stationAccessibility = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
+    "nombreEstacion": "Moreno",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
     "nombreEstacion": "Retiro",
-    "ultimaActualizacion": "2026-03-08T08:52:31-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 5,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2831,7 +3213,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "San Juan",
-    "ultimaActualizacion": "2026-03-08T09:47:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2858,10 +3240,21 @@ export const stationAccessibility = [
     ]
   },
   {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "San Martin",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "9 de Julio",
-    "ultimaActualizacion": "2026-03-09T23:59:40-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2885,7 +3278,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Agüero",
-    "ultimaActualizacion": "2026-03-08T09:22:29-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -2915,7 +3308,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Bulnes",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -2933,7 +3326,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Callao",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2957,7 +3350,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Catedral",
-    "ultimaActualizacion": "2026-03-10T10:46:57-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2982,6 +3375,17 @@ export const stationAccessibility = [
         "fechaActualizacion": "2026-03-09T20:10:13-03:00"
       }
     ]
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Congreso De Tucuman",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
   },
   {
     "idLinea": 4,
@@ -3047,7 +3451,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Facultad de Medicina",
-    "ultimaActualizacion": "2026-03-10T14:56:54-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 5,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -3089,7 +3493,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "José Hernández",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -3137,7 +3541,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Juramento",
-    "ultimaActualizacion": "2026-03-10T11:27:35-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 9,
     "funcionando": 8,
     "fueraDeHorario": 0,
@@ -3262,8 +3666,19 @@ export const stationAccessibility = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
+    "nombreEstacion": "Ministro Carranza - Miguel Abuelo",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
     "nombreEstacion": "Olleros",
-    "ultimaActualizacion": "2026-03-10T04:21:10-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -3299,7 +3714,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Palermo",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3329,7 +3744,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Plaza Italia",
-    "ultimaActualizacion": "2026-03-10T06:19:53-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -3377,7 +3792,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Pueyrredón",
-    "ultimaActualizacion": "2026-03-09T15:55:49-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 4,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3412,8 +3827,19 @@ export const stationAccessibility = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
+    "nombreEstacion": "R.Scalabrini Ortiz",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
     "nombreEstacion": "Tribunales – Teatro Colón",
-    "ultimaActualizacion": "2026-03-08T09:22:29-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 8,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3473,7 +3899,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Av. La Plata",
-    "ultimaActualizacion": "2026-03-08T07:07:29-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3497,7 +3923,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Belgrano",
-    "ultimaActualizacion": "2026-03-09T18:39:59-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -3527,7 +3953,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Boedo",
-    "ultimaActualizacion": "2026-03-08T03:46:26-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -3545,7 +3971,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Bolívar",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 5,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -3587,7 +4013,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Catalinas",
-    "ultimaActualizacion": "2026-03-10T05:57:30-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 8,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -3647,7 +4073,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Correo Central",
-    "ultimaActualizacion": "2026-03-09T11:45:09-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 15,
     "funcionando": 13,
     "fueraDeHorario": 0,
@@ -3749,7 +4175,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Emilio Mitre",
-    "ultimaActualizacion": "2026-03-06T08:41:18-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -3786,6 +4212,17 @@ export const stationAccessibility = [
         "fechaActualizacion": "2026-03-10T05:17:04-03:00"
       }
     ]
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Entre Rios - Rodolfo Walsh",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
   },
   {
     "idLinea": 5,
@@ -3844,8 +4281,30 @@ export const stationAccessibility = [
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
+    "nombreEstacion": "Independencia - Beata Mama Antula",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Jose Maria Moreno",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
     "nombreEstacion": "Jujuy",
-    "ultimaActualizacion": "2026-03-10T05:17:04-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -3875,7 +4334,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Medalla Milagrosa",
-    "ultimaActualizacion": "2026-03-10T10:27:25-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -3923,7 +4382,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Pichincha",
-    "ultimaActualizacion": "2026-03-06T19:09:13-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3946,8 +4405,19 @@ export const stationAccessibility = [
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
+    "nombreEstacion": "Plaza De Los Virreyes - Eva Perón",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
     "nombreEstacion": "Retiro",
-    "ultimaActualizacion": "2026-03-10T01:58:06-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 13,
     "funcionando": 10,
     "fueraDeHorario": 0,
@@ -4037,7 +4507,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "San José",
-    "ultimaActualizacion": "2026-03-08T14:08:32-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -4060,8 +4530,19 @@ export const stationAccessibility = [
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
+    "nombreEstacion": "Urquiza",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
     "nombreEstacion": "Varela",
-    "ultimaActualizacion": "2026-03-10T15:24:28-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -4079,7 +4560,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Caseros",
-    "ultimaActualizacion": "2026-03-10T06:21:07-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 7,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -4133,7 +4614,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Córdoba",
-    "ultimaActualizacion": "2026-03-09T05:45:23-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 9,
     "funcionando": 8,
     "fueraDeHorario": 0,
@@ -4199,7 +4680,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Corrientes",
-    "ultimaActualizacion": "2026-03-10T13:10:02-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 16,
     "funcionando": 12,
     "fueraDeHorario": 0,
@@ -4348,6 +4829,17 @@ export const stationAccessibility = [
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
+    "nombreEstacion": "Facultad De Derecho - Julieta Lanteri",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 6,
+    "nombreLinea": "Línea H",
     "nombreEstacion": "Hospitales",
     "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
     "total": 6,
@@ -4396,8 +4888,19 @@ export const stationAccessibility = [
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
+    "nombreEstacion": "Hospitales - Ringo Bonavena",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
+    "total": 0,
+    "funcionando": 0,
+    "fueraDeHorario": 0,
+    "conFalla": 0,
+    "devices": []
+  },
+  {
+    "idLinea": 6,
+    "nombreLinea": "Línea H",
     "nombreEstacion": "Humberto 1°",
-    "ultimaActualizacion": "2026-03-09T20:38:19-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 9,
     "funcionando": 8,
     "fueraDeHorario": 0,
@@ -4463,7 +4966,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Inclán Mezquita Al Ahmad",
-    "ultimaActualizacion": "2026-03-10T04:43:54-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 7,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -4517,7 +5020,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Las Heras",
-    "ultimaActualizacion": "2026-03-10T05:46:08-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 10,
     "funcionando": 10,
     "fueraDeHorario": 0,
@@ -4589,7 +5092,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Once – 30 de Diciembre",
-    "ultimaActualizacion": "2026-03-10T09:18:33-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 13,
     "funcionando": 12,
     "fueraDeHorario": 0,
@@ -4679,7 +5182,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Parque Patricios",
-    "ultimaActualizacion": "2026-03-10T05:17:04-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 7,
     "funcionando": 7,
     "fueraDeHorario": 0,
@@ -4733,7 +5236,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Santa Fe - Carlos Jáuregui",
-    "ultimaActualizacion": "2026-03-10T06:21:07-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 16,
     "funcionando": 15,
     "fueraDeHorario": 0,
@@ -4841,7 +5344,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Venezuela",
-    "ultimaActualizacion": "2026-03-10T06:21:07-03:00",
+    "ultimaActualizacion": "2026-03-10T16:59:50-03:00",
     "total": 8,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -4914,6 +5417,17 @@ export const stationHistory = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Alberti",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Carabobo",
     "windowDays": 30,
     "daysWithoutAccess": 0,
@@ -4947,7 +5461,40 @@ export const stationHistory = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Congreso - Pdte. Dr. Raúl Alfonsín",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Lima",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Loria",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Pasco",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -4969,7 +5516,40 @@ export const stationHistory = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Piedras",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "Plaza de Mayo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Plaza De Miserere",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Plaza Miserere",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5002,6 +5582,28 @@ export const stationHistory = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
+    "nombreEstacion": "Rio De Janeiro",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
+    "nombreEstacion": "Saenz Peña",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 1,
+    "nombreLinea": "Línea A",
     "nombreEstacion": "San José de Flores",
     "windowDays": 30,
     "daysWithoutAccess": 0,
@@ -5024,7 +5626,84 @@ export const stationHistory = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "Almagro - Medrano",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Ángel Gallardo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "C. Pellegrini",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "Callao",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Callao - Maestro Alfredo Bravo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Carlos Gardel",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Carlos Pellegrini",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "De Los Incas - Pque. Chas",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5046,6 +5725,17 @@ export const stationHistory = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "Dorrego",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "Echeverría",
     "windowDays": 30,
     "daysWithoutAccess": 0,
@@ -5057,7 +5747,106 @@ export const stationHistory = [
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
+    "nombreEstacion": "Echeverría - Mártires Palotinos",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Federico Lacroze",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Florida",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
     "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Leandro N. Alem",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Malabia - Osvaldo Pugliese",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Malabia O. Pugliese",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Medrano Almagro",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Pasteur AMIA",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 2,
+    "nombreLinea": "Línea B",
+    "nombreEstacion": "Pueyrredón",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5090,6 +5879,28 @@ export const stationHistory = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
+    "nombreEstacion": "Av. De Mayo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Avenida de Mayo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
     "nombreEstacion": "Constitución",
     "windowDays": 30,
     "daysWithoutAccess": 0,
@@ -5112,7 +5923,117 @@ export const stationHistory = [
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
+    "nombreEstacion": "Gral. San Martín",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Independencia",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Lavalle",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Mariano Moreno",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "Moreno",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
     "nombreEstacion": "Retiro",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "San Juan",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 3,
+    "nombreLinea": "Línea C",
+    "nombreEstacion": "San Martin",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "9 de Julio",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Agüero",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Bulnes",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5145,6 +6066,17 @@ export const stationHistory = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
+    "nombreEstacion": "Congreso De Tucuman",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
     "nombreEstacion": "Congreso Tucumán",
     "windowDays": 30,
     "daysWithoutAccess": 0,
@@ -5167,6 +6099,17 @@ export const stationHistory = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
+    "nombreEstacion": "José Hernández",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
     "nombreEstacion": "Juramento",
     "windowDays": 30,
     "daysWithoutAccess": 0,
@@ -5178,7 +6121,128 @@ export const stationHistory = [
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
+    "nombreEstacion": "Ministro Carranza",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Ministro Carranza - Miguel Abuelo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Olleros",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Palermo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Plaza Italia",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "Pueyrredón",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
+    "nombreEstacion": "R.Scalabrini Ortiz",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 4,
+    "nombreLinea": "Línea D",
     "nombreEstacion": "Tribunales – Teatro Colón",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Av. La Plata",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Belgrano",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Boedo",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Bolívar",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5211,7 +6275,172 @@ export const stationHistory = [
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
+    "nombreEstacion": "Emilio Mitre",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Entre Ríos",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Entre Rios - Rodolfo Walsh",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Gral. Urquiza",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Independencia",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Independencia - Beata Mama Antula",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Jose Maria Moreno",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Jujuy",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Medalla Milagrosa",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Moreno",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Pichincha",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Plaza De Los Virreyes - Eva Perón",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
     "nombreEstacion": "Retiro",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "San José",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Urquiza",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 5,
+    "nombreLinea": "Línea E",
+    "nombreEstacion": "Varela",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5266,7 +6495,29 @@ export const stationHistory = [
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
+    "nombreEstacion": "Facultad De Derecho - Julieta Lanteri",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 6,
+    "nombreLinea": "Línea H",
     "nombreEstacion": "Hospitales",
+    "windowDays": 30,
+    "daysWithoutAccess": 0,
+    "daysWithAnyFailure": 0,
+    "currentWithoutAccessStreak": 0,
+    "currentFailureStreak": 0,
+    "lastDate": "2026-03-10"
+  },
+  {
+    "idLinea": 6,
+    "nombreLinea": "Línea H",
+    "nombreEstacion": "Hospitales - Ringo Bonavena",
     "windowDays": 30,
     "daysWithoutAccess": 0,
     "daysWithAnyFailure": 0,
@@ -5355,59 +6606,59 @@ export const stationHistory = [
 
 export const averageEntryClosures = {
   "year": "2025",
-  "totalStations": 85,
+  "totalStations": 109,
   "daysTracked": 365,
-  "totalStationDaysTracked": 31025,
+  "totalStationDaysTracked": 39785,
   "totalStationDaysWithClosedEntry": 21271,
-  "averageClosedEntryShare": 0.6856083803384367,
+  "averageClosedEntryShare": 0.5346487369611662,
   "lines": [
     {
       "idLinea": 1,
       "nombreLinea": "Línea A",
-      "stations": 15,
+      "stations": 20,
       "daysTracked": 365,
       "daysWithClosedEntry": 3162,
-      "averageClosedEntryShare": 0.5775342465753425
+      "averageClosedEntryShare": 0.4331506849315068
     },
     {
       "idLinea": 2,
       "nombreLinea": "Línea B",
-      "stations": 17,
+      "stations": 23,
       "daysTracked": 365,
       "daysWithClosedEntry": 4515,
-      "averageClosedEntryShare": 0.7276390008058018
+      "averageClosedEntryShare": 0.5378201310303752
     },
     {
       "idLinea": 3,
       "nombreLinea": "Línea C",
-      "stations": 9,
+      "stations": 12,
       "daysTracked": 365,
       "daysWithClosedEntry": 1819,
-      "averageClosedEntryShare": 0.5537290715372907
+      "averageClosedEntryShare": 0.41529680365296806
     },
     {
       "idLinea": 4,
       "nombreLinea": "Línea D",
-      "stations": 15,
+      "stations": 18,
       "daysTracked": 365,
       "daysWithClosedEntry": 4369,
-      "averageClosedEntryShare": 0.7979908675799087
+      "averageClosedEntryShare": 0.6649923896499239
     },
     {
       "idLinea": 5,
       "nombreLinea": "Línea E",
-      "stations": 17,
+      "stations": 22,
       "daysTracked": 365,
       "daysWithClosedEntry": 3527,
-      "averageClosedEntryShare": 0.5684125705076551
+      "averageClosedEntryShare": 0.43922789539227897
     },
     {
       "idLinea": 6,
       "nombreLinea": "Línea H",
-      "stations": 12,
+      "stations": 14,
       "daysTracked": 365,
       "daysWithClosedEntry": 3879,
-      "averageClosedEntryShare": 0.8856164383561644
+      "averageClosedEntryShare": 0.7590998043052838
     }
   ]
 } as const;
@@ -5497,906 +6748,906 @@ export const lineAccessibilityTrend = [
   {
     "idLinea": 1,
     "nombreLinea": "Línea A",
-    "stationsTracked": 15,
+    "stationsTracked": 20,
     "points": [
       {
         "month": "2023-01",
-        "value": 32.903225806451616
+        "value": 24.677419354838708
       },
       {
         "month": "2023-02",
-        "value": 29.761904761904763
+        "value": 22.321428571428573
       },
       {
         "month": "2023-03",
-        "value": 33.11827956989247
+        "value": 24.838709677419356
       },
       {
         "month": "2023-04",
-        "value": 40.88888888888889
+        "value": 30.666666666666664
       },
       {
         "month": "2023-05",
-        "value": 41.72043010752688
+        "value": 31.290322580645164
       },
       {
         "month": "2023-06",
-        "value": 44
+        "value": 33
       },
       {
         "month": "2023-07",
-        "value": 36.344086021505376
+        "value": 27.258064516129032
       },
       {
         "month": "2023-08",
-        "value": 54.40860215053763
+        "value": 40.806451612903224
       },
       {
         "month": "2023-09",
-        "value": 54.666666666666664
+        "value": 41
       },
       {
         "month": "2023-10",
-        "value": 52.473118279569896
+        "value": 39.35483870967742
       },
       {
         "month": "2023-11",
-        "value": 54
+        "value": 40.5
       },
       {
         "month": "2023-12",
-        "value": 60.64516129032258
+        "value": 45.483870967741936
       },
       {
         "month": "2024-01",
-        "value": 70.3225806451613
+        "value": 52.741935483870975
       },
       {
         "month": "2024-02",
-        "value": 79.54022988505747
+        "value": 59.6551724137931
       },
       {
         "month": "2024-03",
-        "value": 74.6236559139785
+        "value": 55.96774193548387
       },
       {
         "month": "2024-04",
-        "value": 74.8888888888889
+        "value": 56.166666666666664
       },
       {
         "month": "2024-05",
-        "value": 72.90322580645162
+        "value": 54.677419354838705
       },
       {
         "month": "2024-06",
-        "value": 67.33333333333333
+        "value": 50.5
       },
       {
         "month": "2024-07",
-        "value": 61.29032258064516
+        "value": 45.96774193548387
       },
       {
         "month": "2024-08",
-        "value": 61.505376344086024
+        "value": 46.12903225806452
       },
       {
         "month": "2024-09",
-        "value": 63.77777777777778
+        "value": 47.833333333333336
       },
       {
         "month": "2024-10",
-        "value": 56.774193548387096
+        "value": 42.58064516129032
       },
       {
         "month": "2024-11",
-        "value": 63.77777777777778
+        "value": 47.833333333333336
       },
       {
         "month": "2024-12",
-        "value": 62.1505376344086
+        "value": 46.61290322580645
       },
       {
         "month": "2025-01",
-        "value": 55.26881720430108
+        "value": 41.4516129032258
       },
       {
         "month": "2025-02",
-        "value": 65.23809523809524
+        "value": 48.92857142857142
       },
       {
         "month": "2025-03",
-        "value": 67.0967741935484
+        "value": 50.32258064516129
       },
       {
         "month": "2025-04",
-        "value": 58.44444444444444
+        "value": 43.833333333333336
       },
       {
         "month": "2025-05",
-        "value": 62.795698924731184
+        "value": 47.096774193548384
       },
       {
         "month": "2025-06",
-        "value": 52
+        "value": 39
       },
       {
         "month": "2025-07",
-        "value": 51.182795698924735
+        "value": 38.387096774193544
       },
       {
         "month": "2025-08",
-        "value": 56.344086021505376
+        "value": 42.25806451612903
       },
       {
         "month": "2025-09",
-        "value": 52.666666666666664
+        "value": 39.5
       },
       {
         "month": "2025-10",
-        "value": 53.118279569892465
+        "value": 39.83870967741935
       },
       {
         "month": "2025-11",
-        "value": 60
+        "value": 45
       },
       {
         "month": "2025-12",
-        "value": 59.354838709677416
+        "value": 44.516129032258064
       }
     ]
   },
   {
     "idLinea": 2,
     "nombreLinea": "Línea B",
-    "stationsTracked": 17,
+    "stationsTracked": 23,
     "points": [
       {
         "month": "2023-01",
-        "value": 27.32447817836812
+        "value": 20.196353436185134
       },
       {
         "month": "2023-02",
-        "value": 40.54621848739496
+        "value": 29.96894409937888
       },
       {
         "month": "2023-03",
-        "value": 31.499051233396585
+        "value": 23.281907433380084
       },
       {
         "month": "2023-04",
-        "value": 33.92156862745098
+        "value": 25.072463768115945
       },
       {
         "month": "2023-05",
-        "value": 40.03795066413662
+        "value": 29.59326788218794
       },
       {
         "month": "2023-06",
-        "value": 31.76470588235294
+        "value": 23.47826086956522
       },
       {
         "month": "2023-07",
-        "value": 32.63757115749525
+        "value": 24.1234221598878
       },
       {
         "month": "2023-08",
-        "value": 35.483870967741936
+        "value": 26.227208976157083
       },
       {
         "month": "2023-09",
-        "value": 33.33333333333333
+        "value": 24.637681159420293
       },
       {
         "month": "2023-10",
-        "value": 30.55028462998102
+        "value": 22.58064516129032
       },
       {
         "month": "2023-11",
-        "value": 43.72549019607843
+        "value": 32.31884057971015
       },
       {
         "month": "2023-12",
-        "value": 50.47438330170778
+        "value": 37.30715287517531
       },
       {
         "month": "2024-01",
-        "value": 59.20303605313093
+        "value": 43.75876577840112
       },
       {
         "month": "2024-02",
-        "value": 64.70588235294117
+        "value": 47.82608695652174
       },
       {
         "month": "2024-03",
-        "value": 66.41366223908919
+        "value": 49.08835904628331
       },
       {
         "month": "2024-04",
-        "value": 65.49019607843137
+        "value": 48.40579710144928
       },
       {
         "month": "2024-05",
-        "value": 66.03415559772297
+        "value": 48.80785413744741
       },
       {
         "month": "2024-06",
-        "value": 80.19607843137256
+        "value": 59.27536231884057
       },
       {
         "month": "2024-07",
-        "value": 83.11195445920305
+        "value": 61.430575035063114
       },
       {
         "month": "2024-08",
-        "value": 71.5370018975332
+        "value": 52.87517531556802
       },
       {
         "month": "2024-09",
-        "value": 70.7843137254902
+        "value": 52.31884057971015
       },
       {
         "month": "2024-10",
-        "value": 71.91650853889942
+        "value": 53.15568022440392
       },
       {
         "month": "2024-11",
-        "value": 68.03921568627452
+        "value": 50.289855072463766
       },
       {
         "month": "2024-12",
-        "value": 75.71157495256166
+        "value": 55.96072931276297
       },
       {
         "month": "2025-01",
-        "value": 78.93738140417457
+        "value": 58.345021037868165
       },
       {
         "month": "2025-02",
-        "value": 76.47058823529412
+        "value": 56.52173913043478
       },
       {
         "month": "2025-03",
-        "value": 77.22960151802657
+        "value": 57.082748948106584
       },
       {
         "month": "2025-04",
-        "value": 68.03921568627452
+        "value": 50.289855072463766
       },
       {
         "month": "2025-05",
-        "value": 70.39848197343453
+        "value": 52.033660589060304
       },
       {
         "month": "2025-06",
-        "value": 71.37254901960785
+        "value": 52.7536231884058
       },
       {
         "month": "2025-07",
-        "value": 66.41366223908919
+        "value": 49.08835904628331
       },
       {
         "month": "2025-08",
-        "value": 66.79316888045541
+        "value": 49.36886395511921
       },
       {
         "month": "2025-09",
-        "value": 70.7843137254902
+        "value": 52.31884057971015
       },
       {
         "month": "2025-10",
-        "value": 74.38330170777988
+        "value": 54.97896213183731
       },
       {
         "month": "2025-11",
-        "value": 71.17647058823529
+        "value": 52.60869565217391
       },
       {
         "month": "2025-12",
-        "value": 81.21442125237192
+        "value": 60.02805049088359
       }
     ]
   },
   {
     "idLinea": 3,
     "nombreLinea": "Línea C",
-    "stationsTracked": 9,
+    "stationsTracked": 12,
     "points": [
       {
         "month": "2023-01",
-        "value": 24.372759856630825
+        "value": 18.27956989247312
       },
       {
         "month": "2023-02",
-        "value": 28.57142857142857
+        "value": 21.428571428571427
       },
       {
         "month": "2023-03",
-        "value": 37.992831541218635
+        "value": 28.49462365591398
       },
       {
         "month": "2023-04",
-        "value": 34.81481481481482
+        "value": 26.111111111111114
       },
       {
         "month": "2023-05",
-        "value": 41.935483870967744
+        "value": 31.451612903225808
       },
       {
         "month": "2023-06",
-        "value": 37.77777777777778
+        "value": 28.333333333333332
       },
       {
         "month": "2023-07",
-        "value": 40.86021505376344
+        "value": 30.64516129032258
       },
       {
         "month": "2023-08",
-        "value": 46.59498207885305
+        "value": 34.946236559139784
       },
       {
         "month": "2023-09",
-        "value": 50.74074074074074
+        "value": 38.05555555555556
       },
       {
         "month": "2023-10",
-        "value": 42.29390681003584
+        "value": 31.72043010752688
       },
       {
         "month": "2023-11",
-        "value": 45.55555555555556
+        "value": 34.166666666666664
       },
       {
         "month": "2023-12",
-        "value": 51.61290322580645
+        "value": 38.70967741935484
       },
       {
         "month": "2024-01",
-        "value": 56.272401433691755
+        "value": 42.204301075268816
       },
       {
         "month": "2024-02",
-        "value": 58.620689655172406
+        "value": 43.96551724137931
       },
       {
         "month": "2024-03",
-        "value": 49.82078853046595
+        "value": 37.365591397849464
       },
       {
         "month": "2024-04",
-        "value": 39.25925925925926
+        "value": 29.444444444444446
       },
       {
         "month": "2024-05",
-        "value": 49.10394265232975
+        "value": 36.82795698924731
       },
       {
         "month": "2024-06",
-        "value": 54.81481481481482
+        "value": 41.11111111111111
       },
       {
         "month": "2024-07",
-        "value": 53.40501792114696
+        "value": 40.053763440860216
       },
       {
         "month": "2024-08",
-        "value": 52.32974910394266
+        "value": 39.247311827956985
       },
       {
         "month": "2024-09",
-        "value": 50.37037037037037
+        "value": 37.77777777777778
       },
       {
         "month": "2024-10",
-        "value": 54.121863799283155
+        "value": 40.59139784946236
       },
       {
         "month": "2024-11",
-        "value": 56.2962962962963
+        "value": 42.22222222222222
       },
       {
         "month": "2024-12",
-        "value": 55.55555555555556
+        "value": 41.66666666666667
       },
       {
         "month": "2025-01",
-        "value": 55.19713261648745
+        "value": 41.39784946236559
       },
       {
         "month": "2025-02",
-        "value": 62.301587301587304
+        "value": 46.726190476190474
       },
       {
         "month": "2025-03",
-        "value": 56.272401433691755
+        "value": 42.204301075268816
       },
       {
         "month": "2025-04",
-        "value": 54.074074074074076
+        "value": 40.55555555555556
       },
       {
         "month": "2025-05",
-        "value": 56.98924731182796
+        "value": 42.74193548387097
       },
       {
         "month": "2025-06",
-        "value": 57.77777777777777
+        "value": 43.333333333333336
       },
       {
         "month": "2025-07",
-        "value": 49.46236559139785
+        "value": 37.096774193548384
       },
       {
         "month": "2025-08",
-        "value": 55.91397849462365
+        "value": 41.935483870967744
       },
       {
         "month": "2025-09",
-        "value": 54.074074074074076
+        "value": 40.55555555555556
       },
       {
         "month": "2025-10",
-        "value": 51.61290322580645
+        "value": 38.70967741935484
       },
       {
         "month": "2025-11",
-        "value": 57.77777777777777
+        "value": 43.333333333333336
       },
       {
         "month": "2025-12",
-        "value": 53.76344086021505
+        "value": 40.32258064516129
       }
     ]
   },
   {
     "idLinea": 4,
     "nombreLinea": "Línea D",
-    "stationsTracked": 15,
+    "stationsTracked": 18,
     "points": [
       {
         "month": "2023-01",
-        "value": 59.78494623655914
+        "value": 49.82078853046595
       },
       {
         "month": "2023-02",
-        "value": 62.61904761904762
+        "value": 52.182539682539684
       },
       {
         "month": "2023-03",
-        "value": 63.87096774193548
+        "value": 53.2258064516129
       },
       {
         "month": "2023-04",
-        "value": 55.77777777777778
+        "value": 46.48148148148148
       },
       {
         "month": "2023-05",
-        "value": 55.053763440860216
+        "value": 45.878136200716845
       },
       {
         "month": "2023-06",
-        "value": 54.44444444444444
+        "value": 45.370370370370374
       },
       {
         "month": "2023-07",
-        "value": 56.98924731182796
+        "value": 47.491039426523294
       },
       {
         "month": "2023-08",
-        "value": 80.43010752688173
+        "value": 67.02508960573476
       },
       {
         "month": "2023-09",
-        "value": 76
+        "value": 63.33333333333333
       },
       {
         "month": "2023-10",
-        "value": 73.76344086021506
+        "value": 61.469534050179206
       },
       {
         "month": "2023-11",
-        "value": 68.22222222222221
+        "value": 56.851851851851855
       },
       {
         "month": "2023-12",
-        "value": 73.54838709677419
+        "value": 61.29032258064516
       },
       {
         "month": "2024-01",
-        "value": 93.97849462365592
+        "value": 78.31541218637993
       },
       {
         "month": "2024-02",
-        "value": 100
-      },
-      {
-        "month": "2024-03",
-        "value": 86.23655913978494
-      },
-      {
-        "month": "2024-04",
-        "value": 73.77777777777777
-      },
-      {
-        "month": "2024-05",
-        "value": 68.38709677419355
-      },
-      {
-        "month": "2024-06",
-        "value": 82.22222222222221
-      },
-      {
-        "month": "2024-07",
-        "value": 85.16129032258064
-      },
-      {
-        "month": "2024-08",
-        "value": 80.86021505376344
-      },
-      {
-        "month": "2024-09",
-        "value": 77.55555555555556
-      },
-      {
-        "month": "2024-10",
-        "value": 74.19354838709677
-      },
-      {
-        "month": "2024-11",
-        "value": 78.44444444444446
-      },
-      {
-        "month": "2024-12",
-        "value": 82.58064516129032
-      },
-      {
-        "month": "2025-01",
-        "value": 73.9784946236559
-      },
-      {
-        "month": "2025-02",
         "value": 83.33333333333334
       },
       {
+        "month": "2024-03",
+        "value": 71.86379928315412
+      },
+      {
+        "month": "2024-04",
+        "value": 61.48148148148148
+      },
+      {
+        "month": "2024-05",
+        "value": 56.98924731182796
+      },
+      {
+        "month": "2024-06",
+        "value": 68.51851851851852
+      },
+      {
+        "month": "2024-07",
+        "value": 70.96774193548387
+      },
+      {
+        "month": "2024-08",
+        "value": 67.38351254480287
+      },
+      {
+        "month": "2024-09",
+        "value": 64.62962962962962
+      },
+      {
+        "month": "2024-10",
+        "value": 61.82795698924731
+      },
+      {
+        "month": "2024-11",
+        "value": 65.37037037037037
+      },
+      {
+        "month": "2024-12",
+        "value": 68.81720430107528
+      },
+      {
+        "month": "2025-01",
+        "value": 61.648745519713266
+      },
+      {
+        "month": "2025-02",
+        "value": 69.44444444444444
+      },
+      {
         "month": "2025-03",
-        "value": 79.35483870967742
+        "value": 66.12903225806451
       },
       {
         "month": "2025-04",
-        "value": 69.33333333333334
+        "value": 57.77777777777777
       },
       {
         "month": "2025-05",
-        "value": 76.34408602150538
+        "value": 63.620071684587806
       },
       {
         "month": "2025-06",
-        "value": 74.8888888888889
+        "value": 62.40740740740741
       },
       {
         "month": "2025-07",
-        "value": 78.70967741935485
+        "value": 65.59139784946237
       },
       {
         "month": "2025-08",
-        "value": 79.13978494623656
+        "value": 65.94982078853047
       },
       {
         "month": "2025-09",
-        "value": 86.8888888888889
+        "value": 72.4074074074074
       },
       {
         "month": "2025-10",
-        "value": 85.59139784946237
+        "value": 71.32616487455196
       },
       {
         "month": "2025-11",
-        "value": 84.88888888888889
+        "value": 70.74074074074073
       },
       {
         "month": "2025-12",
-        "value": 85.3763440860215
+        "value": 71.14695340501792
       }
     ]
   },
   {
     "idLinea": 5,
     "nombreLinea": "Línea E",
-    "stationsTracked": 17,
+    "stationsTracked": 22,
     "points": [
       {
         "month": "2023-01",
-        "value": 22.011385199240987
+        "value": 17.008797653958943
       },
       {
         "month": "2023-02",
-        "value": 30.04201680672269
+        "value": 23.214285714285715
       },
       {
         "month": "2023-03",
-        "value": 25.426944971537
+        "value": 19.64809384164223
       },
       {
         "month": "2023-04",
-        "value": 33.72549019607843
+        "value": 26.060606060606062
       },
       {
         "month": "2023-05",
-        "value": 40.41745730550284
+        "value": 31.2316715542522
       },
       {
         "month": "2023-06",
-        "value": 38.62745098039216
+        "value": 29.848484848484848
       },
       {
         "month": "2023-07",
-        "value": 38.1404174573055
+        "value": 29.472140762463344
       },
       {
         "month": "2023-08",
-        "value": 47.6280834914611
+        "value": 36.80351906158358
       },
       {
         "month": "2023-09",
-        "value": 43.333333333333336
+        "value": 33.484848484848484
       },
       {
         "month": "2023-10",
-        "value": 46.110056925996204
+        "value": 35.63049853372434
       },
       {
         "month": "2023-11",
-        "value": 47.05882352941176
+        "value": 36.36363636363637
       },
       {
         "month": "2023-12",
-        "value": 48.007590132827325
+        "value": 37.096774193548384
       },
       {
         "month": "2024-01",
-        "value": 53.510436432637576
+        "value": 41.348973607038126
       },
       {
         "month": "2024-02",
-        "value": 54.563894523326574
+        "value": 42.16300940438871
       },
       {
         "month": "2024-03",
-        "value": 56.166982922201136
+        "value": 43.401759530791786
       },
       {
         "month": "2024-04",
-        "value": 49.6078431372549
+        "value": 38.333333333333336
       },
       {
         "month": "2024-05",
-        "value": 47.05882352941176
+        "value": 36.36363636363637
       },
       {
         "month": "2024-06",
-        "value": 56.07843137254902
+        "value": 43.333333333333336
       },
       {
         "month": "2024-07",
-        "value": 56.166982922201136
+        "value": 43.401759530791786
       },
       {
         "month": "2024-08",
-        "value": 55.02846299810247
+        "value": 42.52199413489736
       },
       {
         "month": "2024-09",
-        "value": 53.92156862745098
+        "value": 41.66666666666667
       },
       {
         "month": "2024-10",
-        "value": 56.166982922201136
+        "value": 43.401759530791786
       },
       {
         "month": "2024-11",
-        "value": 56.470588235294116
+        "value": 43.63636363636363
       },
       {
         "month": "2024-12",
-        "value": 57.3055028462998
+        "value": 44.28152492668622
       },
       {
         "month": "2025-01",
-        "value": 50.853889943074
+        "value": 39.29618768328446
       },
       {
         "month": "2025-02",
-        "value": 52.73109243697479
+        "value": 40.74675324675325
       },
       {
         "month": "2025-03",
-        "value": 58.06451612903226
+        "value": 44.868035190615835
       },
       {
         "month": "2025-04",
-        "value": 51.76470588235295
+        "value": 40
       },
       {
         "month": "2025-05",
-        "value": 52.371916508538895
+        "value": 40.469208211143695
       },
       {
         "month": "2025-06",
-        "value": 60.19607843137255
+        "value": 46.515151515151516
       },
       {
         "month": "2025-07",
-        "value": 58.06451612903226
+        "value": 44.868035190615835
       },
       {
         "month": "2025-08",
-        "value": 57.49525616698292
+        "value": 44.42815249266862
       },
       {
         "month": "2025-09",
-        "value": 59.01960784313726
+        "value": 45.60606060606061
       },
       {
         "month": "2025-10",
-        "value": 60.151802656546494
+        "value": 46.48093841642228
       },
       {
         "month": "2025-11",
-        "value": 61.372549019607845
+        "value": 47.42424242424242
       },
       {
         "month": "2025-12",
-        "value": 59.772296015180274
+        "value": 46.18768328445748
       }
     ]
   },
   {
     "idLinea": 6,
     "nombreLinea": "Línea H",
-    "stationsTracked": 12,
+    "stationsTracked": 14,
     "points": [
       {
         "month": "2023-01",
-        "value": 61.02150537634409
+        "value": 52.30414746543779
       },
       {
         "month": "2023-02",
-        "value": 63.988095238095234
+        "value": 54.8469387755102
       },
       {
         "month": "2023-03",
-        "value": 73.11827956989248
+        "value": 62.67281105990783
       },
       {
         "month": "2023-04",
-        "value": 60.27777777777777
+        "value": 51.66666666666667
       },
       {
         "month": "2023-05",
-        "value": 63.44086021505376
+        "value": 54.377880184331794
       },
       {
         "month": "2023-06",
-        "value": 63.05555555555556
+        "value": 54.047619047619044
       },
       {
         "month": "2023-07",
-        "value": 68.81720430107528
+        "value": 58.986175115207374
       },
       {
         "month": "2023-08",
-        "value": 65.86021505376344
+        "value": 56.451612903225815
       },
       {
         "month": "2023-09",
-        "value": 75.27777777777777
+        "value": 64.52380952380953
       },
       {
         "month": "2023-10",
-        "value": 70.6989247311828
+        "value": 60.59907834101382
       },
       {
         "month": "2023-11",
-        "value": 70.27777777777777
+        "value": 60.238095238095234
       },
       {
         "month": "2023-12",
-        "value": 76.61290322580645
+        "value": 65.66820276497695
       },
       {
         "month": "2024-01",
-        "value": 91.12903225806451
+        "value": 78.11059907834101
       },
       {
         "month": "2024-02",
-        "value": 87.64367816091954
+        "value": 75.1231527093596
       },
       {
         "month": "2024-03",
-        "value": 95.6989247311828
+        "value": 82.02764976958525
       },
       {
         "month": "2024-04",
-        "value": 100
+        "value": 85.71428571428571
       },
       {
         "month": "2024-05",
-        "value": 99.46236559139786
+        "value": 85.25345622119815
       },
       {
         "month": "2024-06",
-        "value": 93.88888888888889
+        "value": 80.47619047619048
       },
       {
         "month": "2024-07",
-        "value": 90.05376344086021
+        "value": 77.18894009216591
       },
       {
         "month": "2024-08",
-        "value": 92.74193548387096
+        "value": 79.49308755760369
       },
       {
         "month": "2024-09",
-        "value": 95
+        "value": 81.42857142857143
       },
       {
         "month": "2024-10",
-        "value": 90.86021505376344
+        "value": 77.88018433179722
       },
       {
         "month": "2024-11",
-        "value": 83.61111111111111
+        "value": 71.66666666666667
       },
       {
         "month": "2024-12",
-        "value": 84.40860215053763
+        "value": 72.35023041474655
       },
       {
         "month": "2025-01",
-        "value": 84.67741935483872
+        "value": 72.58064516129032
       },
       {
         "month": "2025-02",
-        "value": 85.41666666666666
+        "value": 73.21428571428571
       },
       {
         "month": "2025-03",
-        "value": 87.09677419354838
+        "value": 74.65437788018433
       },
       {
         "month": "2025-04",
-        "value": 87.5
+        "value": 75
       },
       {
         "month": "2025-05",
-        "value": 88.70967741935483
+        "value": 76.036866359447
       },
       {
         "month": "2025-06",
-        "value": 91.11111111111111
+        "value": 78.0952380952381
       },
       {
         "month": "2025-07",
-        "value": 91.66666666666666
+        "value": 78.57142857142857
       },
       {
         "month": "2025-08",
-        "value": 91.12903225806451
+        "value": 78.11059907834101
       },
       {
         "month": "2025-09",
-        "value": 93.05555555555556
+        "value": 79.76190476190477
       },
       {
         "month": "2025-10",
-        "value": 86.29032258064517
+        "value": 73.963133640553
       },
       {
         "month": "2025-11",
-        "value": 88.61111111111111
+        "value": 75.95238095238095
       },
       {
         "month": "2025-12",
-        "value": 87.36559139784946
+        "value": 74.88479262672811
       }
     ]
   }

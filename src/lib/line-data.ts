@@ -140,8 +140,9 @@ export const diagramLines = Object.values(
 	.map((line) => ({
 		...line,
 		totalStations: line.stations.length,
-		stationsWithDetail: line.stations.filter((station) => station.accessibility)
-			.length,
+		stationsWithDetail: line.stations.filter(
+			(station) => (station.accessibility?.total ?? 0) > 0,
+		).length,
 		blockedStations: line.stations.filter((station) => station.state === "blocked")
 			.length,
 	}));

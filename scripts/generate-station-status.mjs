@@ -6,6 +6,7 @@ import initSqlJs from "sql.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const databasePath = path.join(rootDir, "data", "accesibilidad.sqlite");
+const stationsDatasetPath = path.join(rootDir, "data", "subte-estaciones.csv");
 const outputPath = path.join(rootDir, "src", "generated", "station-status.ts");
 const wasmDir = path.join(rootDir, "node_modules", "sql.js", "dist");
 
@@ -44,7 +45,7 @@ const stationQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE ${ascensorCondition}
+		WHERE ${ascensorOrEscaleraCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -73,7 +74,7 @@ const metaQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE ${ascensorCondition}
+		WHERE ${ascensorOrEscaleraCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -143,7 +144,7 @@ const currentEquipmentQuery = `
 				ORDER BY [commit-datetime] DESC, id DESC
 			) AS rn
 		FROM status
-		WHERE ${ascensorCondition}
+		WHERE ${ascensorOrEscaleraCondition}
 	),
 	current_status AS (
 		SELECT * FROM ranked WHERE rn = 1
@@ -173,7 +174,7 @@ const stationHistoryQuery = `
 		fechaActualizacion,
 		[commit-datetime] AS commitDatetime
 	FROM status
-	WHERE ${ascensorCondition}
+	WHERE ${ascensorOrEscaleraCondition}
 	ORDER BY idLinea, nombreEstacion, idEstacion, equipo, [commit-datetime] ASC, id ASC
 `;
 
@@ -362,8 +363,41 @@ const getDailyFailureSeries = (events, dateKeys) => {
 	});
 };
 
-const stations = getResultRows(stationQuery);
-const [meta] = getResultRows(metaQuery);
+const normalizeStationName = (value) =>
+	`${value ?? ""}`
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "")
+		.replace(/1°/g, "1")
+		.replace(/–/g, "-")
+		.replace(/[^a-zA-Z0-9]+/g, " ")
+		.trim()
+		.toLowerCase();
+
+const getStationKey = (idLinea, nombreEstacion) =>
+	`${Number(idLinea)}::${normalizeStationName(nombreEstacion)}`;
+
+const parseCsvRows = (source) => {
+	const [headerLine = "", ...dataLines] = source.trim().split(/\r?\n/);
+	const headers = headerLine
+		.replace(/^\uFEFF/, "")
+		.split(",")
+		.map((value) => value.trim());
+
+	return dataLines
+		.filter((line) => line.trim().length > 0)
+		.map((line) => {
+			const values = line.split(",");
+			return Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]));
+		});
+};
+
+const stationRows = getResultRows(stationQuery);
+const [metaTotals = {
+	estaciones: 0,
+	equipos: 0,
+	alertas: 0,
+	ultimaActualizacion: new Date().toISOString(),
+}] = getResultRows(metaQuery);
 const lineDStationsList = getResultRows(lineDStationsQuery);
 const lineDCurrentEquipment = getResultRows(lineDCurrentEquipmentQuery);
 const lineDHistory = getResultRows(lineDHistoryQuery);
@@ -372,6 +406,96 @@ const stationHistoryRows = getResultRows(stationHistoryQuery);
 const accessibilityHistoryRows = getResultRows(accessibilityHistoryQuery);
 const networkStationsRows = getResultRows(networkStationsQuery);
 const accessibilityCurrentRows = getResultRows(accessibilityCurrentQuery);
+const stationDatasetCsv = await fs.readFile(stationsDatasetPath, "utf8");
+const stationDatasetRows = parseCsvRows(stationDatasetCsv);
+
+const lineMetadataByName = new Map();
+const stationMetadataByKey = new Map();
+for (const row of networkStationsRows) {
+	const idLinea = Number(row.idLinea);
+	if (!lineMetadataByName.has(row.nombreLinea)) {
+		lineMetadataByName.set(row.nombreLinea, {
+			idLinea,
+			nombreLinea: row.nombreLinea,
+		});
+	}
+
+	stationMetadataByKey.set(getStationKey(idLinea, row.nombreEstacion), {
+		nombreEstacion: row.nombreEstacion,
+		stationOrder: Number(row.stationOrder),
+	});
+}
+
+const stationCatalog = stationDatasetRows
+	.map((row) => {
+		const nombreLinea = `Línea ${`${row.linea ?? ""}`.trim().toUpperCase()}`;
+		const lineMetadata = lineMetadataByName.get(nombreLinea);
+		if (!lineMetadata) return null;
+
+		const stationKey = getStationKey(lineMetadata.idLinea, row.estacion);
+		const stationMetadata = stationMetadataByKey.get(stationKey);
+
+		return {
+			idLinea: lineMetadata.idLinea,
+			nombreLinea,
+			nombreEstacion: stationMetadata?.nombreEstacion ?? `${row.estacion ?? ""}`.trim(),
+			stationOrder: stationMetadata?.stationOrder ?? Number(row.id),
+		};
+	})
+	.filter((station) => station !== null)
+	.sort((a, b) =>
+		a.idLinea === b.idLinea
+			? a.stationOrder - b.stationOrder
+			: a.idLinea - b.idLinea,
+	);
+const stationMetricsByKey = new Map(
+	stationRows.map((row) => [getStationKey(row.idLinea, row.nombreEstacion), row]),
+);
+
+const stations = stationCatalog
+	.map((station) => {
+		const metrics = stationMetricsByKey.get(
+			getStationKey(station.idLinea, station.nombreEstacion),
+		);
+
+		if (metrics) {
+			return {
+				idLinea: Number(metrics.idLinea),
+				nombreLinea: metrics.nombreLinea,
+				idEstacion: Number(metrics.idEstacion),
+				nombreEstacion: metrics.nombreEstacion,
+				totalEquipos: Number(metrics.totalEquipos),
+				equiposFuncionando: Number(metrics.equiposFuncionando),
+				equiposConFalla: Number(metrics.equiposConFalla),
+				equiposFueraDeHorario: Number(metrics.equiposFueraDeHorario),
+				ultimaActualizacion: metrics.ultimaActualizacion,
+			};
+		}
+
+		return {
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			idEstacion: station.stationOrder,
+			nombreEstacion: station.nombreEstacion,
+			totalEquipos: 0,
+			equiposFuncionando: 0,
+			equiposConFalla: 0,
+			equiposFueraDeHorario: 0,
+			ultimaActualizacion: metaTotals.ultimaActualizacion,
+		};
+	})
+	.sort((a, b) =>
+		a.idLinea === b.idLinea
+			? a.idEstacion - b.idEstacion
+			: a.idLinea - b.idLinea,
+	);
+
+const meta = {
+	...metaTotals,
+	estaciones: stationCatalog.length,
+	equipos: Number(metaTotals.equipos),
+	alertas: Number(metaTotals.alertas),
+};
 
 const lineDStations = new Map();
 for (const row of lineDStationsList) {
@@ -468,9 +592,19 @@ const stationHistoryDates = Array.from({ length: historyWindowDays }, (_, index)
 	addDays(stationHistoryEndDate, index - (historyWindowDays - 1)),
 );
 
-const stationEquipmentByName = new Map();
+const stationEquipmentByName = new Map(
+	stationCatalog.map((station) => [
+		getStationKey(station.idLinea, station.nombreEstacion),
+		{
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			nombreEstacion: station.nombreEstacion,
+			equipos: new Set(),
+		},
+	]),
+);
 for (const row of currentEquipment) {
-	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const stationKey = getStationKey(row.idLinea, row.nombreEstacion);
 	const equipmentKey = `${row.idEstacion}::${row.equipo}`;
 	const existing = stationEquipmentByName.get(stationKey) ?? {
 		idLinea: Number(row.idLinea),
@@ -484,7 +618,7 @@ for (const row of currentEquipment) {
 
 const stationEventsByEquipment = new Map();
 for (const row of stationHistoryRows) {
-	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const stationKey = getStationKey(row.idLinea, row.nombreEstacion);
 	const equipmentKey = `${stationKey}::${row.idEstacion}::${row.equipo}`;
 	const events = stationEventsByEquipment.get(equipmentKey) ?? [];
 	events.push({
@@ -506,7 +640,7 @@ const stationHistory = Array.from(stationEquipmentByName.values())
 			const { start, end } = buildServiceWindow(date);
 			const outages = equipmentKeys.reduce((count, equipmentKey) => {
 				const events = stationEventsByEquipment.get(
-					`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+					`${getStationKey(station.idLinea, station.nombreEstacion)}::${equipmentKey}`,
 				) ?? [];
 				return count + (deviceFailsDuringWindow(events, start, end) ? 1 : 0);
 			}, 0);
@@ -552,12 +686,7 @@ const stationHistory = Array.from(stationEquipmentByName.values())
 		};
 	});
 
-const networkStations = networkStationsRows.map((row) => ({
-	idLinea: Number(row.idLinea),
-	nombreLinea: row.nombreLinea,
-	nombreEstacion: row.nombreEstacion,
-	stationOrder: Number(row.stationOrder),
-}));
+const networkStations = [...stationCatalog];
 
 const classifyDeviceType = (row) => {
 	if (Number(row.tipo) === 0) return "ascensor";
@@ -572,9 +701,20 @@ const getDeviceStatus = (row) => {
 	return "con-falla";
 };
 
-const stationAccessibilityMap = new Map();
+const stationAccessibilityMap = new Map(
+	stationCatalog.map((station) => [
+		getStationKey(station.idLinea, station.nombreEstacion),
+		{
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			nombreEstacion: station.nombreEstacion,
+			devices: new Map(),
+			ultimaActualizacion: meta.ultimaActualizacion,
+		},
+	]),
+);
 for (const row of accessibilityCurrentRows) {
-	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const stationKey = getStationKey(row.idLinea, row.nombreEstacion);
 	const deviceType = classifyDeviceType(row);
 	const deviceKey = `${deviceType}::${row.equipo}`;
 	const existingStation = stationAccessibilityMap.get(stationKey) ?? {
@@ -643,9 +783,19 @@ const averageClosureDates = Array.from({ length: 365 }, (_, index) =>
 	addDays(`${averageClosureYear}-01-01`, index),
 );
 
-const accessibilityEquipmentByStation = new Map();
+const accessibilityEquipmentByStation = new Map(
+	stationCatalog.map((station) => [
+		getStationKey(station.idLinea, station.nombreEstacion),
+		{
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			nombreEstacion: station.nombreEstacion,
+			equipos: new Set(),
+		},
+	]),
+);
 for (const row of accessibilityCurrentRows) {
-	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const stationKey = getStationKey(row.idLinea, row.nombreEstacion);
 	const deviceType = classifyDeviceType(row);
 	const equipmentKey = `${Number(row.idEstacion)}::${deviceType}::${row.equipo}`;
 	const existingStation = accessibilityEquipmentByStation.get(stationKey) ?? {
@@ -660,7 +810,7 @@ for (const row of accessibilityCurrentRows) {
 
 const accessibilityEventsByEquipment = new Map();
 for (const row of accessibilityHistoryRows) {
-	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const stationKey = getStationKey(row.idLinea, row.nombreEstacion);
 	const deviceType = classifyDeviceType(row);
 	const equipmentKey = `${stationKey}::${Number(row.idEstacion)}::${deviceType}::${row.equipo}`;
 	const events = accessibilityEventsByEquipment.get(equipmentKey) ?? [];
@@ -684,7 +834,7 @@ const stationEntryClosures = Array.from(accessibilityEquipmentByStation.values()
 				const { start, end } = buildServiceWindow(date);
 				const closedEntries = equipmentKeys.reduce((count, equipmentKey) => {
 					const events = accessibilityEventsByEquipment.get(
-						`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+						`${getStationKey(station.idLinea, station.nombreEstacion)}::${equipmentKey}`,
 					) ?? [];
 					return count + (deviceFailsDuringWindow(events, start, end) ? 1 : 0);
 				}, 0);
@@ -834,12 +984,11 @@ const lineAccessibilityTrendByLine = new Map();
 
 for (const station of accessibilityEquipmentByStation.values()) {
 	const equipmentKeys = Array.from(station.equipos.values());
-	if (equipmentKeys.length === 0) continue;
 
 	const dailyFailuresByEquipment = equipmentKeys.map((equipmentKey) =>
 		getDailyFailureSeries(
 			accessibilityEventsByEquipment.get(
-				`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+				`${getStationKey(station.idLinea, station.nombreEstacion)}::${equipmentKey}`,
 			) ?? [],
 			lineAccessibilityTrendDates,
 		),
