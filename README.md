@@ -9,3 +9,5 @@
 - [ ] efecto "deteriorando"
 
 - [ ] boton "compartir a redes"
+
+- [ ] actualizar automaticamente
