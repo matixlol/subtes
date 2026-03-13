@@ -6,6 +6,7 @@ import LineNav from "../../components/LineNav.astro";
 import PostHog from "../../components/posthog.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import "../../styles/global.css";
+import { getAccessibilityTrendSeriesForLineCode } from "../../lib/accessibility-data";
 import {
     frequencyChangeByLine,
     getFrequencySeriesForLineCode,
@@ -84,6 +85,9 @@ const frequencyChangeByLineMap = new Map(
     frequencyChangeByLine.map((entry) => [entry.series.label, entry]),
 );
 const frequencySeries = getFrequencySeriesForLineCode(line.code);
+const accessibilityTrendSeries = getAccessibilityTrendSeriesForLineCode(
+    line.code,
+);
 const frequencyChange = frequencyChangeByLineMap.get(line.nombreLinea) ?? null;
 const frequencyChangeMagnitudeLabel = frequencyChange
     ? frequencyChange.changeLabel.replace(/\s+(mejor|peor)$/, "")
@@ -275,6 +279,40 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
                                     )
                                 }
                             </ol>
+
+                            {
+                                accessibilityTrendSeries && (
+                                    <div class="border-t border-[#d8d0c7] pt-8">
+                                        <p class="max-w-[32rem] text-pretty text-base leading-7 text-[#544b43] sm:text-lg">
+                                            Porcentaje mensual de estaciones con
+                                            algún acceso cerrado en la línea
+                                            durante los últimos 24 meses.
+                                        </p>
+
+                                        <div class="-mx-5 mt-5 sm:mx-0">
+                                            <FrequencyChart
+                                                series={[
+                                                    {
+                                                        label: accessibilityTrendSeries.nombreLinea,
+                                                        shortLabel: line.code,
+                                                        color: line.color,
+                                                        points: accessibilityTrendSeries.points,
+                                                    },
+                                                ]}
+                                                showEndLabels={false}
+                                                valueFormat="percent"
+                                                highlightRange={null}
+                                                title={`Porcentaje mensual de estaciones con algún acceso cerrado de la ${line.nombreLinea}`}
+                                                description={`Serie mensual del porcentaje de estaciones con algún acceso cerrado de la ${line.nombreLinea} durante los últimos 24 meses. Valores más altos indican peor accesibilidad.`}
+                                            />
+                                        </div>
+
+                                        <p class="mt-4 text-sm leading-6 text-[#544b43]">
+                                            Más alto es peor.
+                                        </p>
+                                    </div>
+                                )
+                            }
                         </div>
                     </section>
 

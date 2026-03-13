@@ -285,6 +285,12 @@ const addDays = (dateKey, offset) => {
 	return base.toISOString().slice(0, 10);
 };
 
+const addMonths = (monthKey, offset) => {
+	const [year, month] = monthKey.split("-").map(Number);
+	const base = new Date(Date.UTC(year, month - 1 + offset, 1));
+	return base.toISOString().slice(0, 7);
+};
+
 const buildServiceWindow = (dateKey) => ({
 	start: Date.parse(`${dateKey}T11:00:00.000Z`),
 	end: Date.parse(`${dateKey}T23:00:00.000Z`),
@@ -309,6 +315,32 @@ const deviceFailsDuringWindow = (events, windowStart, windowEnd) => {
 	}
 
 	return latestStateBeforeWindow === true;
+};
+
+const getDailyFailureSeries = (events, dateKeys) => {
+	let eventIndex = 0;
+	let currentFailure = false;
+
+	return dateKeys.map((dateKey) => {
+		const { start, end } = buildServiceWindow(dateKey);
+
+		while (eventIndex < events.length && events[eventIndex].timestamp < start) {
+			currentFailure = events[eventIndex].isFailure;
+			eventIndex += 1;
+		}
+
+		let failedDuringWindow = currentFailure;
+
+		while (eventIndex < events.length && events[eventIndex].timestamp < end) {
+			if (events[eventIndex].isFailure) {
+				failedDuringWindow = true;
+			}
+			currentFailure = events[eventIndex].isFailure;
+			eventIndex += 1;
+		}
+
+		return failedDuringWindow;
+	});
 };
 
 const stations = getResultRows(stationQuery);
@@ -741,6 +773,103 @@ const leastAccessibleStations2025 = {
 		})),
 };
 
+const lineAccessibilityTrendMonths = 24;
+const lineAccessibilityTrendEndDate = meta.ultimaActualizacion
+	? getLocalDateKey(meta.ultimaActualizacion)
+	: getLocalDateKey(new Date().toISOString());
+const lineAccessibilityTrendEndMonth = lineAccessibilityTrendEndDate.slice(0, 7);
+const lineAccessibilityTrendMonthsList = Array.from(
+	{ length: lineAccessibilityTrendMonths },
+	(_, index) =>
+		addMonths(
+			lineAccessibilityTrendEndMonth,
+			index - (lineAccessibilityTrendMonths - 1),
+		),
+);
+const lineAccessibilityTrendStartDate = `${lineAccessibilityTrendMonthsList[0]}-01`;
+const lineAccessibilityTrendDates = [];
+
+for (
+	let dateKey = lineAccessibilityTrendStartDate;
+	dateKey <= lineAccessibilityTrendEndDate;
+	dateKey = addDays(dateKey, 1)
+) {
+	lineAccessibilityTrendDates.push(dateKey);
+}
+
+const lineAccessibilityTrendByLine = new Map();
+
+for (const station of accessibilityEquipmentByStation.values()) {
+	const equipmentKeys = Array.from(station.equipos.values());
+	if (equipmentKeys.length === 0) continue;
+
+	const dailyFailuresByEquipment = equipmentKeys.map((equipmentKey) =>
+		getDailyFailureSeries(
+			accessibilityEventsByEquipment.get(
+				`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+			) ?? [],
+			lineAccessibilityTrendDates,
+		),
+	);
+
+	const lineEntry = lineAccessibilityTrendByLine.get(station.idLinea) ?? {
+		idLinea: station.idLinea,
+		nombreLinea: station.nombreLinea,
+		stationsTracked: 0,
+		months: new Map(),
+	};
+
+	lineEntry.stationsTracked += 1;
+
+	lineAccessibilityTrendDates.forEach((dateKey, dayIndex) => {
+		const monthKey = dateKey.slice(0, 7);
+		const stationWithClosedAccess = dailyFailuresByEquipment.some(
+			(series) => series[dayIndex] === true,
+		);
+		const monthEntry = lineEntry.months.get(monthKey) ?? {
+			month: monthKey,
+			closedStationDays: 0,
+			totalStationDays: 0,
+		};
+
+		monthEntry.totalStationDays += 1;
+		if (stationWithClosedAccess) {
+			monthEntry.closedStationDays += 1;
+		}
+
+		lineEntry.months.set(monthKey, monthEntry);
+	});
+
+	lineAccessibilityTrendByLine.set(station.idLinea, lineEntry);
+}
+
+const lineAccessibilityTrend = Array.from(lineAccessibilityTrendByLine.values())
+	.sort((a, b) => a.idLinea - b.idLinea)
+	.map((line) => ({
+		idLinea: line.idLinea,
+		nombreLinea: line.nombreLinea,
+		stationsTracked: line.stationsTracked,
+		points: lineAccessibilityTrendMonthsList.map((monthKey) => {
+			const month = line.months.get(monthKey);
+			const share =
+				month && month.totalStationDays > 0
+					? (month.closedStationDays / month.totalStationDays) * 100
+					: null;
+
+			return {
+				month: monthKey,
+				value: share,
+			};
+		}),
+	}));
+
+const accessibilityTrendMeta = {
+	monthsTracked: lineAccessibilityTrendMonths,
+	startMonth: lineAccessibilityTrendMonthsList[0],
+	endMonth: lineAccessibilityTrendMonthsList.at(-1),
+	endDate: lineAccessibilityTrendEndDate,
+};
+
 db.close();
 
 await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -754,6 +883,8 @@ await fs.writeFile(
 		"export const stationHistory = " + JSON.stringify(stationHistory, null, 2) + " as const;",
 		"export const averageEntryClosures = " + JSON.stringify(averageEntryClosures, null, 2) + " as const;",
 		"export const leastAccessibleStations2025 = " + JSON.stringify(leastAccessibleStations2025, null, 2) + " as const;",
+		"export const accessibilityTrendMeta = " + JSON.stringify(accessibilityTrendMeta, null, 2) + " as const;",
+		"export const lineAccessibilityTrend = " + JSON.stringify(lineAccessibilityTrend, null, 2) + " as const;",
 		"export const lineDHeatmap = " + JSON.stringify(lineDHeatmap, null, 2) + " as const;",
 		"",
 	].join("\n\n"),
