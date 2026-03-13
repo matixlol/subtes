@@ -24,10 +24,10 @@ export function getStaticPaths() {
 }
 
 const getStatusFillClass = (state: string) => {
-    if (state === "full") return "bg-[var(--heat-0)]";
-    if (state === "partial") return "bg-[var(--heat-2)]";
+    if (state === "full") return "bg-white";
+    if (state === "partial") return "bg-white";
     if (state === "off-hours") return "bg-[#f1dfaa]";
-    if (state === "blocked") return "bg-[var(--heat-4)]";
+    if (state === "blocked") return "bg-[#5b0a0a]";
     return "bg-[var(--surface)]";
 };
 
@@ -159,17 +159,28 @@ const initialLine = lines[initialIndex] ?? lines[0];
                                             </div>
 
                                             <ol class="relative mt-4 ml-0 list-none pl-0">
-                                                <span
-                                                    class="pointer-events-none absolute bottom-0 left-[18px] top-0 w-[3px] rounded-full"
-                                                    style={`background-color: ${withAlpha(line.ink, 0.28)};`}
-                                                    aria-hidden="true"
-                                                />
                                                 {line.stations.map(
                                                     (station, stationIndex) => (
                                                         <li
                                                             class="station-item reveal relative py-3 pl-12"
                                                             style={`--stagger: ${160 + stationIndex * 26}ms;`}
                                                         >
+                                                            {stationIndex > 0 && (
+                                                                <span
+                                                                    class="pointer-events-none absolute left-[18px] top-0 h-[29px] w-[3px] rounded-full"
+                                                                    style={`background-color: ${withAlpha(line.ink, 0.28)};`}
+                                                                    aria-hidden="true"
+                                                                />
+                                                            )}
+                                                            {stationIndex <
+                                                                line.stations.length -
+                                                                    1 && (
+                                                                <span
+                                                                    class="pointer-events-none absolute bottom-0 left-[18px] top-[29px] w-[3px] rounded-full"
+                                                                    style={`background-color: ${withAlpha(line.ink, 0.28)};`}
+                                                                    aria-hidden="true"
+                                                                />
+                                                            )}
                                                             <div
                                                                 class="flex w-full items-start gap-3 text-left text-inherit"
                                                             >

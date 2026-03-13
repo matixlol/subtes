@@ -14,15 +14,23 @@ const iconMarkup =
 		: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4 w-4"><path fill="currentColor" d="M224 40h-56a8 8 0 0 0-5.88 2.57L68.5 144H32a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h56a8 8 0 0 0 5.88-2.57L187.5 112H224a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 56h-40a8 8 0 0 0-5.88 2.57L84.5 200H32v-40h40a8 8 0 0 0 5.88-2.57L171.5 56H224Zm5.66 74.34a8 8 0 0 1-11.32 11.32L208 171.31V208a8 8 0 0 1-16 0v-36.69l-10.34 10.35a8 8 0 0 1-11.32-11.32l24-24a8 8 0 0 1 11.32 0Z"></path></svg>';
 ---
 
-<span
-	role="img"
-	aria-label={`${label}: ${statusLabel}`}
-	class:list={[
-		"inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-[8px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.28)]",
-		isAvailable
-			? "border-[#7da183] bg-[#e6f3e6] text-[#1f4a2b]"
-			: "border-[#c18780] bg-[#f5d8d4] text-[#7a241a]",
-	]}
->
-	<Fragment set:html={iconMarkup} />
+<span class="group relative z-10 inline-flex shrink-0 focus-within:z-30 hover:z-30">
+	<button
+		type="button"
+		aria-label={`${label}: ${statusLabel}`}
+		class:list={[
+			"inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-[8px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,26,22,0.18)]",
+			isAvailable
+				? "border-[rgba(29,26,22,0.16)] bg-white text-[#1d1a16]"
+				: "border-[#5b0a0a] bg-[#7a1111] text-[#fff5f5]",
+		]}
+	>
+		<Fragment set:html={iconMarkup} />
+	</button>
+	<span
+		class="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-max max-w-[13rem] -translate-x-1/2 rounded-[8px] bg-[rgba(29,26,22,0.94)] px-2 py-1 text-center text-[0.72rem] leading-tight font-medium text-white opacity-0 shadow-[0_8px_24px_rgba(29,26,22,0.16)] transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+		aria-hidden="true"
+	>
+		{label}
+	</span>
 </span>
