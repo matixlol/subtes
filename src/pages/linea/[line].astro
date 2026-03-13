@@ -6,7 +6,10 @@ import LineNav from "../../components/LineNav.astro";
 import PostHog from "../../components/posthog.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import "../../styles/global.css";
-import { getAccessibilityTrendSeriesForLineCode } from "../../lib/accessibility-data";
+import {
+    accessibilityTrendMeta,
+    getAccessibilityTrendSeriesForLineCode,
+} from "../../lib/accessibility-data";
 import {
     frequencyChangeByLine,
     getFrequencySeriesForLineCode,
@@ -315,8 +318,11 @@ const ogImageUrl = new URL(lineOpenGraphPath(line.code), Astro.url).toString();
                                     <div class="border-t border-[#d8d0c7] pt-8">
                                         <p class="max-w-[32rem] text-pretty text-base leading-7 text-[#544b43] sm:text-lg">
                                             Porcentaje mensual de estaciones con
-                                            algún acceso cerrado en la línea
-                                            durante los últimos 24 meses.
+                                            algún acceso cerrado en la línea{" "}
+                                            {line.code}
+                                            entre {accessibilityTrendMeta.startYear}
+                                            {" "}y{" "}
+                                            {accessibilityTrendMeta.endYear}.
                                         </p>
 
                                         <div class="-mx-5 mt-5 sm:mx-0">
@@ -333,7 +339,7 @@ const ogImageUrl = new URL(lineOpenGraphPath(line.code), Astro.url).toString();
                                                 valueFormat="percent"
                                                 highlightRange={null}
                                                 title={`Porcentaje mensual de estaciones con algún acceso cerrado de la ${line.nombreLinea}`}
-                                                description={`Serie mensual del porcentaje de estaciones con algún acceso cerrado de la ${line.nombreLinea} durante los últimos 24 meses. Valores más altos indican peor accesibilidad.`}
+                                                description={`Serie mensual del porcentaje de estaciones con algún acceso cerrado de la ${line.nombreLinea} entre ${accessibilityTrendMeta.startYear} y ${accessibilityTrendMeta.endYear}. Valores más altos indican peor accesibilidad.`}
                                             />
                                         </div>
 

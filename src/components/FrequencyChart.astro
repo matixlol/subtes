@@ -59,9 +59,9 @@ const width = 760;
 const height = 400;
 const margin = {
 	top: 30,
-	right: showEndLabels ? 120 : 16,
-	bottom: 42,
-	left: 48,
+	right: showEndLabels ? 120 : 40,
+	bottom: 56,
+	left: 56,
 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
@@ -129,9 +129,6 @@ const yTicks = y
 const yearTicks = utcYear.range(
 	domainStart ?? new Date(Date.UTC(2019, 0, 1)),
 	utcYear.offset(domainEnd ?? new Date(Date.UTC(2025, 11, 1)), 1),
-);
-const mobileYearTicks = yearTicks.filter(
-	(tick) => Number.parseInt(utcFormat("%Y")(tick), 10) % 2 === 1,
 );
 
 const parseMonthDate = (monthKey: string) => {
@@ -269,7 +266,7 @@ const labels = rawLabels.map((label) => ({
 			}
 
 			{
-				yearTicks.map((tick) => (
+				yearTicks.map((tick, index) => (
 					<g>
 						<line
 							x1={x(tick)}
@@ -281,33 +278,16 @@ const labels = rawLabels.map((label) => ({
 						/>
 						<text
 							x={x(tick)}
-							y={innerHeight + 24}
-							text-anchor="middle"
-							font-size="12"
-							class="hidden sm:block"
+							y={innerHeight + 34}
+							text-anchor={index === 0 ? "start" : index === yearTicks.length - 1 ? "end" : "middle"}
+							font-size="18"
+							font-weight="700"
 							fill="currentColor"
 							fill-opacity="0.68"
 						>
 							{utcFormat("%Y")(tick)}
 						</text>
 					</g>
-				))
-			}
-
-			{
-				mobileYearTicks.map((tick) => (
-					<text
-						x={x(tick)}
-						y={innerHeight + 26}
-						text-anchor="middle"
-						font-size="15"
-						font-weight="600"
-						class="sm:hidden"
-						fill="currentColor"
-						fill-opacity="0.76"
-					>
-						{utcFormat("%Y")(tick)}
-					</text>
 				))
 			}
 

@@ -291,6 +291,25 @@ const addMonths = (monthKey, offset) => {
 	return base.toISOString().slice(0, 7);
 };
 
+const getCompleteYearRange = (startDateKey, endDateKey) => {
+	const startYear = Number(startDateKey.slice(0, 4));
+	const endYear = Number(endDateKey.slice(0, 4));
+	const firstFullYear = startDateKey === `${startYear}-01-01` ? startYear : startYear + 1;
+	const lastFullYear = endDateKey === `${endYear}-12-31` ? endYear : endYear - 1;
+
+	if (firstFullYear <= lastFullYear) {
+		return {
+			startYear: firstFullYear,
+			endYear: lastFullYear,
+		};
+	}
+
+	return {
+		startYear,
+		endYear,
+	};
+};
+
 const buildServiceWindow = (dateKey) => ({
 	start: Date.parse(`${dateKey}T11:00:00.000Z`),
 	end: Date.parse(`${dateKey}T23:00:00.000Z`),
@@ -773,20 +792,34 @@ const leastAccessibleStations2025 = {
 		})),
 };
 
-const lineAccessibilityTrendMonths = 24;
-const lineAccessibilityTrendEndDate = meta.ultimaActualizacion
+const earliestAccessibilityCommitDatetime = accessibilityHistoryRows.reduce(
+	(earliest, row) => {
+		if (!row.commitDatetime) return earliest;
+		if (!earliest || row.commitDatetime < earliest) return row.commitDatetime;
+		return earliest;
+	},
+	null,
+);
+const lineAccessibilityHistoryStartDate = earliestAccessibilityCommitDatetime
+	? getLocalDateKey(earliestAccessibilityCommitDatetime)
+	: getLocalDateKey(meta.ultimaActualizacion);
+const lineAccessibilityHistoryEndDate = meta.ultimaActualizacion
 	? getLocalDateKey(meta.ultimaActualizacion)
 	: getLocalDateKey(new Date().toISOString());
-const lineAccessibilityTrendEndMonth = lineAccessibilityTrendEndDate.slice(0, 7);
+const lineAccessibilityTrendYears = getCompleteYearRange(
+	lineAccessibilityHistoryStartDate,
+	lineAccessibilityHistoryEndDate,
+);
+const lineAccessibilityTrendStartMonth = `${lineAccessibilityTrendYears.startYear}-01`;
+const lineAccessibilityTrendEndMonth = `${lineAccessibilityTrendYears.endYear}-12`;
+const lineAccessibilityTrendMonths =
+	(lineAccessibilityTrendYears.endYear - lineAccessibilityTrendYears.startYear + 1) * 12;
 const lineAccessibilityTrendMonthsList = Array.from(
-	{ length: lineAccessibilityTrendMonths },
-	(_, index) =>
-		addMonths(
-			lineAccessibilityTrendEndMonth,
-			index - (lineAccessibilityTrendMonths - 1),
-		),
+	{ length: Math.max(lineAccessibilityTrendMonths, 1) },
+	(_, index) => addMonths(lineAccessibilityTrendStartMonth, index),
 );
 const lineAccessibilityTrendStartDate = `${lineAccessibilityTrendMonthsList[0]}-01`;
+const lineAccessibilityTrendEndDate = `${lineAccessibilityTrendMonthsList.at(-1)}-31`;
 const lineAccessibilityTrendDates = [];
 
 for (
@@ -864,7 +897,11 @@ const lineAccessibilityTrend = Array.from(lineAccessibilityTrendByLine.values())
 	}));
 
 const accessibilityTrendMeta = {
-	monthsTracked: lineAccessibilityTrendMonths,
+	yearsTracked:
+		lineAccessibilityTrendYears.endYear - lineAccessibilityTrendYears.startYear + 1,
+	startYear: lineAccessibilityTrendYears.startYear,
+	endYear: lineAccessibilityTrendYears.endYear,
+	monthsTracked: lineAccessibilityTrendMonthsList.length,
 	startMonth: lineAccessibilityTrendMonthsList[0],
 	endMonth: lineAccessibilityTrendMonthsList.at(-1),
 	endDate: lineAccessibilityTrendEndDate,

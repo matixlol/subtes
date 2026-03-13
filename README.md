@@ -2,8 +2,8 @@
 
 ## prod checklist
 
-- [ ] opengraph image
-- [ ] favicon
+- [x] opengraph image
+- [x] favicon
 - [ ] meta tags
 
 - [x] efecto "deteriorando"
@@ -12,6 +12,6 @@
 
 - [ ] actualizar automaticamente
 
-- [ ] falta el historico de la accesibilidad dentro de la pagina de linea
+- [x] falta el historico de la accesibilidad dentro de la pagina de linea
 
-- [ ] optimizar carga
+- [x] optimizar carga
