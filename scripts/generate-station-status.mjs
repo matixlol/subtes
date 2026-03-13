@@ -628,24 +628,42 @@ const stationEntryClosures = Array.from(accessibilityEquipmentByStation.values()
 	)
 	.map((station) => {
 		const equipmentKeys = Array.from(station.equipos.values());
-		const daysWithClosedEntry = averageClosureDates.reduce((count, date) => {
-			const { start, end } = buildServiceWindow(date);
-			const hasClosedEntry = equipmentKeys.some((equipmentKey) => {
-				const events = accessibilityEventsByEquipment.get(
-					`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
-				) ?? [];
-				return deviceFailsDuringWindow(events, start, end);
-			});
-			return count + (hasClosedEntry ? 1 : 0);
-		}, 0);
+		const totals = averageClosureDates.reduce(
+			(acc, date) => {
+				const { start, end } = buildServiceWindow(date);
+				const closedEntries = equipmentKeys.reduce((count, equipmentKey) => {
+					const events = accessibilityEventsByEquipment.get(
+						`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+					) ?? [];
+					return count + (deviceFailsDuringWindow(events, start, end) ? 1 : 0);
+				}, 0);
+				return {
+					daysWithClosedEntry:
+						acc.daysWithClosedEntry + (closedEntries > 0 ? 1 : 0),
+					totalClosedEntries: acc.totalClosedEntries + closedEntries,
+				};
+			},
+			{
+				daysWithClosedEntry: 0,
+				totalClosedEntries: 0,
+			},
+		);
+		const totalEntries = equipmentKeys.length;
+		const totalEntryDays = averageClosureDates.length * totalEntries;
 
 		return {
 			idLinea: station.idLinea,
 			nombreLinea: station.nombreLinea,
 			nombreEstacion: station.nombreEstacion,
+			totalEntries,
 			daysTracked: averageClosureDates.length,
-			daysWithClosedEntry,
-			averageClosedEntryShare: daysWithClosedEntry / averageClosureDates.length,
+			daysWithClosedEntry: totals.daysWithClosedEntry,
+			totalClosedEntries: totals.totalClosedEntries,
+			totalEntryDays,
+			averageClosedEntryShare:
+				totals.daysWithClosedEntry / averageClosureDates.length,
+			averageClosedEntriesShare:
+				totalEntryDays > 0 ? totals.totalClosedEntries / totalEntryDays : 0,
 		};
 	});
 
@@ -698,6 +716,31 @@ const averageEntryClosures = {
 	lines: lineEntryClosureAverages,
 };
 
+const leastAccessibleStations2025 = {
+	year: averageClosureYear,
+	stations: [...stationEntryClosures]
+		.sort((a, b) => {
+			if (b.averageClosedEntriesShare !== a.averageClosedEntriesShare) {
+				return b.averageClosedEntriesShare - a.averageClosedEntriesShare;
+			}
+
+			if (b.totalClosedEntries !== a.totalClosedEntries) {
+				return b.totalClosedEntries - a.totalClosedEntries;
+			}
+
+			if (a.idLinea !== b.idLinea) {
+				return a.idLinea - b.idLinea;
+			}
+
+			return a.nombreEstacion.localeCompare(b.nombreEstacion, "es-AR");
+		})
+		.slice(0, 5)
+		.map((station, index) => ({
+			rank: index + 1,
+			...station,
+		})),
+};
+
 db.close();
 
 await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -710,6 +753,7 @@ await fs.writeFile(
 		"export const stationAccessibility = " + JSON.stringify(stationAccessibility, null, 2) + " as const;",
 		"export const stationHistory = " + JSON.stringify(stationHistory, null, 2) + " as const;",
 		"export const averageEntryClosures = " + JSON.stringify(averageEntryClosures, null, 2) + " as const;",
+		"export const leastAccessibleStations2025 = " + JSON.stringify(leastAccessibleStations2025, null, 2) + " as const;",
 		"export const lineDHeatmap = " + JSON.stringify(lineDHeatmap, null, 2) + " as const;",
 		"",
 	].join("\n\n"),

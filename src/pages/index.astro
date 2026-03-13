@@ -5,6 +5,7 @@ import PostHog from "../components/posthog.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import {
     averageEntryClosures,
+    leastAccessibleStations2025,
     meta,
     networkStations,
     stationAccessibility,
@@ -56,6 +57,46 @@ const averageClosedEntryLines = diagramLines.map((line) => {
             .trim(),
     };
 });
+const lineMetaByName = new Map(
+    diagramLines.map((line) => [
+        line.nombreLinea,
+        {
+            code: line.code,
+            color: line.color,
+            ink: line.ink,
+            path: `/linea/${line.code}#accesibilidad`,
+        },
+    ]),
+);
+const leastAccessibleStations = leastAccessibleStations2025.stations.map(
+    (station) => {
+        const line = lineMetaByName.get(station.nombreLinea);
+
+        return {
+            ...station,
+            code:
+                line?.code ??
+                station.nombreLinea.replace("Línea ", "").trim().toUpperCase(),
+            color: line?.color ?? "#b8ab9d",
+            ink: line?.ink ?? "#ffffff",
+            path:
+                line?.path ??
+                `/linea/${station.nombreLinea
+                    .replace("Línea ", "")
+                    .trim()
+                    .toUpperCase()}#accesibilidad`,
+            averageClosedEntriesShareLabel: new Intl.NumberFormat("es-AR", {
+                style: "percent",
+                maximumFractionDigits: 0,
+            })
+                .format(station.averageClosedEntriesShare)
+                .trim(),
+            totalEntriesLabel: new Intl.NumberFormat("es-AR").format(
+                station.totalEntries,
+            ),
+        };
+    },
+);
 const frequencyChangeByLineMap = new Map(
     frequencyChangeByLine.map((line) => [line.series.label, line]),
 );
@@ -375,6 +416,94 @@ const heroUpdatedLabel =
                                 ))
                             }
                         </div>
+
+                        <div class="mt-8 border-t border-[#d8cec3] pt-8">
+                            <h3
+                                class="text-2xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-3xl"
+                            >
+                                Top 5 menos accesibles de {
+                                    leastAccessibleStations2025.year
+                                }
+                            </h3>
+                            <p
+                                class="mt-3 max-w-3xl text-pretty text-base leading-6 text-[#544b43] sm:text-lg"
+                            >
+                                Según el % promedio de entradas cerradas en
+                                2025.
+                            </p>
+
+                            <ol class="mt-5 space-y-3">
+                                {
+                                    leastAccessibleStations.map((station) => (
+                                        <li>
+                                            <a
+                                                href={station.path}
+                                                aria-label={`Ir a ${station.nombreLinea}, ${station.nombreEstacion}`}
+                                                data-astro-prefetch
+                                                data-line-row
+                                                data-line-code={station.code}
+                                                data-line-section="accesibilidad-top-5"
+                                                class="group flex items-start gap-3 text-left text-inherit no-underline sm:gap-4"
+                                            >
+                                                <span
+                                                    class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-[8px] text-md leading-none font-black tracking-[-0.08em] border-2"
+                                                    style={`/*background-color: ${station.color}; color: ${station.ink};`}
+                                                >
+                                                    {station.rank}
+                                                </span>
+
+                                                <span class="w-full">
+                                                    <span class="flex items-start justify-between gap-3">
+                                                        <span class="min-w-0">
+                                                            <span class="flex flex-wrap items-center gap-x-2 gap-y-1 text-lg leading-5 font-semibold tracking-[-0.05em] text-[#1b1816] sm:text-xl">
+                                                                <span>
+                                                                    {
+                                                                        station.nombreEstacion
+                                                                    }
+                                                                </span>
+                                                                <span
+                                                                    class="line-table-link line-table-link--mini"
+                                                                    style={`--line-button-color: ${station.color}; --line-button-ink: ${station.ink};`}
+                                                                >
+                                                                    <span class="line-table-link__top">
+                                                                        <span class="line-table-link__label">
+                                                                            {
+                                                                                station.code
+                                                                            }
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="mt-0.5 block text-sm leading-5 text-[#544b43]">
+                                                                de{" "}
+                                                                {
+                                                                    station.totalEntriesLabel
+                                                                }{" "}
+                                                                entradas
+                                                            </span>
+                                                        </span>
+
+                                                        <span class="shrink-0 text-right">
+                                                            <span class="block text-2xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-3xl">
+                                                                {
+                                                                    station.averageClosedEntriesShareLabel
+                                                                }
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="mt-1.5 block h-1.5 w-full overflow-hidden rounded-full bg-[#ddd5cc]">
+                                                        <span
+                                                            class="block h-full rounded-full"
+                                                            style={`width: ${Math.max(0, Math.min(100, station.averageClosedEntriesShare * 100))}%; background-color: ${station.color};`}
+                                                        />
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    ))
+                                }
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -580,6 +709,23 @@ const heroUpdatedLabel =
         line-height: 1;
         font-weight: 700;
         letter-spacing: -0.06em;
+    }
+
+    .line-table-link--mini {
+        display: inline-block;
+        width: 1.15rem;
+        max-width: 1.15rem;
+        border-radius: 0.24rem;
+        vertical-align: baseline;
+    }
+
+    .line-table-link--mini .line-table-link__top {
+        border-radius: 0.24rem;
+        transform: translateY(-0.08em);
+    }
+
+    .line-table-link--mini .line-table-link__label {
+        font-size: 0.54rem;
     }
 
     .line-table-link:hover .line-table-link__top,

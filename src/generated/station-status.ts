@@ -5412,6 +5412,77 @@ export const averageEntryClosures = {
   ]
 } as const;
 
+export const leastAccessibleStations2025 = {
+  "year": "2025",
+  "stations": [
+    {
+      "rank": 1,
+      "idLinea": 5,
+      "nombreLinea": "Línea E",
+      "nombreEstacion": "Varela",
+      "totalEntries": 2,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 365,
+      "totalClosedEntries": 610,
+      "totalEntryDays": 730,
+      "averageClosedEntryShare": 1,
+      "averageClosedEntriesShare": 0.8356164383561644
+    },
+    {
+      "rank": 2,
+      "idLinea": 5,
+      "nombreLinea": "Línea E",
+      "nombreEstacion": "San José",
+      "totalEntries": 4,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 365,
+      "totalClosedEntries": 921,
+      "totalEntryDays": 1460,
+      "averageClosedEntryShare": 1,
+      "averageClosedEntriesShare": 0.6308219178082192
+    },
+    {
+      "rank": 3,
+      "idLinea": 1,
+      "nombreLinea": "Línea A",
+      "nombreEstacion": "Loria",
+      "totalEntries": 2,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 294,
+      "totalClosedEntries": 398,
+      "totalEntryDays": 730,
+      "averageClosedEntryShare": 0.8054794520547945,
+      "averageClosedEntriesShare": 0.5452054794520548
+    },
+    {
+      "rank": 4,
+      "idLinea": 4,
+      "nombreLinea": "Línea D",
+      "nombreEstacion": "Callao",
+      "totalEntries": 4,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 365,
+      "totalClosedEntries": 743,
+      "totalEntryDays": 1460,
+      "averageClosedEntryShare": 1,
+      "averageClosedEntriesShare": 0.5089041095890411
+    },
+    {
+      "rank": 5,
+      "idLinea": 5,
+      "nombreLinea": "Línea E",
+      "nombreEstacion": "Catalinas",
+      "totalEntries": 16,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 365,
+      "totalClosedEntries": 2798,
+      "totalEntryDays": 5840,
+      "averageClosedEntryShare": 1,
+      "averageClosedEntriesShare": 0.4791095890410959
+    }
+  ]
+} as const;
+
 export const lineDHeatmap = {
   "nombreLinea": "Línea D",
   "serviceWindow": "08:00-20:00 UTC-3",
