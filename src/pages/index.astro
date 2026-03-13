@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import LineNav from "../components/LineNav.astro";
 import PostHog from "../components/posthog.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import {
     averageEntryClosures,
     meta,
@@ -45,7 +46,7 @@ const averageClosedEntryLines = diagramLines.map((line) => {
         nombreLinea: line.nombreLinea,
         color: line.color,
         ink: line.ink,
-        path: `/linea/${line.code}`,
+        path: `/linea/${line.code}#accesibilidad`,
         averageClosedEntryShareLabel: new Intl.NumberFormat("es-AR", {
             style: "percent",
             maximumFractionDigits: 0,
@@ -61,11 +62,10 @@ const lineBBase = diagramLines.find((line) => line.code === "B") ?? null;
 const lineB = lineBBase
     ? {
           ...lineBBase,
-          path: `/linea/${lineBBase.code}`,
+          path: `/linea/${lineBBase.code}#frecuencia`,
       }
     : null;
-const lineBFrequencyChange =
-    frequencyChangeByLineMap.get("Línea B") ?? null;
+const lineBFrequencyChange = frequencyChangeByLineMap.get("Línea B") ?? null;
 const frequencyLines = diagramLines
     .map((line) => {
         const change = frequencyChangeByLineMap.get(line.nombreLinea);
@@ -77,7 +77,7 @@ const frequencyLines = diagramLines
             nombreLinea: line.nombreLinea,
             color: line.color,
             ink: line.ink,
-            path: `/linea/${line.code}`,
+            path: `/linea/${line.code}#frecuencia`,
             change,
             toneClass:
                 change.direction === "igual"
@@ -135,34 +135,44 @@ const lastUpdatedLabel =
                             <p
                                 class="text-balance text-[clamp(2.25rem,8vw,4rem)] leading-[0.94] font-semibold tracking-[-0.06em] text-[#1b1816]"
                             >
-                                El subte porteño se está deteriorando.
+                                El subte porteño se está{" "}
+                                <span
+                                    class="falling-word inline-block whitespace-nowrap touch-manipulation select-none"
+                                    data-falling-word>deteriorando</span
+                                >.
                             </p>
                             <p
                                 class="text-balance text-[clamp(2.25rem,8vw,4rem)] leading-[0.96] font-semibold tracking-[-0.06em] text-[#1b1816]"
                             >
                                 La frecuencia de la línea{" "}
-                                {lineB && (
-                                    <a
-                                        href={lineB.path}
-                                        aria-label={`Ir a ${lineB.nombreLinea}`}
-                                        data-astro-prefetch
-                                        class="inline-line-link"
-                                        style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
-                                    >
-                                        <span class="inline-line-link__top">
-                                            <span class="inline-line-link__label"
-                                                >{lineB.code}</span
-                                            >
-                                        </span>
-                                    </a>
-                                )}{" "}
+                                {
+                                    lineB && (
+                                        <a
+                                            href={lineB.path}
+                                            aria-label={`Ir a ${lineB.nombreLinea}`}
+                                            data-astro-prefetch
+                                            class="inline-line-link"
+                                            style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
+                                        >
+                                            <span class="inline-line-link__top">
+                                                <span class="inline-line-link__label">
+                                                    {lineB.code}
+                                                </span>
+                                            </span>
+                                        </a>
+                                    )
+                                }{" "}
                                 empeoró{" "}
                                 <span
                                     class="inline-block whitespace-nowrap rounded-[0.16em] bg-[#f4e4a7] px-[0.18em] pb-[0.04em] text-[#1b1816]"
-                                    >{lineBFrequencyChange?.changeLabel ??
-                                        "0%"}</span
+                                    >{
+                                        lineBFrequencyChange?.changeLabel.replace(
+                                            /\s+(mejor|peor)$/,
+                                            "",
+                                        ) ?? "0%"
+                                    }</span
                                 >{" "}
-                                en los últimos 5 años, y ahora mismo el{" "}
+                                en los últimos 5 años, y ahora el{" "}
                                 <span
                                     class="inline-block whitespace-nowrap rounded-[0.16em] bg-[#f4d9d4] px-[0.18em] pb-[0.04em] text-[#7a241a]"
                                     >{closedEscaleraShareLabel}</span
@@ -170,7 +180,9 @@ const lastUpdatedLabel =
                                 de estaciones tiene alguna escalera cerrada.
                             </p>
                             <div class="space-y-0.5 pt-1">
-                                <p class="text-center text-xs leading-5 text-[#544b43]">
+                                <p
+                                    class="text-center text-xs leading-5 text-[#544b43]"
+                                >
                                     Un proyecto de{" "}
                                     <a
                                         href="https://visualizando.ar"
@@ -222,59 +234,55 @@ const lastUpdatedLabel =
                 id="accesibilidad"
                 class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
             >
-                <div class="mx-auto max-w-6xl">
-                    <h2
-                        class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
-                    >
-                        Accesibilidad
-                    </h2>
-                    <p
-                        class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl"
-                    >
-                        En un día promedio de {averageEntryClosures.year},{" "}
-                        <span class="font-semibold text-[#1b1816]"
-                            >{averageClosedEntryShareLabel}</span
-                        >{" "}
-                        de las estaciones tuvo alguna entrada cerrada
-                        (escalera o ascensor).
-                    </p>
+                <div class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center">
+                    <div class="w-full lg:max-w-[36rem]">
+                        <h2
+                            class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
+                        >
+                            Accesibilidad
+                        </h2>
+                        <p
+                            class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl lg:max-w-[32rem]"
+                        >
+                            En un día promedio de {averageEntryClosures.year},{" "}
+                            <span class="font-semibold text-[#1b1816]"
+                                >{averageClosedEntryShareLabel}</span
+                            >{" "}
+                            de las estaciones tuvo alguna entrada cerrada
+                            (escalera o ascensor).
+                        </p>
 
-                    <div class="mt-10 space-y-5">
-                        {
-                            averageClosedEntryLines.map((line) => (
-                                <div
-                                    class="flex items-center gap-4 sm:gap-6"
-                                >
-                                    <a
-                                        href={line.path}
-                                        aria-label={`Ir a ${line.nombreLinea}`}
-                                        data-astro-prefetch
-                                        class="line-table-link"
-                                        style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
-                                    >
-                                        <span class="line-table-link__top">
-                                            <span class="line-table-link__label"
-                                                >{line.code}</span
-                                            >
-                                        </span>
-                                    </a>
+                        <div class="mt-10 space-y-5 lg:max-w-[30rem]">
+                            {
+                                averageClosedEntryLines.map((line) => (
+                                    <div class="flex items-center gap-4 sm:gap-6">
+                                        <a
+                                            href={line.path}
+                                            aria-label={`Ir a ${line.nombreLinea}`}
+                                            data-astro-prefetch
+                                            class="line-table-link"
+                                            style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
+                                        >
+                                            <span class="line-table-link__top">
+                                                <span class="line-table-link__label">
+                                                    {line.code}
+                                                </span>
+                                            </span>
+                                        </a>
 
-                                    <div class="min-w-0">
-                                        <p
-                                            class="text-3xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-5xl"
-                                        >
-                                            {line.averageClosedEntryShareLabel}
-                                        </p>
-                                        <p
-                                            class="mt-1 text-xs leading-4 text-[#544b43] sm:text-sm"
-                                        >
-                                            escaleras o ascensores cerrados en
-                                            día promedio
-                                        </p>
+                                        <div class="min-w-0">
+                                            <p class="text-3xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-5xl">
+                                                {line.averageClosedEntryShareLabel}
+                                            </p>
+                                            <p class="mt-1 text-xs leading-4 text-[#544b43] sm:text-sm">
+                                                escaleras o ascensores cerrados
+                                                en día promedio
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
-                        }
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </section>
@@ -283,88 +291,197 @@ const lastUpdatedLabel =
                 id="frecuencia"
                 class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
             >
-                <div class="mx-auto max-w-6xl">
-                    <h2
-                        class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
-                    >
-                        Frecuencia
-                    </h2>
-                    <p
-                        class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl"
-                    >
-                        Compara el promedio anual de 2019 con el promedio
-                        anual de 2025. Menos tiempo entre trenes significa
-                        mejor frecuencia.
-                    </p>
+                <div class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center">
+                    <div class="w-full lg:max-w-[36rem]">
+                        <h2
+                            class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-6xl"
+                        >
+                            Frecuencia
+                        </h2>
+                        <p
+                            class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl lg:max-w-[32rem]"
+                        >
+                            Compara el promedio anual de 2019 con el promedio
+                            anual de 2025. Menos tiempo entre trenes significa
+                            mejor frecuencia.
+                        </p>
 
-                    <div class="mt-10 space-y-5">
-                        {
-                            frequencyLines.map((line) => (
-                                <div class="flex items-center gap-4 sm:gap-6">
-                                    <a
-                                        href={line.path}
-                                        aria-label={`Ir a ${line.nombreLinea}`}
-                                        data-astro-prefetch
-                                        class="line-table-link"
-                                        style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
-                                    >
-                                        <span class="line-table-link__top">
-                                            <span class="line-table-link__label"
-                                                >{line.code}</span
+                        <div class="mt-10 space-y-5 lg:max-w-[30rem]">
+                            {
+                                frequencyLines.map((line) => (
+                                    <div class="flex items-center gap-4 sm:gap-6">
+                                        <a
+                                            href={line.path}
+                                            aria-label={`Ir a ${line.nombreLinea}`}
+                                            data-astro-prefetch
+                                            class="line-table-link"
+                                            style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
+                                        >
+                                            <span class="line-table-link__top">
+                                                <span class="line-table-link__label">
+                                                    {line.code}
+                                                </span>
+                                            </span>
+                                        </a>
+
+                                        <div class="min-w-0">
+                                            <p
+                                                class={`text-3xl leading-none font-semibold tracking-[-0.06em] sm:text-5xl ${line.toneClass}`}
                                             >
-                                        </span>
-                                    </a>
-
-                                    <div class="min-w-0">
-                                        <p
-                                            class={`text-3xl leading-none font-semibold tracking-[-0.06em] sm:text-5xl ${line.toneClass}`}
-                                        >
-                                            {line.change.changeLabel}
-                                        </p>
-                                        <p
-                                            class="mt-1 text-xs leading-4 text-[#544b43] sm:text-sm"
-                                        >
-                                            de {line.change.firstValueLabel} en{" "}
-                                            {line.change.firstPeriodLabel} a{" "}
-                                            {line.change.latestValueLabel} en{" "}
-                                            {line.change.latestPeriodLabel}
-                                        </p>
+                                                {line.change.changeLabel}
+                                            </p>
+                                            <p class="mt-1 text-xs leading-4 text-[#544b43] sm:text-sm">
+                                                de {line.change.firstValueLabel}{" "}
+                                                en {line.change.firstPeriodLabel}{" "}
+                                                a {line.change.latestValueLabel}{" "}
+                                                en {line.change.latestPeriodLabel}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
-                        }
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
+        <SiteFooter />
+        <script>
+            const setupFallingWords = () => {
+                document
+                    .querySelectorAll("[data-falling-word]")
+                    .forEach((word) => {
+                        if (word.dataset.fallingWordBound === "true") return;
+
+                        word.dataset.fallingWordBound = "true";
+
+                        let tapReleaseTimer;
+
+                        const restore = () => {
+                            window.clearTimeout(tapReleaseTimer);
+                            word.classList.add("is-restoring");
+                        };
+
+                        const fallAgain = () => {
+                            word.classList.remove("is-restoring");
+                        };
+
+                        word.addEventListener("pointerenter", (event) => {
+                            if (
+                                event.pointerType &&
+                                event.pointerType !== "mouse"
+                            ) {
+                                return;
+                            }
+
+                            restore();
+                        });
+
+                        word.addEventListener("pointerleave", fallAgain);
+
+                        word.addEventListener("pointerdown", (event) => {
+                            if (event.pointerType === "mouse") return;
+
+                            restore();
+                            tapReleaseTimer = window.setTimeout(fallAgain, 760);
+                        });
+
+                        word.addEventListener("pointercancel", fallAgain);
+                    });
+            };
+
+            setupFallingWords();
+            document.addEventListener("astro:page-load", setupFallingWords);
+        </script>
+        <style>
+            @keyframes falling-word-swing {
+                0%,
+                58% {
+                    transform: rotate(0deg) translateY(0);
+                }
+
+                70% {
+                    transform: rotate(-8.5deg) translateY(0.03em);
+                }
+
+                78% {
+                    transform: rotate(-7.6deg) translateY(0.022em);
+                }
+
+                86% {
+                    transform: rotate(-8.15deg) translateY(0.028em);
+                }
+
+                100% {
+                    transform: rotate(-7.9deg) translateY(0.026em);
+                }
+            }
+
+            @keyframes falling-word-restore {
+                from {
+                    transform: rotate(-7.9deg) translateY(0.026em);
+                }
+
+                to {
+                    transform: rotate(0deg) translateY(0);
+                }
+            }
+
+            .falling-word {
+                display: inline-block;
+                transform: rotate(-7.9deg) translateY(0.026em);
+                transform-origin: bottom right;
+                animation: falling-word-swing 1.08s 260ms ease both;
+                will-change: transform;
+            }
+
+            .falling-word.is-restoring {
+                transform: rotate(0deg) translateY(0);
+                animation: falling-word-restore 520ms ease both;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .falling-word,
+                .falling-word.is-restoring {
+                    animation: none;
+                    transform: none;
+                }
+            }
+        </style>
     </body>
 </html>
 
 <script is:inline>
-  function setupIndexTracking() {
-    // Track scroll-to-content arrow clicks
-    var scrollBtn = document.querySelector('[aria-label="Seguir leyendo"]');
-    if (scrollBtn) {
-      scrollBtn.removeEventListener('click', scrollBtn.__phScrollHandler);
-      scrollBtn.__phScrollHandler = function () {
-        window.posthog?.capture('scroll_to_content_clicked');
-      };
-      scrollBtn.addEventListener('click', scrollBtn.__phScrollHandler);
+    function setupIndexTracking() {
+        // Track scroll-to-content arrow clicks
+        var scrollBtn = document.querySelector('[aria-label="Seguir leyendo"]');
+        if (scrollBtn) {
+            scrollBtn.removeEventListener("click", scrollBtn.__phScrollHandler);
+            scrollBtn.__phScrollHandler = function () {
+                window.posthog?.capture("scroll_to_content_clicked");
+            };
+            scrollBtn.addEventListener("click", scrollBtn.__phScrollHandler);
+        }
+
+        // Track line link clicks in the accessibility table
+        document.querySelectorAll(".line-table-link").forEach(function (link) {
+            link.removeEventListener("click", link.__phLinkHandler);
+            link.__phLinkHandler = function () {
+                var code = link
+                    .querySelector(".line-table-link__label")
+                    ?.textContent?.trim();
+                var section = link.getAttribute("href")?.split("#")[1] ?? null;
+                window.posthog?.capture("line_link_clicked", {
+                    line_code: code,
+                    section: section,
+                });
+            };
+            link.addEventListener("click", link.__phLinkHandler);
+        });
     }
 
-    // Track line link clicks in the accessibility table
-    document.querySelectorAll('.line-table-link').forEach(function (link) {
-      link.removeEventListener('click', link.__phLinkHandler);
-      link.__phLinkHandler = function () {
-        var code = link.querySelector('.line-table-link__label')?.textContent?.trim();
-        window.posthog?.capture('line_link_clicked', { line_code: code });
-      };
-      link.addEventListener('click', link.__phLinkHandler);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', setupIndexTracking);
-  document.addEventListener('astro:page-load', setupIndexTracking);
+    document.addEventListener("DOMContentLoaded", setupIndexTracking);
+    document.addEventListener("astro:page-load", setupIndexTracking);
 </script>
 
 <style>

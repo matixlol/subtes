@@ -23,6 +23,7 @@ interface Props {
 	title?: string;
 	description?: string;
 	showEndLabels?: boolean;
+	useTextColor?: boolean;
 }
 
 const {
@@ -30,18 +31,19 @@ const {
 	title = "Frecuencia mensual del subte",
 	description = "Serie mensual del intervalo promedio entre trenes. Valores más bajos indican mejor frecuencia.",
 	showEndLabels = series.length > 1,
+	useTextColor = false,
 } = Astro.props;
 const chartId = crypto.randomUUID();
 const titleId = `frequency-chart-title-${chartId}`;
 const descriptionId = `frequency-chart-desc-${chartId}`;
 
-const width = 1100;
-const height = 620;
+const width = 760;
+const height = 400;
 const margin = {
-	top: 28,
-	right: showEndLabels ? 154 : 38,
-	bottom: 52,
-	left: 62,
+	top: 30,
+	right: showEndLabels ? 120 : 16,
+	bottom: 42,
+	left: 48,
 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
@@ -161,7 +163,8 @@ const labels = rawLabels.map((label) => ({
 <div class="overflow-x-auto">
 	<svg
 		viewBox={`0 0 ${width} ${height}`}
-		class="block h-auto min-w-[760px] w-full"
+		class="block h-auto w-full max-w-full"
+		style="color: currentColor;"
 		role="img"
 		aria-labelledby={`${titleId} ${descriptionId}`}
 	>
@@ -169,15 +172,25 @@ const labels = rawLabels.map((label) => ({
 		<desc id={descriptionId}>{description}</desc>
 
 		<g transform={`translate(${margin.left} ${margin.top})`}>
-			<rect x="0" y="0" width={innerWidth} height={innerHeight} fill="#fbfaf6" />
 			<rect
 				x={x(covidStart)}
 				y="0"
 				width={Math.max(0, x(covidEnd) - x(covidStart))}
 				height={innerHeight}
-				fill="#d7d2cb"
-				fill-opacity="0.28"
+				fill="#8f877f"
+				fill-opacity="0.18"
 			/>
+			<text
+				x={x(covidStart) + Math.max(0, x(covidEnd) - x(covidStart)) / 2}
+				y="12"
+				text-anchor="middle"
+				font-size="11"
+				font-weight="600"
+				fill="currentColor"
+				fill-opacity="0.68"
+			>
+				COVID-19
+			</text>
 
 			{
 				yTicks.map((tick) => (
@@ -187,7 +200,8 @@ const labels = rawLabels.map((label) => ({
 							x2={innerWidth}
 							y1={y(tick.value)}
 							y2={y(tick.value)}
-							stroke="#d9d3ca"
+							stroke="currentColor"
+							stroke-opacity="0.18"
 							stroke-dasharray="3 7"
 						/>
 						<text
@@ -196,7 +210,8 @@ const labels = rawLabels.map((label) => ({
 							dy="0.32em"
 							text-anchor="end"
 							font-size="12"
-							fill="#7d756e"
+							fill="currentColor"
+							fill-opacity="0.68"
 						>
 							{tick.label}
 						</text>
@@ -212,14 +227,16 @@ const labels = rawLabels.map((label) => ({
 							x2={x(tick)}
 							y1={innerHeight}
 							y2={innerHeight + 6}
-							stroke="#8f877f"
+							stroke="currentColor"
+							stroke-opacity="0.48"
 						/>
 						<text
 							x={x(tick)}
 							y={innerHeight + 24}
 							text-anchor="middle"
 							font-size="12"
-							fill="#7d756e"
+							fill="currentColor"
+							fill-opacity="0.68"
 						>
 							{utcFormat("%Y")(tick)}
 						</text>
@@ -233,16 +250,9 @@ const labels = rawLabels.map((label) => ({
 						<path
 							d={line.path}
 							fill="none"
-							stroke="#fbfaf6"
-							stroke-width="6"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						/>
-						<path
-							d={line.path}
-							fill="none"
-							stroke={line.color}
+							stroke={useTextColor ? "currentColor" : line.color}
 							stroke-width={line.label === "Premetro" ? "2.7" : "2.3"}
+							stroke-opacity={useTextColor ? "0.92" : "1"}
 							stroke-linecap="round"
 							stroke-linejoin="round"
 						/>
@@ -259,7 +269,7 @@ const labels = rawLabels.map((label) => ({
 								x2={innerWidth + 10}
 								y1={label.y}
 								y2={label.y}
-								stroke={label.color}
+								stroke={useTextColor ? "currentColor" : label.color}
 								stroke-width="1.25"
 								stroke-opacity="0.7"
 							/>
@@ -269,8 +279,9 @@ const labels = rawLabels.map((label) => ({
 								dy="0.32em"
 								font-size="12"
 								font-weight="700"
-								fill="#fbfaf6"
-								stroke="#fbfaf6"
+								fill="currentColor"
+								fill-opacity="0"
+								stroke="none"
 								stroke-width="5"
 								paint-order="stroke"
 							>
@@ -282,7 +293,7 @@ const labels = rawLabels.map((label) => ({
 								dy="0.32em"
 								font-size="12"
 								font-weight="700"
-								fill={label.color}
+								fill={useTextColor ? "currentColor" : label.color}
 							>
 								{label.shortLabel}
 							</text>

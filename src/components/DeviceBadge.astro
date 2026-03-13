@@ -1,0 +1,28 @@
+---
+interface Props {
+	kind: "ascensor" | "escalera";
+	isAvailable: boolean;
+	label: string;
+	statusLabel: string;
+}
+
+const { kind, isAvailable, label, statusLabel } = Astro.props;
+
+const iconMarkup =
+	kind === "ascensor"
+		? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4 w-4"><g fill="currentColor"><path d="M184 104v112H72V104Z" opacity=".2"></path><path d="M208 32H48a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16m-32 80v96h-40v-96Zm-56 96H80v-96h40Zm88 0h-16V104a8 8 0 0 0-8-8H72a8 8 0 0 0-8 8v104H48V48h160zM152 72a8 8 0 0 1-8 8h-32a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8"></path></g></svg>'
+		: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4 w-4"><path fill="currentColor" d="M224 40h-56a8 8 0 0 0-5.88 2.57L68.5 144H32a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h56a8 8 0 0 0 5.88-2.57L187.5 112H224a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 56h-40a8 8 0 0 0-5.88 2.57L84.5 200H32v-40h40a8 8 0 0 0 5.88-2.57L171.5 56H224Zm5.66 74.34a8 8 0 0 1-11.32 11.32L208 171.31V208a8 8 0 0 1-16 0v-36.69l-10.34 10.35a8 8 0 0 1-11.32-11.32l24-24a8 8 0 0 1 11.32 0Z"></path></svg>';
+---
+
+<span
+	role="img"
+	aria-label={`${label}: ${statusLabel}`}
+	class:list={[
+		"inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-[8px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.28)]",
+		isAvailable
+			? "border-[#7da183] bg-[#e6f3e6] text-[#1f4a2b]"
+			: "border-[#c18780] bg-[#f5d8d4] text-[#7a241a]",
+	]}
+>
+	<Fragment set:html={iconMarkup} />
+</span>

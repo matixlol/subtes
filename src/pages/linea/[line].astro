@@ -1,8 +1,10 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import DeviceBadge from "../../components/DeviceBadge.astro";
 import FrequencyChart from "../../components/FrequencyChart.astro";
 import LineNav from "../../components/LineNav.astro";
 import PostHog from "../../components/posthog.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
 import "../../styles/global.css";
 import {
     frequencyChangeByLine,
@@ -13,7 +15,6 @@ import {
     formatDeviceName,
     getAccessibilityStateLabel,
     getDeviceStatusLabel,
-    overviewMeta,
 } from "../../lib/line-data";
 
 export function getStaticPaths() {
@@ -22,20 +23,6 @@ export function getStaticPaths() {
     }));
 }
 
-const formatTimestamp = (value: string) => {
-    if (!value) return "sin fecha";
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) return value;
-
-    return new Intl.DateTimeFormat("es-AR", {
-        dateStyle: "short",
-        timeStyle: "short",
-    }).format(date);
-};
-
-const formatDayCount = (value: number) =>
-    `${value} ${value === 1 ? "día" : "días"}`;
-
 const getStatusFillClass = (state: string) => {
     if (state === "full") return "bg-[var(--heat-0)]";
     if (state === "partial") return "bg-[var(--heat-2)]";
@@ -43,6 +30,8 @@ const getStatusFillClass = (state: string) => {
     if (state === "blocked") return "bg-[var(--heat-4)]";
     return "bg-[var(--surface)]";
 };
+
+const isDeviceAvailable = (status: string) => status === "funcionando";
 
 const withAlpha = (hex: string, alpha: number) => {
     const normalized = hex.replace("#", "");
@@ -86,8 +75,6 @@ const initialIndex = Math.max(
 );
 const initialLine = lines[initialIndex] ?? lines[0];
 
-const getStationTooltipId = (lineCode: string, stationOrder: number) =>
-    `line-tooltip-${lineCode}-${stationOrder}`;
 ---
 
 <html lang="es">
@@ -105,23 +92,38 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
         class="min-h-screen transition-colors duration-500"
         style={`background-color: ${initialLine.color};`}
     >
-        <div class="fixed inset-x-0 top-0 z-40 px-3 pt-3">
-            <LineNav mode="buttons" currentCode={initialLine.code} />
-        </div>
+        <header class="px-3 pt-3">
+            <div class="mx-auto flex w-full max-w-[430px] flex-col items-start gap-2">
+                <LineNav
+                    mode="buttons"
+                    currentCode={initialLine.code}
+                    class="max-w-none px-0 py-0"
+                />
+                <a
+                    href="/"
+                    data-astro-prefetch
+                    class="inline-flex h-10 items-center rounded-[10px] border px-3 text-[0.92rem] font-semibold tracking-[-0.01em] text-[var(--text)] transition-colors duration-150 hover:bg-[#fff7ee] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text)]/20"
+                    style="border-color: var(--border-strong); background-color: rgba(255, 253, 248, 0.94);"
+                >
+                    Volver a general
+                </a>
+            </div>
+        </header>
 
         <main
             data-line-scroller
             data-initial-line={initialLine.code}
-            class="min-h-screen overflow-x-auto snap-x snap-mandatory overscroll-x-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            class="overflow-x-auto overflow-y-clip snap-x snap-mandatory overscroll-x-none transition-[height] duration-300 ease-out [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
             <div class="flex items-start">
                 {
-                    lines.map((line, lineIndex) => (
+                    lines.map((line) => (
                         <section
                             id={`linea-${line.code}`}
                             data-line-slide
                             data-line-code={line.code}
                             data-line-color={line.color}
+                            data-line-footer-color={withAlpha(line.ink, 0.82)}
                             data-line-path={line.path}
                             data-line-position={line.position}
                             data-active={
@@ -129,252 +131,173 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                                     ? "true"
                                     : "false"
                             }
-                            class="min-h-screen w-screen shrink-0 snap-center px-4 pb-8 pt-24 [scroll-snap-stop:always] sm:pt-26"
-                            style={`color: ${line.ink}; --line-border: ${withAlpha(line.ink, 0.22)}; --line-border-strong: ${withAlpha(line.ink, 0.42)}; --line-muted: ${withAlpha(line.ink, 0.76)};`}
+                            class="w-screen shrink-0 snap-center px-4 pb-8 pt-8 [scroll-snap-stop:always] sm:pt-10"
+                            style={`color: ${line.ink}; --line-border: ${withAlpha(line.ink, 0.22)}; --line-border-strong: ${withAlpha(line.ink, 0.42)}; --line-muted: ${withAlpha(line.ink, 0.76)}; --line-surface: ${withAlpha(line.ink, 0.1)}; --line-surface-strong: ${withAlpha(line.ink, 0.16)};`}
                         >
-                            <div class="mx-auto w-full max-w-6xl">
+                            <div class="mx-auto flex w-full max-w-6xl flex-col items-center">
                                 <section
-                                    class="reveal mt-5 px-2 py-2 text-inherit"
+                                    class="reveal mt-5 flex min-h-[calc(100vh-7rem)] w-full items-center justify-center px-2 py-2 text-inherit"
                                     style={`--stagger: 120ms;`}
                                 >
-                                    <h2
-                                        class="text-4xl leading-none font-semibold tracking-[-0.06em] text-inherit sm:text-6xl"
-                                    >
-                                        Accesibilidad
-                                    </h2>
+                                    <div class="w-full max-w-[36rem]">
+                                        <h2
+                                            class="text-4xl leading-none font-semibold tracking-[-0.06em] text-inherit sm:text-6xl"
+                                        >
+                                            Accesibilidad
+                                        </h2>
 
-                                    <div class="mt-8 max-w-[460px]">
-                                        <div class="flex items-center justify-between gap-3 pb-2">
-                                            <div>
-                                                <h3 class="m-0 text-[1.08rem] leading-[1.1] font-semibold">
-                                                    Estaciones
-                                                </h3>
+                                        <section
+                                            data-line-section="accesibilidad"
+                                            class="mx-auto mt-8 w-full max-w-[30rem]"
+                                        >
+                                            <div class="flex items-center justify-between gap-3 pb-2">
+                                                <div>
+                                                    <h3 class="m-0 text-[1.08rem] leading-[1.1] font-semibold">
+                                                        Estaciones
+                                                    </h3>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <ol class="relative mt-4 ml-0 list-none pl-0">
-                                            <span
-                                                class="pointer-events-none absolute bottom-4 left-[18px] top-4 w-[3px] rounded-full"
-                                                style={`background-color: ${withAlpha(line.ink, 0.28)};`}
-                                                aria-hidden="true"
-                                            />
-                                            {line.stations.map(
-                                                (station, stationIndex) => (
-                                                    <li
-                                                        class="station-item reveal relative py-3 pl-12"
-                                                        style={`--stagger: ${160 + stationIndex * 26}ms;`}
-                                                    >
-                                                        <button
-                                                            type="button"
-                                                            class="flex w-full items-start justify-between gap-3 rounded-[10px] text-left text-inherit outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--line-border-strong)]"
-                                                            title={`${line.nombreLinea} · ${station.nombreEstacion}`}
-                                                            aria-label={`${line.nombreLinea} · ${station.nombreEstacion}`}
-                                                            data-station-tooltip={getStationTooltipId(
-                                                                line.code,
-                                                                station.stationOrder,
-                                                            )}
+                                            <ol class="relative mt-4 ml-0 list-none pl-0">
+                                                <span
+                                                    class="pointer-events-none absolute bottom-0 left-[18px] top-0 w-[3px] rounded-full"
+                                                    style={`background-color: ${withAlpha(line.ink, 0.28)};`}
+                                                    aria-hidden="true"
+                                                />
+                                                {line.stations.map(
+                                                    (station, stationIndex) => (
+                                                        <li
+                                                            class="station-item reveal relative py-3 pl-12"
+                                                            style={`--stagger: ${160 + stationIndex * 26}ms;`}
                                                         >
-                                                            <span
-                                                                class={`pointer-events-none absolute left-[10px] top-[20px] z-10 block h-[18px] w-[18px] rounded-full border-[2px] ${getStatusFillClass(
-                                                                    station.state,
-                                                                )}`}
-                                                                style={`border-color: ${line.ink};`}
-                                                            />
-                                                            <span class="min-w-0 flex-1">
-                                                                <span class="block text-[1.02rem] leading-[1.15] font-semibold">
-                                                                    {
-                                                                        station.nombreEstacion
-                                                                    }
-                                                                </span>
-                                                                <span class="mt-1 block text-[0.86rem] leading-[1.25] text-[color:var(--line-muted)]">
-                                                                    {station.accessibility
-                                                                        ? `${getAccessibilityStateLabel(
-                                                                              station.accessibility,
-                                                                          )} · ${station.accessibility.funcionando}/${station.accessibility.total} equipos`
-                                                                        : "Sin ascensores ni escaleras registradas"}
-                                                                </span>
-                                                            </span>
-                                                            {station.history && (
-                                                                <span class="whitespace-nowrap pt-0.5 text-[0.8rem] font-medium text-[color:var(--line-muted)]">
-                                                                    {
-                                                                        station
-                                                                            .history
-                                                                            .daysWithAnyFailure
-                                                                    }
-                                                                    d
-                                                                </span>
-                                                            )}
-                                                        </button>
-
-                                                        <template
-                                                            id={getStationTooltipId(
-                                                                line.code,
-                                                                station.stationOrder,
-                                                            )}
-                                                        >
-                                                            <div class="w-[300px] rounded-[10px] border border-[var(--border)] bg-[#fffdf8] px-3 py-3 text-left text-[var(--text)] shadow-[0_10px_24px_rgba(47,36,29,0.16)]">
-                                                                <p class="m-0 text-[0.72rem] text-[var(--muted)]">
-                                                                    {
-                                                                        line.nombreLinea
-                                                                    }
-                                                                </p>
-                                                                <p class="mt-1 text-[0.96rem] font-semibold leading-tight">
-                                                                    {
-                                                                        station.nombreEstacion
-                                                                    }
-                                                                </p>
-
-                                                                {station.accessibility ? (
-                                                                    <>
-                                                                        <p class="mt-1 text-[0.8rem] leading-[1.3] text-[var(--muted)]">
-                                                                            {getAccessibilityStateLabel(
-                                                                                station.accessibility,
-                                                                            )}{" "}
-                                                                            ·{" "}
-                                                                            {
-                                                                                station
-                                                                                    .accessibility
-                                                                                    .funcionando
-                                                                            }
-                                                                            /
-                                                                            {
-                                                                                station
-                                                                                    .accessibility
-                                                                                    .total
-                                                                            }{" "}
-                                                                            equipos
-                                                                            funcionando
-                                                                        </p>
-
-                                                                        <ul class="m-0 mt-2 list-none space-y-1 border-t border-[#eee7df] pt-2 pl-0 text-[0.8rem] leading-[1.3]">
-                                                                            {station.accessibility.devices.map(
-                                                                                (
-                                                                                    device,
-                                                                                ) => (
-                                                                                    <li class="flex items-start justify-between gap-3">
-                                                                                        <span>
-                                                                                            {formatDeviceName(
-                                                                                                device,
-                                                                                            )}
-                                                                                        </span>
-                                                                                        <span class="whitespace-nowrap text-[var(--muted)]">
-                                                                                            {getDeviceStatusLabel(
-                                                                                                device.estado,
-                                                                                            )}
-                                                                                        </span>
-                                                                                    </li>
-                                                                                ),
-                                                                            )}
-                                                                        </ul>
-
-                                                                        <div class="mt-2 border-t border-[#eee7df] pt-2 text-[0.76rem] leading-[1.35] text-[var(--muted)]">
-                                                                            {station.history && (
-                                                                                <span class="block">
-                                                                                    Últimos{" "}
-                                                                                    {
-                                                                                        station
-                                                                                            .history
-                                                                                            .windowDays
-                                                                                    }{" "}
-                                                                                    días:{" "}
-                                                                                    {formatDayCount(
-                                                                                        station
-                                                                                            .history
-                                                                                            .daysWithAnyFailure,
-                                                                                    )}{" "}
-                                                                                    con
-                                                                                    fallas
+                                                            <div
+                                                                class="flex w-full items-start gap-3 text-left text-inherit"
+                                                            >
+                                                                <span
+                                                                    class={`pointer-events-none absolute left-[10px] top-[20px] z-10 block h-[18px] w-[18px] rounded-full border-[2px] ${getStatusFillClass(
+                                                                        station.state,
+                                                                    )}`}
+                                                                    style={`border-color: ${line.ink};`}
+                                                                />
+                                                                <span class="min-w-0 flex-1">
+                                                                    <span class="station-name block text-[1.02rem] leading-[1.15] font-semibold">
+                                                                        {
+                                                                            station.nombreEstacion
+                                                                        }
+                                                                    </span>
+                                                                    <span class="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-[0.86rem] leading-[1.25] text-[color:var(--line-muted)]">
+                                                                        {station.accessibility ? (
+                                                                            <>
+                                                                                <span class="font-medium text-inherit">
+                                                                                    {getAccessibilityStateLabel(
+                                                                                        station.accessibility,
+                                                                                    )}
                                                                                 </span>
-                                                                            )}
-                                                                            <span class="block">
-                                                                                Actualizado:{" "}
-                                                                                {formatTimestamp(
-                                                                                    station
-                                                                                        .accessibility
-                                                                                        .ultimaActualizacion,
-                                                                                )}
+                                                                                <span class="ml-auto flex flex-wrap items-center justify-end gap-1.5">
+                                                                                    {station.accessibility.devices.map(
+                                                                                        (
+                                                                                            device,
+                                                                                        ) => (
+                                                                                            <DeviceBadge
+                                                                                                kind={
+                                                                                                    device.tipo ===
+                                                                                                    "escalera"
+                                                                                                        ? "escalera"
+                                                                                                        : "ascensor"
+                                                                                                }
+                                                                                                isAvailable={isDeviceAvailable(
+                                                                                                    device.estado,
+                                                                                                )}
+                                                                                                label={formatDeviceName(
+                                                                                                    device,
+                                                                                                )}
+                                                                                                statusLabel={getDeviceStatusLabel(
+                                                                                                    device.estado,
+                                                                                                )}
+                                                                                            />
+                                                                                        ),
+                                                                                    )}
+                                                                                </span>
+                                                                            </>
+                                                                        ) : (
+                                                                            <span>
+                                                                                Sin ascensores ni
+                                                                                escaleras
+                                                                                registradas
                                                                             </span>
-                                                                        </div>
-                                                                    </>
-                                                                ) : (
-                                                                    <p class="mt-2 text-[0.8rem] leading-[1.35] text-[var(--muted)]">
-                                                                        Esta
-                                                                        estación no
-                                                                        tiene
-                                                                        ascensores
-                                                                        ni escaleras
-                                                                        registradas
-                                                                        en el
-                                                                        dataset
-                                                                        actual.
-                                                                    </p>
-                                                                )}
+                                                                        )}
+                                                                    </span>
+                                                                </span>
                                                             </div>
-                                                        </template>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ol>
+                                                        </li>
+                                                    ),
+                                                )}
+                                            </ol>
+                                        </section>
                                     </div>
                                 </section>
 
                                 <section
-                                    class="reveal mt-14 px-2 py-2 text-inherit"
+                                    data-line-section="frecuencia"
+                                    class="reveal mt-14 flex min-h-[calc(100vh-7rem)] w-full items-center justify-center px-2 py-2 text-inherit"
                                     style={`--stagger: 60ms;`}
                                 >
-                                    <h2
-                                        class="text-4xl leading-none font-semibold tracking-[-0.06em] text-inherit sm:text-6xl"
-                                    >
-                                        Frecuencia
-                                    </h2>
-
-                                    {line.frequencyChange && (
-                                        <p
-                                            class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[color:var(--line-muted)] sm:text-xl"
+                                    <div class="w-full max-w-[36rem]">
+                                        <h2
+                                            class="text-4xl leading-none font-semibold tracking-[-0.06em] text-inherit sm:text-6xl"
                                         >
-                                            <span
-                                                class="font-semibold text-inherit"
-                                                >{line.frequencyChange.changeLabel}</span
-                                            >{" "}
-                                            entre{" "}
-                                            {
-                                                line.frequencyChange
-                                                    .firstPeriodLabel
-                                            }
-                                            {" "}y{" "}
-                                            {
-                                                line.frequencyChange
-                                                    .latestPeriodLabel
-                                            }
-                                            . Pasó de{" "}
-                                            {
-                                                line.frequencyChange
-                                                    .firstValueLabel
-                                            }{" "}
-                                            a{" "}
-                                            {
-                                                line.frequencyChange
-                                                    .latestValueLabel
-                                            }
-                                            .
-                                        </p>
-                                    )}
+                                            Frecuencia
+                                        </h2>
 
-                                    {line.frequencySeries && (
-                                        <div
-                                            class="mt-8 overflow-hidden rounded-[10px] border"
-                                            style={`border-color: ${withAlpha(line.ink, 0.24)};`}
-                                        >
-                                            <FrequencyChart
-                                                series={[
-                                                    line.frequencySeries,
-                                                ]}
-                                                showEndLabels={false}
-                                                title={`Frecuencia mensual de la ${line.nombreLinea}`}
-                                                description={`Serie mensual del intervalo promedio entre trenes de la ${line.nombreLinea}. Valores más bajos indican mejor frecuencia.`}
-                                            />
-                                        </div>
-                                    )}
+                                        {line.frequencyChange && (
+                                            <p
+                                                class="mt-6 max-w-[32rem] text-pretty text-lg leading-7 text-[color:var(--line-muted)] sm:text-xl"
+                                            >
+                                                Comparando el promedio anual de{" "}
+                                                <span class="font-semibold text-inherit">
+                                                    {line.frequencyChange.firstPeriodLabel}
+                                                </span>{" "}
+                                                contra{" "}
+                                                <span class="font-semibold text-inherit">
+                                                    {line.frequencyChange.latestPeriodLabel}
+                                                </span>
+                                                , la línea tardó{" "}
+                                                <span class="font-semibold text-inherit">
+                                                    {line.frequencyChange.changeLabel}
+                                                </span>{" "}
+                                                {line.frequencyChange.isBetter
+                                                    ? "menos"
+                                                    : "más"}{" "}
+                                                entre trenes: pasó de{" "}
+                                                {
+                                                    line.frequencyChange
+                                                        .firstValueLabel
+                                                }{" "}
+                                                a{" "}
+                                                {
+                                                    line.frequencyChange
+                                                        .latestValueLabel
+                                                }
+                                                .
+                                            </p>
+                                        )}
+
+                                        {line.frequencySeries && (
+                                            <div
+                                                class="mt-8 w-full max-w-[32rem] text-inherit"
+                                            >
+                                                <FrequencyChart
+                                                    series={[
+                                                        line.frequencySeries,
+                                                    ]}
+                                                    showEndLabels={false}
+                                                    useTextColor={true}
+                                                    title={`Frecuencia mensual de la ${line.nombreLinea}`}
+                                                    description={`Serie mensual del intervalo promedio entre trenes de la ${line.nombreLinea}. Valores más bajos indican mejor frecuencia.`}
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
                                 </section>
                             </div>
                         </section>
@@ -382,6 +305,12 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                 }
             </div>
         </main>
+        <div
+            data-line-footer
+            style={`color: ${withAlpha(initialLine.ink, 0.82)};`}
+        >
+            <SiteFooter />
+        </div>
 
         <style is:global>
             [data-line-scroller][data-ready="true"] [data-line-slide] .reveal {
@@ -420,12 +349,6 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     document.querySelectorAll("[data-line-button]"),
                 ).filter((button) => button instanceof HTMLButtonElement);
 
-                const tooltip = document.createElement("div");
-                tooltip.className =
-                    "pointer-events-none fixed z-50 hidden max-w-[calc(100vw-16px)]";
-                document.body.appendChild(tooltip);
-
-                let activeButton = null;
                 let activeCode =
                     scroller.dataset.initialLine ?? slides[0].dataset.lineCode;
                 let settleFrame = 0;
@@ -434,9 +357,22 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                 let scrollAnimationFrame = 0;
                 let isProgrammaticAnimating = false;
 
+                const setScrollerHeight = (slide) => {
+                    requestAnimationFrame(() => {
+                        scroller.style.height = `${slide.offsetHeight}px`;
+                    });
+                };
+
                 const setBodyColor = (slide) => {
                     document.body.style.backgroundColor =
                         slide.dataset.lineColor ?? "";
+                };
+
+                const setFooterColor = (slide) => {
+                    const footer = document.querySelector("[data-line-footer]");
+                    if (!(footer instanceof HTMLElement)) return;
+
+                    footer.style.color = slide.dataset.lineFooterColor ?? "";
                 };
 
                 const setActiveButton = (code) => {
@@ -457,6 +393,25 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     });
 
                     setBodyColor(slide);
+                    setFooterColor(slide);
+                    setScrollerHeight(slide);
+                };
+
+                const getHashSection = () => window.location.hash.replace(/^#/, "");
+
+                const scrollViewportToSection = (
+                    slide,
+                    section,
+                    behavior = "smooth",
+                ) => {
+                    if (!section) return false;
+                    const target = slide.querySelector(
+                        `[data-line-section="${section}"]`,
+                    );
+                    if (!(target instanceof HTMLElement)) return false;
+
+                    target.scrollIntoView({ behavior, block: "start" });
+                    return true;
                 };
 
                 const commitActiveSlide = (slide, updateHistory = true) => {
@@ -467,10 +422,11 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     setActiveButton(code);
 
                     if (updateHistory && code !== activeCode) {
+                        const hash = window.location.hash;
                         history.replaceState(
                             {},
                             "",
-                            slide.dataset.linePath ?? `/linea/${code}`,
+                            `${slide.dataset.linePath ?? `/linea/${code}`}${hash}`,
                         );
                         document.title = `Línea ${code} · Accesibilidad`;
                         window.posthog?.capture('line_viewed', { line_code: code });
@@ -554,7 +510,11 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     scrollAnimationFrame = requestAnimationFrame(step);
                 };
 
-                const scrollToCode = (code, behavior = "smooth") => {
+                const scrollToCode = (
+                    code,
+                    behavior = "smooth",
+                    section = getHashSection(),
+                ) => {
                     const target = slides.find(
                         (slide) => slide.dataset.lineCode === code,
                     );
@@ -570,6 +530,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                         setActiveButton(code);
                         animateScrollerTo(target.offsetLeft, () => {
                             commitActiveSlide(target, true);
+                            scrollViewportToSection(target, section, behavior);
                         });
                         return;
                     }
@@ -579,60 +540,13 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
 
                     if (!shouldAnimate) {
                         commitActiveSlide(target, true);
+                        scrollViewportToSection(target, section, behavior);
                         return;
                     }
                 };
 
                 const scrollViewportToTop = (behavior = "smooth") => {
                     window.scrollTo({ top: 0, left: 0, behavior });
-                };
-
-                const positionTooltip = (button) => {
-                    const rect = button.getBoundingClientRect();
-                    const tooltipRect = tooltip.getBoundingClientRect();
-                    const gap = 10;
-                    const maxLeft = window.innerWidth - tooltipRect.width - 8;
-                    const preferredTop = rect.top - tooltipRect.height - gap;
-                    const top =
-                        preferredTop >= 8 ? preferredTop : rect.bottom + gap;
-                    const left = Math.min(
-                        Math.max(
-                            rect.left + rect.width / 2 - tooltipRect.width / 2,
-                            8,
-                        ),
-                        Math.max(8, maxLeft),
-                    );
-
-                    tooltip.style.top = `${top}px`;
-                    tooltip.style.left = `${left}px`;
-                };
-
-                const showTooltip = (button) => {
-                    const templateId = button.dataset.stationTooltip;
-                    if (!templateId) return;
-
-                    const template = document.getElementById(templateId);
-                    if (!(template instanceof HTMLTemplateElement)) return;
-
-                    tooltip.innerHTML = template.innerHTML;
-                    tooltip.classList.remove("hidden");
-                    activeButton = button;
-                    positionTooltip(button);
-
-                    const stationName = button.querySelector('.station-name')?.textContent?.trim()
-                        ?? button.getAttribute('aria-label') ?? '';
-                    const lineCode = button.closest('[data-line-slide]')?.dataset?.lineCode ?? '';
-                    window.posthog?.capture('station_tooltip_opened', {
-                        station_name: stationName,
-                        line_code: lineCode,
-                    });
-                };
-
-                const hideTooltip = (button) => {
-                    if (button && activeButton !== button) return;
-                    activeButton = null;
-                    tooltip.classList.add("hidden");
-                    tooltip.innerHTML = "";
                 };
 
                 requestAnimationFrame(() => {
@@ -642,6 +556,36 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     );
                     scroller.dataset.ready = "true";
                 });
+
+                const resizeObserver =
+                    "ResizeObserver" in window
+                        ? new ResizeObserver(() => {
+                              const activeSlide =
+                                  slides.find(
+                                      (slide) =>
+                                          slide.dataset.active === "true",
+                                  ) ?? slides[0];
+                              if (activeSlide) {
+                                  setScrollerHeight(activeSlide);
+                              }
+                          })
+                        : null;
+
+                slides.forEach((slide) => resizeObserver?.observe(slide));
+
+                window.addEventListener(
+                    "resize",
+                    () => {
+                        const activeSlide =
+                            slides.find(
+                                (slide) => slide.dataset.active === "true",
+                            ) ?? slides[0];
+                        if (activeSlide) {
+                            setScrollerHeight(activeSlide);
+                        }
+                    },
+                    { passive: true },
+                );
 
                 scroller.addEventListener(
                     "scroll",
@@ -684,46 +628,30 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                             }
 
                             event.preventDefault();
-                            scrollViewportToTop("smooth");
+                            if (!window.location.hash) {
+                                scrollViewportToTop("smooth");
+                            }
                             scrollToCode(link.dataset.lineLink, "smooth");
                         });
                     });
 
                 lineButtons.forEach((button) => {
                     button.addEventListener("click", () => {
-                        scrollViewportToTop("smooth");
+                        if (!window.location.hash) {
+                            scrollViewportToTop("smooth");
+                        }
                         scrollToCode(button.dataset.lineButton, "smooth");
                     });
                 });
 
-                document
-                    .querySelectorAll("[data-station-tooltip]")
-                    .forEach((button) => {
-                        button.addEventListener("mouseenter", () =>
-                            showTooltip(button),
-                        );
-                        button.addEventListener("focus", () =>
-                            showTooltip(button),
-                        );
-                        button.addEventListener("mouseleave", () =>
-                            hideTooltip(button),
-                        );
-                        button.addEventListener("blur", () =>
-                            hideTooltip(button),
-                        );
-                    });
-
-                window.addEventListener("resize", () => {
-                    if (activeButton) positionTooltip(activeButton);
+                window.addEventListener("hashchange", () => {
+                    const currentSlide = slides.find(
+                        (slide) => slide.dataset.lineCode === activeCode,
+                    );
+                    if (currentSlide) {
+                        scrollViewportToSection(currentSlide, getHashSection(), "smooth");
+                    }
                 });
-
-                document.addEventListener(
-                    "scroll",
-                    () => {
-                        if (activeButton) positionTooltip(activeButton);
-                    },
-                    true,
-                );
             })();
         </script>
     </body>
