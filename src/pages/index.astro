@@ -160,9 +160,9 @@ const heroUpdatedLabel =
                                         >.
                                     </span>
                                 </h1>
-                                <div class="max-w-[34rem] space-y-3">
+                                <div class="space-y-3">
                                     <p
-                                        class="text-[clamp(2.2rem,9vw,4.8rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
+                                        class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
                                     >
                                         <span class="block">
                                             Ahora mismo el{" "}
@@ -189,9 +189,9 @@ const heroUpdatedLabel =
                                 </div>
                             </div>
 
-                            <div class="max-w-[34rem] space-y-3 mt-5">
+                            <div class="space-y-3 mt-5">
                                 <p
-                                    class="text-[clamp(2.2rem,9vw,4.8rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
+                                    class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
                                 >
                                     <span class="block">
                                         La frecuencia del
@@ -283,10 +283,10 @@ const heroUpdatedLabel =
 
             <section
                 id="accesibilidad"
-                class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
+                class="min-h-screen sm:min-h-0! bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
             >
                 <div
-                    class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center"
+                    class="mx-auto flex w-full max-w-6xl lg:items-center lg:justify-center"
                 >
                     <div class="w-full lg:max-w-[36rem]">
                         <h2
@@ -307,7 +307,14 @@ const heroUpdatedLabel =
                             o ascensor).
                         </p>
 
-                        <div class="mt-10 space-y-5">
+                        <p
+                            class="mt-4 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl lg:max-w-[32rem]"
+                        >
+                            Escaleras o ascensores cerrados en un día promedio
+                            de {averageEntryClosures.year}:
+                        </p>
+
+                        <div class="mt-4 space-y-5">
                             {
                                 averageClosedEntryLines.map((line) => (
                                     <a
@@ -331,14 +338,12 @@ const heroUpdatedLabel =
                                         </span>
 
                                         <span class="min-w-0 flex-1">
-                                            <span class="block text-3xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-5xl">
-                                                {
-                                                    line.averageClosedEntryShareLabel
-                                                }
-                                            </span>
-                                            <span class="block text-xs leading-4 text-[#544b43] sm:text-sm">
-                                                escaleras o ascensores cerrados
-                                                en día promedio
+                                            <span>
+                                                <span class="text-2xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816]">
+                                                    {
+                                                        line.averageClosedEntryShareLabel
+                                                    }
+                                                </span>
                                             </span>
                                             <span class="mt-1 block h-2 w-full overflow-hidden rounded-full bg-[#ded7cf]">
                                                 <span
@@ -377,10 +382,10 @@ const heroUpdatedLabel =
 
             <section
                 id="frecuencia"
-                class="min-h-screen bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
+                class="min-h-screen sm:min-h-0! bg-[#faf8f5] px-5 py-14 sm:px-8 sm:py-16"
             >
                 <div
-                    class="mx-auto flex w-full max-w-6xl lg:min-h-[calc(100vh-8rem)] lg:items-center lg:justify-center"
+                    class="mx-auto flex w-full max-w-6xl lg:items-center lg:justify-center"
                 >
                     <div class="w-full lg:max-w-[36rem]">
                         <h2
