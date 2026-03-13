@@ -25,7 +25,7 @@ export function getStaticPaths() {
 
 const getStatusFillClass = (state: string) => {
     if (state === "full") return "bg-white";
-    if (state === "partial") return "bg-white";
+    if (state === "partial") return "bg-[var(--heat-3)]";
     if (state === "off-hours") return "bg-[#f1dfaa]";
     if (state === "blocked") return "bg-[#5b0a0a]";
     return "bg-[var(--surface)]";
