@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import LineNav from "../components/LineNav.astro";
+import PostHog from "../components/posthog.astro";
 import { frequencySeries } from "../generated/frequency-series";
 import {
     averageEntryClosures,
@@ -131,6 +132,7 @@ const lastUpdatedLabel =
         <meta name="generator" content={Astro.generator} />
         <title>Subte porteño</title>
         <ClientRouter />
+        <PostHog />
     </head>
     <body class="bg-[#faf8f5] text-[#1d1a16]">
         <main>
@@ -272,6 +274,33 @@ const lastUpdatedLabel =
         </main>
     </body>
 </html>
+
+<script is:inline>
+  function setupIndexTracking() {
+    // Track scroll-to-content arrow clicks
+    var scrollBtn = document.querySelector('[aria-label="Seguir leyendo"]');
+    if (scrollBtn) {
+      scrollBtn.removeEventListener('click', scrollBtn.__phScrollHandler);
+      scrollBtn.__phScrollHandler = function () {
+        window.posthog?.capture('scroll_to_content_clicked');
+      };
+      scrollBtn.addEventListener('click', scrollBtn.__phScrollHandler);
+    }
+
+    // Track line link clicks in the accessibility table
+    document.querySelectorAll('.line-table-link').forEach(function (link) {
+      link.removeEventListener('click', link.__phLinkHandler);
+      link.__phLinkHandler = function () {
+        var code = link.querySelector('.line-table-link__label')?.textContent?.trim();
+        window.posthog?.capture('line_link_clicked', { line_code: code });
+      };
+      link.addEventListener('click', link.__phLinkHandler);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', setupIndexTracking);
+  document.addEventListener('astro:page-load', setupIndexTracking);
+</script>
 
 <style>
     .line-table-link {

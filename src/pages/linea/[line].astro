@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import LineNav from "../../components/LineNav.astro";
+import PostHog from "../../components/posthog.astro";
 import "../../styles/global.css";
 import {
     diagramLines,
@@ -88,6 +89,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
         <meta name="generator" content={Astro.generator} />
         <title>{`Línea ${initialLine.code} · Accesibilidad`}</title>
         <ClientRouter />
+        <PostHog />
     </head>
     <body
         class="min-h-screen transition-colors duration-500"
@@ -394,6 +396,7 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                             slide.dataset.linePath ?? `/linea/${code}`,
                         );
                         document.title = `Línea ${code} · Accesibilidad`;
+                        window.posthog?.capture('line_viewed', { line_code: code });
                     }
 
                     activeCode = code;
@@ -538,6 +541,14 @@ const getStationTooltipId = (lineCode: string, stationOrder: number) =>
                     tooltip.classList.remove("hidden");
                     activeButton = button;
                     positionTooltip(button);
+
+                    const stationName = button.querySelector('.station-name')?.textContent?.trim()
+                        ?? button.getAttribute('aria-label') ?? '';
+                    const lineCode = button.closest('[data-line-slide]')?.dataset?.lineCode ?? '';
+                    window.posthog?.capture('station_tooltip_opened', {
+                        station_name: stationName,
+                        line_code: lineCode,
+                    });
                 };
 
                 const hideTooltip = (button) => {
