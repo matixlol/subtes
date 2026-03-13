@@ -11,7 +11,7 @@
     "generate-data": "pnpm generate-status && pnpm generate-frequency",
     "predev": "pnpm generate-data",
     "dev": "astro dev",
-    "prebuild": "pnpm generate-data",
+    "_prebuild": "pnpm generate-data",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
