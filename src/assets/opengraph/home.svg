@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#d6d6d4" />
+  <text
+    x="76"
+    y="186"
+    fill="#111111"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="176"
+    font-weight="700"
+    letter-spacing="-7"
+  >
+    Subte
+  </text>
+  <text
+    x="80"
+    y="326"
+    fill="#111111"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="156"
+    font-weight="700"
+    letter-spacing="-7"
+    transform="rotate(-8 80 334)"
+  >
+    ro
+  </text>
+  <text
+    x="236"
+    y="376"
+    fill="#111111"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="156"
+    font-weight="700"
+    letter-spacing="-7"
+    transform="rotate(8 236 376)"
+  >
+    to.
+  </text>
+  <text
+    x="80"
+    y="492"
+    fill="#544b43"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="44"
+    font-weight="700"
+    letter-spacing="-1.2"
+  >
+    El subte porteño se está
+  </text>
+  <text
+    x="80"
+    y="546"
+    fill="#544b43"
+    font-family="Helvetica, Arial, sans-serif"
+    font-size="44"
+    font-weight="700"
+    letter-spacing="-1.2"
+  >
+    deteriorando.
+  </text>
+</svg>

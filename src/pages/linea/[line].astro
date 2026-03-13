@@ -14,6 +14,10 @@ import {
 import {
     diagramLines,
 } from "../../lib/line-data";
+import {
+    lineOpenGraphPath,
+    linePageDescription,
+} from "../../lib/open-graph";
 
 const getStatusFillClass = (state: string) => {
     if (state === "full") return "bg-white";
@@ -95,6 +99,10 @@ const frequencyChangeMagnitudeLabel = frequencyChange
 const accessibilityPanelId = `panel-accesibilidad-${line.code.toLowerCase()}`;
 const frequencyPanelId = `panel-frecuencia-${line.code.toLowerCase()}`;
 const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithDetail} con equipamiento registrado`;
+const pageTitle = `Línea ${line.code} · Subte porteño`;
+const pageDescription = linePageDescription(line.code);
+const canonicalUrl = Astro.url.href;
+const ogImageUrl = new URL(lineOpenGraphPath(line.code), Astro.url).toString();
 ---
 
 <html lang="es">
@@ -103,7 +111,29 @@ const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithD
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{`Línea ${line.code} · Subte porteño`}</title>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_AR" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta
+            property="og:image:alt"
+            content={`Tarjeta de la línea ${line.code} con fondo del color de la línea y su botón característico.`}
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta
+            name="twitter:image:alt"
+            content={`Tarjeta de la línea ${line.code} con fondo del color de la línea y su botón característico.`}
+        />
         <ClientRouter />
         <PostHog />
     </head>
