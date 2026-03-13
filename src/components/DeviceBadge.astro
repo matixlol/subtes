@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { kind, isAvailable, label, statusLabel } = Astro.props;
+const tooltipId = `device-badge-tooltip-${crypto.randomUUID()}`;
 
 const iconMarkup =
 	kind === "ascensor"
@@ -14,10 +15,12 @@ const iconMarkup =
 		: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" class="h-4 w-4"><path fill="currentColor" d="M224 40h-56a8 8 0 0 0-5.88 2.57L68.5 144H32a16 16 0 0 0-16 16v40a16 16 0 0 0 16 16h56a8 8 0 0 0 5.88-2.57L187.5 112H224a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16m0 56h-40a8 8 0 0 0-5.88 2.57L84.5 200H32v-40h40a8 8 0 0 0 5.88-2.57L171.5 56H224Zm5.66 74.34a8 8 0 0 1-11.32 11.32L208 171.31V208a8 8 0 0 1-16 0v-36.69l-10.34 10.35a8 8 0 0 1-11.32-11.32l24-24a8 8 0 0 1 11.32 0Z"></path></svg>';
 ---
 
-<span class="group relative z-10 inline-flex shrink-0 focus-within:z-30 hover:z-30">
+<span data-tooltip-root class="relative z-10 inline-flex shrink-0">
 	<button
 		type="button"
+		aria-describedby={tooltipId}
 		aria-label={`${label}: ${statusLabel}`}
+		data-tooltip-trigger
 		class:list={[
 			"inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-[8px] border shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(29,26,22,0.18)]",
 			isAvailable
@@ -28,9 +31,215 @@ const iconMarkup =
 		<Fragment set:html={iconMarkup} />
 	</button>
 	<span
-		class="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-max max-w-[13rem] -translate-x-1/2 rounded-[8px] bg-[rgba(29,26,22,0.94)] px-2 py-1 text-center text-[0.72rem] leading-tight font-medium text-white opacity-0 shadow-[0_8px_24px_rgba(29,26,22,0.16)] transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
-		aria-hidden="true"
+		id={tooltipId}
+		role="tooltip"
+		data-tooltip-content
+		data-side="top"
+		hidden
+		class="pointer-events-auto fixed left-0 top-0 z-40 w-max max-w-[min(18rem,calc(100vw-1.5rem))] rounded-[10px] border border-[#3d342d] bg-[rgba(29,26,22,0.96)] px-3 py-2 text-left text-[0.8rem] leading-5 text-[#fffaf2] shadow-[0_14px_32px_rgba(29,26,22,0.22)]"
 	>
-		{label}
+		<span class="block font-medium">{label}</span>
+		<span class="mt-1 block text-[0.72rem] leading-4 text-[#d6cbc0]">
+			{statusLabel}
+		</span>
+		<span
+			data-tooltip-arrow
+			aria-hidden="true"
+			class="absolute h-2.5 w-2.5 rotate-45 border-[#3d342d] bg-[rgba(29,26,22,0.96)]"
+		></span>
 	</span>
 </span>
+
+<script>
+	import {
+		arrow,
+		autoUpdate,
+		computePosition,
+		flip,
+		offset,
+		shift,
+	} from "@floating-ui/dom";
+
+	let activeClose = null;
+
+	const setupDeviceBadgeTooltips = () => {
+		document.querySelectorAll("[data-tooltip-root]").forEach((root) => {
+			if (!(root instanceof HTMLElement)) return;
+			if (root.dataset.tooltipBound === "true") return;
+
+			const trigger = root.querySelector("[data-tooltip-trigger]");
+			const tooltip = root.querySelector("[data-tooltip-content]");
+			const arrowElement = root.querySelector("[data-tooltip-arrow]");
+
+			if (!(trigger instanceof HTMLElement)) return;
+			if (!(tooltip instanceof HTMLElement)) return;
+			if (!(arrowElement instanceof HTMLElement)) return;
+
+			root.dataset.tooltipBound = "true";
+
+			let cleanupAutoUpdate = null;
+			let closeTimer = 0;
+			let isOpen = false;
+			let removeGlobalListeners = null;
+
+			const clearCloseTimer = () => {
+				window.clearTimeout(closeTimer);
+				closeTimer = 0;
+			};
+
+			const updatePosition = async () => {
+				const { x, y, placement, middlewareData } = await computePosition(
+					trigger,
+					tooltip,
+					{
+						strategy: "fixed",
+						placement: "top",
+						middleware: [
+							offset(12),
+							flip({ padding: 12 }),
+							shift({ padding: 12 }),
+							arrow({ element: arrowElement }),
+						],
+					},
+				);
+
+				Object.assign(tooltip.style, {
+					left: `${x}px`,
+					top: `${y}px`,
+				});
+
+				const side = placement.split("-")[0];
+				const staticSide = {
+					top: "bottom",
+					right: "left",
+					bottom: "top",
+					left: "right",
+				}[side];
+
+				tooltip.dataset.side = side;
+
+				Object.assign(arrowElement.style, {
+					left:
+						middlewareData.arrow?.x == null
+							? ""
+							: `${middlewareData.arrow.x}px`,
+					top:
+						middlewareData.arrow?.y == null
+							? ""
+							: `${middlewareData.arrow.y}px`,
+					right: "",
+					bottom: "",
+				});
+
+				arrowElement.style.borderTopWidth = side === "bottom" ? "1px" : "0";
+				arrowElement.style.borderLeftWidth = side === "right" ? "1px" : "0";
+				arrowElement.style.borderRightWidth = side === "left" ? "1px" : "0";
+				arrowElement.style.borderBottomWidth = side === "top" ? "1px" : "0";
+				arrowElement.style[staticSide] = "-0.3125rem";
+			};
+
+			const close = () => {
+				clearCloseTimer();
+				if (!isOpen) return;
+
+				isOpen = false;
+				tooltip.hidden = true;
+				cleanupAutoUpdate?.();
+				cleanupAutoUpdate = null;
+				removeGlobalListeners?.();
+				removeGlobalListeners = null;
+
+				if (activeClose === close) {
+					activeClose = null;
+				}
+			};
+
+			const scheduleClose = () => {
+				clearCloseTimer();
+				closeTimer = window.setTimeout(close, 80);
+			};
+
+			const open = () => {
+				clearCloseTimer();
+
+				if (activeClose && activeClose !== close) {
+					activeClose();
+				}
+
+				if (isOpen) return;
+
+				isOpen = true;
+				tooltip.hidden = false;
+				void updatePosition();
+				cleanupAutoUpdate = autoUpdate(trigger, tooltip, updatePosition);
+
+				const handlePointerDown = (event) => {
+					if (!(event.target instanceof Node)) return;
+					if (root.contains(event.target)) return;
+					close();
+				};
+
+				const handleEscape = (event) => {
+					if (event.key === "Escape") {
+						close();
+					}
+				};
+
+				document.addEventListener("pointerdown", handlePointerDown);
+				document.addEventListener("keydown", handleEscape);
+				removeGlobalListeners = () => {
+					document.removeEventListener("pointerdown", handlePointerDown);
+					document.removeEventListener("keydown", handleEscape);
+				};
+
+				activeClose = close;
+			};
+
+			const handlePointerEnter = (event) => {
+				if (
+					event instanceof PointerEvent &&
+					event.pointerType &&
+					event.pointerType !== "mouse"
+				) {
+					return;
+				}
+
+				open();
+			};
+
+			const handlePointerLeave = (event) => {
+				if (!(event.relatedTarget instanceof Node)) {
+					scheduleClose();
+					return;
+				}
+
+				if (trigger.contains(event.relatedTarget)) return;
+				if (tooltip.contains(event.relatedTarget)) return;
+				scheduleClose();
+			};
+
+			trigger.addEventListener("pointerenter", handlePointerEnter);
+			trigger.addEventListener("pointerleave", handlePointerLeave);
+			tooltip.addEventListener("pointerenter", clearCloseTimer);
+			tooltip.addEventListener("pointerleave", handlePointerLeave);
+			trigger.addEventListener("focus", open);
+			trigger.addEventListener("blur", (event) => {
+				if (event.relatedTarget instanceof Node && root.contains(event.relatedTarget)) {
+					return;
+				}
+
+				scheduleClose();
+			});
+		});
+	};
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", setupDeviceBadgeTooltips, {
+			once: true,
+		});
+	} else {
+		setupDeviceBadgeTooltips();
+	}
+
+	document.addEventListener("astro:page-load", setupDeviceBadgeTooltips);
+</script>
