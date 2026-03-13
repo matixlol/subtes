@@ -356,6 +356,7 @@ const initialLine = lines[initialIndex] ?? lines[0];
                 let pendingCode = null;
                 let scrollAnimationFrame = 0;
                 let isProgrammaticAnimating = false;
+                let visibleCode = activeCode;
 
                 const setScrollerHeight = (slide) => {
                     requestAnimationFrame(() => {
@@ -386,12 +387,25 @@ const initialLine = lines[initialIndex] ?? lines[0];
                     });
                 };
 
-                const setVisualActiveSlide = (slide) => {
+                const setVisualActiveSlide = (
+                    slide,
+                    { scrollViewport = false } = {},
+                ) => {
+                    const nextVisibleCode = slide.dataset.lineCode;
+                    if (
+                        scrollViewport &&
+                        nextVisibleCode &&
+                        nextVisibleCode !== visibleCode
+                    ) {
+                        scrollViewportToTop("smooth");
+                    }
+
                     slides.forEach((candidate) => {
                         candidate.dataset.active =
                             candidate === slide ? "true" : "false";
                     });
 
+                    visibleCode = nextVisibleCode ?? visibleCode;
                     setBodyColor(slide);
                     setFooterColor(slide);
                     setScrollerHeight(slide);
@@ -414,19 +428,23 @@ const initialLine = lines[initialIndex] ?? lines[0];
                     return true;
                 };
 
+                const scrollViewportToTop = (behavior = "smooth") => {
+                    window.scrollTo({ top: 0, left: 0, behavior });
+                };
+
                 const commitActiveSlide = (slide, updateHistory = true) => {
                     const code = slide.dataset.lineCode;
                     if (!code) return;
+                    const didChangeLine = code !== activeCode;
 
                     setVisualActiveSlide(slide);
                     setActiveButton(code);
 
-                    if (updateHistory && code !== activeCode) {
-                        const hash = window.location.hash;
+                    if (updateHistory && didChangeLine) {
                         history.replaceState(
                             {},
                             "",
-                            `${slide.dataset.linePath ?? `/linea/${code}`}${hash}`,
+                            slide.dataset.linePath ?? `/linea/${code}`,
                         );
                         document.title = `Línea ${code} · Accesibilidad`;
                         window.posthog?.capture('line_viewed', { line_code: code });
@@ -545,10 +563,6 @@ const initialLine = lines[initialIndex] ?? lines[0];
                     }
                 };
 
-                const scrollViewportToTop = (behavior = "smooth") => {
-                    window.scrollTo({ top: 0, left: 0, behavior });
-                };
-
                 requestAnimationFrame(() => {
                     scrollToCode(
                         activeCode ?? slides[0].dataset.lineCode,
@@ -595,7 +609,9 @@ const initialLine = lines[initialIndex] ?? lines[0];
                         if (!pendingCode) {
                             const nearestSlide = getNearestSlide();
                             if (nearestSlide) {
-                                setVisualActiveSlide(nearestSlide);
+                                setVisualActiveSlide(nearestSlide, {
+                                    scrollViewport: true,
+                                });
                             }
                         }
 
@@ -628,19 +644,15 @@ const initialLine = lines[initialIndex] ?? lines[0];
                             }
 
                             event.preventDefault();
-                            if (!window.location.hash) {
-                                scrollViewportToTop("smooth");
-                            }
-                            scrollToCode(link.dataset.lineLink, "smooth");
+                            scrollViewportToTop("smooth");
+                            scrollToCode(link.dataset.lineLink, "smooth", null);
                         });
                     });
 
                 lineButtons.forEach((button) => {
                     button.addEventListener("click", () => {
-                        if (!window.location.hash) {
-                            scrollViewportToTop("smooth");
-                        }
-                        scrollToCode(button.dataset.lineButton, "smooth");
+                        scrollViewportToTop("smooth");
+                        scrollToCode(button.dataset.lineButton, "smooth", null);
                     });
                 });
 
