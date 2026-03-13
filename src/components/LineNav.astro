@@ -4,11 +4,9 @@ import { diagramLines } from "../lib/line-data";
 interface Props {
 	class?: string;
 	currentCode?: string | null;
-	mode?: "buttons" | "links";
 }
 
-const { class: className = "", currentCode = null, mode = "links" } =
-	Astro.props;
+const { class: className = "", currentCode = null } = Astro.props;
 
 const lines = diagramLines.map((line) => ({
 	code: line.code,
@@ -25,35 +23,22 @@ const lines = diagramLines.map((line) => ({
 	class={`mx-auto grid w-full max-w-[430px] grid-cols-6 gap-1.5 px-1.5 py-1.5 ${className}`}
 >
 	{
-		lines.map((line) =>
-			mode === "buttons" ? (
-				<button
-					type="button"
-					data-line-button={line.code}
-					data-active={line.code === currentCode ? "true" : "false"}
-					aria-label={`Ir a ${line.nombreLinea}`}
-					aria-pressed={line.code === currentCode ? "true" : "false"}
-					class="line-switch shrink-0"
-					style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
-				>
-					<span class="line-switch__top">
-						<span class="line-switch__label">{line.code}</span>
-					</span>
-				</button>
-			) : (
-				<a
-					href={line.path}
-					aria-label={`Ir a ${line.nombreLinea}`}
-					data-astro-prefetch
-					class="line-switch shrink-0"
-					style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
-				>
-					<span class="line-switch__top">
-						<span class="line-switch__label">{line.code}</span>
-					</span>
-				</a>
-			),
-		)
+		lines.map((line) => (
+			<a
+				href={line.path}
+				aria-label={`Ir a ${line.nombreLinea}`}
+				aria-current={line.code === currentCode ? "page" : undefined}
+				data-active={line.code === currentCode ? "true" : "false"}
+				data-line-link={line.code}
+				data-astro-prefetch
+				class="line-switch shrink-0"
+				style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
+			>
+				<span class="line-switch__top">
+					<span class="line-switch__label">{line.code}</span>
+				</span>
+			</a>
+		))
 	}
 </nav>
 

@@ -7,675 +7,405 @@ import PostHog from "../../components/posthog.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import "../../styles/global.css";
 import {
-    frequencyChangeByLine,
-    getFrequencySeriesForLineCode,
+	frequencyChangeByLine,
+	getFrequencySeriesForLineCode,
 } from "../../lib/frequency-data";
 import {
-    diagramLines,
-    formatDeviceName,
-    getAccessibilityStateLabel,
-    getDeviceStatusLabel,
+	diagramLines,
+	formatDeviceName,
+	getAccessibilityStateLabel,
+	getDeviceStatusLabel,
 } from "../../lib/line-data";
 
-export function getStaticPaths() {
-    return diagramLines.map((line) => ({
-        params: { line: line.code },
-    }));
-}
-
 const getStatusFillClass = (state: string) => {
-    if (state === "full") return "bg-white";
-    if (state === "partial") return "bg-[var(--heat-3)]";
-    if (state === "off-hours") return "bg-[#f1dfaa]";
-    if (state === "blocked") return "bg-[#5b0a0a]";
-    return "bg-[var(--surface)]";
+	if (state === "full") return "bg-white";
+	if (state === "partial") return "bg-[#d89a4d]";
+	if (state === "off-hours") return "bg-[#f1dfaa]";
+	if (state === "blocked") return "bg-[#b43b2f]";
+	return "bg-[var(--surface)]";
 };
 
 const isDeviceAvailable = (status: string) => status === "funcionando";
-
 const withAlpha = (hex: string, alpha: number) => {
-    const normalized = hex.replace("#", "");
-    if (normalized.length !== 6) return hex;
+	const normalized = hex.replace("#", "");
+	if (normalized.length !== 6) return hex;
 
-    const red = Number.parseInt(normalized.slice(0, 2), 16);
-    const green = Number.parseInt(normalized.slice(2, 4), 16);
-    const blue = Number.parseInt(normalized.slice(4, 6), 16);
+	const red = Number.parseInt(normalized.slice(0, 2), 16);
+	const green = Number.parseInt(normalized.slice(2, 4), 16);
+	const blue = Number.parseInt(normalized.slice(4, 6), 16);
 
-    return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+	return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 };
 
 const currentCode =
-    `${Astro.params.line ?? diagramLines[0]?.code ?? "A"}`.toUpperCase();
+	`${Astro.params.line ?? diagramLines[0]?.code ?? "A"}`.toUpperCase();
+const line =
+	diagramLines.find((entry) => entry.code === currentCode) ?? diagramLines[0];
 const frequencyChangeByLineMap = new Map(
-    frequencyChangeByLine.map((line) => [line.series.label, line]),
+	frequencyChangeByLine.map((entry) => [entry.series.label, entry]),
 );
-const lines = diagramLines.map((line, index, all) => ({
-    ...line,
-    path: `/linea/${line.code}`,
-    frequencySeries: getFrequencySeriesForLineCode(line.code),
-    frequencyChange: frequencyChangeByLineMap.get(line.nombreLinea) ?? null,
-    position: index + 1,
-    previous: all[index - 1]
-        ? {
-              code: all[index - 1].code,
-              path: `/linea/${all[index - 1].code}`,
-          }
-        : null,
-    next: all[index + 1]
-        ? {
-              code: all[index + 1].code,
-              path: `/linea/${all[index + 1].code}`,
-          }
-        : null,
-}));
-
-const initialIndex = Math.max(
-    0,
-    lines.findIndex((line) => line.code === currentCode),
-);
-const initialLine = lines[initialIndex] ?? lines[0];
-
+const frequencySeries = getFrequencySeriesForLineCode(line.code);
+const frequencyChange = frequencyChangeByLineMap.get(line.nombreLinea) ?? null;
+const accessibilityPanelId = `panel-accesibilidad-${line.code.toLowerCase()}`;
+const frequencyPanelId = `panel-frecuencia-${line.code.toLowerCase()}`;
+const lineSummaryLabel = `${line.totalStations} estaciones, ${line.stationsWithDetail} con equipamiento registrado`;
 ---
 
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{`Línea ${initialLine.code} · Accesibilidad`}</title>
-        <ClientRouter />
-        <PostHog />
-    </head>
-    <body
-        class="min-h-screen transition-colors duration-500"
-        style={`background-color: ${initialLine.color};`}
-    >
-        <header class="px-3 pt-3">
-            <div class="mx-auto flex w-full max-w-[430px] flex-col items-start gap-2">
-                <LineNav
-                    mode="buttons"
-                    currentCode={initialLine.code}
-                    class="max-w-none px-0 py-0"
-                />
-                <a
-                    href="/"
-                    data-astro-prefetch
-                    class="inline-flex h-10 items-center rounded-[10px] border px-3 text-[0.92rem] font-semibold tracking-[-0.01em] text-[var(--text)] transition-colors duration-150 hover:bg-[#fff7ee] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text)]/20"
-                    style="border-color: var(--border-strong); background-color: rgba(255, 253, 248, 0.94);"
-                >
-                    Volver a general
-                </a>
-            </div>
-        </header>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{`Línea ${line.code} · Subte porteño`}</title>
+		<ClientRouter />
+		<PostHog />
+	</head>
+	<body class="min-h-screen bg-[#faf8f5] text-[#1d1a16]">
+		<header
+			class="px-4 pb-4 pt-4 sm:px-6"
+			style={`background-color: ${line.color};`}
+		>
+			<div class="mx-auto flex w-full max-w-[430px] flex-col gap-3">
+				<a
+					href="/"
+					data-astro-prefetch
+					class="inline-flex h-11 w-full items-center justify-center rounded-[10px] border border-[#1d1a16]/12 bg-[#fffdf8] px-4 text-[0.98rem] font-semibold tracking-[-0.02em] text-[#1d1a16] transition-colors duration-150 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1a16]/15"
+				>
+					Volver a general
+				</a>
+				<LineNav currentCode={line.code} class="max-w-none px-0 py-0" />
+			</div>
+		</header>
 
-        <main
-            data-line-scroller
-            data-initial-line={initialLine.code}
-            class="overflow-x-auto overflow-y-clip snap-x snap-mandatory overscroll-x-none transition-[height] duration-300 ease-out [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-            <div class="flex items-start">
-                {
-                    lines.map((line) => (
-                        <section
-                            id={`linea-${line.code}`}
-                            data-line-slide
-                            data-line-code={line.code}
-                            data-line-color={line.color}
-                            data-line-footer-color={withAlpha(line.ink, 0.82)}
-                            data-line-path={line.path}
-                            data-line-position={line.position}
-                            data-active={
-                                line.code === initialLine.code
-                                    ? "true"
-                                    : "false"
-                            }
-                            class="w-screen shrink-0 snap-center px-4 pb-8 pt-8 [scroll-snap-stop:always] sm:pt-10"
-                            style={`color: ${line.ink}; --line-border: ${withAlpha(line.ink, 0.22)}; --line-border-strong: ${withAlpha(line.ink, 0.42)}; --line-muted: ${withAlpha(line.ink, 0.76)}; --line-surface: ${withAlpha(line.ink, 0.1)}; --line-surface-strong: ${withAlpha(line.ink, 0.16)};`}
-                        >
-                            <div class="mx-auto flex w-full max-w-6xl flex-col items-center">
-                                <section
-                                    class="reveal mt-5 flex min-h-[calc(100vh-7rem)] w-full items-center justify-center px-2 py-2 text-inherit"
-                                    style={`--stagger: 120ms;`}
-                                >
-                                    <div class="w-full max-w-[36rem]">
-                                        <h2
-                                            class="text-4xl leading-none font-semibold tracking-[-0.06em] text-inherit sm:text-6xl"
-                                        >
-                                            Accesibilidad
-                                        </h2>
+		<main class="bg-[#faf8f5] px-5 pb-14 pt-8 sm:px-8 sm:pt-10">
+			<div class="mx-auto w-full max-w-[36rem]">
+				<header class="space-y-3">
+					<div class="space-y-1">
+						<h1
+							class="text-4xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-5xl"
+						>
+							Línea {line.code}
+						</h1>
+						<p class="text-sm leading-6 text-[#544b43] sm:text-base">
+							{lineSummaryLabel}
+						</p>
+					</div>
+				</header>
 
-                                        <section
-                                            data-line-section="accesibilidad"
-                                            class="mx-auto mt-8 w-full max-w-[30rem]"
-                                        >
-                                            <div class="flex items-center justify-between gap-3 pb-2">
-                                                <div>
-                                                    <h3 class="m-0 text-[1.08rem] leading-[1.1] font-semibold">
-                                                        Estaciones
-                                                    </h3>
-                                                </div>
-                                            </div>
+				<div
+					data-line-tabs
+					data-current-tab="accesibilidad"
+					class="mt-8"
+					style={`--tab-index: 0; --tab-active-ink: ${line.ink};`}
+				>
+					<div
+						role="tablist"
+						aria-label={`Secciones de la línea ${line.code}`}
+						class="relative grid grid-cols-2 rounded-[10px] border border-[#d8d0c7] bg-[#efe9e1] p-1"
+					>
+						<span
+							aria-hidden="true"
+							class="absolute inset-y-1 left-1 rounded-[8px] shadow-[0_1px_0_rgba(255,255,255,0.14)] transition-transform duration-200 ease-out"
+							style={`width: calc(50% - 0.25rem); transform: translateX(calc(var(--tab-index, 0) * 100%)); background-color: ${line.color};`}
+						></span>
+						<button
+							id={`tab-accesibilidad-${line.code.toLowerCase()}`}
+							type="button"
+							role="tab"
+							aria-controls={accessibilityPanelId}
+							aria-selected="true"
+							data-tab-trigger="accesibilidad"
+							data-active="true"
+							class="relative z-10 flex min-h-11 items-center justify-center rounded-[8px] px-4 text-[0.95rem] font-semibold tracking-[-0.02em] transition-colors duration-150 focus-visible:outline-none"
+						>
+							Accesibilidad
+						</button>
+						<button
+							id={`tab-frecuencia-${line.code.toLowerCase()}`}
+							type="button"
+							role="tab"
+							aria-controls={frequencyPanelId}
+							aria-selected="false"
+							data-tab-trigger="frecuencia"
+							data-active="false"
+							class="relative z-10 flex min-h-11 items-center justify-center rounded-[8px] px-4 text-[0.95rem] font-semibold tracking-[-0.02em] transition-colors duration-150 focus-visible:outline-none"
+						>
+							Frecuencia
+						</button>
+					</div>
 
-                                            <ol class="relative mt-4 ml-0 list-none pl-0">
-                                                {line.stations.map(
-                                                    (station, stationIndex) => (
-                                                        <li
-                                                            class="station-item reveal relative py-3 pl-12"
-                                                            style={`--stagger: ${160 + stationIndex * 26}ms;`}
-                                                        >
-                                                            {stationIndex > 0 && (
-                                                                <span
-                                                                    class="pointer-events-none absolute left-[18px] top-0 h-[29px] w-[3px] rounded-full"
-                                                                    style={`background-color: ${withAlpha(line.ink, 0.28)};`}
-                                                                    aria-hidden="true"
-                                                                />
-                                                            )}
-                                                            {stationIndex <
-                                                                line.stations.length -
-                                                                    1 && (
-                                                                <span
-                                                                    class="pointer-events-none absolute bottom-0 left-[18px] top-[29px] w-[3px] rounded-full"
-                                                                    style={`background-color: ${withAlpha(line.ink, 0.28)};`}
-                                                                    aria-hidden="true"
-                                                                />
-                                                            )}
-                                                            <div
-                                                                class="flex w-full items-start gap-3 text-left text-inherit"
-                                                            >
-                                                                <span
-                                                                    class={`pointer-events-none absolute left-[10px] top-[20px] z-10 block h-[18px] w-[18px] rounded-full border-[2px] ${getStatusFillClass(
-                                                                        station.state,
-                                                                    )}`}
-                                                                    style={`border-color: ${line.ink};`}
-                                                                />
-                                                                <span class="min-w-0 flex-1">
-                                                                    <span class="station-name block text-[1.02rem] leading-[1.15] font-semibold">
-                                                                        {
-                                                                            station.nombreEstacion
-                                                                        }
-                                                                    </span>
-                                                                    <span class="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-[0.86rem] leading-[1.25] text-[color:var(--line-muted)]">
-                                                                        {station.accessibility ? (
-                                                                            <>
-                                                                                <span class="font-medium text-inherit">
-                                                                                    {getAccessibilityStateLabel(
-                                                                                        station.accessibility,
-                                                                                    )}
-                                                                                </span>
-                                                                                <span class="ml-auto flex flex-wrap items-center justify-end gap-1.5">
-                                                                                    {station.accessibility.devices.map(
-                                                                                        (
-                                                                                            device,
-                                                                                        ) => (
-                                                                                            <DeviceBadge
-                                                                                                kind={
-                                                                                                    device.tipo ===
-                                                                                                    "escalera"
-                                                                                                        ? "escalera"
-                                                                                                        : "ascensor"
-                                                                                                }
-                                                                                                isAvailable={isDeviceAvailable(
-                                                                                                    device.estado,
-                                                                                                )}
-                                                                                                label={formatDeviceName(
-                                                                                                    device,
-                                                                                                )}
-                                                                                                statusLabel={getDeviceStatusLabel(
-                                                                                                    device.estado,
-                                                                                                )}
-                                                                                            />
-                                                                                        ),
-                                                                                    )}
-                                                                                </span>
-                                                                            </>
-                                                                        ) : (
-                                                                            <span>
-                                                                                Sin ascensores ni
-                                                                                escaleras
-                                                                                registradas
-                                                                            </span>
-                                                                        )}
-                                                                    </span>
-                                                                </span>
-                                                            </div>
-                                                        </li>
-                                                    ),
-                                                )}
-                                            </ol>
-                                        </section>
-                                    </div>
-                                </section>
+					<section
+						id={accessibilityPanelId}
+						role="tabpanel"
+						aria-labelledby={`tab-accesibilidad-${line.code.toLowerCase()}`}
+						data-tab-panel="accesibilidad"
+						class="pt-8"
+					>
+						<div class="space-y-6">
+							<div class="space-y-3">
+								<h2
+									class="text-3xl leading-none font-semibold tracking-[-0.05em] text-[#1b1816] sm:text-4xl"
+								>
+									Accesibilidad
+								</h2>
+								<p
+									class="max-w-[32rem] text-pretty text-base leading-7 text-[#544b43] sm:text-lg"
+								>
+									Estado actual de ascensores y escaleras en cada
+									estación de la línea.
+								</p>
+							</div>
 
-                                <section
-                                    data-line-section="frecuencia"
-                                    class="reveal mt-14 flex min-h-[calc(100vh-7rem)] w-full items-center justify-center px-2 py-2 text-inherit"
-                                    style={`--stagger: 60ms;`}
-                                >
-                                    <div class="w-full max-w-[36rem]">
-                                        <h2
-                                            class="text-4xl leading-none font-semibold tracking-[-0.06em] text-inherit sm:text-6xl"
-                                        >
-                                            Frecuencia
-                                        </h2>
+							<ol class="relative ml-0 list-none pl-0">
+								{
+									line.stations.map((station, stationIndex) => (
+										<li class="relative py-3 pl-12">
+											{stationIndex > 0 && (
+												<span
+													aria-hidden="true"
+													class="pointer-events-none absolute left-[18px] top-0 h-[24px] w-[3px] rounded-full"
+													style={`background-color: ${withAlpha(line.color, 0.32)};`}
+												></span>
+											)}
+											{stationIndex < line.stations.length - 1 && (
+												<span
+													aria-hidden="true"
+													class="pointer-events-none absolute bottom-0 left-[18px] top-[24px] w-[3px] rounded-full"
+													style={`background-color: ${withAlpha(line.color, 0.32)};`}
+												></span>
+											)}
+											<div class="flex w-full items-start gap-3 text-left">
+												<span
+													aria-hidden="true"
+													class={`pointer-events-none absolute left-[10px] top-[15px] z-10 block h-[18px] w-[18px] rounded-full border-[2px] border-[#2f241d] ${getStatusFillClass(
+														station.state,
+													)}`}
+												></span>
+												<span class="min-w-0 flex-1">
+													<span class="block text-[1.02rem] leading-[1.15] font-semibold text-[#1b1816]">
+														{station.nombreEstacion}
+													</span>
+													<span class="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 text-[0.86rem] leading-[1.25] text-[#544b43]">
+														{station.accessibility ? (
+															<>
+																<span class="font-medium text-[#544b43]">
+																	{getAccessibilityStateLabel(
+																		station.accessibility,
+																	)}
+																</span>
+																<span class="ml-auto flex flex-wrap items-center justify-end gap-1.5">
+																	{station.accessibility.devices.map((device) => (
+																		<DeviceBadge
+																			kind={
+																				device.tipo === "escalera"
+																					? "escalera"
+																					: "ascensor"
+																			}
+																			isAvailable={isDeviceAvailable(
+																				device.estado,
+																			)}
+																			label={formatDeviceName(device)}
+																			statusLabel={getDeviceStatusLabel(
+																				device.estado,
+																			)}
+																		/>
+																	))}
+																</span>
+															</>
+														) : (
+															<span>
+																Sin ascensores ni escaleras
+																registradas
+															</span>
+														)}
+													</span>
+												</span>
+											</div>
+										</li>
+									))
+								}
+							</ol>
+						</div>
+					</section>
 
-                                        {line.frequencyChange && (
-                                            <p
-                                                class="mt-6 max-w-[32rem] text-pretty text-lg leading-7 text-[color:var(--line-muted)] sm:text-xl"
-                                            >
-                                                Comparando el promedio anual de{" "}
-                                                <span class="font-semibold text-inherit">
-                                                    {line.frequencyChange.firstPeriodLabel}
-                                                </span>{" "}
-                                                contra{" "}
-                                                <span class="font-semibold text-inherit">
-                                                    {line.frequencyChange.latestPeriodLabel}
-                                                </span>
-                                                , la línea tardó{" "}
-                                                <span class="font-semibold text-inherit">
-                                                    {line.frequencyChange.changeLabel}
-                                                </span>{" "}
-                                                {line.frequencyChange.isBetter
-                                                    ? "menos"
-                                                    : "más"}{" "}
-                                                entre trenes: pasó de{" "}
-                                                {
-                                                    line.frequencyChange
-                                                        .firstValueLabel
-                                                }{" "}
-                                                a{" "}
-                                                {
-                                                    line.frequencyChange
-                                                        .latestValueLabel
-                                                }
-                                                .
-                                            </p>
-                                        )}
+					<section
+						id={frequencyPanelId}
+						role="tabpanel"
+						aria-labelledby={`tab-frecuencia-${line.code.toLowerCase()}`}
+						data-tab-panel="frecuencia"
+						class="pt-8"
+						hidden
+					>
+						<div class="space-y-6">
+							<div class="space-y-3">
+								<h2
+									class="text-3xl leading-none font-semibold tracking-[-0.05em] text-[#1b1816] sm:text-4xl"
+								>
+									Frecuencia
+								</h2>
+								{
+									frequencyChange ? (
+										<p
+											class="max-w-[32rem] text-pretty text-base leading-7 text-[#544b43] sm:text-lg"
+										>
+											Comparando el promedio anual de{" "}
+											<span class="font-semibold text-[#1b1816]">
+												{frequencyChange.firstPeriodLabel}
+											</span>{" "}
+											contra{" "}
+											<span class="font-semibold text-[#1b1816]">
+												{frequencyChange.latestPeriodLabel}
+											</span>
+											, la línea tardó{" "}
+											<span class="font-semibold text-[#1b1816]">
+												{frequencyChange.changeLabel}
+											</span>{" "}
+											{frequencyChange.isBetter ? "menos" : "más"} entre
+											trenes: pasó de{" "}
+											{frequencyChange.firstValueLabel} a{" "}
+											{frequencyChange.latestValueLabel}.
+										</p>
+									) : (
+										<p
+											class="max-w-[32rem] text-pretty text-base leading-7 text-[#544b43] sm:text-lg"
+										>
+											No hay serie de frecuencia disponible para esta
+											línea.
+										</p>
+									)
+								}
+							</div>
 
-                                        {line.frequencySeries && (
-                                            <div
-                                                class="mt-8 w-full max-w-[32rem] text-inherit"
-                                            >
-                                                <FrequencyChart
-                                                    series={[
-                                                        line.frequencySeries,
-                                                    ]}
-                                                    showEndLabels={false}
-                                                    useTextColor={true}
-                                                    title={`Frecuencia mensual de la ${line.nombreLinea}`}
-                                                    description={`Serie mensual del intervalo promedio entre trenes de la ${line.nombreLinea}. Valores más bajos indican mejor frecuencia.`}
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
-                                </section>
-                            </div>
-                        </section>
-                    ))
-                }
-            </div>
-        </main>
-        <div
-            data-line-footer
-            style={`color: ${withAlpha(initialLine.ink, 0.82)};`}
-        >
-            <SiteFooter />
-        </div>
+							{
+								frequencySeries && (
+									<div class="overflow-hidden rounded-[12px] border border-[#ddd6ce] bg-white p-4 sm:p-5">
+										<FrequencyChart
+											series={[frequencySeries]}
+											showEndLabels={false}
+											title={`Frecuencia mensual de la ${line.nombreLinea}`}
+											description={`Serie mensual del intervalo promedio entre trenes de la ${line.nombreLinea}. Valores más bajos indican mejor frecuencia.`}
+										/>
+									</div>
+								)
+							}
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
 
-        <style is:global>
-            [data-line-scroller][data-ready="true"] [data-line-slide] .reveal {
-                opacity: 0;
-                transform: translateY(18px) scale(0.985);
-                transition:
-                    opacity 320ms ease,
-                    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
-                transition-delay: var(--stagger, 0ms);
-            }
+		<div class="bg-[#faf8f5] px-4 pb-6 pt-2 text-[#544b43]">
+			<SiteFooter />
+		</div>
 
-            [data-line-scroller][data-ready="true"]
-                [data-line-slide][data-active="true"]
-                .reveal {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+		<style>
+			[data-line-tabs] [data-tab-trigger] {
+				color: #544b43;
+			}
 
-            [data-line-scroller][data-ready="true"]
-                [data-line-slide][data-active="false"]
-                .station-item {
-                opacity: 0.62;
-            }
-        </style>
+			[data-line-tabs] [data-tab-trigger][data-active="true"] {
+				color: var(--tab-active-ink);
+			}
+		</style>
 
-        <script is:inline>
-            (() => {
-                const scroller = document.querySelector("[data-line-scroller]");
-                if (!(scroller instanceof HTMLElement)) return;
+		<script is:inline>
+			(() => {
+				const tabs = document.querySelector("[data-line-tabs]");
+				if (!(tabs instanceof HTMLElement)) return;
 
-                const slides = Array.from(
-                    scroller.querySelectorAll("[data-line-slide]"),
-                ).filter((slide) => slide instanceof HTMLElement);
-                if (slides.length === 0) return;
-                const lineButtons = Array.from(
-                    document.querySelectorAll("[data-line-button]"),
-                ).filter((button) => button instanceof HTMLButtonElement);
+				const triggers = Array.from(
+					tabs.querySelectorAll("[data-tab-trigger]"),
+				).filter((trigger) => trigger instanceof HTMLButtonElement);
+				const panels = Array.from(
+					tabs.querySelectorAll("[data-tab-panel]"),
+				).filter((panel) => panel instanceof HTMLElement);
+				const lineLinks = Array.from(
+					document.querySelectorAll("[data-line-link]"),
+				).filter((link) => link instanceof HTMLAnchorElement);
+				const tabOrder = ["accesibilidad", "frecuencia"];
+				const allowedTabs = new Set(tabOrder);
 
-                let activeCode =
-                    scroller.dataset.initialLine ?? slides[0].dataset.lineCode;
-                let settleFrame = 0;
-                let settleTimeout = 0;
-                let pendingCode = null;
-                let scrollAnimationFrame = 0;
-                let isProgrammaticAnimating = false;
-                let visibleCode = activeCode;
+				const getTabFromHash = () => {
+					const hash = window.location.hash.replace(/^#/, "");
+					return allowedTabs.has(hash) ? hash : "accesibilidad";
+				};
 
-                const setScrollerHeight = (slide) => {
-                    requestAnimationFrame(() => {
-                        scroller.style.height = `${slide.offsetHeight}px`;
-                    });
-                };
+				const syncLineLinkHashes = (tab) => {
+					lineLinks.forEach((link) => {
+						const url = new URL(link.href, window.location.origin);
+						url.hash = tab;
+						link.href = `${url.pathname}${url.hash}`;
+					});
+				};
 
-                const setBodyColor = (slide) => {
-                    document.body.style.backgroundColor =
-                        slide.dataset.lineColor ?? "";
-                };
+				const setTab = (nextTab, { updateHistory = true } = {}) => {
+					const tab = allowedTabs.has(nextTab)
+						? nextTab
+						: "accesibilidad";
+					tabs.dataset.currentTab = tab;
+					tabs.style.setProperty(
+						"--tab-index",
+						tab === "frecuencia" ? "1" : "0",
+					);
 
-                const setFooterColor = (slide) => {
-                    const footer = document.querySelector("[data-line-footer]");
-                    if (!(footer instanceof HTMLElement)) return;
+					triggers.forEach((trigger) => {
+						const isActive = trigger.dataset.tabTrigger === tab;
+						trigger.dataset.active = isActive ? "true" : "false";
+						trigger.setAttribute(
+							"aria-selected",
+							isActive ? "true" : "false",
+						);
+						trigger.tabIndex = isActive ? 0 : -1;
+					});
 
-                    footer.style.color = slide.dataset.lineFooterColor ?? "";
-                };
+					panels.forEach((panel) => {
+						panel.hidden = panel.dataset.tabPanel !== tab;
+					});
 
-                const setActiveButton = (code) => {
-                    lineButtons.forEach((button) => {
-                        const isActive = button.dataset.lineButton === code;
-                        button.dataset.active = isActive ? "true" : "false";
-                        button.setAttribute(
-                            "aria-pressed",
-                            isActive ? "true" : "false",
-                        );
-                    });
-                };
+					syncLineLinkHashes(tab);
 
-                const setVisualActiveSlide = (
-                    slide,
-                    { scrollViewport = false } = {},
-                ) => {
-                    const nextVisibleCode = slide.dataset.lineCode;
-                    if (
-                        scrollViewport &&
-                        nextVisibleCode &&
-                        nextVisibleCode !== visibleCode
-                    ) {
-                        scrollViewportToTop("smooth");
-                    }
+					if (updateHistory) {
+						history.replaceState({}, "", `${window.location.pathname}#${tab}`);
+					}
+				};
 
-                    slides.forEach((candidate) => {
-                        candidate.dataset.active =
-                            candidate === slide ? "true" : "false";
-                    });
+				setTab(getTabFromHash(), { updateHistory: false });
 
-                    visibleCode = nextVisibleCode ?? visibleCode;
-                    setBodyColor(slide);
-                    setFooterColor(slide);
-                    setScrollerHeight(slide);
-                };
+				triggers.forEach((trigger) => {
+					trigger.addEventListener("click", () => {
+						setTab(trigger.dataset.tabTrigger ?? "accesibilidad");
+					});
 
-                const getHashSection = () => window.location.hash.replace(/^#/, "");
+					trigger.addEventListener("keydown", (event) => {
+						const currentIndex = tabOrder.findIndex(
+							(tab) => tab === trigger.dataset.tabTrigger,
+						);
+						if (currentIndex === -1) return;
 
-                const scrollViewportToSection = (
-                    slide,
-                    section,
-                    behavior = "smooth",
-                ) => {
-                    if (!section) return false;
-                    const target = slide.querySelector(
-                        `[data-line-section="${section}"]`,
-                    );
-                    if (!(target instanceof HTMLElement)) return false;
+						let nextIndex = currentIndex;
+						if (event.key === "ArrowRight") {
+							nextIndex = (currentIndex + 1) % tabOrder.length;
+						} else if (event.key === "ArrowLeft") {
+							nextIndex =
+								(currentIndex - 1 + tabOrder.length) % tabOrder.length;
+						} else {
+							return;
+						}
 
-                    target.scrollIntoView({ behavior, block: "start" });
-                    return true;
-                };
+						event.preventDefault();
+						const nextTrigger = triggers[nextIndex];
+						if (!nextTrigger) return;
+						nextTrigger.focus();
+						setTab(nextTrigger.dataset.tabTrigger ?? "accesibilidad");
+					});
+				});
 
-                const scrollViewportToTop = (behavior = "smooth") => {
-                    window.scrollTo({ top: 0, left: 0, behavior });
-                };
-
-                const commitActiveSlide = (slide, updateHistory = true) => {
-                    const code = slide.dataset.lineCode;
-                    if (!code) return;
-                    const didChangeLine = code !== activeCode;
-
-                    setVisualActiveSlide(slide);
-                    setActiveButton(code);
-
-                    if (updateHistory && didChangeLine) {
-                        history.replaceState(
-                            {},
-                            "",
-                            slide.dataset.linePath ?? `/linea/${code}`,
-                        );
-                        document.title = `Línea ${code} · Accesibilidad`;
-                        window.posthog?.capture('line_viewed', { line_code: code });
-                    }
-
-                    activeCode = code;
-                    pendingCode = null;
-                };
-
-                const getNearestSlide = () =>
-                    slides.reduce((closest, slide) => {
-                        if (!closest) return slide;
-
-                        return Math.abs(
-                            scroller.scrollLeft - slide.offsetLeft,
-                        ) < Math.abs(scroller.scrollLeft - closest.offsetLeft)
-                            ? slide
-                            : closest;
-                    }, null);
-
-                const scheduleSettledCommit = () => {
-                    window.clearTimeout(settleTimeout);
-                    cancelAnimationFrame(settleFrame);
-
-                    settleTimeout = window.setTimeout(() => {
-                        settleFrame = requestAnimationFrame(() => {
-                            const settledSlide = getNearestSlide();
-                            if (settledSlide) {
-                                commitActiveSlide(settledSlide, true);
-                            }
-                        });
-                    }, 120);
-                };
-
-                const stopProgrammaticScroll = () => {
-                    if (scrollAnimationFrame) {
-                        cancelAnimationFrame(scrollAnimationFrame);
-                        scrollAnimationFrame = 0;
-                    }
-
-                    isProgrammaticAnimating = false;
-                    pendingCode = null;
-                };
-
-                const animateScrollerTo = (targetLeft, onComplete) => {
-                    stopProgrammaticScroll();
-
-                    const startLeft = scroller.scrollLeft;
-                    const distance = targetLeft - startLeft;
-                    if (Math.abs(distance) < 1) {
-                        scroller.scrollLeft = targetLeft;
-                        onComplete();
-                        return;
-                    }
-
-                    const startTime = performance.now();
-                    const duration = 360;
-                    isProgrammaticAnimating = true;
-
-                    const step = (now) => {
-                        const elapsed = now - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const eased =
-                            progress < 0.5
-                                ? 4 * progress * progress * progress
-                                : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-                        scroller.scrollLeft = startLeft + distance * eased;
-
-                        if (progress < 1) {
-                            scrollAnimationFrame = requestAnimationFrame(step);
-                            return;
-                        }
-
-                        scroller.scrollLeft = targetLeft;
-                        scrollAnimationFrame = 0;
-                        isProgrammaticAnimating = false;
-                        onComplete();
-                    };
-
-                    scrollAnimationFrame = requestAnimationFrame(step);
-                };
-
-                const scrollToCode = (
-                    code,
-                    behavior = "smooth",
-                    section = getHashSection(),
-                ) => {
-                    const target = slides.find(
-                        (slide) => slide.dataset.lineCode === code,
-                    );
-                    if (!(target instanceof HTMLElement)) return;
-
-                    const shouldAnimate =
-                        behavior !== "auto" &&
-                        Math.abs(scroller.scrollLeft - target.offsetLeft) >= 1;
-
-                    if (shouldAnimate) {
-                        pendingCode = code;
-                        setVisualActiveSlide(target);
-                        setActiveButton(code);
-                        animateScrollerTo(target.offsetLeft, () => {
-                            commitActiveSlide(target, true);
-                            scrollViewportToSection(target, section, behavior);
-                        });
-                        return;
-                    }
-
-                    stopProgrammaticScroll();
-                    scroller.scrollLeft = target.offsetLeft;
-
-                    if (!shouldAnimate) {
-                        commitActiveSlide(target, true);
-                        scrollViewportToSection(target, section, behavior);
-                        return;
-                    }
-                };
-
-                requestAnimationFrame(() => {
-                    scrollToCode(
-                        activeCode ?? slides[0].dataset.lineCode,
-                        "auto",
-                    );
-                    scroller.dataset.ready = "true";
-                });
-
-                const resizeObserver =
-                    "ResizeObserver" in window
-                        ? new ResizeObserver(() => {
-                              const activeSlide =
-                                  slides.find(
-                                      (slide) =>
-                                          slide.dataset.active === "true",
-                                  ) ?? slides[0];
-                              if (activeSlide) {
-                                  setScrollerHeight(activeSlide);
-                              }
-                          })
-                        : null;
-
-                slides.forEach((slide) => resizeObserver?.observe(slide));
-
-                window.addEventListener(
-                    "resize",
-                    () => {
-                        const activeSlide =
-                            slides.find(
-                                (slide) => slide.dataset.active === "true",
-                            ) ?? slides[0];
-                        if (activeSlide) {
-                            setScrollerHeight(activeSlide);
-                        }
-                    },
-                    { passive: true },
-                );
-
-                scroller.addEventListener(
-                    "scroll",
-                    () => {
-                        if (isProgrammaticAnimating) return;
-
-                        if (!pendingCode) {
-                            const nearestSlide = getNearestSlide();
-                            if (nearestSlide) {
-                                setVisualActiveSlide(nearestSlide, {
-                                    scrollViewport: true,
-                                });
-                            }
-                        }
-
-                        scheduleSettledCommit();
-                    },
-                    { passive: true },
-                );
-
-                scroller.addEventListener("pointerdown", stopProgrammaticScroll, {
-                    passive: true,
-                });
-                scroller.addEventListener("touchstart", stopProgrammaticScroll, {
-                    passive: true,
-                });
-                scroller.addEventListener("wheel", stopProgrammaticScroll, {
-                    passive: true,
-                });
-
-                document
-                    .querySelectorAll("[data-line-link]")
-                    .forEach((link) => {
-                        link.addEventListener("click", (event) => {
-                            if (
-                                event.metaKey ||
-                                event.ctrlKey ||
-                                event.shiftKey ||
-                                event.altKey
-                            ) {
-                                return;
-                            }
-
-                            event.preventDefault();
-                            scrollViewportToTop("smooth");
-                            scrollToCode(link.dataset.lineLink, "smooth", null);
-                        });
-                    });
-
-                lineButtons.forEach((button) => {
-                    button.addEventListener("click", () => {
-                        scrollViewportToTop("smooth");
-                        scrollToCode(button.dataset.lineButton, "smooth", null);
-                    });
-                });
-
-                window.addEventListener("hashchange", () => {
-                    const currentSlide = slides.find(
-                        (slide) => slide.dataset.lineCode === activeCode,
-                    );
-                    if (currentSlide) {
-                        scrollViewportToSection(currentSlide, getHashSection(), "smooth");
-                    }
-                });
-            })();
-        </script>
-    </body>
+				window.addEventListener("hashchange", () => {
+					setTab(getTabFromHash(), { updateHistory: false });
+				});
+			})();
+		</script>
+	</body>
 </html>
