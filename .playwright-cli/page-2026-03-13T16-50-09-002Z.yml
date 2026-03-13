@@ -1,0 +1,224 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - heading "Subte ro to ." [level=1] [ref=e8]:
+            - generic [ref=e9]:
+              - text: Subte
+              - generic [ref=e10]: ro
+              - generic [ref=e11]: to
+              - text: .
+          - generic [ref=e12]:
+            - paragraph [ref=e13]:
+              - generic [ref=e14]:
+                - text: Ahora mismo el
+                - generic [ref=e15]: 35%
+              - generic [ref=e16]: de las estaciones
+              - generic [ref=e17]: tiene alguna escalera
+              - generic [ref=e18]: cerrada.
+            - paragraph [ref=e19]: Actualizado 10 mar, 16:14
+        - paragraph [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]: La frecuencia del
+            - generic [ref=e25]:
+              - text: subte
+              - link "Ir a Línea B" [ref=e26] [cursor=pointer]:
+                - /url: /linea/B#frecuencia
+                - generic [ref=e29]: B
+              - text: empeoró
+            - generic [ref=e30]:
+              - generic [ref=e33]: 28%
+              - text: desde 2019.
+      - paragraph [ref=e34]:
+        - text: Un proyecto de
+        - link "visualizando.ar" [ref=e35] [cursor=pointer]:
+          - /url: https://visualizando.ar
+    - generic [ref=e38]:
+      - heading "Accesibilidad" [level=2] [ref=e39]
+      - paragraph [ref=e40]: En un día promedio de 2025, 69% de las estaciones tuvo alguna entrada cerrada (escalera o ascensor).
+      - paragraph [ref=e41]: "Escaleras o ascensores cerrados en un día promedio de 2025:"
+      - generic [ref=e42]:
+        - link "Ir a Línea A" [ref=e43] [cursor=pointer]:
+          - /url: /linea/A#accesibilidad
+          - generic [ref=e46]: A
+          - generic [ref=e48]: 58%
+          - img [ref=e52]
+        - link "Ir a Línea B" [ref=e54] [cursor=pointer]:
+          - /url: /linea/B#accesibilidad
+          - generic [ref=e57]: B
+          - generic [ref=e59]: 73%
+          - img [ref=e63]
+        - link "Ir a Línea C" [ref=e65] [cursor=pointer]:
+          - /url: /linea/C#accesibilidad
+          - generic [ref=e68]: C
+          - generic [ref=e70]: 55%
+          - img [ref=e74]
+        - link "Ir a Línea D" [ref=e76] [cursor=pointer]:
+          - /url: /linea/D#accesibilidad
+          - generic [ref=e79]: D
+          - generic [ref=e81]: 80%
+          - img [ref=e85]
+        - link "Ir a Línea E" [ref=e87] [cursor=pointer]:
+          - /url: /linea/E#accesibilidad
+          - generic [ref=e90]: E
+          - generic [ref=e92]: 57%
+          - img [ref=e96]
+        - link "Ir a Línea H" [ref=e98] [cursor=pointer]:
+          - /url: /linea/H#accesibilidad
+          - generic [ref=e101]: H
+          - generic [ref=e103]: 89%
+          - img [ref=e107]
+      - generic [ref=e109]:
+        - heading "Top 5 menos accesibles de 2025" [level=3] [ref=e110]
+        - paragraph [ref=e111]: Según el % promedio de entradas cerradas en 2025.
+        - list [ref=e112]:
+          - listitem [ref=e113]:
+            - link "Ir a Línea E, Varela" [ref=e114] [cursor=pointer]:
+              - /url: /linea/E#accesibilidad
+              - generic [ref=e115]: "1"
+              - generic [ref=e117]:
+                - generic [ref=e118]:
+                  - generic [ref=e119]:
+                    - generic [ref=e120]: Varela
+                    - generic [ref=e123]: E
+                  - generic [ref=e124]: de 2 entradas
+                - generic [ref=e126]: 84%
+          - listitem [ref=e129]:
+            - link "Ir a Línea E, San José" [ref=e130] [cursor=pointer]:
+              - /url: /linea/E#accesibilidad
+              - generic [ref=e131]: "2"
+              - generic [ref=e133]:
+                - generic [ref=e134]:
+                  - generic [ref=e135]:
+                    - generic [ref=e136]: San José
+                    - generic [ref=e139]: E
+                  - generic [ref=e140]: de 4 entradas
+                - generic [ref=e142]: 63%
+          - listitem [ref=e145]:
+            - link "Ir a Línea A, Loria" [ref=e146] [cursor=pointer]:
+              - /url: /linea/A#accesibilidad
+              - generic [ref=e147]: "3"
+              - generic [ref=e149]:
+                - generic [ref=e150]:
+                  - generic [ref=e151]:
+                    - generic [ref=e152]: Loria
+                    - generic [ref=e155]: A
+                  - generic [ref=e156]: de 2 entradas
+                - generic [ref=e158]: 55%
+          - listitem [ref=e161]:
+            - link "Ir a Línea D, Callao" [ref=e162] [cursor=pointer]:
+              - /url: /linea/D#accesibilidad
+              - generic [ref=e163]: "4"
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - generic [ref=e167]:
+                    - generic [ref=e168]: Callao
+                    - generic [ref=e171]: D
+                  - generic [ref=e172]: de 4 entradas
+                - generic [ref=e174]: 51%
+          - listitem [ref=e177]:
+            - link "Ir a Línea E, Catalinas" [ref=e178] [cursor=pointer]:
+              - /url: /linea/E#accesibilidad
+              - generic [ref=e179]: "5"
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - generic [ref=e183]:
+                    - generic [ref=e184]: Catalinas
+                    - generic [ref=e187]: E
+                  - generic [ref=e188]: de 16 entradas
+                - generic [ref=e190]: 48%
+    - generic [ref=e195]:
+      - heading "Frecuencia" [level=2] [ref=e196]
+      - paragraph [ref=e197]: Compara el promedio anual de 2019 con el promedio anual de 2025. Menos tiempo entre trenes significa mejor frecuencia.
+      - generic [ref=e198]:
+        - link "Ir a Línea A" [ref=e199] [cursor=pointer]:
+          - /url: /linea/A#frecuencia
+          - generic [ref=e202]: A
+          - generic [ref=e203]:
+            - generic [ref=e204]: 2% peor
+            - generic [ref=e205]: de 3:09 en 2019 a 3:14 en 2025
+          - img [ref=e207]
+        - link "Ir a Línea B" [ref=e209] [cursor=pointer]:
+          - /url: /linea/B#frecuencia
+          - generic [ref=e212]: B
+          - generic [ref=e213]:
+            - generic [ref=e214]: 28% peor
+            - generic [ref=e215]: de 3:19 en 2019 a 4:14 en 2025
+          - img [ref=e217]
+        - link "Ir a Línea C" [ref=e219] [cursor=pointer]:
+          - /url: /linea/C#frecuencia
+          - generic [ref=e222]: C
+          - generic [ref=e223]:
+            - generic [ref=e224]: 4% mejor
+            - generic [ref=e225]: de 3:23 en 2019 a 3:15 en 2025
+          - img [ref=e227]
+        - link "Ir a Línea D" [ref=e229] [cursor=pointer]:
+          - /url: /linea/D#frecuencia
+          - generic [ref=e232]: D
+          - generic [ref=e233]:
+            - generic [ref=e234]: 18% peor
+            - generic [ref=e235]: de 3:15 en 2019 a 3:50 en 2025
+          - img [ref=e237]
+        - link "Ir a Línea E" [ref=e239] [cursor=pointer]:
+          - /url: /linea/E#frecuencia
+          - generic [ref=e242]: E
+          - generic [ref=e243]:
+            - generic [ref=e244]: 14% mejor
+            - generic [ref=e245]: de 6:19 en 2019 a 5:27 en 2025
+          - img [ref=e247]
+        - link "Ir a Línea H" [ref=e249] [cursor=pointer]:
+          - /url: /linea/H#frecuencia
+          - generic [ref=e252]: H
+          - generic [ref=e253]:
+            - generic [ref=e254]: 4% peor
+            - generic [ref=e255]: de 3:31 en 2019 a 3:39 en 2025
+          - img [ref=e257]
+  - contentinfo [ref=e259]:
+    - generic [ref=e260]:
+      - paragraph [ref=e261]: Mira los datos de cada línea
+      - navigation "Cambiar línea" [ref=e262]:
+        - link "Ir a Línea A" [ref=e263] [cursor=pointer]:
+          - /url: /linea/A
+          - generic [ref=e265]: A
+        - link "Ir a Línea B" [ref=e266] [cursor=pointer]:
+          - /url: /linea/B
+          - generic [ref=e268]: B
+        - link "Ir a Línea C" [ref=e269] [cursor=pointer]:
+          - /url: /linea/C
+          - generic [ref=e271]: C
+        - link "Ir a Línea D" [ref=e272] [cursor=pointer]:
+          - /url: /linea/D
+          - generic [ref=e274]: D
+        - link "Ir a Línea E" [ref=e275] [cursor=pointer]:
+          - /url: /linea/E
+          - generic [ref=e277]: E
+        - link "Ir a Línea H" [ref=e278] [cursor=pointer]:
+          - /url: /linea/H
+          - generic [ref=e280]: H
+    - generic [ref=e281]:
+      - paragraph [ref=e282]: Hecho con amor en la Ciudad de la Furia
+      - paragraph [ref=e283]:
+        - text: Por
+        - link "Matias" [ref=e284] [cursor=pointer]:
+          - /url: https://x.com/matidotlol
+        - text: "y"
+        - link "Andres Snitcofsky" [ref=e285] [cursor=pointer]:
+          - /url: https://x.com/rusosnith
+      - paragraph [ref=e286]:
+        - text: Visualizando el Subte, un proyecto de
+        - link "visualizando.ar" [ref=e287] [cursor=pointer]:
+          - /url: https://visualizando.ar
+  - generic [ref=e290]:
+    - button "Menu" [ref=e291]:
+      - img [ref=e293]
+      - generic: Menu
+    - button "Inspect" [ref=e297]:
+      - img [ref=e299]
+      - generic: Inspect
+    - button "Audit" [ref=e301]:
+      - img [ref=e303]
+      - generic: Audit
+    - button "Settings" [ref=e306]:
+      - img [ref=e308]
+      - generic: Settings

@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import HeroFrequencySwap from "../components/HeroFrequencySwap";
 import PostHog from "../components/posthog.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import {
@@ -105,26 +106,6 @@ const leastAccessibleStations = leastAccessibleStations2025.stations.map(
 const frequencyChangeByLineMap = new Map(
     frequencyChangeByLine.map((line) => [line.series.label, line]),
 );
-const lineBBase = diagramLines.find((line) => line.code === "B") ?? null;
-const lineB = lineBBase
-    ? {
-          ...lineBBase,
-          path: `/linea/${lineBBase.code}#frecuencia`,
-      }
-    : null;
-const lineBFrequencyChange = frequencyChangeByLineMap.get("Línea B") ?? null;
-const lineBFrequencyVerb = !lineBFrequencyChange
-    ? "cambió"
-    : lineBFrequencyChange.direction === "igual"
-      ? "no cambió"
-      : lineBFrequencyChange.isBetter
-        ? "mejoró"
-        : "empeoró";
-const lineBFrequencyMagnitudeLabel =
-    lineBFrequencyChange?.direction === "igual"
-        ? null
-        : (lineBFrequencyChange?.changeLabel.replace(/\s+(mejor|peor)$/, "") ??
-          null);
 const frequencyLines = diagramLines
     .map((line) => {
         const change = frequencyChangeByLineMap.get(line.nombreLinea);
@@ -147,6 +128,24 @@ const frequencyLines = diagramLines
         };
     })
     .filter((line): line is NonNullable<typeof line> => line !== null);
+const worsenedFrequencyLines = frequencyLines
+    .filter(
+        (line) =>
+            line.change.direction !== "igual" && line.change.isBetter === false,
+    )
+    .map((line) => ({
+        code: line.code,
+        path: line.path,
+        color: line.color,
+        ink: line.ink,
+        magnitudeLabel: line.change.changeLabel.replace(/\s+(mejor|peor)$/, ""),
+        firstPeriodLabel: line.change.firstPeriodLabel,
+    }))
+    .sort((left, right) => {
+        if (left.code === "B") return -1;
+        if (right.code === "B") return 1;
+        return left.code.localeCompare(right.code, "es");
+    });
 const accessibilityUpdatedAt = meta.ultimaActualizacion;
 const buenosAiresDateKey = (value: Date | string) =>
     new Intl.DateTimeFormat("en-CA", {
@@ -265,50 +264,10 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
                                 <p
                                     class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.055em] text-[#111111]"
                                 >
-                                    <span class="hero-frequency-line block">
-                                        La frecuencia del
-                                    </span>
-                                    <span class="hero-frequency-line block">
-                                        <span class="whitespace-nowrap">
-                                            subte{" "}
-                                            {
-                                                lineB && (
-                                                    <a
-                                                        href={lineB.path}
-                                                        aria-label={`Ir a ${lineB.nombreLinea}`}
-                                                        data-astro-prefetch
-                                                        class="inline-line-link"
-                                                        style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
-                                                    >
-                                                        <span class="inline-line-link__top">
-                                                            <span class="inline-line-link__label">
-                                                                {lineB.code}
-                                                            </span>
-                                                        </span>
-                                                    </a>
-                                                )
-                                            }{" "}
-                                            {lineBFrequencyVerb}
-                                        </span>
-                                    </span>
-                                    <span class="hero-frequency-line block">
-                                        {
-                                            lineBFrequencyMagnitudeLabel && (
-                                                <>
-                                                    <span class="inline-block whitespace-nowrap rounded-[0.14em] bg-[#f4e4a7] px-[0.16em] pb-[0.03em] text-[#1b1816]">
-                                                        {
-                                                            lineBFrequencyMagnitudeLabel
-                                                        }
-                                                    </span>{" "}
-                                                </>
-                                            )
-                                        }
-                                        desde{" "}
-                                        {
-                                            lineBFrequencyChange?.firstPeriodLabel ??
-                                                "2019"
-                                        }.
-                                    </span>
+                                    <HeroFrequencySwap
+                                        lines={worsenedFrequencyLines}
+                                        client:load
+                                    />
                                 </p>
                             </div>
                         </div>
@@ -737,55 +696,6 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
     }
 
     .line-table-link:focus-visible {
-        outline: 0;
-    }
-
-    .inline-line-link {
-        --button-outline-color: #2f241d;
-        display: inline-block;
-        width: 0.82em;
-        border: 0;
-        border-radius: 0.16em;
-        background: var(--button-outline-color);
-        padding: 0;
-        line-height: 0;
-        vertical-align: 0.15em;
-        font: inherit;
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .inline-line-link__top {
-        display: flex;
-        width: 100%;
-        aspect-ratio: 1;
-        align-items: center;
-        justify-content: center;
-        border: 1.5px solid var(--button-outline-color);
-        border-radius: 0.16em;
-        background: var(--line-button-color);
-        color: var(--line-button-ink);
-        transform: translateY(-0.12em);
-        transition: transform 100ms ease;
-    }
-
-    .inline-line-link__label {
-        font-size: 0.44em;
-        line-height: 1;
-        font-weight: 700;
-        letter-spacing: -0.06em;
-    }
-
-    .inline-line-link:hover .inline-line-link__top,
-    .inline-line-link:focus-visible .inline-line-link__top {
-        transform: translateY(-0.16em);
-    }
-
-    .inline-line-link:active .inline-line-link__top {
-        transform: translateY(0);
-    }
-
-    .inline-line-link:focus-visible {
         outline: 0;
     }
 
