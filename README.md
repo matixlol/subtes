@@ -4,13 +4,13 @@
 
 - [x] opengraph image
 - [x] favicon
-- [ ] meta tags
+- [x] meta tags
 
 - [x] efecto "deteriorando"
 
 - [ ] boton "compartir a redes"
 
-- [ ] actualizar automaticamente
+- [x] actualizar automaticamente
 
 - [x] falta el historico de la accesibilidad dentro de la pagina de linea
 
