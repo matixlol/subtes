@@ -220,7 +220,7 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
                         <div class="space-y-0">
                             <div class="space-y-5 sm:space-y-6">
                                 <h1
-                                    class="max-w-[8ch] text-[clamp(4rem,17vw,8.5rem)] leading-[0.82] font-black tracking-[-0.08em] text-[#111111]"
+                                    class="max-w-[8ch] text-[clamp(4rem,17vw,8.5rem)] leading-[0.82] font-black tracking-[-0.06em] text-[#111111]"
                                 >
                                     Subte{" "}
                                     <span class="whitespace-nowrap">
@@ -235,7 +235,7 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
                                 </h1>
                                 <div class="space-y-3">
                                     <p
-                                        class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
+                                        class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.055em] text-[#111111]"
                                     >
                                         <span class="block">
                                             Ahora mismo el{" "}
@@ -264,33 +264,35 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
 
                             <div class="space-y-3 mt-5">
                                 <p
-                                    class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
+                                    class="text-[clamp(2.2rem,9vw,4rem)] leading-[0.9] font-semibold tracking-[-0.055em] text-[#111111]"
                                 >
-                                    <span class="block">
+                                    <span class="hero-frequency-line block">
                                         La frecuencia del
                                     </span>
-                                    <span class="block">
-                                        subte{" "}
-                                        {
-                                            lineB && (
-                                                <a
-                                                    href={lineB.path}
-                                                    aria-label={`Ir a ${lineB.nombreLinea}`}
-                                                    data-astro-prefetch
-                                                    class="inline-line-link"
-                                                    style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
-                                                >
-                                                    <span class="inline-line-link__top">
-                                                        <span class="inline-line-link__label">
-                                                            {lineB.code}
+                                    <span class="hero-frequency-line block">
+                                        <span class="whitespace-nowrap">
+                                            subte{" "}
+                                            {
+                                                lineB && (
+                                                    <a
+                                                        href={lineB.path}
+                                                        aria-label={`Ir a ${lineB.nombreLinea}`}
+                                                        data-astro-prefetch
+                                                        class="inline-line-link"
+                                                        style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
+                                                    >
+                                                        <span class="inline-line-link__top">
+                                                            <span class="inline-line-link__label">
+                                                                {lineB.code}
+                                                            </span>
                                                         </span>
-                                                    </span>
-                                                </a>
-                                            )
-                                        }{" "}
-                                        {lineBFrequencyVerb}
+                                                    </a>
+                                                )
+                                            }{" "}
+                                            {lineBFrequencyVerb}
+                                        </span>
                                     </span>
-                                    <span class="block">
+                                    <span class="hero-frequency-line block">
                                         {
                                             lineBFrequencyMagnitudeLabel && (
                                                 <>
@@ -779,12 +781,13 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
     .inline-line-link {
         --button-outline-color: #2f241d;
         display: inline-block;
-        width: 0.96em;
+        width: 0.82em;
         border: 0;
         border-radius: 0.16em;
         background: var(--button-outline-color);
         padding: 0;
-        vertical-align: 0.02em;
+        line-height: 0;
+        vertical-align: 0.15em;
         font: inherit;
         color: inherit;
         text-decoration: none;
@@ -800,12 +803,12 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
         border-radius: 0.16em;
         background: var(--line-button-color);
         color: var(--line-button-ink);
-        transform: translateY(-0.16em);
+        transform: translateY(-0.12em);
         transition: transform 100ms ease;
     }
 
     .inline-line-link__label {
-        font-size: 0.48em;
+        font-size: 0.44em;
         line-height: 1;
         font-weight: 700;
         letter-spacing: -0.06em;
@@ -813,7 +816,7 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
 
     .inline-line-link:hover .inline-line-link__top,
     .inline-line-link:focus-visible .inline-line-link__top {
-        transform: translateY(-0.21em);
+        transform: translateY(-0.16em);
     }
 
     .inline-line-link:active .inline-line-link__top {

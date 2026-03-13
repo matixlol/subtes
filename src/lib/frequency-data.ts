@@ -4,8 +4,7 @@ const subteSeries = frequencySeries.filter((series) => series.label !== "Premetr
 
 const percentFormatter = new Intl.NumberFormat("es-AR", {
 	style: "percent",
-	minimumFractionDigits: 1,
-	maximumFractionDigits: 1,
+	maximumFractionDigits: 0,
 });
 
 const getDefinedPoints = (points: ReadonlyArray<{ month: string; value: number | null }>) =>
