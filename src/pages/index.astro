@@ -67,6 +67,18 @@ const lineB = lineBBase
       }
     : null;
 const lineBFrequencyChange = frequencyChangeByLineMap.get("Línea B") ?? null;
+const lineBFrequencyVerb = !lineBFrequencyChange
+    ? "cambió"
+    : lineBFrequencyChange.direction === "igual"
+      ? "no cambió"
+      : lineBFrequencyChange.isBetter
+        ? "mejoró"
+        : "empeoró";
+const lineBFrequencyMagnitudeLabel =
+    lineBFrequencyChange?.direction === "igual"
+        ? null
+        : (lineBFrequencyChange?.changeLabel.replace(/\s+(mejor|peor)$/, "") ??
+          null);
 const frequencyLines = diagramLines
     .map((line) => {
         const change = frequencyChangeByLineMap.get(line.nombreLinea);
@@ -104,10 +116,10 @@ const updatedAtTimeLabel = new Intl.DateTimeFormat("es-AR", {
     minute: "2-digit",
     hour12: false,
 }).format(updatedAtDate);
-const lastUpdatedLabel =
+const heroUpdatedLabel =
     buenosAiresDateKey(updatedAtDate) === buenosAiresDateKey(new Date())
-        ? `Última vez actualizado ${updatedAtTimeLabel}`
-        : `Última vez actualizado ${new Intl.DateTimeFormat("es-AR", {
+        ? `Actualizado ${updatedAtTimeLabel}`
+        : `Actualizado ${new Intl.DateTimeFormat("es-AR", {
               timeZone: "America/Argentina/Buenos_Aires",
               day: "numeric",
               month: "short",
@@ -128,76 +140,101 @@ const lastUpdatedLabel =
     <body class="bg-[#faf8f5] text-[#1d1a16]">
         <main>
             <section class="relative min-h-screen overflow-hidden bg-[#d6d6d4]">
-                <div
-                    class="flex min-h-screen items-center px-5 pb-52 pt-10 sm:px-8"
-                >
-                    <div class="mx-auto w-full max-w-200">
-                        <div class="space-y-5 sm:space-y-6">
-                            <p
-                                class="text-balance text-[clamp(2.25rem,8vw,4rem)] leading-[0.94] font-semibold tracking-[-0.06em] text-[#1b1816]"
-                            >
-                                El subte porteño se está{" "}
-                                <span
-                                    class="falling-word inline-block whitespace-nowrap touch-manipulation select-none"
-                                    data-falling-word>deteriorando</span
-                                >.
-                            </p>
-                            <p
-                                class="text-balance text-[clamp(2.25rem,8vw,4rem)] leading-[0.96] font-semibold tracking-[-0.06em] text-[#1b1816]"
-                            >
-                                La frecuencia de la línea{" "}
-                                {
-                                    lineB && (
-                                        <a
-                                            href={lineB.path}
-                                            aria-label={`Ir a ${lineB.nombreLinea}`}
-                                            data-astro-prefetch
-                                            class="inline-line-link"
-                                            style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
-                                        >
-                                            <span class="inline-line-link__top">
-                                                <span class="inline-line-link__label">
-                                                    {lineB.code}
-                                                </span>
-                                            </span>
-                                        </a>
-                                    )
-                                }{" "}
-                                empeoró{" "}
-                                <span
-                                    class="inline-block whitespace-nowrap rounded-[0.16em] bg-[#f4e4a7] px-[0.18em] pb-[0.04em] text-[#1b1816]"
-                                    >{
-                                        lineBFrequencyChange?.changeLabel.replace(
-                                            /\s+(mejor|peor)$/,
-                                            "",
-                                        ) ?? "0%"
-                                    }</span
-                                >{" "}
-                                en los últimos 5 años, y ahora el{" "}
-                                <span
-                                    class="inline-block whitespace-nowrap rounded-[0.16em] bg-[#f4d9d4] px-[0.18em] pb-[0.04em] text-[#7a241a]"
-                                    >{closedEscaleraShareLabel}</span
-                                >{" "}
-                                de estaciones tiene alguna escalera cerrada.
-                            </p>
-                            <div class="space-y-0.5 pt-1">
-                                <p
-                                    class="text-center text-xs leading-5 text-[#544b43]"
+                <div class="flex min-h-screen px-5 pb-56 pt-8 sm:px-8 sm:pt-10">
+                    <div
+                        class="mx-auto flex w-full max-w-[46rem] flex-col justify-center"
+                    >
+                        <div class="space-y-0">
+                            <div class="space-y-5 sm:space-y-6">
+                                <h1
+                                    class="max-w-[8ch] text-[clamp(4rem,17vw,8.5rem)] leading-[0.82] font-black tracking-[-0.08em] text-[#111111]"
                                 >
-                                    Un proyecto de{" "}
-                                    <a
-                                        href="https://visualizando.ar"
-                                        class="underline decoration-[#544b43]/40 underline-offset-3 hover:decoration-[#544b43]"
-                                        target="_blank"
-                                        rel="noreferrer"
+                                    Subte{" "}
+                                    <span class="whitespace-nowrap">
+                                        <span
+                                            class="falling-word falling-word--left inline-block touch-manipulation select-none"
+                                            data-falling-word>ro</span
+                                        ><span
+                                            class="falling-word falling-word--right inline-block touch-manipulation select-none"
+                                            data-falling-word>to</span
+                                        >.
+                                    </span>
+                                </h1>
+                                <div class="max-w-[34rem] space-y-3">
+                                    <p
+                                        class="text-[clamp(2.2rem,9vw,4.8rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
                                     >
-                                        visualizando.ar
-                                    </a>
-                                </p>
+                                        <span class="block">
+                                            Ahora mismo el{" "}
+                                            <span
+                                                class="inline-block whitespace-nowrap rounded-[0.14em] bg-[#f4d9d4] px-[0.16em] pb-[0.03em] text-[#7a241a]"
+                                                >{
+                                                    closedEscaleraShareLabel
+                                                }</span
+                                            >
+                                        </span>
+                                        <span class="block">
+                                            de las estaciones
+                                        </span>
+                                        <span class="block">
+                                            tiene alguna escalera
+                                        </span>
+                                        <span class="block">cerrada.</span>
+                                    </p>
+                                    <p
+                                        class="text-sm leading-5 text-[#544b43] sm:text-base"
+                                    >
+                                        {heroUpdatedLabel}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="max-w-[34rem] space-y-3 mt-5">
                                 <p
-                                    class="text-center text-xs leading-5 text-[#544b43]"
+                                    class="text-[clamp(2.2rem,9vw,4.8rem)] leading-[0.9] font-semibold tracking-[-0.075em] text-[#111111]"
                                 >
-                                    {lastUpdatedLabel}
+                                    <span class="block">
+                                        La frecuencia del
+                                    </span>
+                                    <span class="block">
+                                        subte{" "}
+                                        {
+                                            lineB && (
+                                                <a
+                                                    href={lineB.path}
+                                                    aria-label={`Ir a ${lineB.nombreLinea}`}
+                                                    data-astro-prefetch
+                                                    class="inline-line-link"
+                                                    style={`--line-button-color: ${lineB.color}; --line-button-ink: ${lineB.ink};`}
+                                                >
+                                                    <span class="inline-line-link__top">
+                                                        <span class="inline-line-link__label">
+                                                            {lineB.code}
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            )
+                                        }{" "}
+                                        {lineBFrequencyVerb}
+                                    </span>
+                                    <span class="block">
+                                        {
+                                            lineBFrequencyMagnitudeLabel && (
+                                                <>
+                                                    <span class="inline-block whitespace-nowrap rounded-[0.14em] bg-[#f4e4a7] px-[0.16em] pb-[0.03em] text-[#1b1816]">
+                                                        {
+                                                            lineBFrequencyMagnitudeLabel
+                                                        }
+                                                    </span>{" "}
+                                                </>
+                                            )
+                                        }
+                                        desde{" "}
+                                        {
+                                            lineBFrequencyChange?.firstPeriodLabel ??
+                                                "2019"
+                                        }.
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -227,6 +264,19 @@ const lastUpdatedLabel =
                         </div>
 
                         <LineNav />
+                        <p
+                            class="mt-4 text-center text-xs leading-5 text-[#544b43]"
+                        >
+                            Un proyecto de{" "}
+                            <a
+                                href="https://visualizando.ar"
+                                class="underline decoration-[#544b43]/40 underline-offset-3 hover:decoration-[#544b43]"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                visualizando.ar
+                            </a>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -413,110 +463,51 @@ const lastUpdatedLabel =
             </section>
         </main>
         <SiteFooter />
-        <script>
-            const setupFallingWords = () => {
-                document
-                    .querySelectorAll("[data-falling-word]")
-                    .forEach((word) => {
-                        if (word.dataset.fallingWordBound === "true") return;
-
-                        word.dataset.fallingWordBound = "true";
-
-                        let tapReleaseTimer;
-
-                        const restore = () => {
-                            window.clearTimeout(tapReleaseTimer);
-                            word.classList.add("is-restoring");
-                        };
-
-                        const fallAgain = () => {
-                            word.classList.remove("is-restoring");
-                        };
-
-                        word.addEventListener("pointerenter", (event) => {
-                            if (
-                                event.pointerType &&
-                                event.pointerType !== "mouse"
-                            ) {
-                                return;
-                            }
-
-                            restore();
-                        });
-
-                        word.addEventListener("pointerleave", fallAgain);
-
-                        word.addEventListener("pointerdown", (event) => {
-                            if (event.pointerType === "mouse") return;
-
-                            restore();
-                            tapReleaseTimer = window.setTimeout(fallAgain, 760);
-                        });
-
-                        word.addEventListener("pointercancel", fallAgain);
-                    });
-            };
-
-            setupFallingWords();
-            document.addEventListener("astro:page-load", setupFallingWords);
-        </script>
-        <style>
-            @keyframes falling-word-swing {
-                0%,
-                58% {
-                    transform: rotate(0deg) translateY(0);
-                }
-
-                70% {
-                    transform: rotate(-8.5deg) translateY(0.03em);
-                }
-
-                78% {
-                    transform: rotate(-7.6deg) translateY(0.022em);
-                }
-
-                86% {
-                    transform: rotate(-8.15deg) translateY(0.028em);
-                }
-
-                100% {
-                    transform: rotate(-7.9deg) translateY(0.026em);
-                }
-            }
-
-            @keyframes falling-word-restore {
-                from {
-                    transform: rotate(-7.9deg) translateY(0.026em);
-                }
-
-                to {
-                    transform: rotate(0deg) translateY(0);
-                }
-            }
-
-            .falling-word {
-                display: inline-block;
-                transform: rotate(-7.9deg) translateY(0.026em);
-                transform-origin: bottom right;
-                animation: falling-word-swing 1.08s 260ms ease both;
-                will-change: transform;
-            }
-
-            .falling-word.is-restoring {
-                transform: rotate(0deg) translateY(0);
-                animation: falling-word-restore 520ms ease both;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                .falling-word,
-                .falling-word.is-restoring {
-                    animation: none;
-                    transform: none;
-                }
-            }
-        </style>
     </body>
 </html>
+
+<script>
+    const setupFallingWords = () => {
+        document.querySelectorAll("[data-falling-word]").forEach((word) => {
+            if (word.dataset.fallingWordBound === "true") return;
+
+            word.dataset.fallingWordBound = "true";
+
+            let tapReleaseTimer;
+
+            const restore = () => {
+                window.clearTimeout(tapReleaseTimer);
+                word.classList.add("is-restoring");
+            };
+
+            const fallAgain = () => {
+                word.classList.remove("is-restoring");
+            };
+
+            word.addEventListener("pointerenter", (event) => {
+                if (event.pointerType && event.pointerType !== "mouse") {
+                    return;
+                }
+
+                restore();
+            });
+
+            word.addEventListener("pointerleave", fallAgain);
+
+            word.addEventListener("pointerdown", (event) => {
+                if (event.pointerType === "mouse") return;
+
+                restore();
+                tapReleaseTimer = window.setTimeout(fallAgain, 760);
+            });
+
+            word.addEventListener("pointercancel", fallAgain);
+        });
+    };
+
+    setupFallingWords();
+    document.addEventListener("astro:page-load", setupFallingWords);
+</script>
 
 <script is:inline>
     function setupIndexTracking() {
@@ -648,5 +639,109 @@ const lastUpdatedLabel =
 
     .inline-line-link:focus-visible {
         outline: 0;
+    }
+
+    @keyframes falling-word-swing-left {
+        0%,
+        58% {
+            transform: rotate(0deg) translate(0, 0);
+        }
+
+        70% {
+            transform: rotate(-8.5deg) translate(0.07em, 0.03em);
+        }
+
+        78% {
+            transform: rotate(-7.6deg) translate(0.06em, 0.022em);
+        }
+
+        86% {
+            transform: rotate(-8.15deg) translate(0.065em, 0.028em);
+        }
+
+        100% {
+            transform: rotate(-7.9deg) translate(0.065em, 0.026em);
+        }
+    }
+
+    @keyframes falling-word-swing-right {
+        0%,
+        58% {
+            transform: rotate(0deg) translate(0, 0);
+        }
+
+        70% {
+            transform: rotate(8.5deg) translate(-0.07em, 0.03em);
+        }
+
+        78% {
+            transform: rotate(7.6deg) translate(-0.06em, 0.022em);
+        }
+
+        86% {
+            transform: rotate(8.15deg) translate(-0.065em, 0.028em);
+        }
+
+        100% {
+            transform: rotate(7.9deg) translate(-0.065em, 0.026em);
+        }
+    }
+
+    @keyframes falling-word-restore-left {
+        from {
+            transform: rotate(-7.9deg) translate(0.065em, 0.026em);
+        }
+
+        to {
+            transform: rotate(0deg) translate(0, 0);
+        }
+    }
+
+    @keyframes falling-word-restore-right {
+        from {
+            transform: rotate(7.9deg) translate(-0.065em, 0.026em);
+        }
+
+        to {
+            transform: rotate(0deg) translate(0, 0);
+        }
+    }
+
+    .falling-word {
+        display: inline-block;
+        will-change: transform;
+    }
+
+    .falling-word--left {
+        transform: rotate(7.9deg) translate(-0.065em, 0.026em);
+        transform-origin: bottom left;
+        animation: falling-word-swing-right 1.08s 260ms ease both;
+    }
+
+    .falling-word--right {
+        transform: rotate(-7.9deg) translate(0.065em, 0.026em);
+        transform-origin: bottom right;
+        animation: falling-word-swing-left 1.08s 300ms ease both;
+    }
+
+    .falling-word--left.is-restoring {
+        transform: rotate(0deg) translate(0, 0);
+        animation: falling-word-restore-right 520ms ease both;
+    }
+
+    .falling-word--right.is-restoring {
+        transform: rotate(0deg) translate(0, 0);
+        animation: falling-word-restore-left 520ms ease both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .falling-word,
+        .falling-word--left,
+        .falling-word--right,
+        .falling-word--left.is-restoring,
+        .falling-word--right.is-restoring {
+            animation: none;
+            transform: none;
+        }
     }
 </style>
