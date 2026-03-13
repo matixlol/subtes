@@ -16,6 +16,7 @@ import {
     homeOpenGraphPath,
     homePageDescription,
     homePageTitle,
+    siteName,
 } from "../lib/open-graph";
 import "../styles/global.css";
 
@@ -187,6 +188,7 @@ const ogImageUrl = new URL(homeOpenGraphPath, Astro.url).toString();
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="es_AR" />
+        <meta property="og:site_name" content={siteName} />
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={pageDescription} />
         <meta property="og:url" content={canonicalUrl} />

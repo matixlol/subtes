@@ -6,7 +6,8 @@ type OpenGraphPage = {
 
 const ogAssetDirectory = "./src/assets/opengraph";
 
-export const homePageTitle = "Subte roto.";
+export const homePageTitle = "Subte roto";
+export const siteName = "Subte roto";
 export const homePageDescription = "El subte porteño se está deteriorando.";
 export const homeOpenGraphPath = "/open-graph/home.png";
 
