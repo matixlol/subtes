@@ -18,8 +18,22 @@ jobs:
         with:
           lfs: true
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
       - name: Set up Git LFS
         run: git lfs install
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Download latest SQLite file
         run: |
@@ -27,16 +41,19 @@ jobs:
             "https://raw.githubusercontent.com/j-e-d/accesibilidad-subte/main/accesibilidad.sqlite" \
             -o data/accesibilidad.sqlite
 
+      - name: Regenerate derived data
+        run: pnpm generate-data
+
       - name: Commit and push when changed
         run: |
-          if git diff --quiet -- data/accesibilidad.sqlite; then
-            echo "No SQLite changes to commit"
+          if git diff --quiet -- data/accesibilidad.sqlite src/generated; then
+            echo "No data changes to commit"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/accesibilidad.sqlite
-          git commit -m "chore(data): refresh accesibilidad sqlite"
+          git add data/accesibilidad.sqlite src/generated
+          git commit -m "chore(data): refresh sqlite and generated data"
           git push
