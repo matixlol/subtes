@@ -3,9 +3,11 @@ import { ClientRouter } from "astro:transitions";
 import LineNav from "../components/LineNav.astro";
 import { frequencySeries } from "../generated/frequency-series";
 import {
+    averageEntryClosures,
     networkStations,
     stationAccessibility,
 } from "../generated/station-status";
+import { diagramLines } from "../lib/line-data";
 import "../styles/global.css";
 
 const uniqueMonths = Array.from(
@@ -69,6 +71,31 @@ const closedEscaleraShareLabel = new Intl.NumberFormat("es-AR", {
 })
     .format(stationsWithClosedEscalera / totalStations)
     .trim();
+const averageClosedEntryShareLabel = new Intl.NumberFormat("es-AR", {
+    style: "percent",
+    maximumFractionDigits: 0,
+})
+    .format(averageEntryClosures.averageClosedEntryShare)
+    .trim();
+const averageClosedEntryLines = diagramLines.map((line) => {
+    const lineAverage = averageEntryClosures.lines.find(
+        (entry) => entry.nombreLinea === line.nombreLinea,
+    );
+
+    return {
+        code: line.code,
+        nombreLinea: line.nombreLinea,
+        color: line.color,
+        ink: line.ink,
+        path: `/linea/${line.code}`,
+        averageClosedEntryShareLabel: new Intl.NumberFormat("es-AR", {
+            style: "percent",
+            maximumFractionDigits: 0,
+        })
+            .format(lineAverage?.averageClosedEntryShare ?? 0)
+            .trim(),
+    };
+});
 ---
 
 <html lang="es">
@@ -108,6 +135,17 @@ const closedEscaleraShareLabel = new Intl.NumberFormat("es-AR", {
                                     >{closedEscaleraShareLabel}</span
                                 >{" "}
                                 de estaciones tiene alguna escalera cerrada.
+                            </p>
+                            <p class="text-center text-xs leading-5 text-[#544b43]">
+                                Un proyecto de{" "}
+                                <a
+                                    href="https://visualizando.ar"
+                                    class="underline decoration-[#544b43]/40 underline-offset-3 hover:decoration-[#544b43]"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    visualizando.ar
+                                </a>
                             </p>
                         </div>
                     </div>
@@ -150,8 +188,108 @@ const closedEscaleraShareLabel = new Intl.NumberFormat("es-AR", {
                     >
                         Accesibilidad
                     </h2>
+                    <p
+                        class="mt-6 max-w-3xl text-pretty text-lg leading-7 text-[#544b43] sm:text-xl"
+                    >
+                        En un día promedio de {averageEntryClosures.year},{" "}
+                        <span class="font-semibold text-[#1b1816]"
+                            >{averageClosedEntryShareLabel}</span
+                        >{" "}
+                        de las estaciones tuvo alguna entrada cerrada
+                        (escalera o ascensor).
+                    </p>
+
+                    <div class="mt-10 space-y-5">
+                        {
+                            averageClosedEntryLines.map((line) => (
+                                <div
+                                    class="flex items-center gap-4 sm:gap-6"
+                                >
+                                    <a
+                                        href={line.path}
+                                        aria-label={`Ir a ${line.nombreLinea}`}
+                                        data-astro-prefetch
+                                        class="line-table-link"
+                                        style={`--line-button-color: ${line.color}; --line-button-ink: ${line.ink};`}
+                                    >
+                                        <span class="line-table-link__top">
+                                            <span class="line-table-link__label"
+                                                >{line.code}</span
+                                            >
+                                        </span>
+                                    </a>
+
+                                    <div class="min-w-0">
+                                        <p
+                                            class="text-3xl leading-none font-semibold tracking-[-0.06em] text-[#1b1816] sm:text-5xl"
+                                        >
+                                            {line.averageClosedEntryShareLabel}
+                                        </p>
+                                        <p
+                                            class="mt-1 text-xs leading-4 text-[#544b43] sm:text-sm"
+                                        >
+                                            escaleras o ascensores cerrados en
+                                            día promedio
+                                        </p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </section>
         </main>
     </body>
 </html>
+
+<style>
+    .line-table-link {
+        --button-outline-color: #2f241d;
+        display: block;
+        width: 100%;
+        max-width: 2.6rem;
+        border: 0;
+        border-radius: 8px;
+        background: var(--button-outline-color);
+        padding: 0;
+        font: inherit;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .line-table-link__top {
+        display: flex;
+        width: 100%;
+        aspect-ratio: 1;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid var(--button-outline-color);
+        border-radius: 8px;
+        background: var(--line-button-color);
+        color: var(--line-button-ink);
+        transform: translateY(-0.12em);
+        transition:
+            transform 100ms ease,
+            filter 100ms ease;
+    }
+
+    .line-table-link__label {
+        font-size: clamp(1.05rem, 2.3vw, 1.25rem);
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.06em;
+    }
+
+    .line-table-link:hover .line-table-link__top,
+    .line-table-link:focus-visible .line-table-link__top {
+        transform: translateY(-0.18em);
+    }
+
+    .line-table-link:active .line-table-link__top {
+        transform: translateY(0);
+    }
+
+    .line-table-link:focus-visible {
+        outline: 0;
+    }
+</style>

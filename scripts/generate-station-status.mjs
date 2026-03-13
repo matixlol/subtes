@@ -177,6 +177,25 @@ const stationHistoryQuery = `
 	ORDER BY idLinea, nombreEstacion, idEstacion, equipo, [commit-datetime] ASC, id ASC
 `;
 
+const accessibilityHistoryQuery = `
+	SELECT
+		idLinea,
+		nombreLinea,
+		idEstacion,
+		nombreEstacion,
+		COALESCE(NULLIF(TRIM(descripcion), ''), NULLIF(TRIM(nombre_2024), ''), NULLIF(TRIM(nombre), '')) AS equipo,
+		LOWER(
+			COALESCE(nombre_2024, '') || ' ' || COALESCE(nombre, '') || ' ' || COALESCE(descripcion, '')
+		) AS searchText,
+		funcionando,
+		fueraDeHorario,
+		fechaActualizacion,
+		[commit-datetime] AS commitDatetime
+	FROM status
+	WHERE ${ascensorOrEscaleraCondition}
+	ORDER BY idLinea, nombreEstacion, idEstacion, equipo, [commit-datetime] ASC, id ASC
+`;
+
 const networkStationsQuery = `
 	SELECT
 		idLinea,
@@ -299,6 +318,7 @@ const lineDCurrentEquipment = getResultRows(lineDCurrentEquipmentQuery);
 const lineDHistory = getResultRows(lineDHistoryQuery);
 const currentEquipment = getResultRows(currentEquipmentQuery);
 const stationHistoryRows = getResultRows(stationHistoryQuery);
+const accessibilityHistoryRows = getResultRows(accessibilityHistoryQuery);
 const networkStationsRows = getResultRows(networkStationsQuery);
 const accessibilityCurrentRows = getResultRows(accessibilityCurrentQuery);
 
@@ -567,6 +587,117 @@ const stationAccessibility = Array.from(stationAccessibilityMap.values())
 		};
 	});
 
+const averageClosureYear = "2025";
+const averageClosureDates = Array.from({ length: 365 }, (_, index) =>
+	addDays(`${averageClosureYear}-01-01`, index),
+);
+
+const accessibilityEquipmentByStation = new Map();
+for (const row of accessibilityCurrentRows) {
+	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const deviceType = classifyDeviceType(row);
+	const equipmentKey = `${Number(row.idEstacion)}::${deviceType}::${row.equipo}`;
+	const existingStation = accessibilityEquipmentByStation.get(stationKey) ?? {
+		idLinea: Number(row.idLinea),
+		nombreLinea: row.nombreLinea,
+		nombreEstacion: row.nombreEstacion,
+		equipos: new Set(),
+	};
+	existingStation.equipos.add(equipmentKey);
+	accessibilityEquipmentByStation.set(stationKey, existingStation);
+}
+
+const accessibilityEventsByEquipment = new Map();
+for (const row of accessibilityHistoryRows) {
+	const stationKey = `${row.idLinea}::${row.nombreEstacion}`;
+	const deviceType = classifyDeviceType(row);
+	const equipmentKey = `${stationKey}::${Number(row.idEstacion)}::${deviceType}::${row.equipo}`;
+	const events = accessibilityEventsByEquipment.get(equipmentKey) ?? [];
+	events.push({
+		timestamp: Date.parse(row.commitDatetime),
+		isFailure: isFailureState(row),
+	});
+	accessibilityEventsByEquipment.set(equipmentKey, events);
+}
+
+const stationEntryClosures = Array.from(accessibilityEquipmentByStation.values())
+	.sort((a, b) =>
+		a.idLinea === b.idLinea
+			? a.nombreEstacion.localeCompare(b.nombreEstacion, "es-AR")
+			: a.idLinea - b.idLinea,
+	)
+	.map((station) => {
+		const equipmentKeys = Array.from(station.equipos.values());
+		const daysWithClosedEntry = averageClosureDates.reduce((count, date) => {
+			const { start, end } = buildServiceWindow(date);
+			const hasClosedEntry = equipmentKeys.some((equipmentKey) => {
+				const events = accessibilityEventsByEquipment.get(
+					`${station.idLinea}::${station.nombreEstacion}::${equipmentKey}`,
+				) ?? [];
+				return deviceFailsDuringWindow(events, start, end);
+			});
+			return count + (hasClosedEntry ? 1 : 0);
+		}, 0);
+
+		return {
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			nombreEstacion: station.nombreEstacion,
+			daysTracked: averageClosureDates.length,
+			daysWithClosedEntry,
+			averageClosedEntryShare: daysWithClosedEntry / averageClosureDates.length,
+		};
+	});
+
+const lineEntryClosureAverages = Object.values(
+	stationEntryClosures.reduce((acc, station) => {
+		const line = acc[station.idLinea] ?? {
+			idLinea: station.idLinea,
+			nombreLinea: station.nombreLinea,
+			stations: 0,
+			totalDays: 0,
+			daysWithClosedEntry: 0,
+		};
+		line.stations += 1;
+		line.totalDays += station.daysTracked;
+		line.daysWithClosedEntry += station.daysWithClosedEntry;
+		acc[station.idLinea] = line;
+		return acc;
+	}, {}),
+)
+	.sort((a, b) => a.idLinea - b.idLinea)
+	.map((line) => ({
+		idLinea: line.idLinea,
+		nombreLinea: line.nombreLinea,
+		stations: line.stations,
+		daysTracked: averageClosureDates.length,
+		daysWithClosedEntry: line.daysWithClosedEntry,
+		averageClosedEntryShare:
+			line.totalDays > 0 ? line.daysWithClosedEntry / line.totalDays : 0,
+	}));
+
+const totalStationDaysTracked = stationEntryClosures.reduce(
+		(count, station) => count + station.daysTracked,
+		0,
+	);
+const totalStationDaysWithClosedEntry = stationEntryClosures.reduce(
+		(count, station) => count + station.daysWithClosedEntry,
+		0,
+	);
+
+const averageEntryClosures = {
+	year: averageClosureYear,
+	totalStations: stationEntryClosures.length,
+	daysTracked: averageClosureDates.length,
+	totalStationDaysTracked,
+	totalStationDaysWithClosedEntry,
+	averageClosedEntryShare:
+		totalStationDaysTracked > 0
+			? totalStationDaysWithClosedEntry / totalStationDaysTracked
+			: 0,
+	lines: lineEntryClosureAverages,
+};
+
 db.close();
 
 await fs.mkdir(path.dirname(outputPath), { recursive: true });
@@ -578,6 +709,7 @@ await fs.writeFile(
 		"export const networkStations = " + JSON.stringify(networkStations, null, 2) + " as const;",
 		"export const stationAccessibility = " + JSON.stringify(stationAccessibility, null, 2) + " as const;",
 		"export const stationHistory = " + JSON.stringify(stationHistory, null, 2) + " as const;",
+		"export const averageEntryClosures = " + JSON.stringify(averageEntryClosures, null, 2) + " as const;",
 		"export const lineDHeatmap = " + JSON.stringify(lineDHeatmap, null, 2) + " as const;",
 		"",
 	].join("\n\n"),

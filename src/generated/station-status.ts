@@ -5353,6 +5353,65 @@ export const stationHistory = [
   }
 ] as const;
 
+export const averageEntryClosures = {
+  "year": "2025",
+  "totalStations": 85,
+  "daysTracked": 365,
+  "totalStationDaysTracked": 31025,
+  "totalStationDaysWithClosedEntry": 21271,
+  "averageClosedEntryShare": 0.6856083803384367,
+  "lines": [
+    {
+      "idLinea": 1,
+      "nombreLinea": "Línea A",
+      "stations": 15,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 3162,
+      "averageClosedEntryShare": 0.5775342465753425
+    },
+    {
+      "idLinea": 2,
+      "nombreLinea": "Línea B",
+      "stations": 17,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 4515,
+      "averageClosedEntryShare": 0.7276390008058018
+    },
+    {
+      "idLinea": 3,
+      "nombreLinea": "Línea C",
+      "stations": 9,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 1819,
+      "averageClosedEntryShare": 0.5537290715372907
+    },
+    {
+      "idLinea": 4,
+      "nombreLinea": "Línea D",
+      "stations": 15,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 4369,
+      "averageClosedEntryShare": 0.7979908675799087
+    },
+    {
+      "idLinea": 5,
+      "nombreLinea": "Línea E",
+      "stations": 17,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 3527,
+      "averageClosedEntryShare": 0.5684125705076551
+    },
+    {
+      "idLinea": 6,
+      "nombreLinea": "Línea H",
+      "stations": 12,
+      "daysTracked": 365,
+      "daysWithClosedEntry": 3879,
+      "averageClosedEntryShare": 0.8856164383561644
+    }
+  ]
+} as const;
+
 export const lineDHeatmap = {
   "nombreLinea": "Línea D",
   "serviceWindow": "08:00-20:00 UTC-3",
