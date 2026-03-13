@@ -4,6 +4,7 @@ import LineNav from "../components/LineNav.astro";
 import { frequencySeries } from "../generated/frequency-series";
 import {
     averageEntryClosures,
+    meta,
     networkStations,
     stationAccessibility,
 } from "../generated/station-status";
@@ -96,6 +97,29 @@ const averageClosedEntryLines = diagramLines.map((line) => {
             .trim(),
     };
 });
+const accessibilityUpdatedAt = meta.ultimaActualizacion;
+const buenosAiresDateKey = (value: Date | string) =>
+    new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/Argentina/Buenos_Aires",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    }).format(new Date(value));
+const updatedAtDate = new Date(accessibilityUpdatedAt);
+const updatedAtTimeLabel = new Intl.DateTimeFormat("es-AR", {
+    timeZone: "America/Argentina/Buenos_Aires",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+}).format(updatedAtDate);
+const lastUpdatedLabel =
+    buenosAiresDateKey(updatedAtDate) === buenosAiresDateKey(new Date())
+        ? `Última vez actualizado ${updatedAtTimeLabel}`
+        : `Última vez actualizado ${new Intl.DateTimeFormat("es-AR", {
+              timeZone: "America/Argentina/Buenos_Aires",
+              day: "numeric",
+              month: "short",
+          }).format(updatedAtDate)}, ${updatedAtTimeLabel}`;
 ---
 
 <html lang="es">
@@ -136,17 +160,24 @@ const averageClosedEntryLines = diagramLines.map((line) => {
                                 >{" "}
                                 de estaciones tiene alguna escalera cerrada.
                             </p>
-                            <p class="text-center text-xs leading-5 text-[#544b43]">
-                                Un proyecto de{" "}
-                                <a
-                                    href="https://visualizando.ar"
-                                    class="underline decoration-[#544b43]/40 underline-offset-3 hover:decoration-[#544b43]"
-                                    target="_blank"
-                                    rel="noreferrer"
+                            <div class="space-y-0.5 pt-1">
+                                <p class="text-center text-xs leading-5 text-[#544b43]">
+                                    Un proyecto de{" "}
+                                    <a
+                                        href="https://visualizando.ar"
+                                        class="underline decoration-[#544b43]/40 underline-offset-3 hover:decoration-[#544b43]"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        visualizando.ar
+                                    </a>
+                                </p>
+                                <p
+                                    class="text-center text-xs leading-5 text-[#544b43]"
                                 >
-                                    visualizando.ar
-                                </a>
-                            </p>
+                                    {lastUpdatedLabel}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
