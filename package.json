@@ -8,6 +8,7 @@
   "scripts": {
     "generate-status": "node scripts/generate-station-status.mjs",
     "generate-frequency": "node scripts/generate-frequency-series.mjs",
+    "generate-opengraph": "node scripts/generate-opengraph.mjs",
     "generate-data": "pnpm generate-status && pnpm generate-frequency",
     "predev": "pnpm generate-data",
     "dev": "astro dev",
@@ -36,5 +37,8 @@
     "react-dom": "^19.2.4",
     "sql.js": "^1.14.1",
     "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

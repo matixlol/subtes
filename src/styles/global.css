@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+	font-family: "TeX Gyre Heros";
+	src: url("../assets/fonts/tex-gyre-heros/texgyreheros-regular.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "TeX Gyre Heros";
+	src: url("../assets/fonts/tex-gyre-heros/texgyreheros-bold.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 :root {
 	color-scheme: light;
 	--bg: #faf8f5;
@@ -28,7 +44,7 @@
 
 	body {
 		margin: 0;
-		font-family: "Helvetica Neue", Helvetica, sans-serif;
+		font-family: "TeX Gyre Heros", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}
 }
 

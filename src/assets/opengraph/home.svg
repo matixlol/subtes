@@ -4,7 +4,7 @@
     x="76"
     y="186"
     fill="#111111"
-    font-family="Helvetica, Arial, sans-serif"
+    font-family="TeX Gyre Heros, Helvetica Neue, Helvetica, Arial, sans-serif"
     font-size="176"
     font-weight="700"
     letter-spacing="-7"
@@ -15,7 +15,7 @@
     x="80"
     y="326"
     fill="#111111"
-    font-family="Helvetica, Arial, sans-serif"
+    font-family="TeX Gyre Heros, Helvetica Neue, Helvetica, Arial, sans-serif"
     font-size="156"
     font-weight="700"
     letter-spacing="-7"
@@ -27,7 +27,7 @@
     x="236"
     y="376"
     fill="#111111"
-    font-family="Helvetica, Arial, sans-serif"
+    font-family="TeX Gyre Heros, Helvetica Neue, Helvetica, Arial, sans-serif"
     font-size="156"
     font-weight="700"
     letter-spacing="-7"
@@ -37,24 +37,13 @@
   </text>
   <text
     x="80"
-    y="492"
+    y="520"
     fill="#544b43"
-    font-family="Helvetica, Arial, sans-serif"
-    font-size="44"
+    font-family="TeX Gyre Heros, Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="42"
     font-weight="700"
     letter-spacing="-1.2"
   >
-    El subte porteño se está
-  </text>
-  <text
-    x="80"
-    y="546"
-    fill="#544b43"
-    font-family="Helvetica, Arial, sans-serif"
-    font-size="44"
-    font-weight="700"
-    letter-spacing="-1.2"
-  >
-    deteriorando.
+    El monitor del deterioro del subte.
   </text>
 </svg>
