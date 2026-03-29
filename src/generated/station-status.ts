@@ -1,8 +1,8 @@
 export const meta = {
   "estaciones": 90,
   "equipos": 768,
-  "alertas": 109,
-  "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+  "alertas": 108,
+  "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
 } as const;
 
 export const stations = [
@@ -89,10 +89,10 @@ export const stations = [
     "idEstacion": 9,
     "nombreEstacion": "Acoyte",
     "totalEquipos": 6,
-    "equiposFuncionando": 4,
-    "equiposConFalla": 2,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T05:37:21-03:00"
+    "ultimaActualizacion": "2026-03-28T13:51:35-03:00"
   },
   {
     "idLinea": 1,
@@ -114,7 +114,7 @@ export const stations = [
     "equiposFuncionando": 6,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-24T15:32:04-03:00"
+    "ultimaActualizacion": "2026-03-29T08:20:01-03:00"
   },
   {
     "idLinea": 1,
@@ -136,7 +136,7 @@ export const stations = [
     "equiposFuncionando": 7,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-23T20:35:59-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 1,
@@ -144,10 +144,10 @@ export const stations = [
     "idEstacion": 14,
     "nombreEstacion": "San Pedrito",
     "totalEquipos": 5,
-    "equiposFuncionando": 4,
-    "equiposConFalla": 1,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-27T20:13:14-03:00"
+    "ultimaActualizacion": "2026-03-29T08:52:58-03:00"
   },
   {
     "idLinea": 1,
@@ -158,7 +158,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 1,
@@ -169,7 +169,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 1,
@@ -180,7 +180,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 1,
@@ -191,7 +191,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 1,
@@ -202,7 +202,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -213,7 +213,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -224,7 +224,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -235,7 +235,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -246,7 +246,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -257,7 +257,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -268,7 +268,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 2,
@@ -276,10 +276,10 @@ export const stations = [
     "idEstacion": 200,
     "nombreEstacion": "Leandro N. Alem",
     "totalEquipos": 2,
-    "equiposFuncionando": 1,
-    "equiposConFalla": 1,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-28T10:20:32-03:00"
   },
   {
     "idLinea": 2,
@@ -298,10 +298,10 @@ export const stations = [
     "idEstacion": 203,
     "nombreEstacion": "Uruguay",
     "totalEquipos": 5,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 2,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:57:16-03:00"
+    "ultimaActualizacion": "2026-03-29T08:24:06-03:00"
   },
   {
     "idLinea": 2,
@@ -309,10 +309,10 @@ export const stations = [
     "idEstacion": 205,
     "nombreEstacion": "Pasteur AMIA",
     "totalEquipos": 4,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 1,
+    "equiposFuncionando": 4,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-26T05:51:11-03:00"
+    "ultimaActualizacion": "2026-03-29T09:13:32-03:00"
   },
   {
     "idLinea": 2,
@@ -320,10 +320,10 @@ export const stations = [
     "idEstacion": 206,
     "nombreEstacion": "Pueyrredón",
     "totalEquipos": 5,
-    "equiposFuncionando": 4,
-    "equiposConFalla": 1,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-27T09:18:29-03:00"
+    "ultimaActualizacion": "2026-03-29T08:24:06-03:00"
   },
   {
     "idLinea": 2,
@@ -345,7 +345,7 @@ export const stations = [
     "equiposFuncionando": 1,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-21T12:04:23-03:00"
+    "ultimaActualizacion": "2026-03-29T09:13:32-03:00"
   },
   {
     "idLinea": 2,
@@ -386,10 +386,10 @@ export const stations = [
     "idEstacion": 216,
     "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
     "totalEquipos": 17,
-    "equiposFuncionando": 15,
-    "equiposConFalla": 2,
+    "equiposFuncionando": 16,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:57:16-03:00"
+    "ultimaActualizacion": "2026-03-28T14:19:30-03:00"
   },
   {
     "idLinea": 3,
@@ -400,7 +400,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 3,
@@ -411,7 +411,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 3,
@@ -422,7 +422,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 3,
@@ -430,10 +430,10 @@ export const stations = [
     "idEstacion": 300,
     "nombreEstacion": "Retiro",
     "totalEquipos": 3,
-    "equiposFuncionando": 0,
-    "equiposConFalla": 3,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:41:01-03:00"
+    "ultimaActualizacion": "2026-03-28T11:29:35-03:00"
   },
   {
     "idLinea": 3,
@@ -452,10 +452,10 @@ export const stations = [
     "idEstacion": 303,
     "nombreEstacion": "Diagonal Norte",
     "totalEquipos": 9,
-    "equiposFuncionando": 6,
-    "equiposConFalla": 3,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 4,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-26T18:28:59-03:00"
+    "ultimaActualizacion": "2026-03-29T08:45:15-03:00"
   },
   {
     "idLinea": 3,
@@ -488,7 +488,7 @@ export const stations = [
     "equiposFuncionando": 5,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:41:01-03:00"
+    "ultimaActualizacion": "2026-03-28T18:05:44-03:00"
   },
   {
     "idLinea": 4,
@@ -499,7 +499,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 4,
@@ -510,7 +510,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 4,
@@ -521,7 +521,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 4,
@@ -529,10 +529,10 @@ export const stations = [
     "idEstacion": 400,
     "nombreEstacion": "Catedral",
     "totalEquipos": 3,
-    "equiposFuncionando": 3,
-    "equiposConFalla": 0,
+    "equiposFuncionando": 2,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-25T12:23:47-03:00"
+    "ultimaActualizacion": "2026-03-29T08:49:38-03:00"
   },
   {
     "idLinea": 4,
@@ -642,7 +642,7 @@ export const stations = [
     "equiposFuncionando": 4,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-26T05:46:03-03:00"
+    "ultimaActualizacion": "2026-03-29T08:49:38-03:00"
   },
   {
     "idLinea": 4,
@@ -650,10 +650,10 @@ export const stations = [
     "idEstacion": 412,
     "nombreEstacion": "José Hernández",
     "totalEquipos": 5,
-    "equiposFuncionando": 4,
-    "equiposConFalla": 1,
+    "equiposFuncionando": 5,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:34:00-03:00"
+    "ultimaActualizacion": "2026-03-29T08:49:38-03:00"
   },
   {
     "idLinea": 4,
@@ -675,7 +675,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 5,
@@ -686,7 +686,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 5,
@@ -697,7 +697,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 5,
@@ -708,7 +708,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 5,
@@ -719,7 +719,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 5,
@@ -741,7 +741,7 @@ export const stations = [
     "equiposFuncionando": 4,
     "equiposConFalla": 4,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-27T18:38:27-03:00"
+    "ultimaActualizacion": "2026-03-28T19:28:32-03:00"
   },
   {
     "idLinea": 5,
@@ -752,7 +752,7 @@ export const stations = [
     "equiposFuncionando": 5,
     "equiposConFalla": 8,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:34:52-03:00"
+    "ultimaActualizacion": "2026-03-28T19:28:32-03:00"
   },
   {
     "idLinea": 5,
@@ -760,10 +760,10 @@ export const stations = [
     "idEstacion": 503,
     "nombreEstacion": "Bolívar",
     "totalEquipos": 5,
-    "equiposFuncionando": 5,
-    "equiposConFalla": 0,
+    "equiposFuncionando": 3,
+    "equiposConFalla": 2,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-25T19:10:12-03:00"
+    "ultimaActualizacion": "2026-03-28T19:28:32-03:00"
   },
   {
     "idLinea": 5,
@@ -873,7 +873,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 6,
@@ -884,7 +884,7 @@ export const stations = [
     "equiposFuncionando": 0,
     "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00"
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00"
   },
   {
     "idLinea": 6,
@@ -892,10 +892,10 @@ export const stations = [
     "idEstacion": 601,
     "nombreEstacion": "Las Heras",
     "totalEquipos": 10,
-    "equiposFuncionando": 9,
-    "equiposConFalla": 1,
+    "equiposFuncionando": 10,
+    "equiposConFalla": 0,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:53:51-03:00"
+    "ultimaActualizacion": "2026-03-28T12:59:48-03:00"
   },
   {
     "idLinea": 6,
@@ -925,10 +925,10 @@ export const stations = [
     "idEstacion": 604,
     "nombreEstacion": "Corrientes",
     "totalEquipos": 16,
-    "equiposFuncionando": 14,
-    "equiposConFalla": 2,
+    "equiposFuncionando": 15,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:40:33-03:00"
+    "ultimaActualizacion": "2026-03-28T12:59:48-03:00"
   },
   {
     "idLinea": 6,
@@ -939,7 +939,7 @@ export const stations = [
     "equiposFuncionando": 12,
     "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:40:33-03:00"
+    "ultimaActualizacion": "2026-03-29T08:40:33-03:00"
   },
   {
     "idLinea": 6,
@@ -947,10 +947,10 @@ export const stations = [
     "idEstacion": 606,
     "nombreEstacion": "Venezuela",
     "totalEquipos": 7,
-    "equiposFuncionando": 7,
-    "equiposConFalla": 0,
+    "equiposFuncionando": 6,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-27T19:45:30-03:00"
+    "ultimaActualizacion": "2026-03-29T08:40:33-03:00"
   },
   {
     "idLinea": 6,
@@ -969,10 +969,10 @@ export const stations = [
     "idEstacion": 608,
     "nombreEstacion": "Inclán Mezquita Al Ahmad",
     "totalEquipos": 7,
-    "equiposFuncionando": 7,
-    "equiposConFalla": 0,
+    "equiposFuncionando": 6,
+    "equiposConFalla": 1,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-28T06:38:34-03:00"
+    "ultimaActualizacion": "2026-03-29T08:40:33-03:00"
   },
   {
     "idLinea": 6,
@@ -983,7 +983,7 @@ export const stations = [
     "equiposFuncionando": 4,
     "equiposConFalla": 3,
     "equiposFueraDeHorario": 0,
-    "ultimaActualizacion": "2026-03-27T19:45:30-03:00"
+    "ultimaActualizacion": "2026-03-29T08:40:33-03:00"
   },
   {
     "idLinea": 6,
@@ -1546,17 +1546,17 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Acoyte",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
-    "funcionando": 2,
+    "funcionando": 3,
     "fueraDeHorario": 0,
-    "conFalla": 2,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N°1(Norte) :Andén sentido Plaza de Mayo - Av.Rivadavia 4963",
         "tipo": "ascensor",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T05:37:21-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T12:42:22-03:00"
       },
       {
         "nombre": "Ascensor N°2 (Sur): Andén sentido San Pedrito - Av. Rivadavia 4970",
@@ -1568,13 +1568,13 @@ export const stationAccessibility = [
         "nombre": "Escalera N° 5: Andén sentido San Pedrito -  Av. Rivadavia 4994",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-10T03:22:24-03:00"
+        "fechaActualizacion": "2026-03-28T13:51:35-03:00"
       },
       {
         "nombre": "Escalera N°4: Av. Rivadavia 4994 - Hall boletería Andén sentido San Pedrito",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-22T08:45:30-03:00"
+        "fechaActualizacion": "2026-03-28T13:51:35-03:00"
       }
     ]
   },
@@ -1582,7 +1582,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Alberti",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -1593,7 +1593,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Carabobo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -1641,7 +1641,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Castro Barros",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -1701,7 +1701,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Congreso - Pdte. Dr. Raúl Alfonsín",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -1712,7 +1712,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Lima",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -1730,7 +1730,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Loria",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -1754,7 +1754,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Pasco",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -1765,7 +1765,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Perú",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -1801,7 +1801,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Piedras",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -1819,7 +1819,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Plaza de Mayo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -1837,7 +1837,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Plaza De Miserere",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -1848,7 +1848,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Plaza Miserere",
-    "ultimaActualizacion": "2026-03-27T20:15:06-03:00",
+    "ultimaActualizacion": "2026-03-29T08:52:58-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -1864,13 +1864,13 @@ export const stationAccessibility = [
         "nombre": "Escalera N°6:  Sudeste de andén -  pasillo este",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-08T17:06:35-03:00"
+        "fechaActualizacion": "2026-03-28T18:14:52-03:00"
       },
       {
         "nombre": "Escalera N°7: Sudoeste de andén  - pasillo este",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-02-24T04:26:48-03:00"
+        "fechaActualizacion": "2026-03-28T18:14:52-03:00"
       },
       {
         "nombre": "Escalera N°9: Túnel oeste de galería Comercial - estación Once Línea Sarmiento",
@@ -1882,7 +1882,7 @@ export const stationAccessibility = [
         "nombre": "Escalera Q.E 10: Andén a Plaza de Mayo – Pasillo y Galería Comercial",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-27T20:15:06-03:00"
+        "fechaActualizacion": "2026-03-29T08:52:58-03:00"
       },
       {
         "nombre": "Escalera Q.O 11: Andén a San Pedrito - Pasillo y Galería Comercial",
@@ -1896,7 +1896,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Primera Junta",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 5,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -1938,7 +1938,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Puan",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -1966,7 +1966,7 @@ export const stationAccessibility = [
         "nombre": "Escalera N°1(ext): Hall Boletería – Superficie (Av. Rivadavia 5896)",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-24T15:32:04-03:00"
+        "fechaActualizacion": "2026-03-29T08:20:01-03:00"
       },
       {
         "nombre": "Escalera N°2: Andén - vestíbulo",
@@ -1986,7 +1986,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Rio De Janeiro",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -1997,7 +1997,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "Saenz Peña",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -2021,7 +2021,7 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "San José de Flores",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 7,
     "funcionando": 7,
     "fueraDeHorario": 0,
@@ -2031,7 +2031,7 @@ export const stationAccessibility = [
         "nombre": "Ascensor N°1: Vestíbulo - Plaza Flores (Av. Rivadavia 6950)",
         "tipo": "ascensor",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-23T20:35:59-03:00"
+        "fechaActualizacion": "2026-03-29T09:40:12-03:00"
       },
       {
         "nombre": "Ascensor N°2: Andén - Vestíbulo",
@@ -2075,11 +2075,11 @@ export const stationAccessibility = [
     "idLinea": 1,
     "nombreLinea": "Línea A",
     "nombreEstacion": "San Pedrito",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 5,
-    "funcionando": 4,
+    "funcionando": 3,
     "fueraDeHorario": 0,
-    "conFalla": 1,
+    "conFalla": 2,
     "devices": [
       {
         "nombre": "Ascensor N°1: Vestíbulo  -  Av. Rivadavia 7445",
@@ -2090,8 +2090,8 @@ export const stationAccessibility = [
       {
         "nombre": "Ascensor N°2: Andén central -  Vestíbulo",
         "tipo": "ascensor",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-27T20:13:14-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:52:58-03:00"
       },
       {
         "nombre": "Escalera N°1: Vestíbulo - Av. Rivadavia 7425",
@@ -2117,7 +2117,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Almagro - Medrano",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2128,7 +2128,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Ángel Gallardo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -2138,7 +2138,7 @@ export const stationAccessibility = [
         "nombre": "Escalera N°1: Andén sentido J. M. de Rosas - Av. Corrientes 4668",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-21T12:04:23-03:00"
+        "fechaActualizacion": "2026-03-29T09:13:32-03:00"
       }
     ]
   },
@@ -2146,7 +2146,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "C. Pellegrini",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2229,7 +2229,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Callao - Maestro Alfredo Bravo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2240,7 +2240,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Carlos Gardel",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -2300,7 +2300,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "De Los Incas - Pque. Chas",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2359,7 +2359,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Dorrego",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -2377,11 +2377,11 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Echeverría",
-    "ultimaActualizacion": "2026-03-16T12:58:58-03:00",
+    "ultimaActualizacion": "2026-03-29T09:14:43-03:00",
     "total": 8,
-    "funcionando": 8,
+    "funcionando": 7,
     "fueraDeHorario": 0,
-    "conFalla": 0,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N°1: Vestíbulo - Av. Triunvirato 4250",
@@ -2404,8 +2404,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°1: Vestíbulo - Av. Triunvirato 4272",
         "tipo": "escalera",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-12T06:16:11-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T09:14:43-03:00"
       },
       {
         "nombre": "Escalera N°2: Entrepiso - vestbulo",
@@ -2437,7 +2437,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Echeverría - Mártires Palotinos",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2448,7 +2448,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Federico Lacroze",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -2478,7 +2478,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Florida",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -2514,11 +2514,11 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Juan Manuel de Rosas Villa Urquiza",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 17,
-    "funcionando": 15,
+    "funcionando": 16,
     "fueraDeHorario": 0,
-    "conFalla": 2,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N°1: Vestíbulo - Av. Triunvirato 5100",
@@ -2583,8 +2583,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°3: Vestíbulo - Roosevelt 5110",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T07:57:16-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T14:19:30-03:00"
       },
       {
         "nombre": "Escalera N°4: Entrepiso - Vestíbulo",
@@ -2628,11 +2628,11 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Leandro N. Alem",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
-    "funcionando": 1,
+    "funcionando": 2,
     "fueraDeHorario": 0,
-    "conFalla": 1,
+    "conFalla": 0,
     "devices": [
       {
         "nombre": "Escalera N°1: Andén - Vestíbulo",
@@ -2643,8 +2643,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°2 (exterior): Vestíbulo - Av. Corrientes 161",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T07:58:09-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T10:20:32-03:00"
       }
     ]
   },
@@ -2652,7 +2652,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Malabia - Osvaldo Pugliese",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2699,17 +2699,17 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Pasteur AMIA",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
-    "funcionando": 4,
+    "funcionando": 5,
     "fueraDeHorario": 0,
-    "conFalla": 2,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Escalera N°10: Andén sentido Alem  -  Vestíbulo",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-26T05:51:11-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-29T09:13:32-03:00"
       },
       {
         "nombre": "Escalera N°10: Vestíbulo - Andén sentido Alem",
@@ -2747,23 +2747,23 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Pueyrredón",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 5,
-    "funcionando": 4,
+    "funcionando": 3,
     "fueraDeHorario": 0,
-    "conFalla": 1,
+    "conFalla": 2,
     "devices": [
       {
         "nombre": "Escalera N° 1 Exterior: Vestíbulo - Av. Corrientes 2797",
         "tipo": "escalera",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-27T09:18:29-03:00"
+        "fechaActualizacion": "2026-03-28T15:04:45-03:00"
       },
       {
         "nombre": "Escalera N°5: Vestíbulo - Andén",
         "tipo": "escalera",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-03T16:20:35-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:24:06-03:00"
       },
       {
         "nombre": "Escalera N°6: Andén - Vestíbulo",
@@ -2789,7 +2789,7 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Tronador Villa Ortúzar",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -2837,17 +2837,17 @@ export const stationAccessibility = [
     "idLinea": 2,
     "nombreLinea": "Línea B",
     "nombreEstacion": "Uruguay",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
-    "funcionando": 4,
+    "funcionando": 6,
     "fueraDeHorario": 0,
-    "conFalla": 2,
+    "conFalla": 0,
     "devices": [
       {
         "nombre": "Ascensor N°1:  Vestíbulo - Av. Corrientes 1401",
         "tipo": "ascensor",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-27T16:22:23-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-29T08:24:06-03:00"
       },
       {
         "nombre": "Ascensor N°1: Vestíbulo - Av. Corrientes 1401",
@@ -2864,8 +2864,8 @@ export const stationAccessibility = [
       {
         "nombre": "Ascensor N°3: Andén sentido Alem - Vestíbulo",
         "tipo": "ascensor",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T07:57:16-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T14:19:30-03:00"
       },
       {
         "nombre": "Escalera N°1: Andén sentido Alem - Vestíbulo",
@@ -2885,7 +2885,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Av. De Mayo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -2926,7 +2926,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Constitución",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -2942,7 +2942,7 @@ export const stationAccessibility = [
         "nombre": "Ascensor N°2: Andén 1 - Centro de Trasbordo - Superficie Av. Garay 1150 (sólo salida)",
         "tipo": "ascensor",
         "estado": "funcionando",
-        "fechaActualizacion": "2025-09-08T12:58:19-03:00"
+        "fechaActualizacion": "2026-03-28T18:05:44-03:00"
       },
       {
         "nombre": "Ascensor N°3: Andén Central - Centro de Trasbordo superficie Av. Garay 1150 (sólo ingreso)",
@@ -2960,7 +2960,7 @@ export const stationAccessibility = [
         "nombre": "Escalera N°1:  Andén - Hall Centro de Trasbordo",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-22T00:11:32-03:00"
+        "fechaActualizacion": "2026-03-28T16:26:21-03:00"
       },
       {
         "nombre": "Escalera N°2: Andén - Hall Centro de Trasbordo",
@@ -2974,11 +2974,11 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Diagonal Norte",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 10,
-    "funcionando": 6,
+    "funcionando": 5,
     "fueraDeHorario": 0,
-    "conFalla": 4,
+    "conFalla": 5,
     "devices": [
       {
         "nombre": "Ascensor N°1: Cerrado por modernización de medio de elevación.",
@@ -3031,8 +3031,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°22:  Andén sentido Retiro - Hall Boletería",
         "tipo": "escalera",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-26T18:28:59-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:45:15-03:00"
       },
       {
         "nombre": "Escalera N°23: Hall Boletería - Andén sentido Retiro",
@@ -3076,7 +3076,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Independencia",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3100,7 +3100,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Lavalle",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -3160,7 +3160,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Moreno",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -3171,17 +3171,17 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "Retiro",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
-    "funcionando": 3,
+    "funcionando": 6,
     "fueraDeHorario": 0,
-    "conFalla": 3,
+    "conFalla": 0,
     "devices": [
       {
         "nombre": "Ascensor N°1: De hall FFCC Mitre a hall de boletería",
         "tipo": "ascensor",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:41:01-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T11:29:35-03:00"
       },
       {
         "nombre": "Ascensor N°1: Vestíbulo - Línea Mitre",
@@ -3192,8 +3192,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°18: De hall boletería (andén central) a hall de Estación de FFCC",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:41:01-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T11:29:35-03:00"
       },
       {
         "nombre": "Escalera N°18: Vestíbulo - Línea Mitre",
@@ -3204,8 +3204,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°19: De hall de Estación de FFCC a hall central",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:41:01-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T11:29:35-03:00"
       },
       {
         "nombre": "Escalera N°19: Línea Mitre - vestíbulo",
@@ -3219,7 +3219,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "San Juan",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3249,7 +3249,7 @@ export const stationAccessibility = [
     "idLinea": 3,
     "nombreLinea": "Línea C",
     "nombreEstacion": "San Martin",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -3260,7 +3260,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "9 de Julio",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -3284,7 +3284,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Agüero",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -3314,7 +3314,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Bulnes",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -3332,7 +3332,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Callao",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3356,17 +3356,17 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Catedral",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
-    "funcionando": 3,
+    "funcionando": 2,
     "fueraDeHorario": 0,
-    "conFalla": 0,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N° 2 Andén Norte - Sólo hacia el exterior: Av. Roque Sáenz Peña 567",
         "tipo": "ascensor",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-25T12:23:47-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:49:38-03:00"
       },
       {
         "nombre": "Ascensor N°1: Andén sur sentido Congreso de Tucumán  - Av. Roque Sáenz Peña 534 (sólo ingreso)",
@@ -3386,7 +3386,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Congreso De Tucuman",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -3397,17 +3397,17 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Congreso Tucumán",
-    "ultimaActualizacion": "2026-03-27T12:28:35-03:00",
+    "ultimaActualizacion": "2026-03-29T08:49:38-03:00",
     "total": 8,
-    "funcionando": 8,
+    "funcionando": 7,
     "fueraDeHorario": 0,
-    "conFalla": 0,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N°1: Vestíbulo - Av. Cabildo 2834",
         "tipo": "ascensor",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-27T12:28:35-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-28T19:07:55-03:00"
       },
       {
         "nombre": "Ascensor N°2: Andén Central - Vestíbulo.",
@@ -3449,7 +3449,7 @@ export const stationAccessibility = [
         "nombre": "Escalera N°47: Vestíbulo - Av. Cabildo 2832",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-03T13:18:08-03:00"
+        "fechaActualizacion": "2026-03-29T08:49:38-03:00"
       }
     ]
   },
@@ -3457,7 +3457,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Facultad de Medicina",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 5,
     "funcionando": 5,
     "fueraDeHorario": 0,
@@ -3499,11 +3499,11 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "José Hernández",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
-    "funcionando": 4,
+    "funcionando": 5,
     "fueraDeHorario": 0,
-    "conFalla": 2,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Escalera N°31: Hall central boletería - Andén sentido Catedral",
@@ -3526,14 +3526,14 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°33: Andén sentido Congreso de Tucumán - Boletería",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:34:00-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-29T08:49:38-03:00"
       },
       {
         "nombre": "Escalera N°34: Andén sentido Catedral - Boletería",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-14T12:37:48-03:00"
+        "fechaActualizacion": "2026-03-29T08:49:38-03:00"
       },
       {
         "nombre": "Escalera N°35: Vestíbulo - Av. Cabildo 1617.",
@@ -3547,7 +3547,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Juramento",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 9,
     "funcionando": 9,
     "fueraDeHorario": 0,
@@ -3673,7 +3673,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Ministro Carranza - Miguel Abuelo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -3684,7 +3684,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Olleros",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -3700,13 +3700,13 @@ export const stationAccessibility = [
         "nombre": "Escalera N°28: Vestíbulo -  Andén sentido Congreso de Tucumán",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-26T05:46:03-03:00"
+        "fechaActualizacion": "2026-03-29T08:49:38-03:00"
       },
       {
         "nombre": "Escalera N°29: Andén sentido Catedral - Vestíbulo",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-10T04:21:10-03:00"
+        "fechaActualizacion": "2026-03-29T08:49:38-03:00"
       },
       {
         "nombre": "Escalera N°30: Andén sentido Congreso de Tucumán - Vestíbulo",
@@ -3720,7 +3720,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Palermo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -3750,7 +3750,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Plaza Italia",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 6,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -3798,7 +3798,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Pueyrredón",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 4,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -3834,7 +3834,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "R.Scalabrini Ortiz",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -3845,7 +3845,7 @@ export const stationAccessibility = [
     "idLinea": 4,
     "nombreLinea": "Línea D",
     "nombreEstacion": "Tribunales – Teatro Colón",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 8,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3905,7 +3905,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Av. La Plata",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -3929,7 +3929,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Belgrano",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -3959,7 +3959,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Boedo",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -3977,11 +3977,11 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Bolívar",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 5,
-    "funcionando": 5,
+    "funcionando": 3,
     "fueraDeHorario": 0,
-    "conFalla": 0,
+    "conFalla": 2,
     "devices": [
       {
         "nombre": "Escalera Ext: Vestíbulo este - Julio A. Roca 508 (y Bolívar)",
@@ -3999,19 +3999,19 @@ export const stationAccessibility = [
         "nombre": "Escalera N°2: Vestíbulo este - Andén Central",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-24T13:23:04-03:00"
+        "fechaActualizacion": "2026-03-28T19:28:32-03:00"
       },
       {
         "nombre": "Escalera N°3: Andén Central - Vestíbulo oeste",
         "tipo": "escalera",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-25T19:10:12-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-28T12:40:22-03:00"
       },
       {
         "nombre": "Escalera N°4: Vestíbulo oeste - andén central",
         "tipo": "escalera",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-25T19:10:12-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-28T12:40:22-03:00"
       }
     ]
   },
@@ -4019,7 +4019,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Catalinas",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 8,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -4035,7 +4035,7 @@ export const stationAccessibility = [
         "nombre": "Ascensor N°2: Vestíbulo - Salida 1 (Este) - Alem 900 (Plazoleta)",
         "tipo": "ascensor",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-26T12:18:42-03:00"
+        "fechaActualizacion": "2026-03-28T19:28:32-03:00"
       },
       {
         "nombre": "Escalera N°1: Vestíbulo - Salida 4 (Av. Leandro N. Alem 900)",
@@ -4079,7 +4079,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Correo Central",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 15,
     "funcionando": 6,
     "fueraDeHorario": 0,
@@ -4113,7 +4113,7 @@ export const stationAccessibility = [
         "nombre": "Ascensor N°4: Andén Central/ Andén Central Línea B",
         "tipo": "ascensor",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-26T06:35:58-03:00"
+        "fechaActualizacion": "2026-03-28T19:28:32-03:00"
       },
       {
         "nombre": "Escalera 2: Vestíbulo a salida 11  - Frente al Palacio Libertad",
@@ -4181,7 +4181,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Emilio Mitre",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -4223,7 +4223,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Entre Rios - Rodolfo Walsh",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4288,7 +4288,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Independencia - Beata Mama Antula",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4299,7 +4299,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Jose Maria Moreno",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4310,7 +4310,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Jujuy",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 3,
     "funcionando": 3,
     "fueraDeHorario": 0,
@@ -4340,7 +4340,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Medalla Milagrosa",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -4388,7 +4388,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Pichincha",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -4412,7 +4412,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Plaza De Los Virreyes - Eva Perón",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4423,7 +4423,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Retiro",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 13,
     "funcionando": 10,
     "fueraDeHorario": 0,
@@ -4513,7 +4513,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "San José",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 2,
     "funcionando": 2,
     "fueraDeHorario": 0,
@@ -4537,7 +4537,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Urquiza",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4548,7 +4548,7 @@ export const stationAccessibility = [
     "idLinea": 5,
     "nombreLinea": "Línea E",
     "nombreEstacion": "Varela",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 1,
     "funcionando": 1,
     "fueraDeHorario": 0,
@@ -4566,7 +4566,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Caseros",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 7,
     "funcionando": 4,
     "fueraDeHorario": 0,
@@ -4576,37 +4576,37 @@ export const stationAccessibility = [
         "nombre": "Ascensor N°1:Andén sentido Facultad - Vestíbulo",
         "tipo": "ascensor",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-22T09:10:55-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Ascensor N°2: Andén sentido Hospitales - Vestíbulo",
         "tipo": "ascensor",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-22T09:10:55-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Ascensor N°3: Vestíbulo - Av. Jujuy 2179",
         "tipo": "ascensor",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-27T19:45:30-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Escalera N°1: Andén sentido Facultad - Vestíbulo",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-22T09:10:55-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Escalera N°2: Andén sentido Hospitales - Vestíbulo",
         "tipo": "escalera",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-25T06:56:16-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Escalera N°3: Vestíbulo - Av. Jujuy 2110",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-10T05:17:04-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Escalera N°4: Vestíbulo - Av. Jujuy 2180",
@@ -4620,7 +4620,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Córdoba",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 9,
     "funcionando": 9,
     "fueraDeHorario": 0,
@@ -4686,11 +4686,11 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Corrientes",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 16,
-    "funcionando": 14,
+    "funcionando": 15,
     "fueraDeHorario": 0,
-    "conFalla": 2,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N° 1: Hall Boletería – Av. Pueyrredón 562",
@@ -4726,7 +4726,7 @@ export const stationAccessibility = [
         "nombre": "Ascensor N°6: Hall  - Combinación con Línea B sentido a J.M. de Rosas",
         "tipo": "ascensor",
         "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:38:34-03:00"
+        "fechaActualizacion": "2026-03-28T12:59:48-03:00"
       },
       {
         "nombre": "Escalera N°1: Vestíbulo - Av. Pueyrredón 585",
@@ -4779,8 +4779,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°8: Andén sentido Hospitales - Entrepiso",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:40:33-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T10:18:26-03:00"
       },
       {
         "nombre": "Escalera N°9: Andén sentido Facultad - Entrepiso",
@@ -4836,7 +4836,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Facultad De Derecho - Julieta Lanteri",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4847,17 +4847,17 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Hospitales",
-    "ultimaActualizacion": "2026-03-28T06:38:34-03:00",
+    "ultimaActualizacion": "2026-03-29T08:40:33-03:00",
     "total": 6,
-    "funcionando": 6,
+    "funcionando": 5,
     "fueraDeHorario": 0,
-    "conFalla": 0,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N°1: Vestíbulo - Av. Almafuerte 300",
         "tipo": "ascensor",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-28T06:38:34-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Ascensor N°2: Andén - vestíbulo central",
@@ -4895,7 +4895,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Hospitales - Ringo Bonavena",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 0,
     "funcionando": 0,
     "fueraDeHorario": 0,
@@ -4906,7 +4906,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Humberto 1°",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 9,
     "funcionando": 8,
     "fueraDeHorario": 0,
@@ -4972,11 +4972,11 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Inclán Mezquita Al Ahmad",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 7,
-    "funcionando": 7,
+    "funcionando": 6,
     "fueraDeHorario": 0,
-    "conFalla": 0,
+    "conFalla": 1,
     "devices": [
       {
         "nombre": "Ascensor N°1: Boletería esquina Garay con salida a Av. Jujuy 1633",
@@ -5017,8 +5017,8 @@ export const stationAccessibility = [
       {
         "nombre": "Escalera N°4: Boletería del lado Av. Garay a Av. Jujuy 1600",
         "tipo": "escalera",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-18T13:48:48-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       }
     ]
   },
@@ -5026,11 +5026,11 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Las Heras",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 10,
-    "funcionando": 9,
+    "funcionando": 10,
     "fueraDeHorario": 0,
-    "conFalla": 1,
+    "conFalla": 0,
     "devices": [
       {
         "nombre": "Ascensor N°1:  Hall Boletería - Av. Pueyrredón 2001 (y Av. Las Heras)",
@@ -5041,8 +5041,8 @@ export const stationAccessibility = [
       {
         "nombre": "Ascensor N°2: Entrepiso - Hall Boletería",
         "tipo": "ascensor",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:53:51-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T12:59:48-03:00"
       },
       {
         "nombre": "Ascensor N°3: Entrepiso - Andén sentido Hospitales",
@@ -5098,7 +5098,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Once – 30 de Diciembre",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 13,
     "funcionando": 12,
     "fueraDeHorario": 0,
@@ -5119,14 +5119,14 @@ export const stationAccessibility = [
       {
         "nombre": "Ascensor N°3: Andén a Hospitales - Hall Boletería",
         "tipo": "ascensor",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-28T06:38:34-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-28T12:59:48-03:00"
       },
       {
         "nombre": "Escalera N°1: Andén sentido Hospitales - Entrepiso",
         "tipo": "escalera",
-        "estado": "con-falla",
-        "fechaActualizacion": "2026-03-28T06:40:33-03:00"
+        "estado": "funcionando",
+        "fechaActualizacion": "2026-03-28T12:59:48-03:00"
       },
       {
         "nombre": "Escalera N°10: Hall Boletería - Entrepiso",
@@ -5168,7 +5168,7 @@ export const stationAccessibility = [
         "nombre": "Escalera N°7: Vestíbulo - Entrepiso",
         "tipo": "escalera",
         "estado": "funcionando",
-        "fechaActualizacion": "2026-03-10T05:46:08-03:00"
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Escalera N°8: Andén - Entrepiso",
@@ -5188,7 +5188,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Parque Patricios",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 7,
     "funcionando": 7,
     "fueraDeHorario": 0,
@@ -5242,7 +5242,7 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Santa Fe - Carlos Jáuregui",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 16,
     "funcionando": 15,
     "fueraDeHorario": 0,
@@ -5350,17 +5350,17 @@ export const stationAccessibility = [
     "idLinea": 6,
     "nombreLinea": "Línea H",
     "nombreEstacion": "Venezuela",
-    "ultimaActualizacion": "2026-03-28T07:58:09-03:00",
+    "ultimaActualizacion": "2026-03-29T09:40:12-03:00",
     "total": 8,
-    "funcionando": 7,
+    "funcionando": 6,
     "fueraDeHorario": 0,
-    "conFalla": 1,
+    "conFalla": 2,
     "devices": [
       {
         "nombre": "Ascensor N°1:  Vestíbulo - Av. Jujuy 451",
         "tipo": "ascensor",
-        "estado": "funcionando",
-        "fechaActualizacion": "2026-03-27T19:45:30-03:00"
+        "estado": "con-falla",
+        "fechaActualizacion": "2026-03-29T08:40:33-03:00"
       },
       {
         "nombre": "Ascensor N°2: Andén Sentido Facultad - Vestíbulo",
@@ -5418,7 +5418,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5429,7 +5429,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5440,7 +5440,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5451,7 +5451,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5462,7 +5462,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5473,7 +5473,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5484,7 +5484,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5495,7 +5495,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5506,7 +5506,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5517,7 +5517,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5528,7 +5528,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5539,7 +5539,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5550,7 +5550,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5561,7 +5561,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5572,7 +5572,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5583,7 +5583,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5594,7 +5594,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5605,7 +5605,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5616,7 +5616,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 1,
@@ -5627,7 +5627,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5638,7 +5638,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5649,7 +5649,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5660,7 +5660,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5671,7 +5671,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5682,7 +5682,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5693,7 +5693,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5704,7 +5704,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5715,7 +5715,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5726,7 +5726,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5737,7 +5737,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5748,7 +5748,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5759,7 +5759,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5770,7 +5770,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5781,7 +5781,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5792,7 +5792,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5803,7 +5803,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5814,7 +5814,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5825,7 +5825,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5836,7 +5836,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5847,7 +5847,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5858,7 +5858,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5869,7 +5869,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 2,
@@ -5880,7 +5880,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5891,7 +5891,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5902,7 +5902,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5913,7 +5913,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5924,7 +5924,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5935,7 +5935,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5946,7 +5946,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5957,7 +5957,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5968,7 +5968,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5979,7 +5979,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -5990,7 +5990,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -6001,7 +6001,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 3,
@@ -6012,7 +6012,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6023,7 +6023,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6034,7 +6034,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6045,7 +6045,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6056,7 +6056,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6067,7 +6067,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6078,7 +6078,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6089,7 +6089,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6100,7 +6100,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6111,7 +6111,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6122,7 +6122,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6133,7 +6133,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6144,7 +6144,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6155,7 +6155,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6166,7 +6166,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6177,7 +6177,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6188,7 +6188,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6199,7 +6199,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 4,
@@ -6210,7 +6210,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6221,7 +6221,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6232,7 +6232,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6243,7 +6243,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6254,7 +6254,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6265,7 +6265,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6276,7 +6276,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6287,7 +6287,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6298,7 +6298,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6309,7 +6309,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6320,7 +6320,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6331,7 +6331,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6342,7 +6342,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6353,7 +6353,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6364,7 +6364,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6375,7 +6375,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6386,7 +6386,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6397,7 +6397,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6408,7 +6408,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6419,7 +6419,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6430,7 +6430,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6441,7 +6441,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 5,
@@ -6452,7 +6452,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6463,7 +6463,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6474,7 +6474,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6485,7 +6485,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6496,7 +6496,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6507,7 +6507,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6518,7 +6518,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6529,7 +6529,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6540,7 +6540,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6551,7 +6551,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6562,7 +6562,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6573,7 +6573,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6584,7 +6584,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6595,7 +6595,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   },
   {
     "idLinea": 6,
@@ -6606,7 +6606,7 @@ export const stationHistory = [
     "daysWithAnyFailure": 0,
     "currentWithoutAccessStreak": 0,
     "currentFailureStreak": 0,
-    "lastDate": "2026-03-28"
+    "lastDate": "2026-03-29"
   }
 ] as const;
 
@@ -7662,12 +7662,10 @@ export const lineAccessibilityTrend = [
 export const lineDHeatmap = {
   "nombreLinea": "Línea D",
   "serviceWindow": "08:00-20:00 UTC-3",
-  "startDate": "2025-09-27",
-  "endDate": "2026-03-27",
+  "startDate": "2025-09-29",
+  "endDate": "2026-03-29",
   "maxOutages": 2,
   "dates": [
-    "2025-09-27",
-    "2025-09-28",
     "2025-09-29",
     "2025-09-30",
     "2025-10-01",
@@ -7847,23 +7845,15 @@ export const lineDHeatmap = {
     "2026-03-24",
     "2026-03-25",
     "2026-03-26",
-    "2026-03-27"
+    "2026-03-27",
+    "2026-03-28",
+    "2026-03-29"
   ],
   "stations": [
     {
       "nombreEstacion": "Catedral",
       "totalEquipos": 2,
       "days": [
-        {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 2
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 2
-        },
         {
           "date": "2025-09-29",
           "outages": 0,
@@ -8763,6 +8753,16 @@ export const lineDHeatmap = {
           "date": "2026-03-27",
           "outages": 0,
           "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-29",
+          "outages": 1,
+          "totalEquipos": 2
         }
       ]
     },
@@ -8770,16 +8770,6 @@ export const lineDHeatmap = {
       "nombreEstacion": "9 de Julio",
       "totalEquipos": 0,
       "days": [
-        {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
         {
           "date": "2025-09-29",
           "outages": 0,
@@ -9677,6 +9667,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -9687,16 +9687,6 @@ export const lineDHeatmap = {
       "totalEquipos": 1,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 1
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 1
-        },
-        {
           "date": "2025-09-29",
           "outages": 1,
           "totalEquipos": 1
@@ -10593,6 +10583,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 1,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-29",
           "outages": 1,
           "totalEquipos": 1
         }
@@ -10603,16 +10603,6 @@ export const lineDHeatmap = {
       "totalEquipos": 1,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 1
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 1,
-          "totalEquipos": 1
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 1
@@ -11509,6 +11499,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 1
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 1
         }
@@ -11519,16 +11519,6 @@ export const lineDHeatmap = {
       "totalEquipos": 2,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 2
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 1,
-          "totalEquipos": 2
-        },
-        {
           "date": "2025-09-29",
           "outages": 1,
           "totalEquipos": 2
@@ -12425,6 +12415,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 2
         }
@@ -12435,16 +12435,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -13341,6 +13331,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -13351,16 +13351,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -14257,6 +14247,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -14267,16 +14267,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -15173,6 +15163,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -15183,16 +15183,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -16089,6 +16079,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -16099,16 +16099,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -17005,6 +16995,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -17015,16 +17015,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -17921,6 +17911,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -17931,16 +17931,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -18837,6 +18827,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -18847,16 +18847,6 @@ export const lineDHeatmap = {
       "totalEquipos": 0,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 0
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 0
@@ -19753,6 +19743,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 0
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 0
         }
@@ -19763,16 +19763,6 @@ export const lineDHeatmap = {
       "totalEquipos": 3,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 1,
-          "totalEquipos": 3
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 1,
-          "totalEquipos": 3
-        },
-        {
           "date": "2025-09-29",
           "outages": 1,
           "totalEquipos": 3
@@ -20669,6 +20659,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 0,
+          "totalEquipos": 3
+        },
+        {
+          "date": "2026-03-29",
           "outages": 0,
           "totalEquipos": 3
         }
@@ -20679,16 +20679,6 @@ export const lineDHeatmap = {
       "totalEquipos": 2,
       "days": [
         {
-          "date": "2025-09-27",
-          "outages": 0,
-          "totalEquipos": 2
-        },
-        {
-          "date": "2025-09-28",
-          "outages": 0,
-          "totalEquipos": 2
-        },
-        {
           "date": "2025-09-29",
           "outages": 0,
           "totalEquipos": 2
@@ -21585,6 +21575,16 @@ export const lineDHeatmap = {
         },
         {
           "date": "2026-03-27",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-28",
+          "outages": 1,
+          "totalEquipos": 2
+        },
+        {
+          "date": "2026-03-29",
           "outages": 1,
           "totalEquipos": 2
         }
